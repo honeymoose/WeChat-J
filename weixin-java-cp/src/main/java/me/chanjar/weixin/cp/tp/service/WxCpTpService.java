@@ -627,4 +627,10 @@ public interface WxCpTpService {
    * @param wxCpTpEditionService the wx cp tp edition service
    */
   void setWxCpTpOrderService(WxCpTpEditionService wxCpTpEditionService);
+
+
+  WxCpTpIdConvertService getWxCpTpIdConverService();
+
+  void setWxCpTpIdConverService(WxCpTpIdConvertService wxCpTpIdConvertService);
+
 }
