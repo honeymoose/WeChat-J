@@ -669,7 +669,7 @@ public abstract class BaseWxCpTpServiceImpl<H, P> implements WxCpTpService, Requ
   public WxCpTpCorpId2OpenCorpId corpId2OpenCorpId(String corpId) throws WxErrorException {
     JsonObject jsonObject = new JsonObject();
     jsonObject.addProperty("corpid", corpId);
-    String result = post(configStorage.getApiUrl(CORPID_TO_OPENCORPID) +"?provider_access_token=" + this.configStorage.getAccessToken(corpId), jsonObject.toString());
+    String result = post(configStorage.getApiUrl(CORPID_TO_OPENCORPID) +"?provider_access_token=" + getWxCpProviderToken(), jsonObject.toString());
     return WxCpTpCorpId2OpenCorpId.fromJson(result);
   }
 
