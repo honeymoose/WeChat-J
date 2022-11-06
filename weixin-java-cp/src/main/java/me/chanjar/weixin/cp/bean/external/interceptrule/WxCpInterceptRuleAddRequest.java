@@ -1,12 +1,14 @@
-package me.chanjar.weixin.cp.bean.external;
+package me.chanjar.weixin.cp.bean.external.interceptrule;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import me.chanjar.weixin.common.bean.ToJson;
 import me.chanjar.weixin.cp.util.json.WxCpGsonBuilder;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -18,7 +20,8 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class WxCpInterceptRuleResp {
+public class WxCpInterceptRuleAddRequest implements Serializable, ToJson {
+  private static final long serialVersionUID = 7161086545769110431L;
 
   @SerializedName("rule_name")
   private String ruleName;
@@ -34,43 +37,13 @@ public class WxCpInterceptRuleResp {
   private ApplicableRange applicableRange;
 
   /**
-   * The type Applicable range.
-   */
-  @Data
-  public static class ApplicableRange {
-    @SerializedName("user_list")
-    private List<String> userList;
-    @SerializedName("department_list")
-    private List<Integer> departmentList;
-
-    /**
-     * From json applicable range.
-     *
-     * @param json the json
-     * @return the applicable range
-     */
-    public static ApplicableRange fromJson(String json) {
-      return WxCpGsonBuilder.create().fromJson(json, ApplicableRange.class);
-    }
-
-    /**
-     * To json string.
-     *
-     * @return the string
-     */
-    public String toJson() {
-      return WxCpGsonBuilder.create().toJson(this);
-    }
-  }
-
-  /**
    * From json wx cp intercept rule resp.
    *
    * @param json the json
    * @return the wx cp intercept rule resp
    */
-  public static WxCpInterceptRuleResp fromJson(String json) {
-    return WxCpGsonBuilder.create().fromJson(json, WxCpInterceptRuleResp.class);
+  public static WxCpInterceptRuleAddRequest fromJson(String json) {
+    return WxCpGsonBuilder.create().fromJson(json, WxCpInterceptRuleAddRequest.class);
   }
 
   /**

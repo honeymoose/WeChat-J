@@ -5,6 +5,8 @@ import me.chanjar.weixin.common.error.WxErrorException;
 import me.chanjar.weixin.cp.bean.WxCpBaseResp;
 import me.chanjar.weixin.cp.bean.external.*;
 import me.chanjar.weixin.cp.bean.external.contact.*;
+import me.chanjar.weixin.cp.bean.external.interceptrule.WxCpInterceptRule;
+import me.chanjar.weixin.cp.bean.external.interceptrule.WxCpInterceptRuleAddRequest;
 
 import java.io.File;
 import java.io.IOException;
@@ -249,8 +251,9 @@ public interface WxCpExternalContactService {
    * 需要使用自建应用或基础应用的access_token
    * 客户的跟进人，或者用户所在客户群的群主，需要同时在access_token和source_agentid所对应应用的可见范围内
    * </pre>
+   *
    * @param externalUserid 服务商主体的external_userid，必须是source_agentid对应的应用所获取
-   * @param sourceAgentId 企业授权的代开发自建应用或第三方应用的agentid
+   * @param sourceAgentId  企业授权的代开发自建应用或第三方应用的agentid
    * @return
    * @throws WxErrorException
    */
@@ -614,13 +617,14 @@ public interface WxCpExternalContactService {
   /**
    * 企业可通过此接口，将在职成员为群主的群，分配给另一个客服成员。
    * <per>
-   *   注意：
+   * 注意：
    * 继承给的新群主，必须是配置了客户联系功能的成员
    * 继承给的新群主，必须有设置实名
    * 继承给的新群主，必须有激活企业微信
    * 同一个人的群，限制每天最多分配300个给新群主
    * 为保障客户服务体验，90个自然日内，在职成员的每个客户群仅可被转接2次。
    * </pre>
+   *
    * @param chatIds  需要转群主的客户群ID列表。取值范围： 1 ~ 100
    * @param newOwner 新群主ID
    * @return 分配结果 ，主要是分配失败的群列表
@@ -677,7 +681,7 @@ public interface WxCpExternalContactService {
    * <p>
    * 请求地址:https://qyapi.weixin.qq.com/cgi-bin/externalcontact/add_msg_template?access_token=ACCESS_TOKEN
    * <p>
-   * 文档地址：https://work.weixin.qq.com/api/doc/90000/90135/92135
+   * <a href="https://work.weixin.qq.com/api/doc/90000/90135/92135">文档地址</a>
    *
    * @param wxCpMsgTemplate the wx cp msg template
    * @return the wx cp msg template add result
@@ -696,7 +700,7 @@ public interface WxCpExternalContactService {
    *
    * 请求地址:https://qyapi.weixin.qq.com/cgi-bin/externalcontact/send_welcome_msg?access_token=ACCESS_TOKEN
    *
-   * 文档地址：https://work.weixin.qq.com/api/doc/90000/90135/92137
+   * <a href="https://work.weixin.qq.com/api/doc/90000/90135/92137">文档地址</a>
    * </pre>
    *
    * @param msg .
@@ -771,7 +775,7 @@ public interface WxCpExternalContactService {
   /**
    * <pre>
    * 企业可通过此接口为指定成员的客户添加上由企业统一配置的标签。
-   * https://work.weixin.qq.com/api/doc/90000/90135/92117
+   * <a href="https://work.weixin.qq.com/api/doc/90000/90135/92117">文档地址</a>
    * </pre>
    *
    * @param userid         the userid
@@ -786,7 +790,7 @@ public interface WxCpExternalContactService {
   /**
    * <pre>
    *   企业和第三方应用可通过该接口创建客户朋友圈的发表任务。
-   *   https://open.work.weixin.qq.com/api/doc/90000/90135/95094
+   *   <a href="https://open.work.weixin.qq.com/api/doc/90000/90135/95094">文档地址</a>
    * </pre>
    *
    * @param task the task
@@ -798,7 +802,7 @@ public interface WxCpExternalContactService {
   /**
    * <pre>
    * 由于发表任务的创建是异步执行的，应用需要再调用该接口以获取创建的结果。
-   * https://open.work.weixin.qq.com/api/doc/90000/90135/95094
+   * <a href="https://open.work.weixin.qq.com/api/doc/90000/90135/95094">文档地址</a>
    * </pre>
    *
    * @param jobId 异步任务id，最大长度为64字节，由创建发表内容到客户朋友圈任务接口获取
@@ -810,7 +814,7 @@ public interface WxCpExternalContactService {
   /**
    * <pre>
    * 获取客户朋友圈全部的发表记录 获取企业全部的发表列表
-   * https://open.work.weixin.qq.com/api/doc/90000/90135/93333
+   * <a href="https://open.work.weixin.qq.com/api/doc/90000/90135/93333">文档地址</a>
    * </pre>
    *
    * @param startTime  朋友圈记录开始时间。Unix时间戳
@@ -828,7 +832,7 @@ public interface WxCpExternalContactService {
   /**
    * <pre>
    * 获取客户朋友圈全部的发表记录 获取客户朋友圈企业发表的列表
-   * https://open.work.weixin.qq.com/api/doc/90000/90135/93333
+   * <a href="https://open.work.weixin.qq.com/api/doc/90000/90135/93333">文档地址</a>
    * </pre>
    *
    * @param momentId 朋友圈id,仅支持企业发表的朋友圈id
@@ -843,7 +847,7 @@ public interface WxCpExternalContactService {
   /**
    * <pre>
    * 获取客户朋友圈全部的发表记录 获取客户朋友圈发表时选择的可见范围
-   * https://open.work.weixin.qq.com/api/doc/90000/90135/93333
+   * <a href="https://open.work.weixin.qq.com/api/doc/90000/90135/93333">文档地址</a>
    * </pre>
    *
    * @param momentId 朋友圈id
@@ -860,7 +864,7 @@ public interface WxCpExternalContactService {
   /**
    * <pre>
    * 获取客户朋友圈全部的发表记录 获取客户朋友圈发表后的可见客户列表
-   * https://open.work.weixin.qq.com/api/doc/90000/90135/93333
+   * <a href="https://open.work.weixin.qq.com/api/doc/90000/90135/93333">文档地址</a>
    * </pre>
    *
    * @param momentId 朋友圈id
@@ -877,7 +881,7 @@ public interface WxCpExternalContactService {
   /**
    * <pre>
    * 获取客户朋友圈全部的发表记录 获取客户朋友圈的互动数据
-   * https://open.work.weixin.qq.com/api/doc/90000/90135/93333
+   * <a href="https://open.work.weixin.qq.com/api/doc/90000/90135/93333">文档地址</a>
    * </pre>
    *
    * @param momentId 朋友圈id
@@ -892,7 +896,7 @@ public interface WxCpExternalContactService {
   /**
    * <pre>
    * 企业和第三方应用可通过此接口获取企业与成员的群发记录。
-   * https://work.weixin.qq.com/api/doc/90000/90135/93338
+   * <a href="https://work.weixin.qq.com/api/doc/90000/90135/93338">文档地址</a>
    * </pre>
    *
    * @param chatType   群发任务的类型，默认为single，表示发送给客户，group表示发送给客户群
@@ -911,7 +915,7 @@ public interface WxCpExternalContactService {
   /**
    * <pre>
    * 企业和第三方应用可通过此接口获取企业与成员的群发记录。
-   * https://work.weixin.qq.com/api/doc/90000/90135/93338#获取企业群发成员执行结果
+   * <a href="https://work.weixin.qq.com/api/doc/90000/90135/93338#获取企业群发成员执行结果">获取企业群发成员执行结果</a>
    * </pre>
    *
    * @param msgid  群发消息的id，通过获取群发记录列表接口返回
@@ -926,7 +930,7 @@ public interface WxCpExternalContactService {
   /**
    * <pre>
    * 企业跟第三方应用可通过该接口获取到创建企业群发的群发发送结果。
-   * https://work.weixin.qq.com/api/doc/16251
+   * <a href="https://work.weixin.qq.com/api/doc/16251">文档</a>
    * </pre>
    *
    * @param msgid  群发消息的id，通过创建企业群发接口返回
@@ -940,7 +944,7 @@ public interface WxCpExternalContactService {
   /**
    * <pre>
    * 获取群发成员发送任务列表。
-   * https://work.weixin.qq.com/api/doc/90000/90135/93338#获取群发成员发送任务列表
+   * <a href="https://work.weixin.qq.com/api/doc/90000/90135/93338#获取群发成员发送任务列表">获取群发成员发送任务列表</a>
    * </pre>
    *
    * @param msgid  群发消息的id，通过获取群发记录列表接口返回
@@ -954,7 +958,7 @@ public interface WxCpExternalContactService {
   /**
    * <pre>
    * 添加入群欢迎语素材。
-   * https://open.work.weixin.qq.com/api/doc/90000/90135/92366#添加入群欢迎语素材
+   * <a href="https://open.work.weixin.qq.com/api/doc/90000/90135/92366#添加入群欢迎语素材">添加入群欢迎语素材</a>
    * </pre>
    *
    * @param template 素材内容
@@ -966,7 +970,7 @@ public interface WxCpExternalContactService {
   /**
    * <pre>
    * 编辑入群欢迎语素材。
-   * https://open.work.weixin.qq.com/api/doc/90000/90135/92366#编辑入群欢迎语素材
+   * <a href="https://open.work.weixin.qq.com/api/doc/90000/90135/92366#编辑入群欢迎语素材">编辑入群欢迎语素材</a>
    * </pre>
    *
    * @param template the template
@@ -978,7 +982,7 @@ public interface WxCpExternalContactService {
   /**
    * <pre>
    * 获取入群欢迎语素材。
-   * https://open.work.weixin.qq.com/api/doc/90000/90135/92366#获取入群欢迎语素材
+   * <a href="https://open.work.weixin.qq.com/api/doc/90000/90135/92366#获取入群欢迎语素材">获取入群欢迎语素材</a>
    * </pre>
    *
    * @param templateId 群欢迎语的素材id
@@ -991,7 +995,7 @@ public interface WxCpExternalContactService {
    * <pre>
    * 删除入群欢迎语素材。
    * 企业可通过此API删除入群欢迎语素材，且仅能删除调用方自己创建的入群欢迎语素材。
-   * https://open.work.weixin.qq.com/api/doc/90000/90135/92366#删除入群欢迎语素材
+   * <a href="https://open.work.weixin.qq.com/api/doc/90000/90135/92366#删除入群欢迎语素材">删除入群欢迎语素材</a>
    * </pre>
    *
    * @param templateId 群欢迎语的素材id
@@ -1004,7 +1008,7 @@ public interface WxCpExternalContactService {
   /**
    * <pre>
    * 获取商品图册
-   * https://work.weixin.qq.com/api/doc/90000/90135/95096#获取商品图册列表
+   * <a href="https://work.weixin.qq.com/api/doc/90000/90135/95096#获取商品图册列表">获取商品图册列表</a>
    * </pre>
    *
    * @param limit  返回的最大记录数，整型，最大值100，默认值50，超过最大值时取默认值
@@ -1017,7 +1021,7 @@ public interface WxCpExternalContactService {
   /**
    * <pre>
    * 获取商品图册
-   * https://work.weixin.qq.com/api/doc/90000/90135/95096#获取商品图册
+   * <a href="https://work.weixin.qq.com/api/doc/90000/90135/95096#获取商品图册">获取商品图册</a>
    * </pre>
    *
    * @param productId 商品id
@@ -1029,7 +1033,7 @@ public interface WxCpExternalContactService {
   /**
    * <pre>
    * 上传附件资源
-   * https://open.work.weixin.qq.com/api/doc/90001/90143/95178
+   * <a href="https://open.work.weixin.qq.com/api/doc/90001/90143/95178">...</a>
    * </pre>
    *
    * @param mediaType      the media type
@@ -1046,7 +1050,7 @@ public interface WxCpExternalContactService {
   /**
    * <pre>
    * 上传附件资源
-   * https://open.work.weixin.qq.com/api/doc/90001/90143/95178
+   * <a href="https://open.work.weixin.qq.com/api/doc/90001/90143/95178">...</a>
    * </pre>
    *
    * @param mediaType      the media type
@@ -1065,11 +1069,11 @@ public interface WxCpExternalContactService {
    * 请求方式：POST(HTTPS)
    * 请求地址：https://qyapi.weixin.qq.com/cgi-bin/externalcontact/add_intercept_rule?access_token=ACCESS_TOKEN
    * <pre>
-   * @param ruleResp the rule resp
-   * @return the wx cp intercept rule result resp
+   * @param ruleAddRequest the rule add request
+   * @return 规则id
    * @throws WxErrorException the wx error exception
    */
-  WxCpInterceptRuleResultResp addInterceptRule(WxCpInterceptRuleResp ruleResp) throws WxErrorException;
+  String addInterceptRule(WxCpInterceptRuleAddRequest ruleAddRequest) throws WxErrorException;
 
   /**
    * <pre>
@@ -1078,24 +1082,22 @@ public interface WxCpExternalContactService {
    * 请求方式：POST(HTTPS)
    * 请求地址：https://qyapi.weixin.qq.com/cgi-bin/externalcontact/update_intercept_rule?access_token=ACCESS_TOKEN
    * <pre>
-   * @param ruleResp the rule resp
-   * @return the wx cp intercept rule result resp
+   * @param interceptRule the rule
    * @throws WxErrorException the wx error exception
    */
-  WxCpInterceptRuleResultResp updateInterceptRule(WxCpInterceptRuleResp ruleResp) throws WxErrorException;
+  void updateInterceptRule(WxCpInterceptRule interceptRule) throws WxErrorException;
 
   /**
    * <pre>
    * 删除敏感词规则
    * 企业和第三方应用可以通过此接口修改敏感词规则
    * 请求方式：POST(HTTPS)
-   * 请求地址：https://qyapi.weixin.qq.com/cgi-bin/externalcontact/del_intercept_rule?access_token=ACCESS_TOKEN
+   * <a href="https://qyapi.weixin.qq.com/cgi-bin/externalcontact/del_intercept_rule?access_token=ACCESS_TOKEN">请求地址</a>
    * <pre>
-   * @param rule_id 规则id
-   * @return the wx cp base resp
+   * @param ruleId 规则id
    * @throws WxErrorException the wx error exception
    */
-  WxCpBaseResp delInterceptRule(String rule_id) throws WxErrorException;
+  void delInterceptRule(String ruleId) throws WxErrorException;
 
   /**
    * <pre>
@@ -1104,8 +1106,7 @@ public interface WxCpExternalContactService {
    * 请求方式：POST(HTTPS)
    * 请求地址：
    * <a href="https://qyapi.weixin.qq.com/cgi-bin/externalcontact/add_product_album?access_token=ACCESS_TOKEN">https://qyapi.weixin.qq.com/cgi-bin/externalcontact/add_product_album?access_token=ACCESS_TOKEN</a>
-   * 文档地址：
-   * <a href="https://developer.work.weixin.qq.com/document/path/95096#%E5%88%9B%E5%BB%BA%E5%95%86%E5%93%81%E5%9B%BE%E5%86%8C">https://developer.work.weixin.qq.com/document/path/95096#%E5%88%9B%E5%BB%BA%E5%95%86%E5%93%81%E5%9B%BE%E5%86%8C</a>
+   * <a href="https://developer.work.weixin.qq.com/document/path/95096#%E5%88%9B%E5%BB%BA%E5%95%86%E5%93%81%E5%9B%BE%E5%86%8C">文档地址</a>
    * <pre>
    * @param wxCpProductAlbumInfo 商品图册信息
    * @return 商品id string
@@ -1120,8 +1121,7 @@ public interface WxCpExternalContactService {
    * 请求方式：POST(HTTPS)
    * 请求地址：
    * <a href="https://qyapi.weixin.qq.com/cgi-bin/externalcontact/update_product_album?access_token=ACCESS_TOKEN">https://qyapi.weixin.qq.com/cgi-bin/externalcontact/update_product_album?access_token=ACCESS_TOKEN</a>
-   * 文档地址：
-   * <a href="https://developer.work.weixin.qq.com/document/path/95096#%E7%BC%96%E8%BE%91%E5%95%86%E5%93%81%E5%9B%BE%E5%86%8C">https://developer.work.weixin.qq.com/document/path/95096#%E7%BC%96%E8%BE%91%E5%95%86%E5%93%81%E5%9B%BE%E5%86%8C</a>
+   * <a href="https://developer.work.weixin.qq.com/document/path/95096#%E7%BC%96%E8%BE%91%E5%95%86%E5%93%81%E5%9B%BE%E5%86%8C">文档地址</a>
    * <pre>
    * @param wxCpProductAlbumInfo 商品图册信息
    * @throws WxErrorException the wx error exception
@@ -1135,8 +1135,8 @@ public interface WxCpExternalContactService {
    * 请求方式：POST(HTTPS)
    * 请求地址：
    * <a href="https://qyapi.weixin.qq.com/cgi-bin/externalcontact/delete_product_album?access_token=ACCESS_TOKEN">https://qyapi.weixin.qq.com/cgi-bin/externalcontact/delete_product_album?access_token=ACCESS_TOKEN</a>
-   * 文档地址：
-   * <a href="https://developer.work.weixin.qq.com/document/path/95096#%E5%88%A0%E9%99%A4%E5%95%86%E5%93%81%E5%9B%BE%E5%86%8C">https://developer.work.weixin.qq.com/document/path/95096#%E5%88%A0%E9%99%A4%E5%95%86%E5%93%81%E5%9B%BE%E5%86%8C</a>
+   *
+   * <a href="https://developer.work.weixin.qq.com/document/path/95096#%E5%88%A0%E9%99%A4%E5%95%86%E5%93%81%E5%9B%BE%E5%86%8C">文档地址</a>
    * <pre>
    * @param productId 商品id
    * @throws WxErrorException the wx error exception

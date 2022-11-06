@@ -1,4 +1,4 @@
-package me.chanjar.weixin.cp.bean.external;
+package me.chanjar.weixin.cp.bean.external.interceptrule;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;
@@ -15,7 +15,8 @@ import java.io.Serializable;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class WxCpInterceptRuleResultResp extends WxCpBaseResp implements Serializable {
+public class WxCpInterceptRuleAddResult extends WxCpBaseResp implements Serializable {
+  private static final long serialVersionUID = 8540187819417742703L;
 
   @SerializedName("rule_id")
   private String ruleId;
@@ -26,8 +27,8 @@ public class WxCpInterceptRuleResultResp extends WxCpBaseResp implements Seriali
    * @param json the json
    * @return the wx cp intercept rule result resp
    */
-  public static WxCpInterceptRuleResultResp fromJson(String json) {
-    return WxCpGsonBuilder.create().fromJson(json, WxCpInterceptRuleResultResp.class);
+  public static WxCpInterceptRuleAddResult fromJson(String json) {
+    return WxCpGsonBuilder.create().fromJson(json, WxCpInterceptRuleAddResult.class);
   }
 
   public String toJson() {
