@@ -3,7 +3,7 @@ package me.chanjar.weixin.mp.bean.template;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-import java.util.Objects;
+import java.util.Arrays;
 
 /**
  * 模版消息行业枚举.
@@ -200,13 +200,10 @@ public enum WxMpTemplateIndustryEnum {
    * @return 如果找不到, 返回null
    */
   public static WxMpTemplateIndustryEnum findByClass(String firstClass, String secondClass) {
-    for (WxMpTemplateIndustryEnum industryEnum : WxMpTemplateIndustryEnum.values()) {
-      if (industryEnum.firstClass.equals(firstClass) && industryEnum.secondClass.contains(secondClass)) {
-        return industryEnum;
-      }
-    }
-
-    return null;
+    return Arrays.stream(WxMpTemplateIndustryEnum.values())
+      .filter(industryEnum -> industryEnum.firstClass.equals(firstClass)
+        && industryEnum.secondClass.contains(secondClass))
+      .findFirst().orElse(null);
   }
 
   /**
@@ -216,12 +213,8 @@ public enum WxMpTemplateIndustryEnum {
    * @return .
    */
   public static WxMpTemplateIndustryEnum findByCode(int code) {
-    for (WxMpTemplateIndustryEnum industryEnum : WxMpTemplateIndustryEnum.values()) {
-      if (industryEnum.code == code) {
-        return industryEnum;
-      }
-    }
-
-    return null;
+    return Arrays.stream(WxMpTemplateIndustryEnum.values())
+      .filter(industryEnum -> industryEnum.code == code)
+      .findFirst().orElse(null);
   }
 }
