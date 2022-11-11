@@ -175,9 +175,9 @@ public enum WxMpTemplateIndustryEnum {
    */
   PRINTING("印刷", "印刷", 40),
   /**
-   * 其它 - 其它
+   * 其他 - 其他
    */
-  OTHER("其它", "其它", 41);
+  OTHER("其他", "其他", 41);
 
   /**
    * 主行业（一级行业）
@@ -205,10 +205,7 @@ public enum WxMpTemplateIndustryEnum {
         return industryEnum;
       }
     }
-    if (Objects.equals(firstClass, "其他") && Objects.equals(secondClass, "其他")) {
-      //微信返回的其他行业实际上为"其他",而非"其它",此处兼容处理
-      return OTHER;
-    }
+
     return null;
   }
 
