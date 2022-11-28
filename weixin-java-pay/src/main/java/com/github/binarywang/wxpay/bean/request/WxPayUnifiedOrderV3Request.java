@@ -132,6 +132,17 @@ public class WxPayUnifiedOrderV3Request implements Serializable {
   private String goodsTag;
   /**
    * <pre>
+   * 字段名：电子发票入口开放标识
+   * 变量名：support_fapiao
+   * 是否必填：否
+   * 类型：boolean
+   * 描述：传入true时，支付成功消息和支付详情页将出现开票入口。需要在微信支付商户平台或微信公众平台开通电子发票功能，传此字段才可生效。
+   * </pre>
+   */
+  @SerializedName(value = "support_fapiao")
+  private Boolean supportFapiao;
+  /**
+   * <pre>
    * 字段名：订单金额
    * 变量名：amount
    * 是否必填：是
