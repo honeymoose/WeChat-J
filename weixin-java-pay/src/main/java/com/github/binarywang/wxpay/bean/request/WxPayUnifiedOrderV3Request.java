@@ -462,8 +462,7 @@ public class WxPayUnifiedOrderV3Request implements Serializable {
      * 变量名：area_code
      * 是否必填：否
      * 类型：string[1,32]
-     * 描述：
-     *  地区编码，详细请见省市区编号对照表(https://pay.weixin.qq.com/wiki/doc/apiv3/terms_definition/chapter1_1_3.shtml)。
+     * 描述： 地区编码, <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/wxpay/ecommerce/applyments/chapter4_1.shtml">详细请见省市区编号对照表</a>。
      * 示例值：440305
      * </pre>
      */
