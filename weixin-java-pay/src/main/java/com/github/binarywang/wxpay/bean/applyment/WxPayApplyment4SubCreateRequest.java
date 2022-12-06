@@ -434,7 +434,7 @@ public class WxPayApplyment4SubCreateRequest implements Serializable {
        * 法定代表人说明函
        */
       @SerializedName("authorize_letter_copy")
-      private IdTypeEnum authorizeLetterCopy;
+      private String authorizeLetterCopy;
 
       /**
        * 身份证信息
