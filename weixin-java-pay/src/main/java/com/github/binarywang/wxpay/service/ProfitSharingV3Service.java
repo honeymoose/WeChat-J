@@ -8,9 +8,27 @@ import com.github.binarywang.wxpay.exception.WxPayException;
  * 微信支付V3-资金应用-分账
  *
  * @author pg 2021-6-23
- * created on  2021-6-23
+ * @date 2021-6-23
  */
 public interface ProfitSharingV3Service {
+  /**
+   * <pre>
+   * 查询最大分账比例
+   *
+   * 可调用此接口查询特约商户设置的允许服务商分账的最大比例
+   * 文档详见: https://pay.weixin.qq.com/wiki/doc/apiv3_partner/apis/chapter8_1_7.shtml
+   * 接口链接: https://api.mch.weixin.qq.com/v3/profitsharing/merchant-configs/{sub_mchid}
+   * </pre>
+   *
+   * @param subMchId 子商户号（微信支付分配的子商户号，即分账的出资商户号）
+   * @return {@link ProfitSharingMerchantMaxRatioQueryResult} 特约商户设置的允许服务商分账的最大比例结果
+   * @throws WxPayException the wx pay exception
+   * @see <a href="https://pay.weixin.qq.com/wiki/doc/apiv3_partner/apis/chapter8_1_7.shtml">服务商平台>>API字典>>资金应用>>分账>>查询最大分账比例</a>
+   * @since 4.4.0
+   * @date 2022-12-09
+   */
+   ProfitSharingMerchantMaxRatioQueryResult getProfitSharingMerchantMaxRatio(String subMchId) throws WxPayException;
+
   /**
    * <pre>
    * 请求分账API

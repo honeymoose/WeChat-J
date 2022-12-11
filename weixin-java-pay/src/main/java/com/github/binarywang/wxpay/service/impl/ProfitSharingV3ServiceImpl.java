@@ -2,7 +2,6 @@ package com.github.binarywang.wxpay.service.impl;
 
 import com.github.binarywang.wxpay.bean.ecommerce.SignatureHeader;
 import com.github.binarywang.wxpay.bean.profitsharingV3.*;
-import com.github.binarywang.wxpay.config.WxPayConfig;
 import com.github.binarywang.wxpay.exception.WxPayException;
 import com.github.binarywang.wxpay.service.ProfitSharingV3Service;
 import com.github.binarywang.wxpay.service.WxPayService;
@@ -30,6 +29,13 @@ import java.util.Objects;
 public class ProfitSharingV3ServiceImpl implements ProfitSharingV3Service {
   private static final Gson GSON = new GsonBuilder().create();
   private final WxPayService payService;
+
+  @Override
+  public ProfitSharingMerchantMaxRatioQueryResult getProfitSharingMerchantMaxRatio(String subMchId) throws WxPayException {
+    String url = String.format("%s/v3/profitsharing/merchant-configs/%s", this.payService.getPayBaseUrl(), subMchId);
+    String result = this.payService.getV3(url);
+    return GSON.fromJson(result, ProfitSharingMerchantMaxRatioQueryResult.class);
+  }
 
   @Override
   public ProfitSharingResult profitSharing(ProfitSharingRequest request) throws WxPayException {
