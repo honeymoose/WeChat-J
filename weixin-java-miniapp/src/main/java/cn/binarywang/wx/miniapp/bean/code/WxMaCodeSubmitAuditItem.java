@@ -20,7 +20,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Accessors(chain = true)
-public class WxMaCategory implements Serializable {
+public class WxMaCodeSubmitAuditItem implements Serializable {
   private static final long serialVersionUID = -7663757440028175135L;
 
   /**
@@ -34,6 +34,7 @@ public class WxMaCategory implements Serializable {
 
   /**
    * 一级类目名称
+   * 类目名称，可通过“获取授权小程序帐号的可选类目”接口获得
    */
   @SerializedName("first_class")
   private String firstClass;
@@ -49,6 +50,7 @@ public class WxMaCategory implements Serializable {
   private String thirdClass;
   /**
    * 一级类目的ID编号
+   * 类目的ID，可通过“获取授权小程序帐号的可选类目”接口获得
    */
   @SerializedName("first_id")
   private Long firstId;
