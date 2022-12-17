@@ -211,7 +211,7 @@ public interface WxCpOaService {
    * @return . template detail
    * @throws WxErrorException .
    */
-  WxCpTemplateResult getTemplateDetail(@NonNull String templateId) throws WxErrorException;
+  WxCpOaApprovalTemplateResult getTemplateDetail(@NonNull String templateId) throws WxErrorException;
 
   /**
    * 创建审批模板
@@ -223,11 +223,11 @@ public interface WxCpOaService {
    * • 仅『审批』系统应用、自建应用和代开发自建应用可调用。
    * </pre>
    *
-   * @param wxCpTemplateCreate wxCpTemplateCreate
+   * @param cpTemplate cpTemplate
    * @return templateId
    * @throws WxErrorException .
    */
-  String createTemplate(WxCpTemplateCreate wxCpTemplateCreate) throws WxErrorException;
+  String createOaApprovalTemplate(WxCpOaApprovalTemplate cpTemplate) throws WxErrorException;
 
   /**
    * 更新审批模板
@@ -242,10 +242,10 @@ public interface WxCpOaService {
    * • 自建应用和代开发自建应用不可通过本接口更新其他应用创建的模板
    * </pre>
    *
-   * @param wxCpTemplateUpdate wxCpTemplateUpdate
+   * @param wxCpTemplate wxCpTemplate
    * @throws WxErrorException .
    */
-  void updateTemplate(WxCpTemplateUpdate wxCpTemplateUpdate) throws WxErrorException;
+  void updateOaApprovalTemplate(WxCpOaApprovalTemplate wxCpTemplate) throws WxErrorException;
 
   /**
    * 获取打卡日报数据

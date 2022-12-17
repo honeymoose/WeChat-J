@@ -14,7 +14,7 @@ import java.util.List;
  * @author gyv12345 @163.com
  */
 @Data
-public class WxCpTemplateResult implements Serializable {
+public class WxCpOaApprovalTemplateResult implements Serializable {
   private static final long serialVersionUID = 6690547131189343887L;
 
   @SerializedName("errcode")

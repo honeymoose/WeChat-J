@@ -13,7 +13,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * 更新审批模板
+ * 新增/更新审批模板的请求对象
  *
  * @author yiyingcanfeng
  */
@@ -22,9 +22,12 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Accessors(chain = true)
-public class WxCpTemplateUpdate implements Serializable {
+public class WxCpOaApprovalTemplate implements Serializable {
   private static final long serialVersionUID = 8332120725354015143L;
 
+  /**
+   * 仅更新审批模版时需要提供
+   */
   @SerializedName("template_id")
   private String templateId;
 
