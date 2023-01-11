@@ -3,9 +3,9 @@
 <suite name="Weixin-java-tool-suite" verbose="1">
   <test name="Result_Test">
     <classes>
-      <class name="me.chanjar.weixin.open.bean.result.WxFastMaAccountBasicInfoResultTest"/>
-      <class name="me.chanjar.weixin.open.bean.result.WxFastMaCanSetCategoryResultTest"/>
-      <class name="me.chanjar.weixin.open.bean.result.WxFastMaBeenSetCategoryResultTest"/>
+      <class name="com.ossez.wechat.open.bean.result.WxFastMaAccountBasicInfoResultTest"/>
+      <class name="com.ossez.wechat.open.bean.result.WxFastMaCanSetCategoryResultTest"/>
+      <class name="com.ossez.wechat.open.bean.result.WxFastMaBeenSetCategoryResultTest"/>
     </classes>
   </test>
 </suite>
