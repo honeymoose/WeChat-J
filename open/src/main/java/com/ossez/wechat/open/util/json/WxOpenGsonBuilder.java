@@ -7,7 +7,7 @@ import com.ossez.wechat.open.bean.WxOpenComponentAccessToken;
 import com.ossez.wechat.open.bean.auth.WxOpenAuthorizationInfo;
 import com.ossez.wechat.open.bean.auth.WxOpenAuthorizerInfo;
 import com.ossez.wechat.open.bean.result.*;
-import me.chanjar.weixin.open.bean.result.*;
+
 import java.util.Objects;
 
 /**

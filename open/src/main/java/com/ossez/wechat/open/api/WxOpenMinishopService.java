@@ -3,7 +3,6 @@ package com.ossez.wechat.open.api;
 import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.open.bean.minishop.*;
 import com.ossez.wechat.open.bean.result.WxOpenResult;
-import me.chanjar.weixin.open.bean.minishop.*;
 
 import java.io.File;
 

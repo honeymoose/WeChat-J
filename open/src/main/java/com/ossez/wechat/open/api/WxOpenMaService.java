@@ -9,7 +9,6 @@ import com.ossez.wechat.open.bean.ma.WxMaPrefetchDomain;
 import com.ossez.wechat.open.bean.ma.WxMaScheme;
 import com.ossez.wechat.open.bean.message.WxOpenMaSubmitAuditMessage;
 import com.ossez.wechat.open.bean.result.*;
-import me.chanjar.weixin.open.bean.result.*;
 
 import java.io.File;
 import java.util.List;

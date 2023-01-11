@@ -3,7 +3,6 @@ package com.ossez.wechat.open.api;
 import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.open.bean.ma.WxFastMaCategory;
 import com.ossez.wechat.open.bean.result.*;
-import me.chanjar.weixin.open.bean.result.*;
 
 import java.util.List;
 

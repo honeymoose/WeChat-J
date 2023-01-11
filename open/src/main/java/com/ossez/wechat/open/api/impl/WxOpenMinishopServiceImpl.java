@@ -3,13 +3,12 @@ package com.ossez.wechat.open.api.impl;
 import cn.binarywang.wx.miniapp.api.impl.WxMaServiceImpl;
 import cn.binarywang.wx.miniapp.config.WxMaConfig;
 import com.google.gson.JsonObject;
-import com.ossez.wechat.open.bean.minishop.*;
-import com.ossez.wechat.open.bean.result.WxOpenResult;
-import lombok.extern.slf4j.Slf4j;
 import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.open.api.WxOpenComponentService;
 import com.ossez.wechat.open.api.WxOpenMinishopService;
-import me.chanjar.weixin.open.bean.minishop.*;
+import com.ossez.wechat.open.bean.minishop.*;
+import com.ossez.wechat.open.bean.result.WxOpenResult;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.File;
 

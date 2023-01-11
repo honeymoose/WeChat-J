@@ -1,14 +1,13 @@
 package com.ossez.wechat.open.api.impl;
 
 import cn.binarywang.wx.miniapp.api.WxMaService;
+import com.ossez.wechat.common.exception.WxError;
+import com.ossez.wechat.common.exception.WxErrorException;
+import com.ossez.wechat.open.api.WxOpenMaPrivacyService;
 import com.ossez.wechat.open.bean.ma.privacy.*;
 import com.ossez.wechat.open.util.json.WxOpenGsonBuilder;
 import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
-import com.ossez.wechat.common.exception.WxError;
-import com.ossez.wechat.common.exception.WxErrorException;
-import com.ossez.wechat.open.api.WxOpenMaPrivacyService;
-import me.chanjar.weixin.open.bean.ma.privacy.*;
 
 import java.util.HashMap;
 import java.util.Map;

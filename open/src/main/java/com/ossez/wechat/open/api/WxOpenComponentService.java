@@ -19,9 +19,6 @@ import com.ossez.wechat.open.bean.tcb.ShareCloudBaseEnvRequest;
 import com.ossez.wechat.open.bean.tcb.ShareCloudBaseEnvResponse;
 import com.ossez.wechat.open.bean.tcbComponent.GetShareCloudBaseEnvResponse;
 import com.ossez.wechat.open.bean.tcbComponent.GetTcbEnvListResponse;
-import me.chanjar.weixin.open.bean.minishop.*;
-import me.chanjar.weixin.open.bean.minishop.goods.*;
-import me.chanjar.weixin.open.bean.result.*;
 
 import java.io.File;
 import java.util.List;

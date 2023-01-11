@@ -2,7 +2,6 @@ package com.ossez.wechat.open.api;
 
 import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.open.bean.ma.privacy.*;
-import me.chanjar.weixin.open.bean.ma.privacy.*;
 
 /**
  * 微信第三方平台 小程序用户隐私保护指引接口 / 申请隐私接口

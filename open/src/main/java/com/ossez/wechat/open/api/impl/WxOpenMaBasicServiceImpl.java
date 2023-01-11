@@ -4,11 +4,10 @@ import cn.binarywang.wx.miniapp.api.WxMaService;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.ossez.wechat.common.exception.WxErrorException;
+import com.ossez.wechat.open.api.WxOpenMaBasicService;
 import com.ossez.wechat.open.bean.ma.WxFastMaCategory;
 import com.ossez.wechat.open.bean.result.*;
 import com.ossez.wechat.open.util.json.WxOpenGsonBuilder;
-import com.ossez.wechat.open.api.WxOpenMaBasicService;
-import me.chanjar.weixin.open.bean.result.*;
 
 import java.util.HashMap;
 import java.util.List;
