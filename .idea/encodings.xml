@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mp/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mp/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oa/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oa/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/open/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/open/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-starters/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-starters/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-starters/wx-java-cp-spring-boot-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-starters/wx-java-cp-spring-boot-starter/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-starters/wx-java-miniapp-spring-boot-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-starters/wx-java-miniapp-spring-boot-starter/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-starters/wx-java-mp-spring-boot-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-starters/wx-java-mp-spring-boot-starter/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-starters/wx-java-open-spring-boot-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-starters/wx-java-open-spring-boot-starter/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-starters/wx-java-pay-spring-boot-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-starters/wx-java-pay-spring-boot-starter/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-starters/wx-java-qidian-spring-boot-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-starters/wx-java-qidian-spring-boot-starter/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/weixin-graal/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/weixin-graal/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/weixin-java-cp/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/weixin-java-cp/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/weixin-java-miniapp/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/weixin-java-miniapp/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/weixin-java-mp/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/weixin-java-mp/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/weixin-java-pay/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/weixin-java-pay/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/weixin-java-qidian/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/weixin-java-qidian/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

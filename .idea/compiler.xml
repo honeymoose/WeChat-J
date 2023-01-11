@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="wechat-j-oa" />
+        <module name="wechat-j-open" />
+        <module name="wechat-j-common" />
+        <module name="wechat-j-mp" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="weixin-graal" target="1.8" />
+      <module name="weixin-java-common" target="1.8" />
+      <module name="weixin-java-cp" target="1.8" />
+      <module name="weixin-java-miniapp" target="1.8" />
+      <module name="weixin-java-mp" target="1.8" />
+      <module name="weixin-java-open" target="1.8" />
+      <module name="weixin-java-pay" target="1.8" />
+      <module name="weixin-java-qidian" target="1.8" />
+      <module name="wx-java" target="1.8" />
+      <module name="wx-java-cp-spring-boot-starter" target="1.8" />
+      <module name="wx-java-miniapp-spring-boot-starter" target="1.8" />
+      <module name="wx-java-mp-spring-boot-starter" target="1.8" />
+      <module name="wx-java-open-spring-boot-starter" target="1.8" />
+      <module name="wx-java-pay-spring-boot-starter" target="1.8" />
+      <module name="wx-java-qidian-spring-boot-starter" target="1.8" />
+      <module name="wx-java-spring-boot-starters" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
