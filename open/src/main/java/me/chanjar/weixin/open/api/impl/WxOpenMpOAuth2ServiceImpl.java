@@ -5,7 +5,7 @@ import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.common.service.WxOAuth2Service;
 import com.ossez.wechat.common.service.WxOAuth2ServiceDecorator;
 import com.ossez.wechat.common.util.http.URIUtil;
-import me.chanjar.weixin.mp.config.WxMpConfigStorage;
+import com.ossez.wechat.oa.config.WxMpConfigStorage;
 import me.chanjar.weixin.open.api.WxOpenComponentService;
 import org.apache.commons.lang3.StringUtils;
 

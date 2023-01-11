@@ -17,7 +17,7 @@ import com.ossez.wechat.common.util.crypto.SHA1;
 import com.ossez.wechat.common.util.http.URIUtil;
 import com.ossez.wechat.common.util.json.GsonParser;
 import com.ossez.wechat.common.util.json.WxGsonBuilder;
-import me.chanjar.weixin.mp.api.WxMpService;
+import com.ossez.wechat.oa.api.WxMpService;
 import me.chanjar.weixin.open.api.*;
 import me.chanjar.weixin.open.bean.*;
 import me.chanjar.weixin.open.bean.auth.WxOpenAuthorizationInfo;

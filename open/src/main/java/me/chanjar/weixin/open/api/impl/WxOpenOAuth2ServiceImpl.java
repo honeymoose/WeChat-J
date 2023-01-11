@@ -1,6 +1,5 @@
 package me.chanjar.weixin.open.api.impl;
 
-import lombok.AllArgsConstructor;
 import com.ossez.wechat.common.bean.WxOAuth2UserInfo;
 import com.ossez.wechat.common.bean.oauth2.WxOAuth2AccessToken;
 import com.ossez.wechat.common.enums.WxType;
@@ -9,12 +8,13 @@ import com.ossez.wechat.common.exception.WxRuntimeException;
 import com.ossez.wechat.common.service.WxOAuth2Service;
 import com.ossez.wechat.common.util.http.SimpleGetRequestExecutor;
 import com.ossez.wechat.common.util.http.URIUtil;
+import lombok.AllArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.IOException;
 
-import static me.chanjar.weixin.mp.enums.WxMpApiUrl.OAuth2.*;
-import static me.chanjar.weixin.mp.enums.WxMpApiUrl.Other.QRCONNECT_URL;
+import static com.ossez.wechat.oa.enums.WxMpApiUrl.OAuth2.*;
+import static com.ossez.wechat.oa.enums.WxMpApiUrl.Other.QRCONNECT_URL;
 
 /**
  * oauth2接口实现.

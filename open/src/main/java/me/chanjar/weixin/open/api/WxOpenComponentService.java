@@ -4,7 +4,7 @@ import cn.binarywang.wx.miniapp.bean.WxMaJscode2SessionResult;
 import com.ossez.wechat.common.bean.oauth2.WxOAuth2AccessToken;
 import com.ossez.wechat.common.bean.result.WxMinishopImageUploadResult;
 import com.ossez.wechat.common.exception.WxErrorException;
-import me.chanjar.weixin.mp.api.WxMpService;
+import com.ossez.wechat.oa.api.WxMpService;
 import me.chanjar.weixin.open.bean.WxOpenCreateResult;
 import me.chanjar.weixin.open.bean.WxOpenGetResult;
 import me.chanjar.weixin.open.bean.WxOpenMaCodeTemplate;

@@ -2,12 +2,13 @@ package me.chanjar.weixin.open.api.impl;
 
 
 import cn.binarywang.wx.miniapp.config.WxMaConfig;
+import com.ossez.wechat.oa.api.impl.BaseWxMpServiceImpl;
 import lombok.Data;
 import com.ossez.wechat.common.bean.WxAccessToken;
 import com.ossez.wechat.common.enums.TicketType;
 import com.ossez.wechat.common.util.http.apache.ApacheHttpClientBuilder;
-import me.chanjar.weixin.mp.config.WxMpConfigStorage;
-import me.chanjar.weixin.mp.config.WxMpHostConfig;
+import com.ossez.wechat.oa.config.WxMpConfigStorage;
+import com.ossez.wechat.oa.config.WxMpHostConfig;
 import me.chanjar.weixin.open.api.WxOpenConfigStorage;
 import me.chanjar.weixin.open.bean.WxOpenAuthorizerAccessToken;
 import me.chanjar.weixin.open.bean.WxOpenComponentAccessToken;
@@ -41,7 +42,7 @@ public class WxOpenInMemoryConfigStorage implements WxOpenConfigStorage {
   /**
    * http 请求重试间隔
    * <pre>
-   *   {@link me.chanjar.weixin.mp.api.impl.BaseWxMpServiceImpl#setRetrySleepMillis(int)}
+   *   {@link BaseWxMpServiceImpl#setRetrySleepMillis(int)}
    *   {@link cn.binarywang.wx.miniapp.api.impl.BaseWxMaServiceImpl#setRetrySleepMillis(int)}
    * </pre>
    */
@@ -49,7 +50,7 @@ public class WxOpenInMemoryConfigStorage implements WxOpenConfigStorage {
   /**
    * http 请求最大重试次数
    * <pre>
-   *   {@link me.chanjar.weixin.mp.api.impl.BaseWxMpServiceImpl#setMaxRetryTimes(int)}
+   *   {@link BaseWxMpServiceImpl#setMaxRetryTimes(int)}
    *   {@link cn.binarywang.wx.miniapp.api.impl.BaseWxMaServiceImpl#setMaxRetryTimes(int)}
    * </pre>
    */

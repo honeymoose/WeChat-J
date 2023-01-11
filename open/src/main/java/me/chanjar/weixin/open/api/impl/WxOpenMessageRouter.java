@@ -1,8 +1,8 @@
 package me.chanjar.weixin.open.api.impl;
 
-import me.chanjar.weixin.mp.api.WxMpMessageRouter;
-import me.chanjar.weixin.mp.bean.message.WxMpXmlMessage;
-import me.chanjar.weixin.mp.bean.message.WxMpXmlOutMessage;
+import com.ossez.wechat.oa.api.WxMpMessageRouter;
+import com.ossez.wechat.oa.bean.message.WxMpXmlMessage;
+import com.ossez.wechat.oa.bean.message.WxMpXmlOutMessage;
 import me.chanjar.weixin.open.api.WxOpenService;
 
 import java.util.HashMap;

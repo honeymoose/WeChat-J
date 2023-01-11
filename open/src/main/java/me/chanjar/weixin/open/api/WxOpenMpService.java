@@ -1,7 +1,7 @@
 package me.chanjar.weixin.open.api;
 
 import com.ossez.wechat.common.exception.WxErrorException;
-import me.chanjar.weixin.mp.api.WxMpService;
+import com.ossez.wechat.oa.api.WxMpService;
 import me.chanjar.weixin.open.bean.mp.FastRegisterResult;
 import me.chanjar.weixin.open.bean.result.WxAmpLinkResult;
 import me.chanjar.weixin.open.bean.result.WxOpenResult;

@@ -3,28 +3,28 @@
 <suite name="Weixin-java-tool-suite" verbose="1">
   <test name="API_Test">
     <classes>
-      <class name="me.chanjar.weixin.mp.api.WxMpBusyRetryTest"/>
+      <class name="com.ossez.wechat.oa.api.WxMpBusyRetryTest"/>
       <class name="me.chanjar.weixin.mp.api.WxMpBaseAPITest"/>
-      <class name="me.chanjar.weixin.mp.api.impl.WxMpMassMessageServiceImplTest"/>
-      <class name="me.chanjar.weixin.mp.api.impl.WxMpUserServiceImplTest"/>
-      <class name="me.chanjar.weixin.mp.api.impl.WxMpQrcodeServiceImplTest"/>
+      <class name="com.ossez.wechat.oa.api.impl.WxMpMassMessageServiceImplTest"/>
+      <class name="com.ossez.wechat.oa.api.impl.WxMpUserServiceImplTest"/>
+      <class name="com.ossez.wechat.oa.api.impl.WxMpQrcodeServiceImplTest"/>
       <class name="me.chanjar.weixin.mp.api.WxMpShortUrlAPITest"/>
-      <class name="me.chanjar.weixin.mp.api.WxMpMessageRouterTest"/>
-      <class name="me.chanjar.weixin.mp.api.WxMpJsAPITest"/>
+      <class name="com.ossez.wechat.oa.api.WxMpMessageRouterTest"/>
+      <class name="com.ossez.wechat.oa.api.WxMpJsAPITest"/>
       <class name="me.chanjar.weixin.mp.api.WxMpMiscAPITest"/>
     </classes>
   </test>
 
   <test name="Bean_Test">
     <classes>
-      <class name="me.chanjar.weixin.mp.bean.kefu.WxMpKefuMessageTest"/>
-      <class name="me.chanjar.weixin.mp.bean.message.WxMpXmlMessageTest"/>
-      <class name="me.chanjar.weixin.mp.bean.message.WxMpXmlOutImageMessageTest"/>
-      <class name="me.chanjar.weixin.mp.bean.message.WxMpXmlOutMusicMessageTest"/>
-      <class name="me.chanjar.weixin.mp.bean.message.WxMpXmlOutNewsMessageTest"/>
-      <class name="me.chanjar.weixin.mp.bean.message.WxMpXmlOutVideoMessageTest"/>
-      <class name="me.chanjar.weixin.mp.bean.message.WxMpXmlOutVoiceMessageTest"/>
-      <class name="me.chanjar.weixin.mp.bean.message.WxMpXmlOutTextMessageTest"/>
+      <class name="com.ossez.wechat.oa.bean.kefu.WxMpKefuMessageTest"/>
+      <class name="com.ossez.wechat.oa.bean.message.WxMpXmlMessageTest"/>
+      <class name="com.ossez.wechat.oa.bean.message.WxMpXmlOutImageMessageTest"/>
+      <class name="com.ossez.wechat.oa.bean.message.WxMpXmlOutMusicMessageTest"/>
+      <class name="com.ossez.wechat.oa.bean.message.WxMpXmlOutNewsMessageTest"/>
+      <class name="com.ossez.wechat.oa.bean.message.WxMpXmlOutVideoMessageTest"/>
+      <class name="com.ossez.wechat.oa.bean.message.WxMpXmlOutVoiceMessageTest"/>
+      <class name="com.ossez.wechat.oa.bean.message.WxMpXmlOutTextMessageTest"/>
     </classes>
   </test>
 </suite>
