@@ -1,106 +1,33 @@
-<?xml version="1.0"?>
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.github.binarywang</groupId>
-  <artifactId>wx-java</artifactId>
-  <version>4.4.8.B</version>
+  <groupId>com.ossez.wechat</groupId>
+  <artifactId>wechat-j</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <name>WxJava - Weixin/Wechat Java SDK</name>
-  <description>微信开发Java SDK</description>
-  <url>https://github.com/Wechat-Group/WxJava</url>
+
+
+  <name>WeChat Java</name>
+  <description>WeChat API SDK</description>
 
   <licenses>
     <license>
-      <name>The Apache License, Version 2.0</name>
-      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <name>The MIT license</name>
+      <url>https://opensource.org/licenses/mit-license.php</url>
+      <distribution>repo</distribution>
     </license>
   </licenses>
 
   <developers>
     <developer>
-      <name>Daniel Qian</name>
-      <email>chanjarster@gmail.com</email>
-      <url>https://github.com/chanjarster</url>
-    </developer>
-    <developer>
-      <name>Binary Wang</name>
-      <email>binarywang@gmail.com</email>
-      <url>https://github.com/binarywang</url>
-    </developer>
-    <developer>
-      <name>gaigeshen</name>
-      <email>gaigeshen@qq.com</email>
-      <url>https://github.com/gaigeshen</url>
-    </developer>
-    <developer>
-      <name>Liu Mingbo</name>
-      <email>liumingbo2008@gmail.com</email>
-      <url>https://github.com/FirenzesEagle</url>
-    </developer>
-    <developer>
-      <name>kakotor</name>
-      <email>kakotor@gmail.com</email>
-      <url>https://github.com/kakotor</url>
-    </developer>
-    <developer>
-      <name>xiong</name>
-      <email>zhaoxiong.tan@gmail.com</email>
-      <url>https://github.com/ZhaoxiongTan</url>
-    </developer>
-    <developer>
-      <name>LiuJunGuang</name>
-      <email>aimilin@yeah.net</email>
-      <url>https://github.com/aimilin6688</url>
-    </developer>
-    <developer>
-      <name>Eric.Tsai</name>
-      <email>xiaodong.cai.ks@gmail.com</email>
-      <url>https://github.com/iwareserictsai</url>
-    </developer>
-    <developer>
-      <name>withinthefog</name>
-      <email>withinthefog@gmail.com</email>
-      <url>https://github.com/withinthefog</url>
-    </developer>
-    <developer>
-      <name>Keung</name>
-      <email>dongfuqiang1988@163.com</email>
-      <url>https://github.com/johnnytung</url>
-    </developer>
-    <developer>
-      <name>Jonk</name>
-      <email>aimilin@yeah.net</email>
-      <url>https://github.com/aimilin6688</url>
-    </developer>
-    <developer>
-      <name>ecoolper</name>
-      <email>crskyp@gmail.com</email>
-      <url>https://github.com/crskyp</url>
-    </developer>
-    <developer>
-      <name>007</name>
-      <email>007gzs@gmail.com</email>
-      <url>https://github.com/007gzs</url>
-    </developer>
-    <developer>
-      <name>Howard Liu</name>
-      <email>liuxinghao1988@gmail.com</email>
-      <url>https://github.com/howardliu-cn</url>
-    </developer>
-    <developer>
-      <name>huangxiaoming</name>
-      <email>huangxm129@163.com</email>
-      <url>https://github.com/huangxm129</url>
-    </developer>
-    <developer>
-      <name>xiaohe</name>
-      <email>xiaohe@53jy.net</email>
-      <url>https://github.com/xiaohe-53</url>
-    </developer>
-    <developer>
-      <name>Wang_Wong</name>
-      <email>wangkaikate@163.com</email>
-      <url>https://github.com/0katekate0</url>
+      <name>YuCheng Hu</name>
+      <id>honeymoose</id>
+      <email>huyuchengus@gmail.com</email>
+      <timezone>-5</timezone>
+      <organization>Open Source</organization>
+      <roles>
+        <role>Java Developer</role>
+      </roles>
     </developer>
   </developers>
 
@@ -111,15 +38,15 @@
   </scm>
 
   <modules>
-    <module>weixin-graal</module>
-    <module>weixin-java-common</module>
-    <module>weixin-java-cp</module>
-    <module>weixin-java-mp</module>
-    <module>weixin-java-pay</module>
-    <module>weixin-java-miniapp</module>
-    <module>weixin-java-open</module>
-    <module>weixin-java-qidian</module>
-    <module>spring-boot-starters</module>
+    <!--    <module>weixin-graal</module>-->
+    <module>common</module>
+    <module>open</module>
+    <module>oa</module>
+    <module>mp</module>
+    <!--    <module>weixin-java-cp</module>-->
+    <!--    <module>weixin-java-pay</module>-->
+    <!--    <module>weixin-java-qidian</module>-->
+    <!--    <module>spring-boot-starters</module>-->
     <!--module>weixin-java-osgi</module-->
   </modules>
 
@@ -324,10 +251,6 @@
   </dependencyManagement>
 
   <distributionManagement>
-    <snapshotRepository>
-      <id>ossrh</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-    </snapshotRepository>
     <repository>
       <id>ossrh</id>
       <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
@@ -418,52 +341,134 @@
             <skip>true</skip>
           </configuration>
         </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>3.0.0</version>
+          <executions>
+            <execution>
+              <id>default-deploy</id>
+              <phase>deploy</phase>
+              <goals>
+                <goal>deploy</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
       </plugins>
     </pluginManagement>
 
     <plugins>
       <plugin>
-        <groupId>org.sonatype.plugins</groupId>
-        <artifactId>nexus-staging-maven-plugin</artifactId>
-        <version>1.6.3</version>
-        <extensions>true</extensions>
-        <configuration>
-          <serverId>ossrh</serverId>
-          <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-          <autoReleaseAfterClose>true</autoReleaseAfterClose>
-        </configuration>
-      </plugin>
-      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-release-plugin</artifactId>
-        <version>2.5.1</version>
-        <configuration>
-          <autoVersionSubmodules>true</autoVersionSubmodules>
-          <useReleaseProfile>false</useReleaseProfile>
-          <releaseProfiles>release</releaseProfiles>
-          <goals>deploy</goals>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-checkstyle-plugin</artifactId>
-        <version>2.17</version>
-        <configuration>
-          <skip>true</skip>
-          <configLocation>quality-checks/google_checks.xml</configLocation>
-          <includeTestSourceDirectory>true</includeTestSourceDirectory>
-          <consoleOutput>true</consoleOutput>
-          <failsOnError>true</failsOnError>
-        </configuration>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>3.2.1</version>
         <executions>
           <execution>
-            <phase>verify</phase>
+            <id>attach-sources</id>
             <goals>
-              <goal>check</goal>
+              <goal>jar-no-fork</goal>
             </goals>
           </execution>
         </executions>
       </plugin>
+<!--      <plugin>-->
+<!--        <groupId>org.apache.maven.plugins</groupId>-->
+<!--        <artifactId>maven-javadoc-plugin</artifactId>-->
+<!--        <version>3.4.1</version>-->
+<!--        <configuration>-->
+<!--          <source>11</source>-->
+<!--        </configuration>-->
+<!--        <executions>-->
+<!--          <execution>-->
+<!--            <id>attach-javadocs</id>-->
+<!--            <goals>-->
+<!--              <goal>jar</goal>-->
+<!--            </goals>-->
+<!--          </execution>-->
+<!--        </executions>-->
+<!--      </plugin>-->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.10.1</version>
+        <configuration>
+          <release>11</release>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-gpg-plugin</artifactId>
+        <version>3.0.1</version>
+        <executions>
+          <execution>
+            <id>sign-artifacts</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>sign</goal>
+            </goals>
+            <configuration>
+              <passphraseServerId>ossez</passphraseServerId>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>default-deploy</id>
+            <phase>deploy</phase>
+            <goals>
+              <goal>deploy</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <!--      <plugin>-->
+      <!--        <groupId>org.sonatype.plugins</groupId>-->
+      <!--        <artifactId>nexus-staging-maven-plugin</artifactId>-->
+      <!--        <version>1.6.3</version>-->
+      <!--        <extensions>true</extensions>-->
+      <!--        <configuration>-->
+      <!--          <serverId>ossrh</serverId>-->
+      <!--          <nexusUrl>https://oss.sonatype.org/</nexusUrl>-->
+      <!--          <autoReleaseAfterClose>true</autoReleaseAfterClose>-->
+      <!--        </configuration>-->
+      <!--      </plugin>-->
+      <!--      <plugin>-->
+      <!--        <groupId>org.apache.maven.plugins</groupId>-->
+      <!--        <artifactId>maven-release-plugin</artifactId>-->
+      <!--        <version>2.5.1</version>-->
+      <!--        <configuration>-->
+      <!--          <autoVersionSubmodules>true</autoVersionSubmodules>-->
+      <!--          <useReleaseProfile>false</useReleaseProfile>-->
+      <!--          <releaseProfiles>release</releaseProfiles>-->
+      <!--          <goals>deploy</goals>-->
+      <!--        </configuration>-->
+      <!--      </plugin>-->
+      <!--      <plugin>-->
+      <!--        <groupId>org.apache.maven.plugins</groupId>-->
+      <!--        <artifactId>maven-checkstyle-plugin</artifactId>-->
+      <!--        <version>2.17</version>-->
+      <!--        <configuration>-->
+      <!--          <skip>true</skip>-->
+      <!--          <configLocation>quality-checks/google_checks.xml</configLocation>-->
+      <!--          <includeTestSourceDirectory>true</includeTestSourceDirectory>-->
+      <!--          <consoleOutput>true</consoleOutput>-->
+      <!--          <failsOnError>true</failsOnError>-->
+      <!--        </configuration>-->
+      <!--        <executions>-->
+      <!--          <execution>-->
+      <!--            <phase>verify</phase>-->
+      <!--            <goals>-->
+      <!--              <goal>check</goal>-->
+      <!--            </goals>-->
+      <!--          </execution>-->
+      <!--        </executions>-->
+      <!--      </plugin>-->
     </plugins>
   </build>
 
