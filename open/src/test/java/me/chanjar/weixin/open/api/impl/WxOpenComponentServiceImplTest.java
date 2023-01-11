@@ -1,7 +1,7 @@
 package me.chanjar.weixin.open.api.impl;
 
 import com.google.inject.Inject;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.ossez.wechat.common.exception.WxErrorException;
 import me.chanjar.weixin.open.api.WxOpenComponentService;
 import me.chanjar.weixin.open.bean.result.WxOpenHaveResult;
 import me.chanjar.weixin.open.bean.result.WxOpenResult;

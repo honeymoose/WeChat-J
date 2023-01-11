@@ -12,7 +12,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import lombok.Getter;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.ossez.wechat.common.exception.WxErrorException;
 import me.chanjar.weixin.open.api.WxOpenComponentService;
 import me.chanjar.weixin.open.api.WxOpenMaBasicService;
 import me.chanjar.weixin.open.api.WxOpenMaPrivacyService;

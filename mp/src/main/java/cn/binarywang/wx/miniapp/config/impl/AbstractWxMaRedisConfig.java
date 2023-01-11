@@ -1,6 +1,6 @@
 package cn.binarywang.wx.miniapp.config.impl;
 
-import me.chanjar.weixin.common.error.WxRuntimeException;
+import com.ossez.wechat.common.exception.WxRuntimeException;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.params.SetParams;
 

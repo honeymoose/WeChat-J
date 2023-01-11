@@ -11,9 +11,9 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import lombok.RequiredArgsConstructor;
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.util.json.GsonHelper;
-import me.chanjar.weixin.common.util.json.GsonParser;
+import com.ossez.wechat.common.exception.WxErrorException;
+import com.ossez.wechat.common.util.json.GsonHelper;
+import com.ossez.wechat.common.util.json.GsonParser;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -21,7 +21,6 @@ import java.util.List;
 import java.util.Map;
 
 import static cn.binarywang.wx.miniapp.constant.WxMaApiUrlConstants.Broadcast.Goods.*;
-import static cn.binarywang.wx.miniapp.constant.WxMaApiUrlConstants.Code.GET_PAGE_URL;
 
 /**
  * <pre>

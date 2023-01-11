@@ -7,7 +7,7 @@ import com.google.gson.JsonObject;
 import me.chanjar.weixin.common.bean.WxJsapiSignature;
 import me.chanjar.weixin.common.bean.WxNetCheckResult;
 import me.chanjar.weixin.common.enums.TicketType;
-import me.chanjar.weixin.common.error.WxErrorException;
+import me.chanjar.weixin.common.exception.WxErrorException;
 import me.chanjar.weixin.common.service.WxService;
 import me.chanjar.weixin.common.util.http.MediaUploadRequestExecutor;
 import me.chanjar.weixin.common.util.http.RequestExecutor;

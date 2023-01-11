@@ -1,6 +1,6 @@
 package me.chanjar.weixin.cp.tp.service;
 
-import me.chanjar.weixin.common.error.WxErrorException;
+import me.chanjar.weixin.common.exception.WxErrorException;
 import me.chanjar.weixin.cp.bean.WxCpBaseResp;
 import me.chanjar.weixin.cp.bean.license.WxCpTpLicenseActiveAccount;
 import me.chanjar.weixin.cp.bean.license.WxCpTpLicenseTransfer;

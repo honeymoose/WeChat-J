@@ -7,7 +7,7 @@ import cn.binarywang.wx.miniapp.bean.shop.response.WxMaShopAddSpuResponse;
 import cn.binarywang.wx.miniapp.bean.shop.response.WxMaShopBaseResponse;
 import cn.binarywang.wx.miniapp.bean.shop.response.WxMaShopGetSpuListResponse;
 import cn.binarywang.wx.miniapp.bean.shop.response.WxMaShopGetSpuResponse;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.ossez.wechat.common.exception.WxErrorException;
 
 /**
  * 小程序交易组件-商品服务

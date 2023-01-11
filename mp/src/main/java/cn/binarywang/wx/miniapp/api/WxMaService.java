@@ -2,13 +2,13 @@ package cn.binarywang.wx.miniapp.api;
 
 import cn.binarywang.wx.miniapp.bean.WxMaJscode2SessionResult;
 import cn.binarywang.wx.miniapp.config.WxMaConfig;
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.service.WxImgProcService;
-import me.chanjar.weixin.common.service.WxOcrService;
-import me.chanjar.weixin.common.service.WxService;
-import me.chanjar.weixin.common.util.http.MediaUploadRequestExecutor;
-import me.chanjar.weixin.common.util.http.RequestExecutor;
-import me.chanjar.weixin.common.util.http.RequestHttp;
+import com.ossez.wechat.common.exception.WxErrorException;
+import com.ossez.wechat.common.service.WxImgProcService;
+import com.ossez.wechat.common.service.WxOcrService;
+import com.ossez.wechat.common.service.WxService;
+import com.ossez.wechat.common.util.http.MediaUploadRequestExecutor;
+import com.ossez.wechat.common.util.http.RequestExecutor;
+import com.ossez.wechat.common.util.http.RequestHttp;
 
 import java.util.Map;
 

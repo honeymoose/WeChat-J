@@ -6,7 +6,7 @@ import cn.binarywang.wx.miniapp.bean.urllink.GenerateUrlLinkRequest;
 import cn.binarywang.wx.miniapp.test.ApiTestModule;
 import com.google.inject.Inject;
 import lombok.extern.slf4j.Slf4j;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.ossez.wechat.common.exception.WxErrorException;
 import org.testng.annotations.Guice;
 import org.testng.annotations.Test;
 

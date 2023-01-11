@@ -2,7 +2,7 @@ package me.chanjar.weixin.open.util.json;
 
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
-import me.chanjar.weixin.common.util.json.GsonHelper;
+import com.ossez.wechat.common.util.json.GsonHelper;
 import me.chanjar.weixin.open.bean.result.WxFastMaAccountBasicInfoResult;
 
 import java.lang.reflect.Type;

@@ -16,8 +16,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import static me.chanjar.weixin.common.api.WxConsts.KefuMsgType.*;
-
 /**
  * 消息.
  *

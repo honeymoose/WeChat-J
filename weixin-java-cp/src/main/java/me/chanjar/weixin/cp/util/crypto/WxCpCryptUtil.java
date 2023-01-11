@@ -1,6 +1,6 @@
 package me.chanjar.weixin.cp.util.crypto;
 
-import me.chanjar.weixin.common.error.WxErrorException;
+import me.chanjar.weixin.common.exception.WxErrorException;
 import me.chanjar.weixin.common.util.crypto.WxCryptUtil;
 import me.chanjar.weixin.cp.config.WxCpConfigStorage;
 import org.apache.commons.lang3.StringUtils;

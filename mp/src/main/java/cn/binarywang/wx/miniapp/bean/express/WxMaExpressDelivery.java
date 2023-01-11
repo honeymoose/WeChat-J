@@ -7,7 +7,7 @@ import com.google.gson.reflect.TypeToken;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import me.chanjar.weixin.common.util.json.GsonParser;
+import com.ossez.wechat.common.util.json.GsonParser;
 
 import java.io.Serializable;
 import java.util.List;

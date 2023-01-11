@@ -1,8 +1,7 @@
 package me.chanjar.weixin.open.api;
 
-import me.chanjar.weixin.common.bean.result.WxMediaUploadResult;
-import me.chanjar.weixin.common.bean.result.WxMinishopImageUploadResult;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.ossez.wechat.common.bean.result.WxMinishopImageUploadResult;
+import com.ossez.wechat.common.exception.WxErrorException;
 
 import java.io.File;
 

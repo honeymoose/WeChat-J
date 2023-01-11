@@ -4,9 +4,9 @@ import cn.binarywang.wx.miniapp.api.WxMaService;
 import cn.binarywang.wx.miniapp.api.WxMaShopImgService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import me.chanjar.weixin.common.bean.result.WxMinishopImageUploadCustomizeResult;
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.util.http.MinishopUploadRequestCustomizeExecutor;
+import com.ossez.wechat.common.bean.result.WxMinishopImageUploadCustomizeResult;
+import com.ossez.wechat.common.exception.WxErrorException;
+import com.ossez.wechat.common.util.http.MinishopUploadRequestCustomizeExecutor;
 
 import java.io.File;
 

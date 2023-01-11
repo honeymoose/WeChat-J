@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import me.chanjar.weixin.common.util.json.WxGsonBuilder;
+import com.ossez.wechat.common.util.json.WxGsonBuilder;
 
 import java.io.Serializable;
 

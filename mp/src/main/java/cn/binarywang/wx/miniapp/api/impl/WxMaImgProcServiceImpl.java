@@ -2,12 +2,12 @@ package cn.binarywang.wx.miniapp.api.impl;
 
 import cn.binarywang.wx.miniapp.api.WxMaService;
 import lombok.RequiredArgsConstructor;
-import me.chanjar.weixin.common.bean.imgproc.WxImgProcAiCropResult;
-import me.chanjar.weixin.common.bean.imgproc.WxImgProcQrCodeResult;
-import me.chanjar.weixin.common.bean.imgproc.WxImgProcSuperResolutionResult;
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.requestexecuter.ocr.OcrDiscernRequestExecutor;
-import me.chanjar.weixin.common.service.WxImgProcService;
+import com.ossez.wechat.common.bean.imgproc.WxImgProcAiCropResult;
+import com.ossez.wechat.common.bean.imgproc.WxImgProcQrCodeResult;
+import com.ossez.wechat.common.bean.imgproc.WxImgProcSuperResolutionResult;
+import com.ossez.wechat.common.exception.WxErrorException;
+import com.ossez.wechat.common.requestexecuter.ocr.OcrDiscernRequestExecutor;
+import com.ossez.wechat.common.service.WxImgProcService;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;

@@ -19,7 +19,7 @@ import cn.binarywang.wx.miniapp.bean.delivery.QueryWaybillTraceRequest;
 import cn.binarywang.wx.miniapp.bean.delivery.QueryWaybillTraceResponse;
 import cn.binarywang.wx.miniapp.bean.delivery.TraceWaybillRequest;
 import cn.binarywang.wx.miniapp.bean.delivery.TraceWaybillResponse;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.ossez.wechat.common.exception.WxErrorException;
 
 /**
  * 微信小程序即时配送服务.

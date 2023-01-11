@@ -9,7 +9,7 @@ import com.google.inject.Module;
 import com.thoughtworks.xstream.XStream;
 
 import lombok.extern.slf4j.Slf4j;
-import me.chanjar.weixin.common.error.WxRuntimeException;
+import me.chanjar.weixin.common.exception.WxRuntimeException;
 import me.chanjar.weixin.common.util.xml.XStreamInitializer;
 import me.chanjar.weixin.qidian.api.WxQidianService;
 import me.chanjar.weixin.qidian.api.impl.WxQidianServiceHttpClientImpl;

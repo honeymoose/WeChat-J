@@ -1,7 +1,7 @@
 package cn.binarywang.wx.miniapp.api;
 
 import cn.binarywang.wx.miniapp.bean.shop.response.WxMaShopCatGetResponse;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.ossez.wechat.common.exception.WxErrorException;
 
 /**
  * 小程序交易组件-接入商品前必需接口

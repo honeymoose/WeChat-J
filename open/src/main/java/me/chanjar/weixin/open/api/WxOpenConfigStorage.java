@@ -1,7 +1,7 @@
 package me.chanjar.weixin.open.api;
 
 import cn.binarywang.wx.miniapp.config.WxMaConfig;
-import me.chanjar.weixin.common.util.http.apache.ApacheHttpClientBuilder;
+import com.ossez.wechat.common.util.http.apache.ApacheHttpClientBuilder;
 import me.chanjar.weixin.mp.config.WxMpConfigStorage;
 import me.chanjar.weixin.open.bean.WxOpenAuthorizerAccessToken;
 import me.chanjar.weixin.open.bean.WxOpenComponentAccessToken;

@@ -2,8 +2,8 @@ package me.chanjar.weixin.mp.api.impl;
 
 import com.google.gson.JsonObject;
 import lombok.RequiredArgsConstructor;
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.util.http.SimplePostRequestExecutor;
+import com.ossez.wechat.common.exception.WxErrorException;
+import com.ossez.wechat.common.util.http.SimplePostRequestExecutor;
 import me.chanjar.weixin.mp.api.WxMpService;
 import me.chanjar.weixin.mp.api.WxMpUserBlacklistService;
 import me.chanjar.weixin.mp.bean.result.WxMpUserBlacklistGetResult;

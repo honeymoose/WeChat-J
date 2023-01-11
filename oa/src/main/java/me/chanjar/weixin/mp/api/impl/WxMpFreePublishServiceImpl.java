@@ -1,9 +1,9 @@
 package me.chanjar.weixin.mp.api.impl;
 
 import lombok.AllArgsConstructor;
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.util.json.GsonHelper;
-import me.chanjar.weixin.common.util.json.GsonParser;
+import com.ossez.wechat.common.exception.WxErrorException;
+import com.ossez.wechat.common.util.json.GsonHelper;
+import com.ossez.wechat.common.util.json.GsonParser;
 import me.chanjar.weixin.mp.api.WxMpFreePublishService;
 import me.chanjar.weixin.mp.api.WxMpService;
 import me.chanjar.weixin.mp.bean.freepublish.WxMpFreePublishInfo;

@@ -9,7 +9,7 @@ import cn.binarywang.wx.miniapp.bean.WxaCodeUnlimit;
 import cn.binarywang.wx.miniapp.executor.QrcodeBytesRequestExecutor;
 import cn.binarywang.wx.miniapp.executor.QrcodeRequestExecutor;
 import lombok.RequiredArgsConstructor;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.ossez.wechat.common.exception.WxErrorException;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;

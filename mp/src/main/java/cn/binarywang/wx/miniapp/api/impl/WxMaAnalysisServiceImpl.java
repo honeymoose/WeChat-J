@@ -7,8 +7,8 @@ import cn.binarywang.wx.miniapp.json.WxMaGsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import lombok.RequiredArgsConstructor;
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.util.json.GsonParser;
+import com.ossez.wechat.common.exception.WxErrorException;
+import com.ossez.wechat.common.util.json.GsonParser;
 import org.apache.commons.lang3.time.DateFormatUtils;
 
 import java.lang.reflect.Type;

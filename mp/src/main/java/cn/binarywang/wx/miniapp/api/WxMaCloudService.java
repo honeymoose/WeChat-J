@@ -3,7 +3,7 @@ package cn.binarywang.wx.miniapp.api;
 import cn.binarywang.wx.miniapp.bean.cloud.*;
 import cn.binarywang.wx.miniapp.bean.cloud.request.WxCloudSendSmsV2Request;
 import com.google.gson.JsonArray;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.ossez.wechat.common.exception.WxErrorException;
 
 import java.util.List;
 import java.util.Map;

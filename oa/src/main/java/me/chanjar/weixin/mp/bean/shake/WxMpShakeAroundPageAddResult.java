@@ -2,7 +2,7 @@ package me.chanjar.weixin.mp.bean.shake;
 
 import com.google.gson.JsonObject;
 import lombok.Data;
-import me.chanjar.weixin.common.util.json.GsonHelper;
+import com.ossez.wechat.common.util.json.GsonHelper;
 import me.chanjar.weixin.mp.util.json.WxMpGsonBuilder;
 
 import java.io.Serializable;

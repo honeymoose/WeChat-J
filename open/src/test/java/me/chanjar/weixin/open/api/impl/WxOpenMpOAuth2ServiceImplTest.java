@@ -1,8 +1,8 @@
 package me.chanjar.weixin.open.api.impl;
 
 import com.google.inject.Inject;
-import me.chanjar.weixin.common.bean.oauth2.WxOAuth2AccessToken;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.ossez.wechat.common.bean.oauth2.WxOAuth2AccessToken;
+import com.ossez.wechat.common.exception.WxErrorException;
 import me.chanjar.weixin.open.api.WxOpenMpService;
 import me.chanjar.weixin.open.test.ApiTestModule;
 import org.testng.annotations.Guice;

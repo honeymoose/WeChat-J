@@ -3,7 +3,7 @@ package me.chanjar.weixin.mp.api.impl;
 import com.google.gson.GsonBuilder;
 import com.google.inject.Inject;
 import lombok.extern.slf4j.Slf4j;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.ossez.wechat.common.exception.WxErrorException;
 import me.chanjar.weixin.mp.api.WxMpService;
 import me.chanjar.weixin.mp.api.test.ApiTestModule;
 import me.chanjar.weixin.mp.bean.invoice.reimburse.*;

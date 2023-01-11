@@ -2,7 +2,7 @@ package me.chanjar.weixin.cp.api.impl;
 
 import com.google.common.collect.Lists;
 import com.google.inject.Inject;
-import me.chanjar.weixin.common.error.WxErrorException;
+import me.chanjar.weixin.common.exception.WxErrorException;
 import me.chanjar.weixin.cp.api.ApiTestModule;
 import me.chanjar.weixin.cp.api.WxCpService;
 import me.chanjar.weixin.cp.bean.WxCpChat;

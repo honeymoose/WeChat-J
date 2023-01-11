@@ -2,10 +2,10 @@ package me.chanjar.weixin.mp.api.impl;
 
 import com.google.gson.reflect.TypeToken;
 import lombok.AllArgsConstructor;
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.util.json.GsonHelper;
-import me.chanjar.weixin.common.util.json.GsonParser;
-import me.chanjar.weixin.common.util.json.WxGsonBuilder;
+import com.ossez.wechat.common.exception.WxErrorException;
+import com.ossez.wechat.common.util.json.GsonHelper;
+import com.ossez.wechat.common.util.json.GsonParser;
+import com.ossez.wechat.common.util.json.WxGsonBuilder;
 import me.chanjar.weixin.mp.api.WxMpGuideMassedJobService;
 import me.chanjar.weixin.mp.api.WxMpService;
 import me.chanjar.weixin.mp.bean.guide.WxMpGuideMassed;

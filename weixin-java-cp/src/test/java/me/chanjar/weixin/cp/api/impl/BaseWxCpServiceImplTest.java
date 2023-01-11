@@ -1,9 +1,9 @@
 package me.chanjar.weixin.cp.api.impl;
 
 import com.google.inject.Inject;
-import me.chanjar.weixin.common.error.WxError;
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.error.WxMpErrorMsgEnum;
+import me.chanjar.weixin.common.exception.WxError;
+import me.chanjar.weixin.common.exception.WxErrorException;
+import me.chanjar.weixin.common.exception.WxMpErrorMsgEnum;
 import me.chanjar.weixin.common.util.http.HttpType;
 import me.chanjar.weixin.common.util.http.RequestExecutor;
 import me.chanjar.weixin.cp.api.ApiTestModule;

@@ -1,6 +1,6 @@
 package cn.binarywang.wx.miniapp.message;
 
-import me.chanjar.weixin.common.api.WxConsts;
+import com.ossez.wechat.common.api.WxConsts;
 import org.testng.annotations.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

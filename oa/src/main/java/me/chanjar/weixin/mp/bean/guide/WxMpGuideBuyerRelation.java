@@ -2,8 +2,8 @@ package me.chanjar.weixin.mp.bean.guide;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;
-import me.chanjar.weixin.common.bean.ToJson;
-import me.chanjar.weixin.common.util.json.WxGsonBuilder;
+import com.ossez.wechat.common.bean.ToJson;
+import com.ossez.wechat.common.util.json.WxGsonBuilder;
 
 import java.io.Serializable;
 

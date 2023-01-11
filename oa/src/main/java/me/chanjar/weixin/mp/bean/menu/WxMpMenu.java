@@ -5,9 +5,9 @@ import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;
-import me.chanjar.weixin.common.bean.menu.WxMenuButton;
-import me.chanjar.weixin.common.bean.menu.WxMenuRule;
-import me.chanjar.weixin.common.util.json.WxGsonBuilder;
+import com.ossez.wechat.common.bean.menu.WxMenuButton;
+import com.ossez.wechat.common.bean.menu.WxMenuRule;
+import com.ossez.wechat.common.util.json.WxGsonBuilder;
 import me.chanjar.weixin.mp.util.json.WxMpGsonBuilder;
 
 /**

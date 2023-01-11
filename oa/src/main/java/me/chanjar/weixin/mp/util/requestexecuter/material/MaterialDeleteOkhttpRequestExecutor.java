@@ -1,13 +1,13 @@
 package me.chanjar.weixin.mp.util.requestexecuter.material;
 
 import com.google.common.collect.ImmutableMap;
-import me.chanjar.weixin.common.enums.WxType;
-import me.chanjar.weixin.common.error.WxError;
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.util.http.RequestHttp;
-import me.chanjar.weixin.common.util.http.ResponseHandler;
-import me.chanjar.weixin.common.util.http.okhttp.OkHttpProxyInfo;
-import me.chanjar.weixin.common.util.json.WxGsonBuilder;
+import com.ossez.wechat.common.enums.WxType;
+import com.ossez.wechat.common.exception.WxError;
+import com.ossez.wechat.common.exception.WxErrorException;
+import com.ossez.wechat.common.util.http.RequestHttp;
+import com.ossez.wechat.common.util.http.ResponseHandler;
+import com.ossez.wechat.common.util.http.okhttp.OkHttpProxyInfo;
+import com.ossez.wechat.common.util.json.WxGsonBuilder;
 import okhttp3.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

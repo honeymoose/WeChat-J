@@ -1,6 +1,6 @@
 package cn.binarywang.wx.miniapp.bean.code;
 
-import me.chanjar.weixin.common.util.json.GsonParser;
+import com.ossez.wechat.common.util.json.GsonParser;
 import org.testng.annotations.Test;
 
 import java.util.Arrays;

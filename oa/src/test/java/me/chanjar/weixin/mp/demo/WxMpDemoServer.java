@@ -1,6 +1,6 @@
 package me.chanjar.weixin.mp.demo;
 
-import me.chanjar.weixin.common.api.WxConsts;
+import com.ossez.wechat.common.api.WxConsts;
 import me.chanjar.weixin.mp.config.WxMpConfigStorage;
 import me.chanjar.weixin.mp.api.WxMpMessageHandler;
 import me.chanjar.weixin.mp.api.WxMpMessageRouter;

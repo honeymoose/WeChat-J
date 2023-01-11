@@ -4,13 +4,12 @@ import jodd.http.HttpConnectionProvider;
 import jodd.http.HttpRequest;
 import jodd.http.HttpResponse;
 import jodd.http.ProxyInfo;
-import jodd.util.StringPool;
 
-import me.chanjar.weixin.common.enums.WxType;
-import me.chanjar.weixin.common.error.WxError;
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.util.http.RequestHttp;
-import me.chanjar.weixin.common.util.json.WxGsonBuilder;
+import com.ossez.wechat.common.enums.WxType;
+import com.ossez.wechat.common.exception.WxError;
+import com.ossez.wechat.common.exception.WxErrorException;
+import com.ossez.wechat.common.util.http.RequestHttp;
+import com.ossez.wechat.common.util.json.WxGsonBuilder;
 import org.apache.commons.io.IOUtils;
 
 import java.io.ByteArrayInputStream;

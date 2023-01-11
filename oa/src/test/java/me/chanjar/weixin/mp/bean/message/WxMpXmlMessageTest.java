@@ -1,6 +1,6 @@
 package me.chanjar.weixin.mp.bean.message;
 
-import me.chanjar.weixin.common.api.WxConsts;
+import com.ossez.wechat.common.api.WxConsts;
 import org.assertj.core.api.Assertions;
 import org.testng.annotations.Test;
 

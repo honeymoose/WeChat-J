@@ -1,7 +1,7 @@
 package me.chanjar.weixin.open.bean.minishop;
 
 import lombok.Data;
-import me.chanjar.weixin.common.error.WxError;
+import com.ossez.wechat.common.exception.WxError;
 
 import java.io.Serializable;
 

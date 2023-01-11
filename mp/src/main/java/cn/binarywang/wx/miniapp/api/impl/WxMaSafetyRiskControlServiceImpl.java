@@ -7,10 +7,10 @@ import cn.binarywang.wx.miniapp.bean.safety.response.WxMaUserSafetyRiskRankRespo
 import cn.binarywang.wx.miniapp.constant.WxMaConstants;
 import com.google.gson.JsonObject;
 import lombok.RequiredArgsConstructor;
-import me.chanjar.weixin.common.enums.WxType;
-import me.chanjar.weixin.common.error.WxError;
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.util.json.GsonParser;
+import com.ossez.wechat.common.enums.WxType;
+import com.ossez.wechat.common.exception.WxError;
+import com.ossez.wechat.common.exception.WxErrorException;
+import com.ossez.wechat.common.util.json.GsonParser;
 
 import static cn.binarywang.wx.miniapp.constant.WxMaApiUrlConstants.InstantDelivery.SafetyRiskControl.GET_USER_RISK_RANK;
 

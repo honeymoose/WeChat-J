@@ -3,7 +3,7 @@ package me.chanjar.weixin.cp.api.impl;
 import com.google.common.collect.ImmutableMap;
 import com.google.gson.JsonObject;
 import lombok.RequiredArgsConstructor;
-import me.chanjar.weixin.common.error.WxErrorException;
+import me.chanjar.weixin.common.exception.WxErrorException;
 import me.chanjar.weixin.cp.api.WxCpMessageService;
 import me.chanjar.weixin.cp.api.WxCpService;
 import me.chanjar.weixin.cp.bean.message.*;

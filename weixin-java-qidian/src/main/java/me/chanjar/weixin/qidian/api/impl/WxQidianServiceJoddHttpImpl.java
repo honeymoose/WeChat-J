@@ -4,8 +4,8 @@ import jodd.http.HttpConnectionProvider;
 import jodd.http.HttpRequest;
 import jodd.http.ProxyInfo;
 import jodd.http.net.SocketHttpConnectionProvider;
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.error.WxRuntimeException;
+import me.chanjar.weixin.common.exception.WxErrorException;
+import me.chanjar.weixin.common.exception.WxRuntimeException;
 import me.chanjar.weixin.common.util.http.HttpType;
 import me.chanjar.weixin.qidian.config.WxQidianConfigStorage;
 

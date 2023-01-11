@@ -2,8 +2,8 @@ package me.chanjar.weixin.mp.config.impl;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import me.chanjar.weixin.common.enums.TicketType;
-import me.chanjar.weixin.common.redis.WxRedisOps;
+import com.ossez.wechat.common.enums.TicketType;
+import com.ossez.wechat.common.redis.WxRedisOps;
 
 import java.util.concurrent.TimeUnit;
 

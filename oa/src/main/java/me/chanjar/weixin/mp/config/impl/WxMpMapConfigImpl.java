@@ -1,7 +1,7 @@
 package me.chanjar.weixin.mp.config.impl;
 
 import lombok.Data;
-import me.chanjar.weixin.common.bean.WxAccessToken;
+import com.ossez.wechat.common.bean.WxAccessToken;
 
 import java.util.concurrent.ConcurrentHashMap;
 

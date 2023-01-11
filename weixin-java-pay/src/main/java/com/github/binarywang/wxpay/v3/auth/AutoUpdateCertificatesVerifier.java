@@ -12,7 +12,7 @@ import com.google.gson.JsonObject;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import me.chanjar.weixin.common.error.WxRuntimeException;
+import me.chanjar.weixin.common.exception.WxRuntimeException;
 import me.chanjar.weixin.common.util.json.GsonParser;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.methods.CloseableHttpResponse;

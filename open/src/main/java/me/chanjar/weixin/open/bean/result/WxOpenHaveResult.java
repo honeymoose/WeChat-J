@@ -3,7 +3,7 @@ package me.chanjar.weixin.open.bean.result;
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import me.chanjar.weixin.common.util.json.WxGsonBuilder;
+import com.ossez.wechat.common.util.json.WxGsonBuilder;
 
 import java.io.Serializable;
 

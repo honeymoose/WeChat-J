@@ -4,7 +4,7 @@ import cn.binarywang.wx.miniapp.bean.shop.request.WxMaShopDeliveryRecieveRequest
 import cn.binarywang.wx.miniapp.bean.shop.request.WxMaShopDeliverySendRequest;
 import cn.binarywang.wx.miniapp.bean.shop.response.WxMaShopBaseResponse;
 import cn.binarywang.wx.miniapp.bean.shop.response.WxMaShopDeliveryGetCompanyListResponse;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.ossez.wechat.common.exception.WxErrorException;
 
 /**
  * 小程序交易组件-物流发货服务

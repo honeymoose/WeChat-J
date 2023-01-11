@@ -1,6 +1,6 @@
 package me.chanjar.weixin.mp.bean.device;
 
-import me.chanjar.weixin.common.util.json.WxGsonBuilder;
+import com.ossez.wechat.common.util.json.WxGsonBuilder;
 
 import java.io.Serializable;
 

@@ -11,9 +11,9 @@ import cn.binarywang.wx.miniapp.util.crypt.WxMaCryptUtils;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import lombok.RequiredArgsConstructor;
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.util.SignUtils;
-import me.chanjar.weixin.common.util.json.GsonParser;
+import com.ossez.wechat.common.exception.WxErrorException;
+import com.ossez.wechat.common.util.SignUtils;
+import com.ossez.wechat.common.util.json.GsonParser;
 import org.apache.commons.codec.digest.DigestUtils;
 
 import java.util.Map;

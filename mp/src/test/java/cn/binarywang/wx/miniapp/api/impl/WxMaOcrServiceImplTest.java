@@ -3,9 +3,9 @@ package cn.binarywang.wx.miniapp.api.impl;
 import cn.binarywang.wx.miniapp.api.WxMaService;
 import cn.binarywang.wx.miniapp.test.ApiTestModule;
 import cn.binarywang.wx.miniapp.test.TestConstants;
-import me.chanjar.weixin.common.bean.ocr.*;
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.util.fs.FileUtils;
+import com.ossez.wechat.common.bean.ocr.*;
+import com.ossez.wechat.common.exception.WxErrorException;
+import com.ossez.wechat.common.util.fs.FileUtils;
 import org.testng.annotations.Guice;
 import org.testng.annotations.Test;
 

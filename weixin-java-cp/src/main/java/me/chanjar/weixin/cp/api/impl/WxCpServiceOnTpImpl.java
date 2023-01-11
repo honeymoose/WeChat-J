@@ -2,7 +2,7 @@ package me.chanjar.weixin.cp.api.impl;
 
 import lombok.RequiredArgsConstructor;
 import me.chanjar.weixin.common.bean.WxAccessToken;
-import me.chanjar.weixin.common.error.WxErrorException;
+import me.chanjar.weixin.common.exception.WxErrorException;
 import me.chanjar.weixin.cp.tp.service.WxCpTpService;
 
 /**

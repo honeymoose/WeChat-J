@@ -18,8 +18,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import static me.chanjar.weixin.common.api.WxConsts.SchoolContactMsgType.*;
-
 /**
  * 发送「学校通知」
  * https://developer.work.weixin.qq.com/document/path/92321

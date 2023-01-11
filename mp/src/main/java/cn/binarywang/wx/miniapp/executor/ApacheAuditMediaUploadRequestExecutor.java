@@ -3,12 +3,12 @@ package cn.binarywang.wx.miniapp.executor;
 import java.io.File;
 import java.io.IOException;
 
-import me.chanjar.weixin.common.enums.WxType;
-import me.chanjar.weixin.common.error.WxError;
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.util.http.RequestHttp;
+import com.ossez.wechat.common.enums.WxType;
+import com.ossez.wechat.common.exception.WxError;
+import com.ossez.wechat.common.exception.WxErrorException;
+import com.ossez.wechat.common.util.http.RequestHttp;
 
-import me.chanjar.weixin.common.util.http.apache.Utf8ResponseHandler;
+import com.ossez.wechat.common.util.http.apache.Utf8ResponseHandler;
 import cn.binarywang.wx.miniapp.bean.WxMaAuditMediaUploadResult;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpHost;

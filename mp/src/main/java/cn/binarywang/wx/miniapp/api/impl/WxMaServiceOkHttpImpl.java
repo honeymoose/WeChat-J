@@ -2,8 +2,8 @@ package cn.binarywang.wx.miniapp.api.impl;
 
 import cn.binarywang.wx.miniapp.api.WxMaService;
 import cn.binarywang.wx.miniapp.config.WxMaConfig;
-import me.chanjar.weixin.common.util.http.HttpType;
-import me.chanjar.weixin.common.util.http.okhttp.OkHttpProxyInfo;
+import com.ossez.wechat.common.util.http.HttpType;
+import com.ossez.wechat.common.util.http.okhttp.OkHttpProxyInfo;
 import okhttp3.*;
 import org.apache.commons.lang3.StringUtils;
 

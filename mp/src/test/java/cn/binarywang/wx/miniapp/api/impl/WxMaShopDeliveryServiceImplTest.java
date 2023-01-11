@@ -7,7 +7,7 @@ import cn.binarywang.wx.miniapp.bean.shop.response.WxMaShopBaseResponse;
 import cn.binarywang.wx.miniapp.bean.shop.response.WxMaShopDeliveryGetCompanyListResponse;
 import cn.binarywang.wx.miniapp.test.ApiTestModule;
 import com.google.inject.Inject;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.ossez.wechat.common.exception.WxErrorException;
 import org.testng.annotations.Guice;
 import org.testng.annotations.Test;
 

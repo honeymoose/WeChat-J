@@ -6,9 +6,9 @@ import cn.binarywang.wx.miniapp.constant.WxMaApiUrlConstants.Broadcast.Role;
 import com.google.common.base.Joiner;
 import com.google.gson.JsonArray;
 import lombok.RequiredArgsConstructor;
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.util.json.GsonHelper;
-import me.chanjar.weixin.common.util.json.GsonParser;
+import com.ossez.wechat.common.exception.WxErrorException;
+import com.ossez.wechat.common.util.json.GsonHelper;
+import com.ossez.wechat.common.util.json.GsonParser;
 
 import java.util.HashMap;
 import java.util.Map;

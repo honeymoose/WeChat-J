@@ -2,7 +2,7 @@ package me.chanjar.weixin.mp.bean.wifi;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;
-import me.chanjar.weixin.common.util.json.GsonParser;
+import com.ossez.wechat.common.util.json.GsonParser;
 import me.chanjar.weixin.mp.util.json.WxMpGsonBuilder;
 
 import java.util.List;

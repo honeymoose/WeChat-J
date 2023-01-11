@@ -8,7 +8,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.reflect.TypeToken;
-import me.chanjar.weixin.common.util.json.GsonHelper;
+import com.ossez.wechat.common.util.json.GsonHelper;
 import me.chanjar.weixin.mp.bean.card.WxMpCard;
 import me.chanjar.weixin.mp.bean.card.WxMpCardResult;
 

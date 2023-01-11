@@ -1,7 +1,7 @@
 package cn.binarywang.wx.miniapp.api;
 
-import me.chanjar.weixin.common.bean.result.WxMinishopImageUploadCustomizeResult;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.ossez.wechat.common.bean.result.WxMinishopImageUploadCustomizeResult;
+import com.ossez.wechat.common.exception.WxErrorException;
 
 import java.io.File;
 

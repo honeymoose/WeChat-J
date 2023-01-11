@@ -5,7 +5,7 @@ import cn.binarywang.wx.miniapp.bean.shop.request.WxMaShopPayOrderRefundRequest;
 import cn.binarywang.wx.miniapp.bean.shop.response.WxMaShopBaseResponse;
 import cn.binarywang.wx.miniapp.bean.shop.response.WxMaShopPayCreateOrderResponse;
 import cn.binarywang.wx.miniapp.bean.shop.response.WxMaShopPayGetOrderResponse;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.ossez.wechat.common.exception.WxErrorException;
 
 /**
  * 小程序支付管理订单相关接口

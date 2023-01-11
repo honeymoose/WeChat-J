@@ -1,11 +1,11 @@
 package cn.binarywang.wx.miniapp.executor;
 
 import cn.binarywang.wx.miniapp.bean.AbstractWxMaQrcodeWrapper;
-import me.chanjar.weixin.common.enums.WxType;
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.util.http.RequestExecutor;
-import me.chanjar.weixin.common.util.http.RequestHttp;
-import me.chanjar.weixin.common.util.http.ResponseHandler;
+import com.ossez.wechat.common.enums.WxType;
+import com.ossez.wechat.common.exception.WxErrorException;
+import com.ossez.wechat.common.util.http.RequestExecutor;
+import com.ossez.wechat.common.util.http.RequestHttp;
+import com.ossez.wechat.common.util.http.ResponseHandler;
 
 import java.io.IOException;
 

@@ -7,7 +7,7 @@ import cn.binarywang.wx.miniapp.test.ApiTestModule;
 import cn.binarywang.wx.miniapp.test.TestConfig;
 import com.google.common.collect.ImmutableMap;
 import com.google.inject.Inject;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.ossez.wechat.common.exception.WxErrorException;
 import org.testng.annotations.Guice;
 import org.testng.annotations.Test;
 

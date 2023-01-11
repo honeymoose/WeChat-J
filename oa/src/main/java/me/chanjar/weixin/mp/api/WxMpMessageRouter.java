@@ -1,16 +1,17 @@
 package me.chanjar.weixin.mp.api;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
+import com.ossez.wechat.common.api.WxMessageInMemoryDuplicateChecker;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import me.chanjar.weixin.common.api.WxErrorExceptionHandler;
-import me.chanjar.weixin.common.api.WxMessageDuplicateChecker;
-import me.chanjar.weixin.common.api.WxMessageInMemoryDuplicateCheckerSingleton;
-import me.chanjar.weixin.common.session.InternalSession;
-import me.chanjar.weixin.common.session.InternalSessionManager;
-import me.chanjar.weixin.common.session.StandardSessionManager;
-import me.chanjar.weixin.common.session.WxSessionManager;
-import me.chanjar.weixin.common.util.LogExceptionHandler;
+import com.ossez.wechat.common.api.WxErrorExceptionHandler;
+import com.ossez.wechat.common.api.WxMessageDuplicateChecker;
+import com.ossez.wechat.common.api.WxMessageInMemoryDuplicateCheckerSingleton;
+import com.ossez.wechat.common.session.InternalSession;
+import com.ossez.wechat.common.session.InternalSessionManager;
+import com.ossez.wechat.common.session.StandardSessionManager;
+import com.ossez.wechat.common.session.WxSessionManager;
+import com.ossez.wechat.common.util.LogExceptionHandler;
 import me.chanjar.weixin.mp.bean.message.WxMpXmlMessage;
 import me.chanjar.weixin.mp.bean.message.WxMpXmlOutMessage;
 import org.apache.commons.lang3.StringUtils;
@@ -122,8 +123,8 @@ public class WxMpMessageRouter {
 
   /**
    * <pre>
-   * 设置自定义的 {@link me.chanjar.weixin.common.api.WxMessageDuplicateChecker}
-   * 如果不调用该方法，默认使用 {@link me.chanjar.weixin.common.api.WxMessageInMemoryDuplicateChecker}
+   * 设置自定义的 {@link WxMessageDuplicateChecker}
+   * 如果不调用该方法，默认使用 {@link WxMessageInMemoryDuplicateChecker}
    * </pre>
    */
   public void setMessageDuplicateChecker(WxMessageDuplicateChecker messageDuplicateChecker) {
@@ -132,8 +133,8 @@ public class WxMpMessageRouter {
 
   /**
    * <pre>
-   * 设置自定义的{@link me.chanjar.weixin.common.session.WxSessionManager}
-   * 如果不调用该方法，默认使用 {@link me.chanjar.weixin.common.session.StandardSessionManager}
+   * 设置自定义的{@link WxSessionManager}
+   * 如果不调用该方法，默认使用 {@link StandardSessionManager}
    * </pre>
    */
   public void setSessionManager(WxSessionManager sessionManager) {
@@ -142,8 +143,8 @@ public class WxMpMessageRouter {
 
   /**
    * <pre>
-   * 设置自定义的{@link me.chanjar.weixin.common.api.WxErrorExceptionHandler}
-   * 如果不调用该方法，默认使用 {@link me.chanjar.weixin.common.util.LogExceptionHandler}
+   * 设置自定义的{@link WxErrorExceptionHandler}
+   * 如果不调用该方法，默认使用 {@link LogExceptionHandler}
    * </pre>
    */
   public void setExceptionHandler(WxErrorExceptionHandler exceptionHandler) {

@@ -1,7 +1,7 @@
 package me.chanjar.weixin.cp.tp.service;
 
 import lombok.NonNull;
-import me.chanjar.weixin.common.error.WxErrorException;
+import me.chanjar.weixin.common.exception.WxErrorException;
 import me.chanjar.weixin.cp.bean.oa.WxCpApprovalDetailResult;
 import me.chanjar.weixin.cp.bean.oa.WxCpOaApplyEventRequest;
 import me.chanjar.weixin.cp.bean.oa.WxCpOaApprovalTemplateResult;

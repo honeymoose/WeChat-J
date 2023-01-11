@@ -1,13 +1,13 @@
 package me.chanjar.weixin.mp.api.impl;
 
 import lombok.RequiredArgsConstructor;
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.service.WxImgProcService;
+import com.ossez.wechat.common.exception.WxErrorException;
+import com.ossez.wechat.common.service.WxImgProcService;
 import me.chanjar.weixin.mp.api.WxMpService;
-import me.chanjar.weixin.common.bean.imgproc.WxImgProcAiCropResult;
-import me.chanjar.weixin.common.bean.imgproc.WxImgProcQrCodeResult;
-import me.chanjar.weixin.common.bean.imgproc.WxImgProcSuperResolutionResult;
-import me.chanjar.weixin.common.requestexecuter.ocr.OcrDiscernRequestExecutor;
+import com.ossez.wechat.common.bean.imgproc.WxImgProcAiCropResult;
+import com.ossez.wechat.common.bean.imgproc.WxImgProcQrCodeResult;
+import com.ossez.wechat.common.bean.imgproc.WxImgProcSuperResolutionResult;
+import com.ossez.wechat.common.requestexecuter.ocr.OcrDiscernRequestExecutor;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;

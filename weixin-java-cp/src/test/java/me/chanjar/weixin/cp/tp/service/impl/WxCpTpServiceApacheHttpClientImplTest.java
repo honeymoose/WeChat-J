@@ -1,7 +1,7 @@
 package me.chanjar.weixin.cp.tp.service.impl;
 
 import me.chanjar.weixin.common.bean.WxAccessToken;
-import me.chanjar.weixin.common.error.WxErrorException;
+import me.chanjar.weixin.common.exception.WxErrorException;
 import me.chanjar.weixin.common.redis.RedissonWxRedisOps;
 import me.chanjar.weixin.cp.bean.WxCpProviderToken;
 import me.chanjar.weixin.cp.bean.WxCpTpCorpId2OpenCorpId;

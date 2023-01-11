@@ -5,7 +5,7 @@ import cn.binarywang.wx.miniapp.api.WxMaSettingService;
 import cn.binarywang.wx.miniapp.bean.WxMaDomainAction;
 import cn.binarywang.wx.miniapp.json.WxMaGsonBuilder;
 import lombok.RequiredArgsConstructor;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.ossez.wechat.common.exception.WxErrorException;
 
 import java.util.HashMap;
 import java.util.Map;

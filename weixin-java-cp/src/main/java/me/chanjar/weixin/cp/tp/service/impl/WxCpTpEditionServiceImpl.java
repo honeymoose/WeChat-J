@@ -2,7 +2,7 @@ package me.chanjar.weixin.cp.tp.service.impl;
 
 import com.google.gson.JsonObject;
 import lombok.RequiredArgsConstructor;
-import me.chanjar.weixin.common.error.WxErrorException;
+import me.chanjar.weixin.common.exception.WxErrorException;
 import me.chanjar.weixin.cp.bean.WxCpTpProlongTryResult;
 import me.chanjar.weixin.cp.tp.service.WxCpTpEditionService;
 import me.chanjar.weixin.cp.tp.service.WxCpTpService;

@@ -7,7 +7,7 @@ import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
-import me.chanjar.weixin.common.util.json.GsonHelper;
+import com.ossez.wechat.common.util.json.GsonHelper;
 import me.chanjar.weixin.mp.bean.result.WxMpUser;
 
 public class WxMpUserGsonAdapter implements JsonDeserializer<WxMpUser> {

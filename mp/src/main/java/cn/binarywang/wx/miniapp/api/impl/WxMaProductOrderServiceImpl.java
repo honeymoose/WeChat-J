@@ -21,10 +21,10 @@ import cn.binarywang.wx.miniapp.json.WxMaGsonBuilder;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import me.chanjar.weixin.common.error.WxError;
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.util.json.GsonHelper;
-import me.chanjar.weixin.common.util.json.WxGsonBuilder;
+import com.ossez.wechat.common.exception.WxError;
+import com.ossez.wechat.common.exception.WxErrorException;
+import com.ossez.wechat.common.util.json.GsonHelper;
+import com.ossez.wechat.common.util.json.WxGsonBuilder;
 
 /**
  * 小程序交易组件-标准版-订单服务

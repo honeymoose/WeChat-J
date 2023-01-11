@@ -1,7 +1,7 @@
 package me.chanjar.weixin.cp.api;
 
 import lombok.extern.slf4j.Slf4j;
-import me.chanjar.weixin.common.error.WxErrorException;
+import me.chanjar.weixin.common.exception.WxErrorException;
 import me.chanjar.weixin.cp.api.impl.WxCpServiceImpl;
 import me.chanjar.weixin.cp.bean.school.health.WxCpGetHealthReportStat;
 import me.chanjar.weixin.cp.bean.school.health.WxCpGetReportAnswer;

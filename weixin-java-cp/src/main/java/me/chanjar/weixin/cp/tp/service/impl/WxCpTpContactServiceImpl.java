@@ -1,7 +1,7 @@
 package me.chanjar.weixin.cp.tp.service.impl;
 
 import lombok.RequiredArgsConstructor;
-import me.chanjar.weixin.common.error.WxErrorException;
+import me.chanjar.weixin.common.exception.WxErrorException;
 import me.chanjar.weixin.cp.bean.WxCpTpContactSearch;
 import me.chanjar.weixin.cp.bean.WxCpTpContactSearchResp;
 import me.chanjar.weixin.cp.tp.service.WxCpTpContactService;

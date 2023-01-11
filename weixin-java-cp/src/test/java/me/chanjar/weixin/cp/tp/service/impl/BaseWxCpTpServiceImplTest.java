@@ -1,7 +1,7 @@
 package me.chanjar.weixin.cp.tp.service.impl;
 
 import com.google.gson.JsonObject;
-import me.chanjar.weixin.common.error.WxErrorException;
+import me.chanjar.weixin.common.exception.WxErrorException;
 import me.chanjar.weixin.common.redis.RedissonWxRedisOps;
 import me.chanjar.weixin.cp.bean.WxCpTpAuthInfo;
 import me.chanjar.weixin.cp.bean.WxCpTpCorp;

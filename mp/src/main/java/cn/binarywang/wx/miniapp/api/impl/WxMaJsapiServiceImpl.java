@@ -4,11 +4,11 @@ import cn.binarywang.wx.miniapp.api.WxMaJsapiService;
 import cn.binarywang.wx.miniapp.api.WxMaService;
 import com.google.gson.JsonObject;
 import lombok.RequiredArgsConstructor;
-import me.chanjar.weixin.common.bean.WxJsapiSignature;
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.util.RandomUtils;
-import me.chanjar.weixin.common.util.crypto.SHA1;
-import me.chanjar.weixin.common.util.json.GsonParser;
+import com.ossez.wechat.common.bean.WxJsapiSignature;
+import com.ossez.wechat.common.exception.WxErrorException;
+import com.ossez.wechat.common.util.RandomUtils;
+import com.ossez.wechat.common.util.crypto.SHA1;
+import com.ossez.wechat.common.util.json.GsonParser;
 
 import java.util.concurrent.locks.Lock;
 

@@ -1,7 +1,7 @@
 package me.chanjar.weixin.mp.api;
 
 import com.google.inject.Inject;
-import me.chanjar.weixin.common.util.crypto.SHA1;
+import com.ossez.wechat.common.util.crypto.SHA1;
 import me.chanjar.weixin.mp.api.test.ApiTestModule;
 import org.testng.Assert;
 import org.testng.annotations.Guice;

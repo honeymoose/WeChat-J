@@ -3,12 +3,11 @@ package me.chanjar.weixin.mp.util.requestexecuter.media;
 import java.io.File;
 import java.io.IOException;
 
-import me.chanjar.weixin.common.enums.WxType;
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.util.http.HttpType;
-import me.chanjar.weixin.common.util.http.RequestExecutor;
-import me.chanjar.weixin.common.util.http.RequestHttp;
-import me.chanjar.weixin.common.util.http.ResponseHandler;
+import com.ossez.wechat.common.enums.WxType;
+import com.ossez.wechat.common.exception.WxErrorException;
+import com.ossez.wechat.common.util.http.RequestExecutor;
+import com.ossez.wechat.common.util.http.RequestHttp;
+import com.ossez.wechat.common.util.http.ResponseHandler;
 import me.chanjar.weixin.mp.bean.material.WxMediaImgUploadResult;
 
 /**

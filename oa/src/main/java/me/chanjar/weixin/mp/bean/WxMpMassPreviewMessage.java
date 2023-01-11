@@ -1,7 +1,7 @@
 package me.chanjar.weixin.mp.bean;
 
 import lombok.Data;
-import me.chanjar.weixin.common.api.WxConsts;
+import com.ossez.wechat.common.api.WxConsts;
 import me.chanjar.weixin.mp.util.json.WxMpGsonBuilder;
 
 import java.io.Serializable;

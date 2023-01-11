@@ -1,9 +1,9 @@
 package me.chanjar.weixin.open.api;
 
 import cn.binarywang.wx.miniapp.bean.WxMaJscode2SessionResult;
-import me.chanjar.weixin.common.bean.oauth2.WxOAuth2AccessToken;
-import me.chanjar.weixin.common.bean.result.WxMinishopImageUploadResult;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.ossez.wechat.common.bean.oauth2.WxOAuth2AccessToken;
+import com.ossez.wechat.common.bean.result.WxMinishopImageUploadResult;
+import com.ossez.wechat.common.exception.WxErrorException;
 import me.chanjar.weixin.mp.api.WxMpService;
 import me.chanjar.weixin.open.bean.WxOpenCreateResult;
 import me.chanjar.weixin.open.bean.WxOpenGetResult;

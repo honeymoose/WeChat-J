@@ -1,7 +1,7 @@
 package cn.binarywang.wx.miniapp.api;
 
 import com.google.gson.JsonArray;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.ossez.wechat.common.exception.WxErrorException;
 
 
 /**

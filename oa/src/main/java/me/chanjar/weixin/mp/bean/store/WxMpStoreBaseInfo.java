@@ -9,7 +9,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.annotations.SerializedName;
 import lombok.Builder;
 import lombok.Data;
-import me.chanjar.weixin.common.annotation.Required;
+import com.ossez.wechat.common.annotation.Required;
 import me.chanjar.weixin.mp.util.json.WxMpGsonBuilder;
 
 /**

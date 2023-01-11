@@ -1,6 +1,6 @@
 package me.chanjar.weixin.mp.api;
 
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.ossez.wechat.common.exception.WxErrorException;
 import me.chanjar.weixin.mp.bean.freepublish.WxMpFreePublishInfo;
 import me.chanjar.weixin.mp.bean.freepublish.WxMpFreePublishList;
 import me.chanjar.weixin.mp.bean.freepublish.WxMpFreePublishStatus;

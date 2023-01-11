@@ -1,17 +1,15 @@
 package me.chanjar.weixin.open.api.impl;
 
 import lombok.extern.slf4j.Slf4j;
-import me.chanjar.weixin.common.enums.WxType;
-import me.chanjar.weixin.common.error.WxError;
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.error.WxRuntimeException;
-import me.chanjar.weixin.common.util.http.RequestExecutor;
-import me.chanjar.weixin.common.util.http.RequestHttp;
+import com.ossez.wechat.common.enums.WxType;
+import com.ossez.wechat.common.exception.WxError;
+import com.ossez.wechat.common.exception.WxErrorException;
+import com.ossez.wechat.common.exception.WxRuntimeException;
+import com.ossez.wechat.common.util.http.RequestExecutor;
+import com.ossez.wechat.common.util.http.RequestHttp;
 import me.chanjar.weixin.open.api.WxOpenComponentService;
 import me.chanjar.weixin.open.api.WxOpenConfigStorage;
 import me.chanjar.weixin.open.api.WxOpenService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 

@@ -1,7 +1,7 @@
 package cn.binarywang.wx.miniapp.api;
 
-import me.chanjar.weixin.common.bean.WxJsapiSignature;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.ossez.wechat.common.bean.WxJsapiSignature;
+import com.ossez.wechat.common.exception.WxErrorException;
 
 /**
  * <pre>

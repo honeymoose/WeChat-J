@@ -1,9 +1,9 @@
 package cn.binarywang.wx.miniapp.config.impl;
 
 import lombok.NonNull;
-import me.chanjar.weixin.common.bean.WxAccessToken;
-import me.chanjar.weixin.common.redis.RedissonWxRedisOps;
-import me.chanjar.weixin.common.redis.WxRedisOps;
+import com.ossez.wechat.common.bean.WxAccessToken;
+import com.ossez.wechat.common.redis.RedissonWxRedisOps;
+import com.ossez.wechat.common.redis.WxRedisOps;
 import org.apache.commons.lang3.StringUtils;
 import org.redisson.api.RedissonClient;
 

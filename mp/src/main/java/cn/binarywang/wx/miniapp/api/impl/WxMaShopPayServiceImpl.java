@@ -10,9 +10,9 @@ import cn.binarywang.wx.miniapp.bean.shop.response.WxMaShopPayGetOrderResponse;
 import com.google.gson.JsonObject;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.util.json.GsonHelper;
-import me.chanjar.weixin.common.util.json.WxGsonBuilder;
+import com.ossez.wechat.common.exception.WxErrorException;
+import com.ossez.wechat.common.util.json.GsonHelper;
+import com.ossez.wechat.common.util.json.WxGsonBuilder;
 
 import static cn.binarywang.wx.miniapp.constant.WxMaApiUrlConstants.Shop.Pay.*;
 

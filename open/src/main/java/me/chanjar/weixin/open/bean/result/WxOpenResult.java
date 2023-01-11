@@ -1,7 +1,7 @@
 package me.chanjar.weixin.open.bean.result;
 
 import lombok.Data;
-import me.chanjar.weixin.common.util.json.WxGsonBuilder;
+import com.ossez.wechat.common.util.json.WxGsonBuilder;
 import me.chanjar.weixin.open.util.json.WxOpenGsonBuilder;
 import org.apache.commons.lang3.StringUtils;
 

@@ -2,7 +2,7 @@ package me.chanjar.weixin.qidian.api.impl;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import me.chanjar.weixin.common.error.WxErrorException;
+import me.chanjar.weixin.common.exception.WxErrorException;
 import me.chanjar.weixin.qidian.api.WxQidianDialService;
 import me.chanjar.weixin.qidian.api.WxQidianService;
 import me.chanjar.weixin.qidian.bean.dial.IVRDialRequest;

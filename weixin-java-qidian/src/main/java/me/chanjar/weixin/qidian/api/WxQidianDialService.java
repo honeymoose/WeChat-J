@@ -1,6 +1,6 @@
 package me.chanjar.weixin.qidian.api;
 
-import me.chanjar.weixin.common.error.WxErrorException;
+import me.chanjar.weixin.common.exception.WxErrorException;
 import me.chanjar.weixin.qidian.bean.dial.IVRDialRequest;
 import me.chanjar.weixin.qidian.bean.dial.IVRDialResponse;
 import me.chanjar.weixin.qidian.bean.dial.IVRListResponse;

@@ -1,10 +1,10 @@
 package me.chanjar.weixin.mp.api;
 
-import me.chanjar.weixin.common.bean.subscribemsg.CategoryData;
-import me.chanjar.weixin.common.bean.subscribemsg.PubTemplateKeyword;
-import me.chanjar.weixin.common.bean.subscribemsg.PubTemplateTitleListResult;
-import me.chanjar.weixin.common.bean.subscribemsg.TemplateInfo;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.ossez.wechat.common.bean.subscribemsg.CategoryData;
+import com.ossez.wechat.common.bean.subscribemsg.PubTemplateKeyword;
+import com.ossez.wechat.common.bean.subscribemsg.PubTemplateTitleListResult;
+import com.ossez.wechat.common.bean.subscribemsg.TemplateInfo;
+import com.ossez.wechat.common.exception.WxErrorException;
 import me.chanjar.weixin.mp.bean.subscribe.WxMpSubscribeMessage;
 
 import java.util.List;

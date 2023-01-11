@@ -1,9 +1,9 @@
 package me.chanjar.weixin.mp.api;
 
 import lombok.extern.slf4j.Slf4j;
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.error.WxRuntimeException;
-import me.chanjar.weixin.common.util.http.RequestExecutor;
+import com.ossez.wechat.common.exception.WxErrorException;
+import com.ossez.wechat.common.exception.WxRuntimeException;
+import com.ossez.wechat.common.util.http.RequestExecutor;
 import me.chanjar.weixin.mp.api.impl.WxMpServiceHttpClientImpl;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;

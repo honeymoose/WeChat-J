@@ -10,7 +10,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
-import me.chanjar.weixin.common.util.xml.XStreamCDataConverter;
+import com.ossez.wechat.common.util.xml.XStreamCDataConverter;
 
 import java.io.Serializable;
 

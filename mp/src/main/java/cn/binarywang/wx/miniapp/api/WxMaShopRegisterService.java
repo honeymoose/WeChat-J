@@ -4,7 +4,7 @@ import cn.binarywang.wx.miniapp.bean.shop.request.WxMaShopRegisterApplySceneRequ
 import cn.binarywang.wx.miniapp.bean.shop.request.WxMaShopRegisterFinishAccessInfoRequest;
 import cn.binarywang.wx.miniapp.bean.shop.response.WxMaShopBaseResponse;
 import cn.binarywang.wx.miniapp.bean.shop.response.WxMaShopRegisterCheckResponse;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.ossez.wechat.common.exception.WxErrorException;
 
 /**
  * 小程序交易组件-申请接入服务

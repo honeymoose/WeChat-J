@@ -3,7 +3,7 @@ package cn.binarywang.wx.miniapp.test;
 import cn.binarywang.wx.miniapp.config.impl.WxMaDefaultConfigImpl;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
-import me.chanjar.weixin.common.util.xml.XStreamInitializer;
+import com.ossez.wechat.common.util.xml.XStreamInitializer;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import java.io.InputStream;

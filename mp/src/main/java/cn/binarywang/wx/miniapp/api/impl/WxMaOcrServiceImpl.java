@@ -1,11 +1,11 @@
 package cn.binarywang.wx.miniapp.api.impl;
 
 import cn.binarywang.wx.miniapp.api.WxMaService;
+import com.ossez.wechat.common.bean.ocr.*;
 import lombok.RequiredArgsConstructor;
-import me.chanjar.weixin.common.bean.ocr.*;
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.requestexecuter.ocr.OcrDiscernRequestExecutor;
-import me.chanjar.weixin.common.service.WxOcrService;
+import com.ossez.wechat.common.exception.WxErrorException;
+import com.ossez.wechat.common.requestexecuter.ocr.OcrDiscernRequestExecutor;
+import com.ossez.wechat.common.service.WxOcrService;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;

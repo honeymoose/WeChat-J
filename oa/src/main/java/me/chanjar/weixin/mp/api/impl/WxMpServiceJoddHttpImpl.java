@@ -4,9 +4,9 @@ import jodd.http.HttpConnectionProvider;
 import jodd.http.HttpRequest;
 import jodd.http.ProxyInfo;
 import jodd.http.net.SocketHttpConnectionProvider;
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.error.WxRuntimeException;
-import me.chanjar.weixin.common.util.http.HttpType;
+import com.ossez.wechat.common.exception.WxErrorException;
+import com.ossez.wechat.common.exception.WxRuntimeException;
+import com.ossez.wechat.common.util.http.HttpType;
 import me.chanjar.weixin.mp.config.WxMpConfigStorage;
 
 import java.util.concurrent.TimeUnit;

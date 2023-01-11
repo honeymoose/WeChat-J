@@ -9,7 +9,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Ordering;
 import com.google.gson.JsonArray;
 import com.google.inject.Inject;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.ossez.wechat.common.exception.WxErrorException;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Guice;
 import org.testng.annotations.Test;

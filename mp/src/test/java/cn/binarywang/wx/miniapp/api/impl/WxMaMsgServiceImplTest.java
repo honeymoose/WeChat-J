@@ -10,7 +10,7 @@ import cn.binarywang.wx.miniapp.test.TestConfig;
 import com.google.common.collect.Lists;
 import com.google.gson.JsonObject;
 import com.google.inject.Inject;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.ossez.wechat.common.exception.WxErrorException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

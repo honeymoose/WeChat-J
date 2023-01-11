@@ -7,7 +7,7 @@ import cn.binarywang.wx.miniapp.bean.shop.response.WxMaShopSharerListResponse;
 import cn.binarywang.wx.miniapp.bean.shop.response.WxMaShopSharerLiveOrderListResponse;
 import cn.binarywang.wx.miniapp.bean.shop.response.WxMaShopSharerLiveSummaryListResponse;
 import cn.binarywang.wx.miniapp.bean.shop.response.WxMaShopSharerUnbindResponse;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.ossez.wechat.common.exception.WxErrorException;
 
 /**
  * 分享员

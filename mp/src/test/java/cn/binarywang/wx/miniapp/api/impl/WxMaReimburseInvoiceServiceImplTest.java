@@ -6,14 +6,12 @@ import cn.binarywang.wx.miniapp.test.ApiTestModule;
 import com.google.gson.GsonBuilder;
 import com.google.inject.Inject;
 import lombok.extern.slf4j.Slf4j;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.ossez.wechat.common.exception.WxErrorException;
 import org.testng.annotations.Guice;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.testng.Assert.*;
 
 @Slf4j
 @Test

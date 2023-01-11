@@ -9,7 +9,7 @@ import cn.binarywang.wx.miniapp.constant.WxMaConstants;
 import cn.binarywang.wx.miniapp.test.ApiTestModule;
 import cn.binarywang.wx.miniapp.json.WxMaGsonBuilder;
 import com.google.inject.Inject;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.ossez.wechat.common.exception.WxErrorException;
 import org.apache.commons.lang3.StringUtils;
 import org.testng.annotations.Guice;
 import org.testng.annotations.Test;

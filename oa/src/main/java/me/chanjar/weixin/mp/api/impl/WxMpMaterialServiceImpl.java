@@ -1,15 +1,15 @@
 package me.chanjar.weixin.mp.api.impl;
 
 import lombok.RequiredArgsConstructor;
-import me.chanjar.weixin.common.enums.WxType;
-import me.chanjar.weixin.common.api.WxConsts;
-import me.chanjar.weixin.common.bean.result.WxMediaUploadResult;
-import me.chanjar.weixin.common.error.WxError;
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.util.fs.FileUtils;
-import me.chanjar.weixin.common.util.http.BaseMediaDownloadRequestExecutor;
-import me.chanjar.weixin.common.util.http.MediaUploadRequestExecutor;
-import me.chanjar.weixin.common.util.json.WxGsonBuilder;
+import com.ossez.wechat.common.enums.WxType;
+import com.ossez.wechat.common.api.WxConsts;
+import com.ossez.wechat.common.bean.result.WxMediaUploadResult;
+import com.ossez.wechat.common.exception.WxError;
+import com.ossez.wechat.common.exception.WxErrorException;
+import com.ossez.wechat.common.util.fs.FileUtils;
+import com.ossez.wechat.common.util.http.BaseMediaDownloadRequestExecutor;
+import com.ossez.wechat.common.util.http.MediaUploadRequestExecutor;
+import com.ossez.wechat.common.util.json.WxGsonBuilder;
 import me.chanjar.weixin.mp.api.WxMpMaterialService;
 import me.chanjar.weixin.mp.api.WxMpService;
 import me.chanjar.weixin.mp.bean.material.*;

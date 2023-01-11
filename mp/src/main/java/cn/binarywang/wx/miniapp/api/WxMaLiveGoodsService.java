@@ -2,7 +2,7 @@ package cn.binarywang.wx.miniapp.api;
 
 import cn.binarywang.wx.miniapp.bean.live.WxMaLiveGoodInfo;
 import cn.binarywang.wx.miniapp.bean.live.WxMaLiveResult;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.ossez.wechat.common.exception.WxErrorException;
 
 import java.util.List;
 

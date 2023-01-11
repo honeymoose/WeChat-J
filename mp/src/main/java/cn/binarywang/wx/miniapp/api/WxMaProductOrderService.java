@@ -7,7 +7,7 @@ import cn.binarywang.wx.miniapp.bean.product.WxMinishopOrderDetailResponse;
 import cn.binarywang.wx.miniapp.bean.product.WxMinishopOrderListResponse;
 import cn.binarywang.wx.miniapp.bean.shop.response.WxMaShopBaseResponse;
 import java.util.List;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.ossez.wechat.common.exception.WxErrorException;
 
 /**
  * 小程序交易组件-标准版-商品服务

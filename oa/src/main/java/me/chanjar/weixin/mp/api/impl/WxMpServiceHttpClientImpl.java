@@ -1,10 +1,10 @@
 package me.chanjar.weixin.mp.api.impl;
 
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.error.WxRuntimeException;
-import me.chanjar.weixin.common.util.http.HttpType;
-import me.chanjar.weixin.common.util.http.apache.ApacheHttpClientBuilder;
-import me.chanjar.weixin.common.util.http.apache.DefaultApacheHttpClientBuilder;
+import com.ossez.wechat.common.exception.WxErrorException;
+import com.ossez.wechat.common.exception.WxRuntimeException;
+import com.ossez.wechat.common.util.http.HttpType;
+import com.ossez.wechat.common.util.http.apache.ApacheHttpClientBuilder;
+import com.ossez.wechat.common.util.http.apache.DefaultApacheHttpClientBuilder;
 import me.chanjar.weixin.mp.config.WxMpConfigStorage;
 import org.apache.http.HttpHost;
 import org.apache.http.client.config.RequestConfig;

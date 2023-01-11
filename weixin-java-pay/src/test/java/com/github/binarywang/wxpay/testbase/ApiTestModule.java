@@ -6,7 +6,7 @@ import com.github.binarywang.wxpay.service.impl.WxPayServiceImpl;
 import com.google.inject.Binder;
 import com.google.inject.Module;
 import com.thoughtworks.xstream.XStream;
-import me.chanjar.weixin.common.error.WxRuntimeException;
+import me.chanjar.weixin.common.exception.WxRuntimeException;
 import me.chanjar.weixin.common.util.xml.XStreamInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

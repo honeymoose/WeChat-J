@@ -1,9 +1,9 @@
 package me.chanjar.weixin.mp.api.impl;
 
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.error.WxRuntimeException;
-import me.chanjar.weixin.common.util.http.HttpType;
-import me.chanjar.weixin.common.util.http.okhttp.OkHttpProxyInfo;
+import com.ossez.wechat.common.exception.WxErrorException;
+import com.ossez.wechat.common.exception.WxRuntimeException;
+import com.ossez.wechat.common.util.http.HttpType;
+import com.ossez.wechat.common.util.http.okhttp.OkHttpProxyInfo;
 import me.chanjar.weixin.mp.config.WxMpConfigStorage;
 import okhttp3.*;
 

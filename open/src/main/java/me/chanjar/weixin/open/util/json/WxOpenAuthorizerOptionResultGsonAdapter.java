@@ -1,7 +1,7 @@
 package me.chanjar.weixin.open.util.json;
 
 import com.google.gson.*;
-import me.chanjar.weixin.common.util.json.GsonHelper;
+import com.ossez.wechat.common.util.json.GsonHelper;
 import me.chanjar.weixin.open.bean.result.WxOpenAuthorizerOptionResult;
 
 import java.lang.reflect.Type;

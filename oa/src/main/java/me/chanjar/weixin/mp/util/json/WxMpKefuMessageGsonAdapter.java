@@ -1,8 +1,8 @@
 package me.chanjar.weixin.mp.util.json;
 
 import com.google.gson.*;
-import me.chanjar.weixin.common.api.WxConsts.KefuMsgType;
-import me.chanjar.weixin.common.error.WxRuntimeException;
+import com.ossez.wechat.common.api.WxConsts.KefuMsgType;
+import com.ossez.wechat.common.exception.WxRuntimeException;
 import me.chanjar.weixin.mp.bean.kefu.WxMpKefuMessage;
 import org.apache.commons.lang3.StringUtils;
 

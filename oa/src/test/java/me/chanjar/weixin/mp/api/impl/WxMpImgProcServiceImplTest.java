@@ -1,14 +1,14 @@
 package me.chanjar.weixin.mp.api.impl;
 
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.util.fs.FileUtils;
-import me.chanjar.weixin.common.service.WxImgProcService;
+import com.ossez.wechat.common.exception.WxErrorException;
+import com.ossez.wechat.common.util.fs.FileUtils;
+import com.ossez.wechat.common.service.WxImgProcService;
 import me.chanjar.weixin.mp.api.WxMpService;
 import me.chanjar.weixin.mp.api.test.ApiTestModule;
 import me.chanjar.weixin.mp.api.test.TestConstants;
-import me.chanjar.weixin.common.bean.imgproc.WxImgProcAiCropResult;
-import me.chanjar.weixin.common.bean.imgproc.WxImgProcQrCodeResult;
-import me.chanjar.weixin.common.bean.imgproc.WxImgProcSuperResolutionResult;
+import com.ossez.wechat.common.bean.imgproc.WxImgProcAiCropResult;
+import com.ossez.wechat.common.bean.imgproc.WxImgProcQrCodeResult;
+import com.ossez.wechat.common.bean.imgproc.WxImgProcSuperResolutionResult;
 import org.assertj.core.api.Assertions;
 import org.mockito.Matchers;
 import org.mockito.Mockito;

@@ -1,16 +1,16 @@
 package me.chanjar.weixin.mp.api.impl;
 
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.util.fs.FileUtils;
+import com.ossez.wechat.common.exception.WxErrorException;
+import com.ossez.wechat.common.util.fs.FileUtils;
 import me.chanjar.weixin.mp.api.WxMpService;
 import me.chanjar.weixin.mp.api.test.ApiTestModule;
 import me.chanjar.weixin.mp.api.test.TestConstants;
-import me.chanjar.weixin.common.bean.ocr.WxOcrBankCardResult;
-import me.chanjar.weixin.common.bean.ocr.WxOcrBizLicenseResult;
-import me.chanjar.weixin.common.bean.ocr.WxOcrCommResult;
-import me.chanjar.weixin.common.bean.ocr.WxOcrDrivingLicenseResult;
-import me.chanjar.weixin.common.bean.ocr.WxOcrDrivingResult;
-import me.chanjar.weixin.common.bean.ocr.WxOcrIdCardResult;
+import com.ossez.wechat.common.bean.ocr.WxOcrBankCardResult;
+import com.ossez.wechat.common.bean.ocr.WxOcrBizLicenseResult;
+import com.ossez.wechat.common.bean.ocr.WxOcrCommResult;
+import com.ossez.wechat.common.bean.ocr.WxOcrDrivingLicenseResult;
+import com.ossez.wechat.common.bean.ocr.WxOcrDrivingResult;
+import com.ossez.wechat.common.bean.ocr.WxOcrIdCardResult;
 import org.assertj.core.api.Assertions;
 import org.mockito.Matchers;
 import org.mockito.Mockito;

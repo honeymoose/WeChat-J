@@ -1,14 +1,14 @@
 package me.chanjar.weixin.open.api.impl;
 
 import lombok.AllArgsConstructor;
-import me.chanjar.weixin.common.bean.WxOAuth2UserInfo;
-import me.chanjar.weixin.common.bean.oauth2.WxOAuth2AccessToken;
-import me.chanjar.weixin.common.enums.WxType;
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.error.WxRuntimeException;
-import me.chanjar.weixin.common.service.WxOAuth2Service;
-import me.chanjar.weixin.common.util.http.SimpleGetRequestExecutor;
-import me.chanjar.weixin.common.util.http.URIUtil;
+import com.ossez.wechat.common.bean.WxOAuth2UserInfo;
+import com.ossez.wechat.common.bean.oauth2.WxOAuth2AccessToken;
+import com.ossez.wechat.common.enums.WxType;
+import com.ossez.wechat.common.exception.WxErrorException;
+import com.ossez.wechat.common.exception.WxRuntimeException;
+import com.ossez.wechat.common.service.WxOAuth2Service;
+import com.ossez.wechat.common.util.http.SimpleGetRequestExecutor;
+import com.ossez.wechat.common.util.http.URIUtil;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.IOException;

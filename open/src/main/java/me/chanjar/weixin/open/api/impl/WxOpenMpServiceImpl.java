@@ -4,7 +4,7 @@ import cn.binarywang.wx.miniapp.json.WxMaGsonBuilder;
 import com.google.common.collect.ImmutableMap;
 import com.google.gson.JsonObject;
 import lombok.SneakyThrows;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.ossez.wechat.common.exception.WxErrorException;
 import me.chanjar.weixin.mp.api.impl.WxMpServiceImpl;
 import me.chanjar.weixin.mp.config.WxMpConfigStorage;
 import me.chanjar.weixin.open.api.WxOpenComponentService;

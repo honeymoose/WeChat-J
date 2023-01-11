@@ -2,7 +2,7 @@ package cn.binarywang.wx.miniapp.json;
 
 import cn.binarywang.wx.miniapp.bean.WxMaTemplateData;
 import cn.binarywang.wx.miniapp.bean.WxMaUniformMessage;
-import me.chanjar.weixin.common.util.json.GsonParser;
+import com.ossez.wechat.common.util.json.GsonParser;
 import org.testng.annotations.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

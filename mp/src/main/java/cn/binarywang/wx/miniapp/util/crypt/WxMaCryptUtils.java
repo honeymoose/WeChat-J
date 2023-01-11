@@ -10,20 +10,19 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
-import com.google.common.base.CharMatcher;
-import com.google.common.io.BaseEncoding;
-import me.chanjar.weixin.common.error.WxRuntimeException;
+import com.ossez.wechat.common.util.crypto.WxCryptUtil;
+import com.ossez.wechat.common.exception.WxRuntimeException;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.lang3.StringUtils;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
 import cn.binarywang.wx.miniapp.config.WxMaConfig;
-import me.chanjar.weixin.common.util.crypto.PKCS7Encoder;
+import com.ossez.wechat.common.util.crypto.PKCS7Encoder;
 
 /**
  * @author <a href="https://github.com/binarywang">Binary Wang</a>
  */
-public class WxMaCryptUtils extends me.chanjar.weixin.common.util.crypto.WxCryptUtil {
+public class WxMaCryptUtils extends WxCryptUtil {
   private static final Charset UTF_8 = StandardCharsets.UTF_8;
 
   public WxMaCryptUtils(WxMaConfig config) {

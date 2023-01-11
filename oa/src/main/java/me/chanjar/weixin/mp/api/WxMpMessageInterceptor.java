@@ -1,7 +1,7 @@
 package me.chanjar.weixin.mp.api;
 
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.session.WxSessionManager;
+import com.ossez.wechat.common.exception.WxErrorException;
+import com.ossez.wechat.common.session.WxSessionManager;
 import me.chanjar.weixin.mp.bean.message.WxMpXmlMessage;
 
 import java.util.Map;

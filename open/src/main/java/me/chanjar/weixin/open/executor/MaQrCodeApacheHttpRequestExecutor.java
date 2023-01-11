@@ -1,12 +1,12 @@
 package me.chanjar.weixin.open.executor;
 
-import me.chanjar.weixin.common.enums.WxType;
-import me.chanjar.weixin.common.error.WxError;
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.util.fs.FileUtils;
-import me.chanjar.weixin.common.util.http.RequestHttp;
-import me.chanjar.weixin.common.util.http.apache.InputStreamResponseHandler;
-import me.chanjar.weixin.common.util.http.apache.Utf8ResponseHandler;
+import com.ossez.wechat.common.enums.WxType;
+import com.ossez.wechat.common.exception.WxError;
+import com.ossez.wechat.common.exception.WxErrorException;
+import com.ossez.wechat.common.util.fs.FileUtils;
+import com.ossez.wechat.common.util.http.RequestHttp;
+import com.ossez.wechat.common.util.http.apache.InputStreamResponseHandler;
+import com.ossez.wechat.common.util.http.apache.Utf8ResponseHandler;
 import me.chanjar.weixin.open.bean.ma.WxMaQrcodeParam;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.Header;

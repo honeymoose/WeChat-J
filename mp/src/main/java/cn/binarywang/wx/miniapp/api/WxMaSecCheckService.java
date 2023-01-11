@@ -4,7 +4,7 @@ import cn.binarywang.wx.miniapp.bean.WxMaMediaAsyncCheckResult;
 import cn.binarywang.wx.miniapp.bean.security.WxMaMediaSecCheckCheckRequest;
 import cn.binarywang.wx.miniapp.bean.security.WxMaMsgSecCheckCheckRequest;
 import cn.binarywang.wx.miniapp.bean.security.WxMaMsgSecCheckCheckResponse;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.ossez.wechat.common.exception.WxErrorException;
 
 import java.io.File;
 

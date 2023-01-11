@@ -1,6 +1,6 @@
 package me.chanjar.weixin.mp.api;
 
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.ossez.wechat.common.exception.WxErrorException;
 import me.chanjar.weixin.mp.bean.wifi.WxMpWifiShopDataResult;
 import me.chanjar.weixin.mp.bean.wifi.WxMpWifiShopListResult;
 

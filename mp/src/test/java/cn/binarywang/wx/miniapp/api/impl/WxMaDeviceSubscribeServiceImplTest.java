@@ -5,11 +5,10 @@ import cn.binarywang.wx.miniapp.bean.device.WxMaDeviceSubscribeMessageRequest;
 import cn.binarywang.wx.miniapp.bean.device.WxMaDeviceTicketRequest;
 import cn.binarywang.wx.miniapp.test.ApiTestModule;
 import com.google.common.collect.Lists;
-import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.inject.Inject;
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.util.json.GsonParser;
+import com.ossez.wechat.common.exception.WxErrorException;
+import com.ossez.wechat.common.util.json.GsonParser;
 import org.testng.annotations.Guice;
 import org.testng.annotations.Test;
 

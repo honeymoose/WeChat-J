@@ -2,7 +2,7 @@ package me.chanjar.weixin.cp.api;
 
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
-import me.chanjar.weixin.common.error.WxErrorException;
+import me.chanjar.weixin.common.exception.WxErrorException;
 import me.chanjar.weixin.common.util.XmlUtils;
 import me.chanjar.weixin.cp.api.impl.WxCpServiceImpl;
 import me.chanjar.weixin.cp.bean.living.*;

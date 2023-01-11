@@ -1,7 +1,7 @@
 package cn.binarywang.wx.miniapp.test;
 
 import cn.binarywang.wx.miniapp.bean.delivery.AddOrderRequest;
-import me.chanjar.weixin.common.util.json.WxGsonBuilder;
+import com.ossez.wechat.common.util.json.WxGsonBuilder;
 import org.testng.annotations.Test;
 
 public class AddOrderJsonTest {

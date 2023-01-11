@@ -3,7 +3,7 @@ package me.chanjar.weixin.open.api.impl;
 import cn.binarywang.wx.miniapp.api.WxMaService;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.ossez.wechat.common.exception.WxErrorException;
 import me.chanjar.weixin.open.api.WxOpenMaBasicService;
 import me.chanjar.weixin.open.bean.ma.WxFastMaCategory;
 import me.chanjar.weixin.open.bean.result.*;

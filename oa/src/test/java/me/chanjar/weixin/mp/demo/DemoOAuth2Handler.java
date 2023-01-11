@@ -1,7 +1,7 @@
 package me.chanjar.weixin.mp.demo;
 
-import me.chanjar.weixin.common.api.WxConsts;
-import me.chanjar.weixin.common.session.WxSessionManager;
+import com.ossez.wechat.common.api.WxConsts;
+import com.ossez.wechat.common.session.WxSessionManager;
 import me.chanjar.weixin.mp.api.WxMpMessageHandler;
 import me.chanjar.weixin.mp.api.WxMpService;
 import me.chanjar.weixin.mp.bean.message.WxMpXmlMessage;

@@ -5,7 +5,7 @@ import cn.binarywang.wx.miniapp.bean.shop.response.WxMaShopBaseResponse;
 import cn.binarywang.wx.miniapp.bean.shop.response.WxMaShopCouponListResponse;
 import cn.binarywang.wx.miniapp.bean.shop.response.WxMaShopCouponResponse;
 import cn.binarywang.wx.miniapp.bean.shop.response.WxMaShopUserCouponListResponse;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.ossez.wechat.common.exception.WxErrorException;
 
 /**
  * @author leiin

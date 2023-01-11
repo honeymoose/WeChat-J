@@ -9,7 +9,7 @@ import org.testng.annotations.*;
 import cn.binarywang.wx.miniapp.api.WxMaService;
 import cn.binarywang.wx.miniapp.test.ApiTestModule;
 import com.google.inject.Inject;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.ossez.wechat.common.exception.WxErrorException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.testng.Assert.*;

@@ -4,12 +4,11 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
-import me.chanjar.weixin.common.enums.WxType;
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.util.http.HttpType;
-import me.chanjar.weixin.common.util.http.RequestExecutor;
-import me.chanjar.weixin.common.util.http.RequestHttp;
-import me.chanjar.weixin.common.util.http.ResponseHandler;
+import com.ossez.wechat.common.enums.WxType;
+import com.ossez.wechat.common.exception.WxErrorException;
+import com.ossez.wechat.common.util.http.RequestExecutor;
+import com.ossez.wechat.common.util.http.RequestHttp;
+import com.ossez.wechat.common.util.http.ResponseHandler;
 
 public abstract class MaterialVoiceAndImageDownloadRequestExecutor<H, P> implements RequestExecutor<InputStream, String> {
   protected RequestHttp<H, P> requestHttp;

@@ -17,12 +17,13 @@
  */
 package me.chanjar.weixin.mp.util.crypto;
 
+import com.ossez.wechat.common.util.crypto.WxCryptUtil;
 import me.chanjar.weixin.mp.config.WxMpConfigStorage;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Base64;
 
-public class WxMpCryptUtil extends me.chanjar.weixin.common.util.crypto.WxCryptUtil {
+public class WxMpCryptUtil extends WxCryptUtil {
 
   /**
    * 构造函数

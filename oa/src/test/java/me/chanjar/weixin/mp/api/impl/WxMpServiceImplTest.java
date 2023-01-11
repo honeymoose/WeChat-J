@@ -5,14 +5,14 @@ import org.testng.*;
 import org.testng.annotations.*;
 
 import com.google.inject.Inject;
-import me.chanjar.weixin.common.api.WxConsts;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.ossez.wechat.common.api.WxConsts;
+import com.ossez.wechat.common.exception.WxErrorException;
 import me.chanjar.weixin.mp.config.WxMpConfigStorage;
 import me.chanjar.weixin.mp.api.WxMpService;
 import me.chanjar.weixin.mp.api.test.ApiTestModule;
 import me.chanjar.weixin.mp.api.test.TestConfigStorage;
 import me.chanjar.weixin.mp.bean.result.WxMpCurrentAutoReplyInfo;
-import me.chanjar.weixin.common.enums.TicketType;
+import com.ossez.wechat.common.enums.TicketType;
 
 @Test
 @Guice(modules = ApiTestModule.class)

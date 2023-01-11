@@ -1,6 +1,6 @@
 package me.chanjar.weixin.mp.builder.kefu;
 
-import me.chanjar.weixin.common.api.WxConsts.KefuMsgType;
+import com.ossez.wechat.common.api.WxConsts.KefuMsgType;
 import me.chanjar.weixin.mp.bean.kefu.WxMpKefuMessage;
 
 /**

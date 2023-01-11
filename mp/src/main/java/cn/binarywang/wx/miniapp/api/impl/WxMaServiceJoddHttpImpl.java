@@ -6,7 +6,7 @@ import jodd.http.HttpConnectionProvider;
 import jodd.http.HttpRequest;
 import jodd.http.ProxyInfo;
 import jodd.http.net.SocketHttpConnectionProvider;
-import me.chanjar.weixin.common.util.http.HttpType;
+import com.ossez.wechat.common.util.http.HttpType;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.IOException;

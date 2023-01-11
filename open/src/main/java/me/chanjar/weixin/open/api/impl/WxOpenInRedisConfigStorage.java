@@ -1,8 +1,8 @@
 package me.chanjar.weixin.open.api.impl;
 
 import lombok.NonNull;
-import me.chanjar.weixin.common.redis.JedisWxRedisOps;
-import me.chanjar.weixin.common.redis.WxRedisOps;
+import com.ossez.wechat.common.redis.JedisWxRedisOps;
+import com.ossez.wechat.common.redis.WxRedisOps;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.util.Pool;
 

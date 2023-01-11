@@ -3,7 +3,7 @@ package me.chanjar.weixin.cp.util.json;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import me.chanjar.weixin.common.bean.menu.WxMenu;
-import me.chanjar.weixin.common.error.WxError;
+import me.chanjar.weixin.common.exception.WxError;
 import me.chanjar.weixin.common.util.json.WxErrorAdapter;
 import me.chanjar.weixin.cp.bean.WxCpChat;
 import me.chanjar.weixin.cp.bean.WxCpDepart;

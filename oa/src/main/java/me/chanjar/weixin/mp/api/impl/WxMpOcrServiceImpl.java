@@ -1,10 +1,10 @@
 package me.chanjar.weixin.mp.api.impl;
 
+import com.ossez.wechat.common.bean.ocr.*;
 import lombok.RequiredArgsConstructor;
-import me.chanjar.weixin.common.service.WxOcrService;
-import me.chanjar.weixin.common.bean.ocr.*;
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.requestexecuter.ocr.OcrDiscernRequestExecutor;
+import com.ossez.wechat.common.service.WxOcrService;
+import com.ossez.wechat.common.exception.WxErrorException;
+import com.ossez.wechat.common.requestexecuter.ocr.OcrDiscernRequestExecutor;
 import me.chanjar.weixin.mp.api.WxMpService;
 
 import java.io.File;

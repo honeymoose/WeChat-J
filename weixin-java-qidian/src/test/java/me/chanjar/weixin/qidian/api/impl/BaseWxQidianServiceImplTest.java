@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 import me.chanjar.weixin.common.api.WxConsts;
 import me.chanjar.weixin.common.bean.WxJsapiSignature;
 import me.chanjar.weixin.common.bean.WxNetCheckResult;
-import me.chanjar.weixin.common.error.WxErrorException;
+import me.chanjar.weixin.common.exception.WxErrorException;
 import me.chanjar.weixin.qidian.api.WxQidianService;
 import me.chanjar.weixin.qidian.api.test.ApiTestModule;
 import me.chanjar.weixin.qidian.util.WxQidianConfigStorageHolder;

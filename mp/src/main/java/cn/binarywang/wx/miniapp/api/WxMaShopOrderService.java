@@ -3,7 +3,7 @@ package cn.binarywang.wx.miniapp.api;
 import cn.binarywang.wx.miniapp.bean.shop.WxMaShopOrderInfo;
 import cn.binarywang.wx.miniapp.bean.shop.request.WxMaShopOrderPayRequest;
 import cn.binarywang.wx.miniapp.bean.shop.response.*;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.ossez.wechat.common.exception.WxErrorException;
 
 import java.util.Date;
 

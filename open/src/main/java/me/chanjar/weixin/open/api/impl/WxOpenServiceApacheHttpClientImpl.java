@@ -1,11 +1,13 @@
 package me.chanjar.weixin.open.api.impl;
 
-import me.chanjar.weixin.common.bean.result.WxMediaUploadResult;
-import me.chanjar.weixin.common.bean.result.WxMinishopImageUploadResult;
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.util.http.*;
-import me.chanjar.weixin.common.util.http.apache.ApacheHttpClientBuilder;
-import me.chanjar.weixin.common.util.http.apache.DefaultApacheHttpClientBuilder;
+import com.ossez.wechat.common.bean.result.WxMinishopImageUploadResult;
+import com.ossez.wechat.common.exception.WxErrorException;
+import com.ossez.wechat.common.util.http.HttpType;
+import com.ossez.wechat.common.util.http.MinishopUploadRequestExecutor;
+import com.ossez.wechat.common.util.http.SimpleGetRequestExecutor;
+import com.ossez.wechat.common.util.http.SimplePostRequestExecutor;
+import com.ossez.wechat.common.util.http.apache.ApacheHttpClientBuilder;
+import com.ossez.wechat.common.util.http.apache.DefaultApacheHttpClientBuilder;
 import me.chanjar.weixin.open.api.WxOpenConfigStorage;
 import org.apache.http.HttpHost;
 import org.apache.http.impl.client.CloseableHttpClient;

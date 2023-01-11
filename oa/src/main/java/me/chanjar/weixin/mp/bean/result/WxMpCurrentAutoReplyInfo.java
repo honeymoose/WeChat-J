@@ -7,8 +7,8 @@ import java.util.List;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;
-import me.chanjar.weixin.common.util.json.WxBooleanTypeAdapter;
-import me.chanjar.weixin.common.util.json.WxDateTypeAdapter;
+import com.ossez.wechat.common.util.json.WxBooleanTypeAdapter;
+import com.ossez.wechat.common.util.json.WxDateTypeAdapter;
 import me.chanjar.weixin.mp.util.json.WxMpGsonBuilder;
 
 /**

@@ -2,7 +2,7 @@ package me.chanjar.weixin.cp.api.impl;
 
 import com.google.gson.JsonObject;
 import lombok.RequiredArgsConstructor;
-import me.chanjar.weixin.common.error.WxErrorException;
+import me.chanjar.weixin.common.exception.WxErrorException;
 import me.chanjar.weixin.common.util.http.URIUtil;
 import me.chanjar.weixin.common.util.json.GsonHelper;
 import me.chanjar.weixin.common.util.json.GsonParser;
@@ -12,7 +12,6 @@ import me.chanjar.weixin.cp.bean.WxCpOauth2UserInfo;
 import me.chanjar.weixin.cp.bean.WxCpUserDetail;
 import me.chanjar.weixin.cp.util.json.WxCpGsonBuilder;
 
-import static me.chanjar.weixin.common.api.WxConsts.OAuth2Scope.*;
 import static me.chanjar.weixin.cp.constant.WxCpApiPathConsts.OAuth2.*;
 
 /**

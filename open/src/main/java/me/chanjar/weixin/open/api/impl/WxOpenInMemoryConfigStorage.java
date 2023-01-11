@@ -3,9 +3,9 @@ package me.chanjar.weixin.open.api.impl;
 
 import cn.binarywang.wx.miniapp.config.WxMaConfig;
 import lombok.Data;
-import me.chanjar.weixin.common.bean.WxAccessToken;
-import me.chanjar.weixin.common.enums.TicketType;
-import me.chanjar.weixin.common.util.http.apache.ApacheHttpClientBuilder;
+import com.ossez.wechat.common.bean.WxAccessToken;
+import com.ossez.wechat.common.enums.TicketType;
+import com.ossez.wechat.common.util.http.apache.ApacheHttpClientBuilder;
 import me.chanjar.weixin.mp.config.WxMpConfigStorage;
 import me.chanjar.weixin.mp.config.WxMpHostConfig;
 import me.chanjar.weixin.open.api.WxOpenConfigStorage;

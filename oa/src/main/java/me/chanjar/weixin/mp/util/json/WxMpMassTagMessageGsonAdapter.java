@@ -2,7 +2,7 @@ package me.chanjar.weixin.mp.util.json;
 
 import com.google.gson.*;
 
-import me.chanjar.weixin.common.api.WxConsts;
+import com.ossez.wechat.common.api.WxConsts;
 import me.chanjar.weixin.mp.bean.WxMpMassTagMessage;
 import org.apache.commons.lang3.StringUtils;
 

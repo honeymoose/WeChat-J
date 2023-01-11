@@ -1,6 +1,6 @@
 package me.chanjar.weixin.mp.api;
 
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.ossez.wechat.common.exception.WxErrorException;
 import me.chanjar.weixin.mp.bean.draft.WxMpAddDraft;
 import me.chanjar.weixin.mp.bean.draft.WxMpDraftInfo;
 import me.chanjar.weixin.mp.bean.draft.WxMpDraftList;

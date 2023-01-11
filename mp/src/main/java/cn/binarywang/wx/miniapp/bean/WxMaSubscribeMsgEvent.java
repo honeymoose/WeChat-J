@@ -4,7 +4,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamConverter;
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
 import lombok.Data;
-import me.chanjar.weixin.common.util.xml.XStreamCDataConverter;
+import com.ossez.wechat.common.util.xml.XStreamCDataConverter;
 
 import java.io.Serializable;
 import java.util.LinkedList;

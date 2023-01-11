@@ -7,7 +7,7 @@ import cn.binarywang.wx.miniapp.json.WxMaGsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import lombok.Data;
-import me.chanjar.weixin.common.util.json.GsonParser;
+import com.ossez.wechat.common.util.json.GsonParser;
 
 /**
  * 微信运动步数信息.

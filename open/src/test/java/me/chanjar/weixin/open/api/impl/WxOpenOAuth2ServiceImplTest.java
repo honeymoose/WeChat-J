@@ -1,7 +1,7 @@
 package me.chanjar.weixin.open.api.impl;
 
-import me.chanjar.weixin.common.bean.oauth2.WxOAuth2AccessToken;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.ossez.wechat.common.bean.oauth2.WxOAuth2AccessToken;
+import com.ossez.wechat.common.exception.WxErrorException;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 

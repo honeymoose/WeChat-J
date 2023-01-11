@@ -1,6 +1,6 @@
 package com.github.binarywang.wxpay.v3.util;
 
-import me.chanjar.weixin.common.error.WxRuntimeException;
+import me.chanjar.weixin.common.exception.WxRuntimeException;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

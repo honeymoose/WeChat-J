@@ -7,7 +7,7 @@ import cn.binarywang.wx.miniapp.bean.live.WxMaLiveRoomInfo;
 import cn.binarywang.wx.miniapp.bean.live.WxMaLiveSharedCode;
 import cn.binarywang.wx.miniapp.test.ApiTestModule;
 import com.google.inject.Inject;
-import me.chanjar.weixin.common.bean.result.WxMediaUploadResult;
+import com.ossez.wechat.common.bean.result.WxMediaUploadResult;
 import org.testng.annotations.Guice;
 import org.testng.annotations.Test;
 

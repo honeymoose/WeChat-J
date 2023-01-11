@@ -10,7 +10,7 @@ import org.testng.annotations.Guice;
 import org.testng.annotations.Test;
 
 import lombok.extern.slf4j.Slf4j;
-import me.chanjar.weixin.common.error.WxErrorException;
+import me.chanjar.weixin.common.exception.WxErrorException;
 import me.chanjar.weixin.qidian.api.WxQidianService;
 import me.chanjar.weixin.qidian.api.test.ApiTestModule;
 import me.chanjar.weixin.qidian.bean.call.GetSwitchBoardListResponse;

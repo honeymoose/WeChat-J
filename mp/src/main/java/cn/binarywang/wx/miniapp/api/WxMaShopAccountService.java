@@ -5,7 +5,7 @@ import cn.binarywang.wx.miniapp.bean.shop.response.WxMaShopAccountGetBrandListRe
 import cn.binarywang.wx.miniapp.bean.shop.response.WxMaShopAccountGetCategoryListResponse;
 import cn.binarywang.wx.miniapp.bean.shop.response.WxMaShopAccountGetInfoResponse;
 import cn.binarywang.wx.miniapp.bean.shop.response.WxMaShopBaseResponse;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.ossez.wechat.common.exception.WxErrorException;
 
 /**
  * 小程序交易组件-商家入驻接口

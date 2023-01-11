@@ -2,7 +2,7 @@ package com.github.binarywang.wxpay.v3.util;
 
 import com.github.binarywang.wxpay.exception.WxPayException;
 import com.github.binarywang.wxpay.v3.SpecEncrypt;
-import me.chanjar.weixin.common.error.WxRuntimeException;
+import me.chanjar.weixin.common.exception.WxRuntimeException;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;

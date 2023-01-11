@@ -1,7 +1,7 @@
 package me.chanjar.weixin.cp.api;
 
 import lombok.NonNull;
-import me.chanjar.weixin.common.error.WxErrorException;
+import me.chanjar.weixin.common.exception.WxErrorException;
 import me.chanjar.weixin.cp.bean.school.health.WxCpGetHealthReportStat;
 import me.chanjar.weixin.cp.bean.school.health.WxCpGetReportAnswer;
 import me.chanjar.weixin.cp.bean.school.health.WxCpGetReportJobIds;

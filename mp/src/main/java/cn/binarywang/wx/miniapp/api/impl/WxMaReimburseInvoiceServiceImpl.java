@@ -4,7 +4,7 @@ import cn.binarywang.wx.miniapp.api.WxMaReimburseInvoiceService;
 import cn.binarywang.wx.miniapp.api.WxMaService;
 import cn.binarywang.wx.miniapp.bean.invoice.reimburse.*;
 import lombok.AllArgsConstructor;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.ossez.wechat.common.exception.WxErrorException;
 
 import java.util.List;
 

@@ -2,7 +2,7 @@ package cn.binarywang.wx.miniapp.api;
 
 import cn.binarywang.wx.miniapp.bean.device.WxMaDeviceSubscribeMessageRequest;
 import cn.binarywang.wx.miniapp.bean.device.WxMaDeviceTicketRequest;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.ossez.wechat.common.exception.WxErrorException;
 
 /**
  * 小程序设备订阅消息相关 API

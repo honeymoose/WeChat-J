@@ -1,11 +1,11 @@
 package me.chanjar.weixin.open.executor;
 
-import me.chanjar.weixin.common.enums.WxType;
-import me.chanjar.weixin.common.error.WxError;
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.util.fs.FileUtils;
-import me.chanjar.weixin.common.util.http.RequestHttp;
-import me.chanjar.weixin.common.util.http.okhttp.OkHttpProxyInfo;
+import com.ossez.wechat.common.enums.WxType;
+import com.ossez.wechat.common.exception.WxError;
+import com.ossez.wechat.common.exception.WxErrorException;
+import com.ossez.wechat.common.util.fs.FileUtils;
+import com.ossez.wechat.common.util.http.RequestHttp;
+import com.ossez.wechat.common.util.http.okhttp.OkHttpProxyInfo;
 import me.chanjar.weixin.open.bean.ma.WxMaQrcodeParam;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;

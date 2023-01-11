@@ -6,7 +6,7 @@ import cn.binarywang.wx.miniapp.bean.shop.response.WxMaShopAuditBrandResponse;
 import cn.binarywang.wx.miniapp.bean.shop.response.WxMaShopAuditCategoryResponse;
 import cn.binarywang.wx.miniapp.bean.shop.response.WxMaShopAuditResultResponse;
 import com.google.gson.JsonObject;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.ossez.wechat.common.exception.WxErrorException;
 
 /**
  * 小程序交易组件-接入商品前必需接口(审核相关接口)

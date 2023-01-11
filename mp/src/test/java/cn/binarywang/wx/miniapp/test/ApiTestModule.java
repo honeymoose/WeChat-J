@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.locks.ReentrantLock;
 
-import me.chanjar.weixin.common.error.WxRuntimeException;
+import com.ossez.wechat.common.exception.WxRuntimeException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

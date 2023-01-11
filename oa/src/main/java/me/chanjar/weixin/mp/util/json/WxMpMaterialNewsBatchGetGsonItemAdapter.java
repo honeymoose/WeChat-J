@@ -1,7 +1,7 @@
 package me.chanjar.weixin.mp.util.json;
 
 import com.google.gson.*;
-import me.chanjar.weixin.common.util.json.GsonHelper;
+import com.ossez.wechat.common.util.json.GsonHelper;
 import me.chanjar.weixin.mp.bean.material.WxMpMaterialNews;
 import me.chanjar.weixin.mp.bean.material.WxMpMaterialNewsBatchGetResult;
 

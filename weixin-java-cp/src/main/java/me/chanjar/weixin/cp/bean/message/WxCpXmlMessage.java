@@ -6,7 +6,7 @@ import com.thoughtworks.xstream.annotations.XStreamImplicit;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import me.chanjar.weixin.common.api.WxConsts;
-import me.chanjar.weixin.common.error.WxRuntimeException;
+import me.chanjar.weixin.common.exception.WxRuntimeException;
 import me.chanjar.weixin.common.util.XmlUtils;
 import me.chanjar.weixin.common.util.xml.IntegerArrayConverter;
 import me.chanjar.weixin.common.util.xml.LongArrayConverter;
