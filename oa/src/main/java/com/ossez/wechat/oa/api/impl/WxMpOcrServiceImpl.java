@@ -5,7 +5,7 @@ import lombok.RequiredArgsConstructor;
 import com.ossez.wechat.common.service.WxOcrService;
 import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.common.requestexecuter.ocr.OcrDiscernRequestExecutor;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
@@ -22,7 +22,7 @@ import static com.ossez.wechat.oa.enums.WxMpApiUrl.Ocr.*;
  */
 @RequiredArgsConstructor
 public class WxMpOcrServiceImpl implements WxOcrService {
-  private final WxMpService mainService;
+  private final WeChatOfficialAccountService mainService;
 
   @Override
   public WxOcrIdCardResult idCard(String imgUrl) throws WxErrorException {

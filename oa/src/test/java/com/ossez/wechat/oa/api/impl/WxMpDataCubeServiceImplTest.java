@@ -2,7 +2,7 @@ package com.ossez.wechat.oa.api.impl;
 
 import com.google.inject.Inject;
 import com.ossez.wechat.common.exception.WxErrorException;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.api.test.ApiTestModule;
 import com.ossez.wechat.oa.bean.datacube.*;
 import org.apache.commons.lang3.time.FastDateFormat;
@@ -24,7 +24,7 @@ import java.util.List;
 @Guice(modules = ApiTestModule.class)
 public class WxMpDataCubeServiceImplTest {
   @Inject
-  protected WxMpService wxService;
+  protected WeChatOfficialAccountService wxService;
   private FastDateFormat simpleDateFormat = FastDateFormat
     .getInstance("yyyy-MM-dd");
 

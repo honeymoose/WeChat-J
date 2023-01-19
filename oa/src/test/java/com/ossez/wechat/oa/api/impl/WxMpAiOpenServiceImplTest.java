@@ -2,7 +2,7 @@ package com.ossez.wechat.oa.api.impl;
 
 import java.io.File;
 
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.api.test.ApiTestModule;
 import org.assertj.core.api.Assertions;
 import org.testng.annotations.*;
@@ -24,7 +24,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Guice(modules = ApiTestModule.class)
 public class WxMpAiOpenServiceImplTest {
   @Inject
-  protected WxMpService wxService;
+  protected WeChatOfficialAccountService wxService;
 
   @Test
   public void testUploadVoice() throws WxErrorException {

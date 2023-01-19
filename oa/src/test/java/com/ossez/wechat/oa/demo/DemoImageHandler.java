@@ -5,7 +5,7 @@ import com.ossez.wechat.common.bean.result.WxMediaUploadResult;
 import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.common.session.WxSessionManager;
 import com.ossez.wechat.oa.api.WxMpMessageHandler;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.api.test.TestConstants;
 import com.ossez.wechat.oa.bean.message.WxMpXmlMessage;
 import com.ossez.wechat.oa.bean.message.WxMpXmlOutImageMessage;
@@ -16,9 +16,9 @@ import java.util.Map;
 public class DemoImageHandler implements WxMpMessageHandler {
   @Override
   public WxMpXmlOutMessage handle(WxMpXmlMessage wxMessage, Map<String, Object> context,
-                                  WxMpService wxMpService, WxSessionManager sessionManager) {
+                                  WeChatOfficialAccountService weChatOfficialAccountService, WxSessionManager sessionManager) {
     try {
-      WxMediaUploadResult wxMediaUploadResult = wxMpService.getMaterialService()
+      WxMediaUploadResult wxMediaUploadResult = weChatOfficialAccountService.getMaterialService()
         .mediaUpload(WxConsts.MediaFileType.IMAGE, TestConstants.FILE_JPG, ClassLoader.getSystemResourceAsStream("mm.jpeg"));
       WxMpXmlOutImageMessage m
         = WxMpXmlOutMessage

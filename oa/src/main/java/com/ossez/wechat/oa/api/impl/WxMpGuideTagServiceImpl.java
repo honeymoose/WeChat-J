@@ -10,7 +10,7 @@ import com.ossez.wechat.common.util.json.GsonHelper;
 import com.ossez.wechat.common.util.json.GsonParser;
 import com.ossez.wechat.common.util.json.WxGsonBuilder;
 import com.ossez.wechat.oa.api.WxMpGuideTagService;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.enums.WxMpApiUrl;
 
 import java.util.LinkedHashMap;
@@ -27,7 +27,7 @@ import java.util.stream.Collectors;
 public class WxMpGuideTagServiceImpl implements WxMpGuideTagService {
   private static final String ACCOUNT = "guide_account";
   private static final String OPENID = "guide_openid";
-  private final WxMpService mpService;
+  private final WeChatOfficialAccountService mpService;
 
   @Override
   public void newGuideTagOption(String tagName, List<String> values) throws WxErrorException {

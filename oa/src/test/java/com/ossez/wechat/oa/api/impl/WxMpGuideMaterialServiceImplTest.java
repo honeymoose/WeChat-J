@@ -4,7 +4,7 @@ import com.google.inject.Inject;
 import com.ossez.wechat.common.api.WxConsts;
 import com.ossez.wechat.common.bean.result.WxMediaUploadResult;
 import com.ossez.wechat.common.exception.WxErrorException;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.api.test.ApiTestModule;
 import com.ossez.wechat.oa.bean.guide.WxMpGuideCardMaterialInfo;
 import com.ossez.wechat.oa.bean.guide.WxMpGuideImgMaterialInfoList;
@@ -26,7 +26,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Guice(modules = ApiTestModule.class)
 public class WxMpGuideMaterialServiceImplTest {
   @Inject
-  protected WxMpService wxService;
+  protected WeChatOfficialAccountService wxService;
 
   /**
    * 图片路径

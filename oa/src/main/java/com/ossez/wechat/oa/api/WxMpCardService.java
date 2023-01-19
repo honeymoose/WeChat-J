@@ -18,7 +18,7 @@ public interface WxMpCardService {
    *
    * @return WxMpService wx mp service
    */
-  WxMpService getWxMpService();
+  WeChatOfficialAccountService getWeChatOfficialAccountService();
 
   /**
    * 获得卡券api_ticket，不强制刷新卡券api_ticket.

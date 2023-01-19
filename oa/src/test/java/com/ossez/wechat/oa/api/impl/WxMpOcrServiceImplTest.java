@@ -2,7 +2,7 @@ package com.ossez.wechat.oa.api.impl;
 
 import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.common.util.fs.FileUtils;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.api.test.ApiTestModule;
 import com.ossez.wechat.oa.api.test.TestConstants;
 import com.ossez.wechat.common.bean.ocr.WxOcrBankCardResult;
@@ -39,7 +39,7 @@ import static org.mockito.Mockito.mock;
 @Guice(modules = ApiTestModule.class)
 public class WxMpOcrServiceImplTest {
   @Inject
-  private WxMpService service;
+  private WeChatOfficialAccountService service;
 
   @Test
   public void testIdCard() throws WxErrorException {
@@ -154,7 +154,7 @@ public class WxMpOcrServiceImplTest {
   }
 
   public static class MockTest {
-    private final WxMpService wxService = Mockito.mock(WxMpService.class);
+    private final WeChatOfficialAccountService wxService = Mockito.mock(WeChatOfficialAccountService.class);
 
     @Test
     public void testIdCard() throws Exception {

@@ -2,7 +2,7 @@ package com.ossez.wechat.oa.api.impl;
 
 import com.google.inject.Inject;
 import com.ossez.wechat.common.exception.WxErrorException;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.api.test.ApiTestModule;
 import com.ossez.wechat.oa.api.test.TestConfigStorage;
 import com.ossez.wechat.oa.bean.WxMpUserQuery;
@@ -35,7 +35,7 @@ import static org.mockito.Mockito.mock;
 public class WxMpUserServiceImplTest {
 
   @Inject
-  private WxMpService wxService;
+  private WeChatOfficialAccountService wxService;
 
   private TestConfigStorage configProvider;
 
@@ -97,7 +97,7 @@ public class WxMpUserServiceImplTest {
   }
 
   public static class MockTest {
-    private WxMpService wxService = Mockito.mock(WxMpService.class);
+    private WeChatOfficialAccountService wxService = Mockito.mock(WeChatOfficialAccountService.class);
 
     @Test
     public void testMockChangeOpenid() throws WxErrorException {

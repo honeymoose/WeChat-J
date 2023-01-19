@@ -1,7 +1,6 @@
 package com.ossez.wechat.open.api;
 
 import com.ossez.wechat.common.exception.WxErrorException;
-import com.ossez.wechat.oa.api.WxMpService;
 import com.ossez.wechat.open.bean.mp.FastRegisterResult;
 import com.ossez.wechat.open.bean.result.WxAmpLinkResult;
 import com.ossez.wechat.open.bean.result.WxOpenResult;
@@ -14,7 +13,7 @@ import com.ossez.wechat.open.bean.result.WxOpenResult;
  * <p>
  * Created by zpf on 2020/10/15
  */
-public interface WxOpenMpService extends WxMpService {
+public interface WeChatOfficialAccountService extends com.ossez.wechat.oa.api.WeChatOfficialAccountService {
 
   /**
    * 取复用公众号快速注册小程序的授权链接.

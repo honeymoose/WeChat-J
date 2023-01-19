@@ -5,7 +5,7 @@ import com.ossez.wechat.common.api.WxConsts;
 import com.ossez.wechat.common.bean.menu.WxMenu;
 import com.ossez.wechat.common.bean.menu.WxMenuButton;
 import com.ossez.wechat.common.exception.WxErrorException;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.api.test.ApiTestModule;
 import com.ossez.wechat.oa.bean.menu.WxMpGetSelfMenuInfoResult;
 import com.ossez.wechat.oa.bean.menu.WxMpMenu;
@@ -27,7 +27,7 @@ import static org.testng.Assert.assertNotNull;
 public class WxMpMenuServiceImplTest {
 
   @Inject
-  protected WxMpService wxService;
+  protected WeChatOfficialAccountService wxService;
   private String menuId = null;
 
   @Test(dataProvider = "menu")

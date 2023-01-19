@@ -4,7 +4,7 @@ import com.ossez.wechat.oa.bean.invoice.reimburse.*;
 import lombok.AllArgsConstructor;
 import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.oa.api.WxMpReimburseInvoiceService;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 
 import java.util.List;
 
@@ -19,25 +19,25 @@ import static com.ossez.wechat.oa.enums.WxMpApiUrl.Invoice.*;
 @AllArgsConstructor
 public class WxMpReimburseInvoiceServiceImpl implements WxMpReimburseInvoiceService {
 
-  private final WxMpService wxMpService;
+  private final WeChatOfficialAccountService weChatOfficialAccountService;
 
   @Override
   public InvoiceInfoResponse getInvoiceInfo(InvoiceInfoRequest request) throws WxErrorException {
-    return InvoiceInfoResponse.fromJson(this.wxMpService.post(GET_INVOICE_INFO,request.toJson()));
+    return InvoiceInfoResponse.fromJson(this.weChatOfficialAccountService.post(GET_INVOICE_INFO,request.toJson()));
   }
 
   @Override
   public List<InvoiceInfoResponse> getInvoiceBatch(InvoiceBatchRequest request) throws WxErrorException {
-    return InvoiceInfoResponse.toList(this.wxMpService.post(GET_INVOICE_BATCH,request.toJson()));
+    return InvoiceInfoResponse.toList(this.weChatOfficialAccountService.post(GET_INVOICE_BATCH,request.toJson()));
   }
 
   @Override
   public void updateInvoiceStatus(UpdateInvoiceStatusRequest request) throws WxErrorException {
-    this.wxMpService.post(UPDATE_INVOICE_STATUS,request.toJson());
+    this.weChatOfficialAccountService.post(UPDATE_INVOICE_STATUS,request.toJson());
   }
 
   @Override
   public void updateStatusBatch(UpdateStatusBatchRequest request) throws WxErrorException {
-    this.wxMpService.post(UPDATE_STATUS_BATCH,request.toJson());
+    this.weChatOfficialAccountService.post(UPDATE_STATUS_BATCH,request.toJson());
   }
 }

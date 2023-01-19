@@ -2,7 +2,7 @@ package com.ossez.wechat.oa.api.impl;
 
 import com.google.inject.Inject;
 import com.ossez.wechat.common.exception.WxErrorException;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.api.test.ApiTestModule;
 import com.ossez.wechat.oa.bean.draft.WxMpAddDraft;
 import com.ossez.wechat.oa.bean.draft.WxMpDraftArticles;
@@ -39,7 +39,7 @@ public class WxMpDraftServiceImplTest {
   final String mediaId = "zUUtT8ZYeXzZ4slFbtnAkpgGKyqnTsjtUvMdVBRWJVk";
 
   @Inject
-  protected WxMpService wxService;
+  protected WeChatOfficialAccountService wxService;
 
   @Test
   public void testAddDraft() throws WxErrorException {

@@ -10,7 +10,7 @@ import com.ossez.wechat.common.util.json.GsonHelper;
 import com.ossez.wechat.common.util.json.GsonParser;
 import com.ossez.wechat.common.util.json.WxGsonBuilder;
 import com.ossez.wechat.oa.api.WxMpGuideMaterialService;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.enums.WxMpApiUrl;
 
 import java.util.LinkedHashMap;
@@ -25,7 +25,7 @@ import java.util.Map;
 public class WxMpGuideMaterialServiceImpl implements WxMpGuideMaterialService {
   private static final String ACCOUNT = "guide_account";
   private static final String OPENID = "guide_openid";
-  private final WxMpService mpService;
+  private final WeChatOfficialAccountService mpService;
 
   @Override
   public void setGuideCardMaterial(String mediaId, int type, String title, String path, String appId) throws WxErrorException {

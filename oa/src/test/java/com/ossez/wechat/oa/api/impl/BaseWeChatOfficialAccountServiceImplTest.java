@@ -10,7 +10,7 @@ import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.common.exception.WxMpErrorMsgEnum;
 import com.ossez.wechat.common.util.http.HttpType;
 import com.ossez.wechat.common.util.http.RequestExecutor;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.api.test.ApiTestModule;
 import com.ossez.wechat.oa.config.impl.WxMpDefaultConfigImpl;
 import com.ossez.wechat.oa.util.WxMpConfigStorageHolder;
@@ -41,9 +41,9 @@ import static org.mockito.Mockito.mock;
  */
 @Test
 @Guice(modules = ApiTestModule.class)
-public class BaseWxMpServiceImplTest {
+public class BaseWeChatOfficialAccountServiceImplTest {
   @Inject
-  private WxMpService wxService;
+  private WeChatOfficialAccountService wxService;
 
   @Test
   public void testSwitchover() {
@@ -205,7 +205,7 @@ public class BaseWxMpServiceImplTest {
   @Test
   public void testExecuteAutoRefreshToken() throws WxErrorException, IOException {
     //测试access token获取时的重试机制
-    BaseWxMpServiceImpl<Object, Object> service = new BaseWxMpServiceImpl() {
+    BaseWeChatOfficialAccountServiceImpl<Object, Object> service = new BaseWeChatOfficialAccountServiceImpl() {
       @Override
       public String getAccessToken(boolean forceRefresh) throws WxErrorException {
         return "模拟一个过期的access token:" + System.currentTimeMillis();

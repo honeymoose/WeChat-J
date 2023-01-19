@@ -1,7 +1,7 @@
 package com.ossez.wechat.oa.demo;
 
 import com.ossez.wechat.oa.api.WxMpMessageRouter;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.config.WxMpConfigStorage;
 import com.ossez.wechat.oa.bean.message.WxMpXmlMessage;
 import com.ossez.wechat.oa.bean.message.WxMpXmlOutMessage;
@@ -19,13 +19,13 @@ public class WxMpEndpointServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
 
   protected WxMpConfigStorage wxMpConfigStorage;
-  protected WxMpService wxMpService;
+  protected WeChatOfficialAccountService weChatOfficialAccountService;
   protected WxMpMessageRouter wxMpMessageRouter;
 
-  public WxMpEndpointServlet(WxMpConfigStorage wxMpConfigStorage, WxMpService wxMpService,
+  public WxMpEndpointServlet(WxMpConfigStorage wxMpConfigStorage, WeChatOfficialAccountService weChatOfficialAccountService,
                              WxMpMessageRouter wxMpMessageRouter) {
     this.wxMpConfigStorage = wxMpConfigStorage;
-    this.wxMpService = wxMpService;
+    this.weChatOfficialAccountService = weChatOfficialAccountService;
     this.wxMpMessageRouter = wxMpMessageRouter;
   }
 
@@ -40,7 +40,7 @@ public class WxMpEndpointServlet extends HttpServlet {
     String nonce = request.getParameter("nonce");
     String timestamp = request.getParameter("timestamp");
 
-    if (!this.wxMpService.checkSignature(timestamp, nonce, signature)) {
+    if (!this.weChatOfficialAccountService.checkSignature(timestamp, nonce, signature)) {
       // 消息签名不正确，说明不是公众平台发过来的消息
       response.getWriter().println("非法请求");
       return;

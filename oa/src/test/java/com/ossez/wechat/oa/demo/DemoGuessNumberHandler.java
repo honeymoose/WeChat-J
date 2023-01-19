@@ -5,7 +5,7 @@ import com.ossez.wechat.common.session.WxSession;
 import com.ossez.wechat.common.session.WxSessionManager;
 import com.ossez.wechat.oa.api.WxMpMessageHandler;
 import com.ossez.wechat.oa.api.WxMpMessageMatcher;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.bean.kefu.WxMpKefuMessage;
 import com.ossez.wechat.oa.bean.message.WxMpXmlMessage;
 import com.ossez.wechat.oa.bean.message.WxMpXmlOutMessage;
@@ -34,22 +34,22 @@ public class DemoGuessNumberHandler implements WxMpMessageHandler, WxMpMessageMa
   }
 
   @Override
-  public WxMpXmlOutMessage handle(WxMpXmlMessage wxMessage, Map<String, Object> context, WxMpService wxMpService,
+  public WxMpXmlOutMessage handle(WxMpXmlMessage wxMessage, Map<String, Object> context, WeChatOfficialAccountService weChatOfficialAccountService,
                                   WxSessionManager sessionManager) throws WxErrorException {
 
     if (isUserWantGuess(wxMessage)) {
-      letsGo(wxMessage, wxMpService, sessionManager);
+      letsGo(wxMessage, weChatOfficialAccountService, sessionManager);
     }
 
     if (isUserAnswering(wxMessage)) {
-      giveHint(wxMessage, wxMpService, sessionManager);
+      giveHint(wxMessage, weChatOfficialAccountService, sessionManager);
     }
 
     return null;
 
   }
 
-  protected void letsGo(WxMpXmlMessage wxMessage, WxMpService wxMpService, WxSessionManager sessionManager) throws WxErrorException {
+  protected void letsGo(WxMpXmlMessage wxMessage, WeChatOfficialAccountService weChatOfficialAccountService, WxSessionManager sessionManager) throws WxErrorException {
     WxSession session = sessionManager.getSession(wxMessage.getFromUser());
     if (session.getAttribute("guessing") == null) {
       WxMpKefuMessage m = WxMpKefuMessage
@@ -57,14 +57,14 @@ public class DemoGuessNumberHandler implements WxMpMessageHandler, WxMpMessageMa
         .toUser(wxMessage.getFromUser())
         .content("请猜一个100以内的数字")
         .build();
-      wxMpService.getKefuService().sendKefuMessage(m);
+      weChatOfficialAccountService.getKefuService().sendKefuMessage(m);
     } else {
       WxMpKefuMessage m = WxMpKefuMessage
         .TEXT()
         .toUser(wxMessage.getFromUser())
         .content("放弃了吗？那请重新猜一个100以内的数字")
         .build();
-      wxMpService.getKefuService().sendKefuMessage(m);
+      weChatOfficialAccountService.getKefuService().sendKefuMessage(m);
     }
 
     session.setAttribute("guessing", Boolean.TRUE);
@@ -72,7 +72,7 @@ public class DemoGuessNumberHandler implements WxMpMessageHandler, WxMpMessageMa
   }
 
 
-  protected void giveHint(WxMpXmlMessage wxMessage, WxMpService wxMpService, WxSessionManager sessionManager) throws WxErrorException {
+  protected void giveHint(WxMpXmlMessage wxMessage, WeChatOfficialAccountService weChatOfficialAccountService, WxSessionManager sessionManager) throws WxErrorException {
 
     WxSession session = sessionManager.getSession(wxMessage.getFromUser());
 
@@ -92,7 +92,7 @@ public class DemoGuessNumberHandler implements WxMpMessageHandler, WxMpMessageMa
         .toUser(wxMessage.getFromUser())
         .content("小了")
         .build();
-      wxMpService.getKefuService().sendKefuMessage(m);
+      weChatOfficialAccountService.getKefuService().sendKefuMessage(m);
 
     } else if (guessNumber > answer) {
       WxMpKefuMessage m = WxMpKefuMessage
@@ -100,7 +100,7 @@ public class DemoGuessNumberHandler implements WxMpMessageHandler, WxMpMessageMa
         .toUser(wxMessage.getFromUser())
         .content("大了")
         .build();
-      wxMpService.getKefuService().sendKefuMessage(m);
+      weChatOfficialAccountService.getKefuService().sendKefuMessage(m);
     } else {
       WxMpKefuMessage m = WxMpKefuMessage
         .TEXT()
@@ -108,7 +108,7 @@ public class DemoGuessNumberHandler implements WxMpMessageHandler, WxMpMessageMa
         .content("Bingo!")
         .build();
       session.removeAttribute("guessing");
-      wxMpService.getKefuService().sendKefuMessage(m);
+      weChatOfficialAccountService.getKefuService().sendKefuMessage(m);
     }
 
   }

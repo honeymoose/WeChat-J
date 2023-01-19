@@ -3,7 +3,7 @@ package com.ossez.wechat.oa.api.impl;
 import com.google.common.collect.Lists;
 import com.google.inject.Inject;
 import com.ossez.wechat.common.exception.WxErrorException;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.api.test.ApiTestModule;
 import com.ossez.wechat.oa.bean.marketing.WxMpUserAction;
 import org.testng.annotations.Guice;
@@ -19,7 +19,7 @@ import org.testng.annotations.Test;
 @Guice(modules = ApiTestModule.class)
 public class WxMpMarketingServiceImplTest {
   @Inject
-  protected WxMpService wxService;
+  protected WeChatOfficialAccountService wxService;
 
   @Test
   public void testAddUserActionSets() {

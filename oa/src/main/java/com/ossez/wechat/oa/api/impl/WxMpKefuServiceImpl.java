@@ -11,7 +11,7 @@ import com.ossez.wechat.common.bean.result.WxMediaUploadResult;
 import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.common.util.http.MediaUploadRequestExecutor;
 import com.ossez.wechat.oa.api.WxMpKefuService;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 
 import java.io.File;
 import java.util.Date;
@@ -24,7 +24,7 @@ import static com.ossez.wechat.oa.enums.WxMpApiUrl.Kefu.*;
 @Slf4j
 @RequiredArgsConstructor
 public class WxMpKefuServiceImpl implements WxMpKefuService {
-  private final WxMpService wxMpService;
+  private final WeChatOfficialAccountService weChatOfficialAccountService;
 
   @Override
   public boolean sendKefuMessage(WxMpKefuMessage message) throws WxErrorException {
@@ -33,50 +33,50 @@ public class WxMpKefuServiceImpl implements WxMpKefuService {
 
   @Override
   public String sendKefuMessageWithResponse(WxMpKefuMessage message) throws WxErrorException {
-    return this.wxMpService.post(MESSAGE_CUSTOM_SEND, message.toJson());
+    return this.weChatOfficialAccountService.post(MESSAGE_CUSTOM_SEND, message.toJson());
   }
 
   @Override
   public WxMpKfList kfList() throws WxErrorException {
-    String responseContent = this.wxMpService.get(GET_KF_LIST, null);
+    String responseContent = this.weChatOfficialAccountService.get(GET_KF_LIST, null);
     return WxMpKfList.fromJson(responseContent);
   }
 
   @Override
   public WxMpKfOnlineList kfOnlineList() throws WxErrorException {
-    String responseContent = this.wxMpService.get(GET_ONLINE_KF_LIST, null);
+    String responseContent = this.weChatOfficialAccountService.get(GET_ONLINE_KF_LIST, null);
     return WxMpKfOnlineList.fromJson(responseContent);
   }
 
   @Override
   public boolean kfAccountAdd(WxMpKfAccountRequest request) throws WxErrorException {
-    String responseContent = this.wxMpService.post(KFACCOUNT_ADD, request.toJson());
+    String responseContent = this.weChatOfficialAccountService.post(KFACCOUNT_ADD, request.toJson());
     return responseContent != null;
   }
 
   @Override
   public boolean kfAccountUpdate(WxMpKfAccountRequest request) throws WxErrorException {
-    String responseContent = this.wxMpService.post(KFACCOUNT_UPDATE, request.toJson());
+    String responseContent = this.weChatOfficialAccountService.post(KFACCOUNT_UPDATE, request.toJson());
     return responseContent != null;
   }
 
   @Override
   public boolean kfAccountInviteWorker(WxMpKfAccountRequest request) throws WxErrorException {
-    String responseContent = this.wxMpService.post(KFACCOUNT_INVITE_WORKER, request.toJson());
+    String responseContent = this.weChatOfficialAccountService.post(KFACCOUNT_INVITE_WORKER, request.toJson());
     return responseContent != null;
   }
 
   @Override
   public boolean kfAccountUploadHeadImg(String kfAccount, File imgFile) throws WxErrorException {
-    WxMediaUploadResult responseContent = this.wxMpService
-      .execute(MediaUploadRequestExecutor.create(this.wxMpService.getRequestHttp()),
-        String.format(KFACCOUNT_UPLOAD_HEAD_IMG.getUrl(this.wxMpService.getWxMpConfigStorage()), kfAccount), imgFile);
+    WxMediaUploadResult responseContent = this.weChatOfficialAccountService
+      .execute(MediaUploadRequestExecutor.create(this.weChatOfficialAccountService.getRequestHttp()),
+        String.format(KFACCOUNT_UPLOAD_HEAD_IMG.getUrl(this.weChatOfficialAccountService.getWxMpConfigStorage()), kfAccount), imgFile);
     return responseContent != null;
   }
 
   @Override
   public boolean kfAccountDel(String kfAccount) throws WxErrorException {
-    String responseContent = this.wxMpService.get(String.format(KFACCOUNT_DEL.getUrl(this.wxMpService.getWxMpConfigStorage()),
+    String responseContent = this.weChatOfficialAccountService.get(String.format(KFACCOUNT_DEL.getUrl(this.weChatOfficialAccountService.getWxMpConfigStorage()),
       kfAccount), null);
     return responseContent != null;
   }
@@ -84,34 +84,34 @@ public class WxMpKefuServiceImpl implements WxMpKefuService {
   @Override
   public boolean kfSessionCreate(String openid, String kfAccount) throws WxErrorException {
     WxMpKfSessionRequest request = new WxMpKfSessionRequest(kfAccount, openid);
-    String responseContent = this.wxMpService.post(KFSESSION_CREATE, request.toJson());
+    String responseContent = this.weChatOfficialAccountService.post(KFSESSION_CREATE, request.toJson());
     return responseContent != null;
   }
 
   @Override
   public boolean kfSessionClose(String openid, String kfAccount) throws WxErrorException {
     WxMpKfSessionRequest request = new WxMpKfSessionRequest(kfAccount, openid);
-    String responseContent = this.wxMpService.post(KFSESSION_CLOSE, request.toJson());
+    String responseContent = this.weChatOfficialAccountService.post(KFSESSION_CLOSE, request.toJson());
     return responseContent != null;
   }
 
   @Override
   public WxMpKfSessionGetResult kfSessionGet(String openid) throws WxErrorException {
-    String responseContent = this.wxMpService.get(String.format(KFSESSION_GET_SESSION
-      .getUrl(this.wxMpService.getWxMpConfigStorage()), openid), null);
+    String responseContent = this.weChatOfficialAccountService.get(String.format(KFSESSION_GET_SESSION
+      .getUrl(this.weChatOfficialAccountService.getWxMpConfigStorage()), openid), null);
     return WxMpKfSessionGetResult.fromJson(responseContent);
   }
 
   @Override
   public WxMpKfSessionList kfSessionList(String kfAccount) throws WxErrorException {
-    String responseContent = this.wxMpService.get(String.format(KFSESSION_GET_SESSION_LIST
-      .getUrl(this.wxMpService.getWxMpConfigStorage()), kfAccount), null);
+    String responseContent = this.weChatOfficialAccountService.get(String.format(KFSESSION_GET_SESSION_LIST
+      .getUrl(this.weChatOfficialAccountService.getWxMpConfigStorage()), kfAccount), null);
     return WxMpKfSessionList.fromJson(responseContent);
   }
 
   @Override
   public WxMpKfSessionWaitCaseList kfSessionGetWaitCase() throws WxErrorException {
-    String responseContent = this.wxMpService.get(KFSESSION_GET_WAIT_CASE, null);
+    String responseContent = this.weChatOfficialAccountService.get(KFSESSION_GET_WAIT_CASE, null);
     return WxMpKfSessionWaitCaseList.fromJson(responseContent);
   }
 
@@ -131,7 +131,7 @@ public class WxMpKefuServiceImpl implements WxMpKefuService {
     param.addProperty("msgid", msgId);
     param.addProperty("number", number);
 
-    String responseContent = this.wxMpService.post(MSG_RECORD_LIST, param.toString());
+    String responseContent = this.weChatOfficialAccountService.post(MSG_RECORD_LIST, param.toString());
 
     return WxMpKfMsgList.fromJson(responseContent);
   }
@@ -160,7 +160,7 @@ public class WxMpKefuServiceImpl implements WxMpKefuService {
     JsonObject params = new JsonObject();
     params.addProperty("touser", openid);
     params.addProperty("command", command);
-    String responseContent = this.wxMpService.post(CUSTOM_TYPING, params.toString());
+    String responseContent = this.weChatOfficialAccountService.post(CUSTOM_TYPING, params.toString());
     return responseContent != null;
   }
 

@@ -56,7 +56,7 @@ public class WxMpMessageRouter {
   private static final int DEFAULT_THREAD_POOL_SIZE = 100;
   private final List<WxMpMessageRouterRule> rules = new ArrayList<>();
 
-  private final WxMpService wxMpService;
+  private final WeChatOfficialAccountService weChatOfficialAccountService;
 
   private ExecutorService executorService;
 
@@ -66,8 +66,8 @@ public class WxMpMessageRouter {
 
   private WxErrorExceptionHandler exceptionHandler;
 
-  public WxMpMessageRouter(WxMpService wxMpService) {
-    this.wxMpService = wxMpService;
+  public WxMpMessageRouter(WeChatOfficialAccountService weChatOfficialAccountService) {
+    this.weChatOfficialAccountService = weChatOfficialAccountService;
     ThreadFactory namedThreadFactory = new ThreadFactoryBuilder().setNameFormat("WxMpMessageRouter-pool-%d").build();
     this.executorService = new ThreadPoolExecutor(DEFAULT_THREAD_POOL_SIZE, DEFAULT_THREAD_POOL_SIZE,
       0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<>(), namedThreadFactory);
@@ -79,8 +79,8 @@ public class WxMpMessageRouter {
   /**
    * 使用自定义的 {@link ExecutorService}.
    */
-  public WxMpMessageRouter(WxMpService wxMpService, ExecutorService executorService) {
-    this.wxMpService = wxMpService;
+  public WxMpMessageRouter(WeChatOfficialAccountService weChatOfficialAccountService, ExecutorService executorService) {
+    this.weChatOfficialAccountService = weChatOfficialAccountService;
     this.executorService = executorService;
     this.messageDuplicateChecker = WxMessageInMemoryDuplicateCheckerSingleton.getInstance();
     this.sessionManager = new StandardSessionManager();
@@ -173,17 +173,17 @@ public class WxMpMessageRouter {
    * 处理不同appid微信消息
    */
   public WxMpXmlOutMessage route(final String appid, final WxMpXmlMessage wxMessage, final Map<String, Object> context) {
-    return route(wxMessage, context, this.wxMpService.switchoverTo(appid));
+    return route(wxMessage, context, this.weChatOfficialAccountService.switchoverTo(appid));
   }
 
   /**
    * 处理微信消息.
    */
-  public WxMpXmlOutMessage route(final WxMpXmlMessage wxMessage, final Map<String, Object> context, WxMpService wxMpService) {
-    if (wxMpService == null) {
-      wxMpService = this.wxMpService;
+  public WxMpXmlOutMessage route(final WxMpXmlMessage wxMessage, final Map<String, Object> context, WeChatOfficialAccountService weChatOfficialAccountService) {
+    if (weChatOfficialAccountService == null) {
+      weChatOfficialAccountService = this.weChatOfficialAccountService;
     }
-    final WxMpService mpService = wxMpService;
+    final WeChatOfficialAccountService mpService = weChatOfficialAccountService;
     if (isMsgDuplicated(wxMessage)) {
       // 如果是重复消息，那么就不做处理
       return null;

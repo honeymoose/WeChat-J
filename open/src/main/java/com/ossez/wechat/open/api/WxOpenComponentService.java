@@ -4,7 +4,7 @@ import cn.binarywang.wx.miniapp.bean.WxMaJscode2SessionResult;
 import com.ossez.wechat.common.bean.oauth2.WxOAuth2AccessToken;
 import com.ossez.wechat.common.bean.result.WxMinishopImageUploadResult;
 import com.ossez.wechat.common.exception.WxErrorException;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.open.bean.WxOpenCreateResult;
 import com.ossez.wechat.open.bean.WxOpenGetResult;
 import com.ossez.wechat.open.bean.WxOpenMaCodeTemplate;
@@ -207,7 +207,7 @@ public interface WxOpenComponentService {
    * @param appid the appid
    * @return the wx mp service by appid
    */
-  WxOpenMpService getWxMpServiceByAppid(String appid);
+  com.ossez.wechat.open.api.WeChatOfficialAccountService getWxMpServiceByAppid(String appid);
 
   /**
    * 获取指定appid的开放平台小程序服务（继承一般小程序服务能力）.
@@ -423,7 +423,7 @@ public interface WxOpenComponentService {
    * @param code  the code
    * @return the wx mp o auth 2 access token
    * @throws WxErrorException the wx error exception
-   * @see WxMpService#getOAuth2Service()
+   * @see WeChatOfficialAccountService#getOAuth2Service()
    * @deprecated 2021-05-21: 已修正公众号相关接口,请使用:WxOpenComponentService.getWxMpServiceByAppid(mpAppId).getOAuth2Service().getAccessToken(code)
    */
   @Deprecated
@@ -458,7 +458,7 @@ public interface WxOpenComponentService {
    * @param scope       the scope
    * @param state       the state
    * @return the string
-   * @see WxMpService#getOAuth2Service()
+   * @see WeChatOfficialAccountService#getOAuth2Service()
    * @deprecated 2021-05-21: 已修正公众号相关接口,请使用:WxOpenCommpentService.getWxMpServiceByAppid(mpAppId).getOAuth2Service().buildAuthorizationUrl(redirectUri, scope, state)
    */
   @Deprecated

@@ -8,5 +8,5 @@ package com.ossez.wechat.oa.api.impl;
  *
  * @author <a href="https://github.com/binarywang">Binary Wang</a>
  */
-public class WxMpServiceImpl extends WxMpServiceHttpClientImpl {
+public class WeChatOfficialAccountServiceImpl extends WeChatOfficialAccountServiceHttpClientImpl {
 }

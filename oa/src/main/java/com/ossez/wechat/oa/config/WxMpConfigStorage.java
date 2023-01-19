@@ -3,7 +3,7 @@ package com.ossez.wechat.oa.config;
 import com.ossez.wechat.common.bean.WxAccessToken;
 import com.ossez.wechat.common.enums.TicketType;
 import com.ossez.wechat.common.util.http.apache.ApacheHttpClientBuilder;
-import com.ossez.wechat.oa.api.impl.BaseWxMpServiceImpl;
+import com.ossez.wechat.oa.api.impl.BaseWeChatOfficialAccountServiceImpl;
 
 import java.io.File;
 import java.util.concurrent.locks.Lock;
@@ -176,7 +176,7 @@ public interface WxMpConfigStorage {
   /**
    * http 请求重试间隔
    * <pre>
-   *   {@link BaseWxMpServiceImpl#setRetrySleepMillis(int)}
+   *   {@link BaseWeChatOfficialAccountServiceImpl#setRetrySleepMillis(int)}
    * </pre>
    */
   int getRetrySleepMillis();
@@ -184,7 +184,7 @@ public interface WxMpConfigStorage {
   /**
    * http 请求最大重试次数
    * <pre>
-   *   {@link BaseWxMpServiceImpl#setMaxRetryTimes(int)}
+   *   {@link BaseWeChatOfficialAccountServiceImpl#setMaxRetryTimes(int)}
    * </pre>
    */
   int getMaxRetryTimes();

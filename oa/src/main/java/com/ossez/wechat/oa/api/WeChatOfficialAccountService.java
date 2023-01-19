@@ -26,7 +26,7 @@ import java.util.Map;
  *
  * @author chanjarster
  */
-public interface WxMpService extends WxService {
+public interface WeChatOfficialAccountService extends WxService {
   /**
    * <pre>
    * 短key托管 类似于短链API.
@@ -399,7 +399,7 @@ public interface WxMpService extends WxService {
    * @param mpId 公众号标识
    * @return 切换成功 ，则返回当前对象，方便链式调用，否则抛出异常
    */
-  WxMpService switchoverTo(String mpId);
+  WeChatOfficialAccountService switchoverTo(String mpId);
 
   /**
    * 返回客服接口方法实现类，以方便调用其各个接口.

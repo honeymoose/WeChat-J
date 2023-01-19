@@ -3,7 +3,7 @@ package com.ossez.wechat.oa.api.impl;
 import com.google.inject.Inject;
 import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.oa.api.WxMpCommentService;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.api.test.ApiTestModule;
 import com.ossez.wechat.oa.bean.comment.WxMpCommentListVo;
 import org.mockito.Matchers;
@@ -25,7 +25,7 @@ import static org.mockito.Mockito.spy;
 @Guice(modules = ApiTestModule.class)
 public class WxMpCommentServiceImplTest {
   @Inject
-  private WxMpService wxService;
+  private WeChatOfficialAccountService wxService;
 
   @Test
   public void testOpen() throws WxErrorException {

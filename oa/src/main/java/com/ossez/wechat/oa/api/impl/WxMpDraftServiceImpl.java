@@ -5,7 +5,7 @@ import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.common.util.json.GsonHelper;
 import com.ossez.wechat.common.util.json.GsonParser;
 import com.ossez.wechat.oa.api.WxMpDraftService;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.bean.draft.WxMpAddDraft;
 import com.ossez.wechat.oa.bean.draft.WxMpDraftArticles;
 import com.ossez.wechat.oa.bean.draft.WxMpDraftInfo;
@@ -28,7 +28,7 @@ public class WxMpDraftServiceImpl implements WxMpDraftService {
   private static final String MEDIA_ID = "media_id";
   private static final String ERRCODE_SUCCESS = "0";
   private static final String ERRCODE = "errcode";
-  private final WxMpService mpService;
+  private final WeChatOfficialAccountService mpService;
 
   @Override
   public String addDraft(String title, String content, String thumbMediaId) throws WxErrorException {

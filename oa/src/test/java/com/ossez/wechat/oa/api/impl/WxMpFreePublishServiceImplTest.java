@@ -2,7 +2,7 @@ package com.ossez.wechat.oa.api.impl;
 
 import com.google.inject.Inject;
 import com.ossez.wechat.common.exception.WxErrorException;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.api.test.ApiTestModule;
 import com.ossez.wechat.oa.bean.freepublish.WxMpFreePublishInfo;
 import com.ossez.wechat.oa.bean.freepublish.WxMpFreePublishList;
@@ -41,7 +41,7 @@ public class WxMpFreePublishServiceImplTest {
   final String articleId = "zjMKVd1g66BkEkpetwml4ElbDdniE8JeI2Ec324Sjqg";
 
   @Inject
-  protected WxMpService wxService;
+  protected WeChatOfficialAccountService wxService;
 
   @Test
   public void testSubmit() throws WxErrorException {

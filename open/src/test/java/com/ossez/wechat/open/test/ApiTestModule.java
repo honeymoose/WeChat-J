@@ -4,7 +4,7 @@ import com.google.inject.Binder;
 import com.google.inject.Module;
 import com.ossez.wechat.open.api.WxOpenComponentService;
 import com.ossez.wechat.open.api.WxOpenMaService;
-import com.ossez.wechat.open.api.WxOpenMpService;
+import com.ossez.wechat.open.api.WeChatOfficialAccountService;
 import com.ossez.wechat.open.api.WxOpenService;
 import com.ossez.wechat.open.api.impl.WxOpenServiceImpl;
 import com.thoughtworks.xstream.XStream;
@@ -38,7 +38,7 @@ public class ApiTestModule implements Module {
 
       if (config.getTestMpAppId() != null && !config.getTestMpAppId().isEmpty()) {
         //如果配置了测试公众号,则构建公众号服务依赖
-        binder.bind(WxOpenMpService.class).toInstance(service.getWxOpenComponentService().getWxMpServiceByAppid(config.getTestMpAppId()));
+        binder.bind(WeChatOfficialAccountService.class).toInstance(service.getWxOpenComponentService().getWxMpServiceByAppid(config.getTestMpAppId()));
       } else {
         log.warn("建议参照参照 test-config-sample.xml 配置测试公众号");
       }

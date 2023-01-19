@@ -1,6 +1,6 @@
 package com.ossez.wechat.oa.api.impl;
 
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.api.test.ApiTestModule;
 import com.ossez.wechat.oa.api.test.TestConfigStorage;
 import com.ossez.wechat.oa.bean.result.WxMpUserBlacklistGetResult;
@@ -18,7 +18,7 @@ import java.util.List;
 @Guice(modules = ApiTestModule.class)
 public class WxMpUserBlacklistServiceImplTest {
   @Inject
-  protected WxMpService wxService;
+  protected WeChatOfficialAccountService wxService;
 
   @Test
   public void testGetBlacklist() throws Exception {

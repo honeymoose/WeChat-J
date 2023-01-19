@@ -5,7 +5,7 @@ import com.ossez.wechat.oa.bean.wifi.WxMpWifiShopDataResult;
 import com.ossez.wechat.oa.bean.wifi.WxMpWifiShopListResult;
 import lombok.RequiredArgsConstructor;
 import com.ossez.wechat.common.exception.WxErrorException;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.api.WxMpWifiService;
 
 import static com.ossez.wechat.oa.enums.WxMpApiUrl.Wifi.*;
@@ -19,14 +19,14 @@ import static com.ossez.wechat.oa.enums.WxMpApiUrl.Wifi.*;
  */
 @RequiredArgsConstructor
 public class WxMpWifiServiceImpl implements WxMpWifiService {
-  private final WxMpService wxMpService;
+  private final WeChatOfficialAccountService weChatOfficialAccountService;
 
   @Override
   public WxMpWifiShopListResult listShop(int pageIndex, int pageSize) throws WxErrorException {
     JsonObject json = new JsonObject();
     json.addProperty("pageindex", pageIndex);
     json.addProperty("pagesize", pageSize);
-    final String result = this.wxMpService.post(BIZWIFI_SHOP_LIST, json.toString());
+    final String result = this.weChatOfficialAccountService.post(BIZWIFI_SHOP_LIST, json.toString());
     return WxMpWifiShopListResult.fromJson(result);
   }
 
@@ -34,7 +34,7 @@ public class WxMpWifiServiceImpl implements WxMpWifiService {
   public WxMpWifiShopDataResult getShopWifiInfo(int shopId) throws WxErrorException {
     JsonObject json = new JsonObject();
     json.addProperty("shop_id", shopId);
-    return WxMpWifiShopDataResult.fromJson(this.wxMpService.post(BIZWIFI_SHOP_GET, json.toString()));
+    return WxMpWifiShopDataResult.fromJson(this.weChatOfficialAccountService.post(BIZWIFI_SHOP_GET, json.toString()));
   }
 
   @Override
@@ -47,7 +47,7 @@ public class WxMpWifiServiceImpl implements WxMpWifiService {
       json.addProperty("password", password);
     }
     try {
-      this.wxMpService.post(BIZWIFI_SHOP_UPDATE, json.toString());
+      this.weChatOfficialAccountService.post(BIZWIFI_SHOP_UPDATE, json.toString());
       return true;
     } catch (WxErrorException e) {
       throw e;

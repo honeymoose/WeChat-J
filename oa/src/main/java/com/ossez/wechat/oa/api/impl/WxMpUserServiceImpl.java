@@ -6,7 +6,7 @@ import com.ossez.wechat.oa.bean.result.WxMpChangeOpenid;
 import com.ossez.wechat.oa.bean.result.WxMpUser;
 import lombok.RequiredArgsConstructor;
 import com.ossez.wechat.common.exception.WxErrorException;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.api.WxMpUserService;
 import com.ossez.wechat.oa.bean.result.WxMpUserList;
 import com.ossez.wechat.oa.util.json.WxMpGsonBuilder;
@@ -25,14 +25,14 @@ import static com.ossez.wechat.oa.enums.WxMpApiUrl.User.*;
  */
 @RequiredArgsConstructor
 public class WxMpUserServiceImpl implements WxMpUserService {
-  private final WxMpService wxMpService;
+  private final WeChatOfficialAccountService weChatOfficialAccountService;
 
   @Override
   public void userUpdateRemark(String openid, String remark) throws WxErrorException {
     JsonObject json = new JsonObject();
     json.addProperty("openid", openid);
     json.addProperty("remark", remark);
-    this.wxMpService.post(USER_INFO_UPDATE_REMARK_URL, json.toString());
+    this.weChatOfficialAccountService.post(USER_INFO_UPDATE_REMARK_URL, json.toString());
   }
 
   @Override
@@ -43,19 +43,19 @@ public class WxMpUserServiceImpl implements WxMpUserService {
   @Override
   public WxMpUser userInfo(String openid, String lang) throws WxErrorException {
     lang = lang == null ? "zh_CN" : lang;
-    String responseContent = this.wxMpService.get(USER_INFO_URL, "openid=" + openid + "&lang=" + lang);
+    String responseContent = this.weChatOfficialAccountService.get(USER_INFO_URL, "openid=" + openid + "&lang=" + lang);
     return WxMpUser.fromJson(responseContent);
   }
 
   @Override
   public WxMpUserList userList(String nextOpenid) throws WxErrorException {
-    String responseContent = this.wxMpService.get(USER_GET_URL, nextOpenid == null ? null : "next_openid=" + nextOpenid);
+    String responseContent = this.weChatOfficialAccountService.get(USER_GET_URL, nextOpenid == null ? null : "next_openid=" + nextOpenid);
     return WxMpUserList.fromJson(responseContent);
   }
 
   @Override
   public WxMpUserList userList() throws WxErrorException {
-    String responseContent = this.wxMpService.get(USER_GET_URL, null);
+    String responseContent = this.weChatOfficialAccountService.get(USER_GET_URL, null);
     WxMpUserList mergeList = new WxMpUserList();
 
     WxMpUserList wxMpUserList = WxMpUserList.fromJson(responseContent);
@@ -77,7 +77,7 @@ public class WxMpUserServiceImpl implements WxMpUserService {
     Map<String, Object> map = new HashMap<>(2);
     map.put("from_appid", fromAppid);
     map.put("openid_list", openidList);
-    String responseContent = this.wxMpService.post(USER_CHANGE_OPENID_URL, WxMpGsonBuilder.create().toJson(map));
+    String responseContent = this.weChatOfficialAccountService.post(USER_CHANGE_OPENID_URL, WxMpGsonBuilder.create().toJson(map));
 
     return WxMpChangeOpenid.fromJsonList(responseContent);
   }
@@ -90,7 +90,7 @@ public class WxMpUserServiceImpl implements WxMpUserService {
 
   @Override
   public List<WxMpUser> userInfoList(WxMpUserQuery userQuery) throws WxErrorException {
-    String responseContent = this.wxMpService.post(USER_INFO_BATCH_GET_URL, userQuery.toJsonString());
+    String responseContent = this.weChatOfficialAccountService.post(USER_INFO_BATCH_GET_URL, userQuery.toJsonString());
     return WxMpUser.fromJsonList(responseContent);
   }
 

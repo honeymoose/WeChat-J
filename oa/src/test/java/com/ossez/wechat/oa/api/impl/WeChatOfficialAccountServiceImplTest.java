@@ -1,6 +1,6 @@
 package com.ossez.wechat.oa.api.impl;
 
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.api.test.ApiTestModule;
 import com.ossez.wechat.oa.api.test.TestConfigStorage;
 import com.ossez.wechat.oa.bean.result.WxMpCurrentAutoReplyInfo;
@@ -16,9 +16,9 @@ import com.ossez.wechat.common.enums.TicketType;
 
 @Test
 @Guice(modules = ApiTestModule.class)
-public class WxMpServiceImplTest {
+public class WeChatOfficialAccountServiceImplTest {
   @Inject
-  private WxMpService wxService;
+  private WeChatOfficialAccountService wxService;
 
   @Test
   public void testGetCurrentAutoReplyInfo() throws WxErrorException {

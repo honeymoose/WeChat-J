@@ -9,7 +9,7 @@ import com.ossez.wechat.common.bean.menu.WxMenu;
 import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.common.util.json.GsonParser;
 import com.ossez.wechat.oa.api.WxMpMenuService;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.enums.WxMpApiUrl;
 
 import static com.ossez.wechat.oa.enums.WxMpApiUrl.Menu.*;
@@ -22,7 +22,7 @@ import static com.ossez.wechat.oa.enums.WxMpApiUrl.Menu.*;
 @Slf4j
 @RequiredArgsConstructor
 public class WxMpMenuServiceImpl implements WxMpMenuService {
-  private final WxMpService wxMpService;
+  private final WeChatOfficialAccountService weChatOfficialAccountService;
 
   @Override
   public String menuCreate(WxMenu menu) throws WxErrorException {
@@ -34,7 +34,7 @@ public class WxMpMenuServiceImpl implements WxMpMenuService {
 
     log.debug("开始创建菜单：{}", menuJson);
 
-    String result = this.wxMpService.post(url, menuJson);
+    String result = this.weChatOfficialAccountService.post(url, menuJson);
     log.debug("创建菜单：{},结果：{}", menuJson, result);
 
     if (menu.getMatchRule() != null) {
@@ -52,7 +52,7 @@ public class WxMpMenuServiceImpl implements WxMpMenuService {
       url = MENU_ADDCONDITIONAL;
     }
 
-    String result = this.wxMpService.post(url, json);
+    String result = this.weChatOfficialAccountService.post(url, json);
     if (jsonObject.get("matchrule") != null) {
       return GsonParser.parse(result).get("menuid").getAsString();
     }
@@ -62,7 +62,7 @@ public class WxMpMenuServiceImpl implements WxMpMenuService {
 
   @Override
   public void menuDelete() throws WxErrorException {
-    String result = this.wxMpService.get(MENU_DELETE, null);
+    String result = this.weChatOfficialAccountService.get(MENU_DELETE, null);
     log.debug("删除菜单结果：{}", result);
   }
 
@@ -70,14 +70,14 @@ public class WxMpMenuServiceImpl implements WxMpMenuService {
   public void menuDelete(String menuId) throws WxErrorException {
     JsonObject jsonObject = new JsonObject();
     jsonObject.addProperty("menuid", menuId);
-    String result = this.wxMpService.post(MENU_DELCONDITIONAL, jsonObject.toString());
+    String result = this.weChatOfficialAccountService.post(MENU_DELCONDITIONAL, jsonObject.toString());
     log.debug("根据MeunId({})删除个性化菜单结果：{}", menuId, result);
   }
 
   @Override
   public WxMpMenu menuGet() throws WxErrorException {
     try {
-      String resultContent = this.wxMpService.get(MENU_GET, null);
+      String resultContent = this.weChatOfficialAccountService.get(MENU_GET, null);
       return WxMpMenu.fromJson(resultContent);
     } catch (WxErrorException e) {
       // 46003 不存在的菜单数据
@@ -93,7 +93,7 @@ public class WxMpMenuServiceImpl implements WxMpMenuService {
     JsonObject jsonObject = new JsonObject();
     jsonObject.addProperty("user_id", userid);
     try {
-      String resultContent = this.wxMpService.post(MENU_TRYMATCH, jsonObject.toString());
+      String resultContent = this.weChatOfficialAccountService.post(MENU_TRYMATCH, jsonObject.toString());
       return WxMenu.fromJson(resultContent);
     } catch (WxErrorException e) {
       // 46003 不存在的菜单数据；46002 不存在的菜单版本
@@ -107,7 +107,7 @@ public class WxMpMenuServiceImpl implements WxMpMenuService {
 
   @Override
   public WxMpGetSelfMenuInfoResult getSelfMenuInfo() throws WxErrorException {
-    String resultContent = this.wxMpService.get(GET_CURRENT_SELFMENU_INFO, null);
+    String resultContent = this.weChatOfficialAccountService.get(GET_CURRENT_SELFMENU_INFO, null);
     return WxMpGetSelfMenuInfoResult.fromJson(resultContent);
   }
 }

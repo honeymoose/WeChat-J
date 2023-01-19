@@ -4,7 +4,7 @@ import com.google.gson.JsonObject;
 import lombok.RequiredArgsConstructor;
 import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.oa.api.WxMpQrcodeService;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.bean.result.WxMpQrCodeTicket;
 import com.ossez.wechat.oa.util.requestexecuter.qrcode.QrCodeRequestExecutor;
 import org.apache.commons.lang3.StringUtils;
@@ -23,7 +23,7 @@ import static com.ossez.wechat.oa.enums.WxMpApiUrl.Qrcode.*;
  */
 @RequiredArgsConstructor
 public class WxMpQrcodeServiceImpl implements WxMpQrcodeService {
-  private final WxMpService wxMpService;
+  private final WeChatOfficialAccountService weChatOfficialAccountService;
 
   @Override
   public WxMpQrCodeTicket qrCodeCreateTmpTicket(int sceneId, Integer expireSeconds) throws WxErrorException {
@@ -75,7 +75,7 @@ public class WxMpQrcodeServiceImpl implements WxMpQrcodeService {
 
     actionInfo.add("scene", scene);
     json.add("action_info", actionInfo);
-    String responseContent = this.wxMpService.post(QRCODE_CREATE, json.toString());
+    String responseContent = this.weChatOfficialAccountService.post(QRCODE_CREATE, json.toString());
     return WxMpQrCodeTicket.fromJson(responseContent);
   }
 
@@ -95,16 +95,16 @@ public class WxMpQrcodeServiceImpl implements WxMpQrcodeService {
 
   @Override
   public File qrCodePicture(WxMpQrCodeTicket ticket) throws WxErrorException {
-    return this.wxMpService.execute(QrCodeRequestExecutor.create(this.wxMpService.getRequestHttp()), SHOW_QRCODE, ticket);
+    return this.weChatOfficialAccountService.execute(QrCodeRequestExecutor.create(this.weChatOfficialAccountService.getRequestHttp()), SHOW_QRCODE, ticket);
   }
 
   @Override
   public String qrCodePictureUrl(String ticket, boolean needShortUrl) throws WxErrorException {
     try {
-      String resultUrl = String.format(SHOW_QRCODE_WITH_TICKET.getUrl(this.wxMpService.getWxMpConfigStorage()),
+      String resultUrl = String.format(SHOW_QRCODE_WITH_TICKET.getUrl(this.weChatOfficialAccountService.getWxMpConfigStorage()),
         URLEncoder.encode(ticket, StandardCharsets.UTF_8.name()));
       if (needShortUrl) {
-        return this.wxMpService.shortUrl(resultUrl);
+        return this.weChatOfficialAccountService.shortUrl(resultUrl);
       }
 
       return resultUrl;

@@ -24,7 +24,7 @@ import static com.ossez.wechat.oa.enums.WxMpApiUrl.Other.GET_ACCESS_TOKEN_URL;
  *
  * @author someone
  */
-public class WxMpServiceHttpClientImpl extends BaseWxMpServiceImpl<CloseableHttpClient, HttpHost> {
+public class WeChatOfficialAccountServiceHttpClientImpl extends BaseWeChatOfficialAccountServiceImpl<CloseableHttpClient, HttpHost> {
   private CloseableHttpClient httpClient;
   private HttpHost httpProxy;
 

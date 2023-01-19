@@ -15,7 +15,7 @@ import com.ossez.wechat.common.util.crypto.SHA1;
 import com.ossez.wechat.common.util.http.URIUtil;
 import com.ossez.wechat.common.util.json.GsonParser;
 import com.ossez.wechat.common.util.json.WxGsonBuilder;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.open.api.*;
 import com.ossez.wechat.open.bean.*;
 import com.ossez.wechat.open.bean.auth.WxOpenAuthorizationInfo;
@@ -54,7 +54,7 @@ import java.util.concurrent.locks.Lock;
 public class WxOpenComponentServiceImpl implements WxOpenComponentService {
 
   private static final Map<String, WxOpenMaService> WX_OPEN_MA_SERVICE_MAP = new ConcurrentHashMap<>();
-  private static final Map<String, WxOpenMpService> WX_OPEN_MP_SERVICE_MAP = new ConcurrentHashMap<>();
+  private static final Map<String, com.ossez.wechat.open.api.WeChatOfficialAccountService> WX_OPEN_MP_SERVICE_MAP = new ConcurrentHashMap<>();
   private static final Map<String, WxOpenFastMaService> WX_OPEN_FAST_MA_SERVICE_MAP = new ConcurrentHashMap<>();
 
   private static final Map<String, WxOpenMinishopService> WX_OPEN_MINISHOP_SERVICE_MAP = new ConcurrentHashMap<>();
@@ -62,14 +62,14 @@ public class WxOpenComponentServiceImpl implements WxOpenComponentService {
   private final WxOpenService wxOpenService;
 
   @Override
-  public WxOpenMpService getWxMpServiceByAppid(String appId) {
-    WxOpenMpService wxMpService = WX_OPEN_MP_SERVICE_MAP.get(appId);
+  public com.ossez.wechat.open.api.WeChatOfficialAccountService getWxMpServiceByAppid(String appId) {
+    com.ossez.wechat.open.api.WeChatOfficialAccountService wxMpService = WX_OPEN_MP_SERVICE_MAP.get(appId);
     if (wxMpService == null) {
       synchronized (WX_OPEN_MP_SERVICE_MAP) {
         wxMpService = WX_OPEN_MP_SERVICE_MAP.get(appId);
         if (wxMpService == null) {
           WxOpenConfigStorage storage = this.getWxOpenConfigStorage();
-          wxMpService = new WxOpenMpServiceImpl(this, appId, storage.getWxMpConfigStorage(appId));
+          wxMpService = new WeChatOfficialAccountServiceImpl(this, appId, storage.getWxMpConfigStorage(appId));
           // 配置重试次数和重试间隔
           wxMpService.setMaxRetryTimes(storage.getMaxRetryTimes());
           wxMpService.setRetrySleepMillis(storage.getRetrySleepMillis());
@@ -552,8 +552,8 @@ public class WxOpenComponentServiceImpl implements WxOpenComponentService {
     String result = "";
     switch (appIdType) {
       case WxConsts.AppIdType.MP_TYPE:
-        WxMpService wxMpService = this.getWxMpServiceByAppid(appId);
-        result = wxMpService.post(requestUrl, param.toString());
+        WeChatOfficialAccountService weChatOfficialAccountService = this.getWxMpServiceByAppid(appId);
+        result = weChatOfficialAccountService.post(requestUrl, param.toString());
         return result;
       case WxConsts.AppIdType.MINI_TYPE:
         WxOpenMaService maService = this.getWxMaServiceByAppid(appId);

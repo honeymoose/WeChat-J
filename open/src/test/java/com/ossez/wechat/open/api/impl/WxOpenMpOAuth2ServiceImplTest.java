@@ -3,7 +3,7 @@ package com.ossez.wechat.open.api.impl;
 import com.google.inject.Inject;
 import com.ossez.wechat.common.bean.oauth2.WxOAuth2AccessToken;
 import com.ossez.wechat.common.exception.WxErrorException;
-import com.ossez.wechat.open.api.WxOpenMpService;
+import com.ossez.wechat.open.api.WeChatOfficialAccountService;
 import com.ossez.wechat.open.test.ApiTestModule;
 import org.testng.annotations.Guice;
 import org.testng.annotations.Test;
@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 public class WxOpenMpOAuth2ServiceImplTest {
 
   @Inject
-  protected WxOpenMpService wxOpenMpService;
+  protected WeChatOfficialAccountService wxOpenMpService;
 
 
   @Test

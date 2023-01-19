@@ -10,7 +10,7 @@ import lombok.AllArgsConstructor;
 import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.oa.api.WxMpCardService;
 import com.ossez.wechat.oa.api.WxMpMerchantInvoiceService;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.enums.WxMpApiUrl;
 
 import java.util.Map;
@@ -23,7 +23,7 @@ import static com.ossez.wechat.oa.enums.WxMpApiUrl.Invoice.*;
  */
 @AllArgsConstructor
 public class WxMpMerchantInvoiceServiceImpl implements WxMpMerchantInvoiceService {
-  private final WxMpService wxMpService;
+  private final WeChatOfficialAccountService weChatOfficialAccountService;
   private final WxMpCardService wxMpCardService;
 
   @Override
@@ -102,7 +102,7 @@ public class WxMpMerchantInvoiceServiceImpl implements WxMpMerchantInvoiceServic
     if (data != null) {
       json = gson.toJson(data);
     }
-    String responseText = wxMpService.post(url, json);
+    String responseText = weChatOfficialAccountService.post(url, json);
     if (resultClass == null) {
       return null;
     }

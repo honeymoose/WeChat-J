@@ -1,6 +1,6 @@
 package com.ossez.wechat.oa.api;
 
-import com.ossez.wechat.oa.api.impl.WxMpServiceHttpClientImpl;
+import com.ossez.wechat.oa.api.impl.WeChatOfficialAccountServiceHttpClientImpl;
 import lombok.extern.slf4j.Slf4j;
 import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.common.exception.WxRuntimeException;
@@ -19,7 +19,7 @@ public class WxMpBusyRetryTest {
 
   @DataProvider(name = "getService")
   public Object[][] getService() {
-    WxMpService service = new WxMpServiceHttpClientImpl() {
+    WeChatOfficialAccountService service = new WeChatOfficialAccountServiceHttpClientImpl() {
 
       @Override
       public synchronized <T, E> T executeInternal(
@@ -36,12 +36,12 @@ public class WxMpBusyRetryTest {
   }
 
   @Test(dataProvider = "getService", expectedExceptions = RuntimeException.class)
-  public void testRetry(WxMpService service) throws WxErrorException {
+  public void testRetry(WeChatOfficialAccountService service) throws WxErrorException {
     service.execute(null, (String) null, null);
   }
 
   @Test(dataProvider = "getService")
-  public void testRetryInThreadPool(final WxMpService service) throws InterruptedException, ExecutionException {
+  public void testRetryInThreadPool(final WeChatOfficialAccountService service) throws InterruptedException, ExecutionException {
     // 当线程池中的线程复用的时候，还是能保证相同的重试次数
     ExecutorService executorService = Executors.newFixedThreadPool(1);
     Runnable runnable = () -> {

@@ -4,7 +4,7 @@ import com.google.common.collect.Lists;
 import com.google.inject.Inject;
 import com.ossez.wechat.common.bean.WxCardApiSignature;
 import com.ossez.wechat.common.exception.WxErrorException;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.api.test.ApiTestModule;
 import com.ossez.wechat.oa.bean.card.*;
 import org.testng.AssertJUnit;
@@ -22,7 +22,7 @@ import org.testng.annotations.Test;
 public class WxMpCardServiceImplTest {
 
   @Inject
-  protected WxMpService wxService;
+  protected WeChatOfficialAccountService wxService;
   private String cardId = "123";
   private String code = "good";
   private String openid = "abc";

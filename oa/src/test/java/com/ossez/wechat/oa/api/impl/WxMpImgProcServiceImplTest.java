@@ -3,7 +3,7 @@ package com.ossez.wechat.oa.api.impl;
 import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.common.util.fs.FileUtils;
 import com.ossez.wechat.common.service.WxImgProcService;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.api.test.ApiTestModule;
 import com.ossez.wechat.oa.api.test.TestConstants;
 import com.ossez.wechat.common.bean.imgproc.WxImgProcAiCropResult;
@@ -27,7 +27,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Guice(modules = ApiTestModule.class)
 public class WxMpImgProcServiceImplTest {
   @Inject
-  private WxMpService mpService;
+  private WeChatOfficialAccountService mpService;
 
   @Test
   public void testQrCode() throws WxErrorException {
@@ -94,7 +94,7 @@ public class WxMpImgProcServiceImplTest {
   }
 
   public static class mockTest {
-    private WxMpService wxService = Mockito.mock(WxMpService.class);
+    private WeChatOfficialAccountService wxService = Mockito.mock(WeChatOfficialAccountService.class);
 
     @Test
     public void testQrCode() throws Exception {

@@ -5,7 +5,7 @@ import com.ossez.wechat.oa.bean.datacube.*;
 import lombok.RequiredArgsConstructor;
 import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.oa.api.WxMpDataCubeService;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.enums.WxMpApiUrl;
 import org.apache.commons.lang3.time.FastDateFormat;
 
@@ -24,17 +24,17 @@ import static com.ossez.wechat.oa.enums.WxMpApiUrl.DataCube.*;
 public class WxMpDataCubeServiceImpl implements WxMpDataCubeService {
   private final Format dateFormat = FastDateFormat.getInstance("yyyy-MM-dd");
 
-  private final WxMpService wxMpService;
+  private final WeChatOfficialAccountService weChatOfficialAccountService;
 
   @Override
   public List<WxDataCubeUserSummary> getUserSummary(Date beginDate, Date endDate) throws WxErrorException {
-    String responseContent = this.wxMpService.post(GET_USER_SUMMARY, buildParams(beginDate, endDate));
+    String responseContent = this.weChatOfficialAccountService.post(GET_USER_SUMMARY, buildParams(beginDate, endDate));
     return WxDataCubeUserSummary.fromJson(responseContent);
   }
 
   @Override
   public List<WxDataCubeUserCumulate> getUserCumulate(Date beginDate, Date endDate) throws WxErrorException {
-    String responseContent = this.wxMpService.post(GET_USER_CUMULATE, buildParams(beginDate, endDate));
+    String responseContent = this.weChatOfficialAccountService.post(GET_USER_CUMULATE, buildParams(beginDate, endDate));
     return WxDataCubeUserCumulate.fromJson(responseContent);
   }
 
@@ -45,7 +45,7 @@ public class WxMpDataCubeServiceImpl implements WxMpDataCubeService {
 
   @Override
   public List<WxDataCubeArticleTotal> getArticleTotal(Date beginDate, Date endDate) throws WxErrorException {
-    String responseContent = this.wxMpService.post(GET_ARTICLE_TOTAL, buildParams(beginDate, endDate));
+    String responseContent = this.weChatOfficialAccountService.post(GET_ARTICLE_TOTAL, buildParams(beginDate, endDate));
     return WxDataCubeArticleTotal.fromJson(responseContent);
   }
 
@@ -70,7 +70,7 @@ public class WxMpDataCubeServiceImpl implements WxMpDataCubeService {
   }
 
   private List<WxDataCubeArticleResult> getArticleResults(WxMpApiUrl url, Date beginDate, Date endDate) throws WxErrorException {
-    String responseContent = this.wxMpService.post(url, buildParams(beginDate, endDate));
+    String responseContent = this.weChatOfficialAccountService.post(url, buildParams(beginDate, endDate));
     return WxDataCubeArticleResult.fromJson(responseContent);
   }
 
@@ -110,13 +110,13 @@ public class WxMpDataCubeServiceImpl implements WxMpDataCubeService {
   }
 
   private List<WxDataCubeMsgResult> getUpstreamMsg(WxMpApiUrl url, Date beginDate, Date endDate) throws WxErrorException {
-    String responseContent = this.wxMpService.post(url, buildParams(beginDate, endDate));
+    String responseContent = this.weChatOfficialAccountService.post(url, buildParams(beginDate, endDate));
     return WxDataCubeMsgResult.fromJson(responseContent);
   }
 
   @Override
   public List<WxDataCubeInterfaceResult> getInterfaceSummary(Date beginDate, Date endDate) throws WxErrorException {
-    String responseContent = this.wxMpService.post(GET_INTERFACE_SUMMARY, buildParams(beginDate, endDate));
+    String responseContent = this.weChatOfficialAccountService.post(GET_INTERFACE_SUMMARY, buildParams(beginDate, endDate));
     return WxDataCubeInterfaceResult.fromJson(responseContent);
   }
 
@@ -129,7 +129,7 @@ public class WxMpDataCubeServiceImpl implements WxMpDataCubeService {
 
   @Override
   public List<WxDataCubeInterfaceResult> getInterfaceSummaryHour(Date beginDate, Date endDate) throws WxErrorException {
-    String responseContent = this.wxMpService.post(GET_INTERFACE_SUMMARY_HOUR, buildParams(beginDate, endDate));
+    String responseContent = this.weChatOfficialAccountService.post(GET_INTERFACE_SUMMARY_HOUR, buildParams(beginDate, endDate));
     return WxDataCubeInterfaceResult.fromJson(responseContent);
   }
 }

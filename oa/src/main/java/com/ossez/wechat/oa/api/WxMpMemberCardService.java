@@ -19,7 +19,7 @@ public interface WxMpMemberCardService {
    *
    * @return WxMpService
    */
-  WxMpService getWxMpService();
+  WeChatOfficialAccountService getWeChatOfficialAccountService();
 
   /**
    * 会员卡创建接口.

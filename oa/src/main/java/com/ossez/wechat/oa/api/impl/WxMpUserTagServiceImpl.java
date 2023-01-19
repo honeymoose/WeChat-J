@@ -10,7 +10,7 @@ import com.ossez.wechat.common.enums.WxType;
 import com.ossez.wechat.common.exception.WxError;
 import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.common.util.json.GsonParser;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.api.WxMpUserTagService;
 import com.ossez.wechat.oa.util.json.WxMpGsonBuilder;
 import org.apache.commons.lang3.StringUtils;
@@ -26,7 +26,7 @@ import static com.ossez.wechat.oa.enums.WxMpApiUrl.UserTag.*;
  */
 @RequiredArgsConstructor
 public class WxMpUserTagServiceImpl implements WxMpUserTagService {
-  private final WxMpService wxMpService;
+  private final WeChatOfficialAccountService weChatOfficialAccountService;
 
   @Override
   public WxUserTag tagCreate(String name) throws WxErrorException {
@@ -35,13 +35,13 @@ public class WxMpUserTagServiceImpl implements WxMpUserTagService {
     tagJson.addProperty("name", name);
     json.add("tag", tagJson);
 
-    String responseContent = this.wxMpService.post(TAGS_CREATE, json.toString());
+    String responseContent = this.weChatOfficialAccountService.post(TAGS_CREATE, json.toString());
     return WxUserTag.fromJson(responseContent);
   }
 
   @Override
   public List<WxUserTag> tagGet() throws WxErrorException {
-    String responseContent = this.wxMpService.get(TAGS_GET, null);
+    String responseContent = this.weChatOfficialAccountService.get(TAGS_GET, null);
     return WxUserTag.listFromJson(responseContent);
   }
 
@@ -53,7 +53,7 @@ public class WxMpUserTagServiceImpl implements WxMpUserTagService {
     tagJson.addProperty("name", name);
     json.add("tag", tagJson);
 
-    String responseContent = this.wxMpService.post(TAGS_UPDATE, json.toString());
+    String responseContent = this.weChatOfficialAccountService.post(TAGS_UPDATE, json.toString());
     WxError wxError = WxError.fromJson(responseContent, WxType.MP);
     if (wxError.getErrorCode() == 0) {
       return true;
@@ -69,7 +69,7 @@ public class WxMpUserTagServiceImpl implements WxMpUserTagService {
     tagJson.addProperty("id", id);
     json.add("tag", tagJson);
 
-    String responseContent = this.wxMpService.post(TAGS_DELETE, json.toString());
+    String responseContent = this.weChatOfficialAccountService.post(TAGS_DELETE, json.toString());
     WxError wxError = WxError.fromJson(responseContent, WxType.MP);
     if (wxError.getErrorCode() == 0) {
       return true;
@@ -84,7 +84,7 @@ public class WxMpUserTagServiceImpl implements WxMpUserTagService {
     json.addProperty("tagid", tagId);
     json.addProperty("next_openid", StringUtils.trimToEmpty(nextOpenid));
 
-    String responseContent = this.wxMpService.post(TAG_GET, json.toString());
+    String responseContent = this.weChatOfficialAccountService.post(TAG_GET, json.toString());
     return WxTagListUser.fromJson(responseContent);
   }
 
@@ -98,7 +98,7 @@ public class WxMpUserTagServiceImpl implements WxMpUserTagService {
     }
     json.add("openid_list", openidArrayJson);
 
-    String responseContent = this.wxMpService.post(TAGS_MEMBERS_BATCHTAGGING, json.toString());
+    String responseContent = this.weChatOfficialAccountService.post(TAGS_MEMBERS_BATCHTAGGING, json.toString());
     WxError wxError = WxError.fromJson(responseContent, WxType.MP);
     if (wxError.getErrorCode() == 0) {
       return true;
@@ -117,7 +117,7 @@ public class WxMpUserTagServiceImpl implements WxMpUserTagService {
     }
     json.add("openid_list", openidArrayJson);
 
-    String responseContent = this.wxMpService.post(TAGS_MEMBERS_BATCHUNTAGGING, json.toString());
+    String responseContent = this.weChatOfficialAccountService.post(TAGS_MEMBERS_BATCHUNTAGGING, json.toString());
     WxError wxError = WxError.fromJson(responseContent, WxType.MP);
     if (wxError.getErrorCode() == 0) {
       return true;
@@ -131,7 +131,7 @@ public class WxMpUserTagServiceImpl implements WxMpUserTagService {
     JsonObject json = new JsonObject();
     json.addProperty("openid", openid);
 
-    String responseContent = this.wxMpService.post(TAGS_GETIDLIST, json.toString());
+    String responseContent = this.weChatOfficialAccountService.post(TAGS_GETIDLIST, json.toString());
 
     return WxMpGsonBuilder.create().fromJson(
       GsonParser.parse(responseContent).get("tagid_list"),

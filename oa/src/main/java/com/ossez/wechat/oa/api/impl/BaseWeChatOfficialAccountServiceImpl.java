@@ -50,7 +50,7 @@ import static com.ossez.wechat.oa.enums.WxMpApiUrl.Other.*;
  * @author someone
  */
 @Slf4j
-public abstract class BaseWxMpServiceImpl<H, P> implements WxMpService, RequestHttp<H, P> {
+public abstract class BaseWeChatOfficialAccountServiceImpl<H, P> implements WeChatOfficialAccountService, RequestHttp<H, P> {
   protected WxSessionManager sessionManager = new StandardSessionManager();
   @Getter
   @Setter
@@ -520,7 +520,7 @@ public abstract class BaseWxMpServiceImpl<H, P> implements WxMpService, RequestH
   }
 
   @Override
-  public WxMpService switchoverTo(String mpId) {
+  public WeChatOfficialAccountService switchoverTo(String mpId) {
     if (this.configStorageMap.containsKey(mpId)) {
       WxMpConfigStorageHolder.set(mpId);
       return this;

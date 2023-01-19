@@ -1,7 +1,7 @@
 package com.ossez.wechat.oa.api.impl;
 
 import com.google.inject.Inject;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.api.test.ApiTestModule;
 import com.ossez.wechat.oa.bean.WxMpShakeInfoResult;
 import com.ossez.wechat.oa.bean.WxMpShakeQuery;
@@ -17,7 +17,7 @@ import org.testng.annotations.Test;
 @Guice(modules = ApiTestModule.class)
 public class WxMpShakeServiceImplTest {
   @Inject
-  private WxMpService wxService;
+  private WeChatOfficialAccountService wxService;
 
   public void testGetShakeInfo() throws Exception {
     WxMpShakeQuery wxMpShakeQuery = new WxMpShakeQuery();

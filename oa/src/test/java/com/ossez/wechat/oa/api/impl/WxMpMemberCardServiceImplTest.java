@@ -3,7 +3,7 @@ package com.ossez.wechat.oa.api.impl;
 import com.google.inject.Inject;
 import com.ossez.wechat.oa.api.WxMpCardService;
 import com.ossez.wechat.oa.api.WxMpMemberCardService;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.api.test.ApiTestModule;
 import com.ossez.wechat.oa.bean.card.*;
 import com.ossez.wechat.oa.bean.card.enums.CardSceneType;
@@ -21,7 +21,7 @@ import org.testng.annotations.Test;
 public class WxMpMemberCardServiceImplTest {
 
   @Inject
-  protected WxMpService wxService;
+  protected WeChatOfficialAccountService wxService;
   private String cardId = "p4p-v1bKn9tiQHxyO79aKmuTIZlQ";
   private String code = "224765120681";
   private String openId = "o4p-v1TIemEIpBSrSrTprkCaG6Xc";

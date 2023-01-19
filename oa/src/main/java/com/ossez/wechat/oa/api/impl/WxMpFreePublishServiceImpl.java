@@ -5,7 +5,7 @@ import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.common.util.json.GsonHelper;
 import com.ossez.wechat.common.util.json.GsonParser;
 import com.ossez.wechat.oa.api.WxMpFreePublishService;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.bean.freepublish.WxMpFreePublishInfo;
 import com.ossez.wechat.oa.bean.freepublish.WxMpFreePublishList;
 import com.ossez.wechat.oa.bean.freepublish.WxMpFreePublishStatus;
@@ -25,7 +25,7 @@ public class WxMpFreePublishServiceImpl implements WxMpFreePublishService {
   private static final String ARTICLE_ID = "article_id";
   private static final String ERRCODE_SUCCESS = "0";
   private static final String ERRCODE = "errcode";
-  private final WxMpService mpService;
+  private final WeChatOfficialAccountService mpService;
 
   @Override
   public String submit(String mediaId) throws WxErrorException {

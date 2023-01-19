@@ -3,7 +3,7 @@ package com.ossez.wechat.oa.api.impl;
 import com.ossez.wechat.common.bean.WxOAuth2UserInfo;
 import com.ossez.wechat.common.bean.oauth2.WxOAuth2AccessToken;
 import com.ossez.wechat.common.exception.WxErrorException;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.api.test.ApiTestModule;
 import org.assertj.core.api.Assertions;
 import org.testng.annotations.Guice;
@@ -23,7 +23,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Guice(modules = ApiTestModule.class)
 public class WxMpOAuth2ServiceImplTest {
   @Inject
-  private WxMpService mpService;
+  private WeChatOfficialAccountService mpService;
 
   @Test
   public void testBuildAuthorizationUrl() {

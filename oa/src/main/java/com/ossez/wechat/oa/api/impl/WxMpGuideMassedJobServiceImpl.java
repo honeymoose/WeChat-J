@@ -10,7 +10,7 @@ import com.ossez.wechat.common.util.json.GsonHelper;
 import com.ossez.wechat.common.util.json.GsonParser;
 import com.ossez.wechat.common.util.json.WxGsonBuilder;
 import com.ossez.wechat.oa.api.WxMpGuideMassedJobService;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.enums.WxMpApiUrl;
 
 import java.util.LinkedHashMap;
@@ -25,7 +25,7 @@ import java.util.Map;
 public class WxMpGuideMassedJobServiceImpl implements WxMpGuideMassedJobService {
   private static final String ACCOUNT = "guide_account";
   private static final String OPENID = "guide_openid";
-  private final WxMpService mpService;
+  private final WeChatOfficialAccountService mpService;
 
   @Override
   public WxMpGuideMassed addGuideMassedJob(String account, String openid, String taskName, String taskRemark, Long pushTime, List<String> userOpenIds, List<WxMpGuideMaterialInfo> materialInfos) throws WxErrorException {

@@ -1,7 +1,7 @@
 package com.ossez.wechat.oa.api.impl;
 
 import com.google.inject.Inject;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.api.test.ApiTestModule;
 import com.ossez.wechat.oa.bean.tag.WxTagListUser;
 import com.ossez.wechat.oa.bean.tag.WxUserTag;
@@ -20,7 +20,7 @@ import java.util.List;
 @Guice(modules = ApiTestModule.class)
 public class WxMpUserTagServiceImplTest {
   @Inject
-  protected WxMpService wxService;
+  protected WeChatOfficialAccountService wxService;
 
   private Long tagId = 2L;
 

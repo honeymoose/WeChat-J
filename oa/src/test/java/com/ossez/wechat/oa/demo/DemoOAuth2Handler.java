@@ -3,7 +3,7 @@ package com.ossez.wechat.oa.demo;
 import com.ossez.wechat.common.api.WxConsts;
 import com.ossez.wechat.common.session.WxSessionManager;
 import com.ossez.wechat.oa.api.WxMpMessageHandler;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.bean.message.WxMpXmlMessage;
 import com.ossez.wechat.oa.bean.message.WxMpXmlOutMessage;
 
@@ -15,10 +15,10 @@ import java.util.Map;
 public class DemoOAuth2Handler implements WxMpMessageHandler {
   @Override
   public WxMpXmlOutMessage handle(WxMpXmlMessage wxMessage,
-                                  Map<String, Object> context, WxMpService wxMpService,
+                                  Map<String, Object> context, WeChatOfficialAccountService weChatOfficialAccountService,
                                   WxSessionManager sessionManager) {
-    String href = "<a href=\"" + wxMpService.getOAuth2Service().buildAuthorizationUrl(
-      wxMpService.getWxMpConfigStorage().getOauth2redirectUri(),
+    String href = "<a href=\"" + weChatOfficialAccountService.getOAuth2Service().buildAuthorizationUrl(
+      weChatOfficialAccountService.getWxMpConfigStorage().getOauth2redirectUri(),
       WxConsts.OAuth2Scope.SNSAPI_USERINFO, null) + "\">测试oauth2</a>";
     return WxMpXmlOutMessage.TEXT().content(href)
       .fromUser(wxMessage.getToUser()).toUser(wxMessage.getFromUser())

@@ -22,7 +22,7 @@ import lombok.extern.slf4j.Slf4j;
 import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.common.util.json.WxGsonBuilder;
 import com.ossez.wechat.oa.api.WxMpMemberCardService;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.bean.card.AdvancedInfo;
 import com.ossez.wechat.oa.bean.card.BaseInfo;
 import com.ossez.wechat.oa.bean.card.CardUpdateResult;
@@ -39,13 +39,12 @@ import com.ossez.wechat.oa.util.json.WxMpGsonBuilder;
 @Slf4j
 @RequiredArgsConstructor
 public class WxMpMemberCardServiceImpl implements WxMpMemberCardService {
-  private final WxMpService wxMpService;
+  private final WeChatOfficialAccountService weChatOfficialAccountService;
 
   private static final Gson GSON = WxMpGsonBuilder.create();
 
-  @Override
-  public WxMpService getWxMpService() {
-    return this.wxMpService;
+  public WeChatOfficialAccountService getWeChatOfficialAccountService() {
+    return this.weChatOfficialAccountService;
   }
 
   @Override
@@ -64,7 +63,7 @@ public class WxMpMemberCardServiceImpl implements WxMpMemberCardService {
       return validResult;
     }
 
-    String response = this.wxMpService.post(WxMpApiUrl.MemberCard.MEMBER_CARD_CREATE, GSON.toJson(createMessageMessage));
+    String response = this.weChatOfficialAccountService.post(WxMpApiUrl.MemberCard.MEMBER_CARD_CREATE, GSON.toJson(createMessageMessage));
     return WxMpCardCreateResult.fromJson(response);
   }
 
@@ -206,7 +205,7 @@ public class WxMpMemberCardServiceImpl implements WxMpMemberCardService {
 
   @Override
   public String activateMemberCard(WxMpMemberCardActivatedMessage activatedMessage) throws WxErrorException {
-    return this.wxMpService.post(WxMpApiUrl.MemberCard.MEMBER_CARD_ACTIVATE, GSON.toJson(activatedMessage));
+    return this.weChatOfficialAccountService.post(WxMpApiUrl.MemberCard.MEMBER_CARD_ACTIVATE, GSON.toJson(activatedMessage));
   }
 
   @Override
@@ -215,7 +214,7 @@ public class WxMpMemberCardServiceImpl implements WxMpMemberCardService {
     jsonObject.addProperty("card_id", cardId);
     jsonObject.addProperty("code", code);
 
-    String responseContent = this.getWxMpService().post(WxMpApiUrl.MemberCard.MEMBER_CARD_USER_INFO_GET, jsonObject.toString());
+    String responseContent = this.getWeChatOfficialAccountService().post(WxMpApiUrl.MemberCard.MEMBER_CARD_USER_INFO_GET, jsonObject.toString());
     log.debug("{}", responseContent);
     JsonElement tmpJsonElement = new JsonParser().parse(responseContent);
     return WxMpGsonBuilder.create().fromJson(tmpJsonElement,
@@ -227,7 +226,7 @@ public class WxMpMemberCardServiceImpl implements WxMpMemberCardService {
   public WxMpMemberCardUpdateResult updateUserMemberCard(WxMpMemberCardUpdateMessage updateUserMessage)
     throws WxErrorException {
 
-    String responseContent = this.getWxMpService().post(WxMpApiUrl.MemberCard.MEMBER_CARD_UPDATE_USER, GSON.toJson(updateUserMessage));
+    String responseContent = this.getWeChatOfficialAccountService().post(WxMpApiUrl.MemberCard.MEMBER_CARD_UPDATE_USER, GSON.toJson(updateUserMessage));
 
     JsonElement tmpJsonElement = new JsonParser().parse(responseContent);
     return WxMpGsonBuilder.create().fromJson(tmpJsonElement,
@@ -237,7 +236,7 @@ public class WxMpMemberCardServiceImpl implements WxMpMemberCardService {
 
   @Override
   public MemberCardActivateUserFormResult setActivateUserForm(MemberCardActivateUserFormRequest userFormRequest) throws WxErrorException {
-    String responseContent = this.getWxMpService().post(WxMpApiUrl.MemberCard.MEMBER_CARD_ACTIVATE_USER_FORM, GSON.toJson(userFormRequest));
+    String responseContent = this.getWeChatOfficialAccountService().post(WxMpApiUrl.MemberCard.MEMBER_CARD_ACTIVATE_USER_FORM, GSON.toJson(userFormRequest));
     return MemberCardActivateUserFormResult.fromJson(responseContent);
   }
 
@@ -264,14 +263,14 @@ public class WxMpMemberCardServiceImpl implements WxMpMemberCardService {
     JsonObject params = new JsonObject();
     params.addProperty("card_id", cardId);
     params.addProperty("outer_str", outStr);
-    String response = this.wxMpService.post(WxMpApiUrl.MemberCard.MEMBER_CARD_ACTIVATE_URL, GSON.toJson(params));
+    String response = this.weChatOfficialAccountService.post(WxMpApiUrl.MemberCard.MEMBER_CARD_ACTIVATE_URL, GSON.toJson(params));
     ActivatePluginParamResult result = GSON.fromJson(response, ActivatePluginParamResult.class);
     return result.getUrl();
   }
 
   @Override
   public CardUpdateResult updateCardInfo(MemberCardUpdateRequest memberCardUpdateRequest) throws WxErrorException {
-    String response = this.wxMpService.post(WxMpApiUrl.MemberCard.MEMBER_CARD_UPDATE, GSON.toJson(memberCardUpdateRequest));
+    String response = this.weChatOfficialAccountService.post(WxMpApiUrl.MemberCard.MEMBER_CARD_UPDATE, GSON.toJson(memberCardUpdateRequest));
     return GSON.fromJson(response, CardUpdateResult.class);
   }
 
@@ -279,7 +278,7 @@ public class WxMpMemberCardServiceImpl implements WxMpMemberCardService {
   public WxMpMemberCardActivateTempInfoResult getActivateTempInfo(String activateTicket) throws WxErrorException {
     JsonObject params = new JsonObject();
     params.addProperty("activate_ticket", activateTicket);
-    String response = this.wxMpService.post(WxMpApiUrl.MemberCard.MEMBER_CARD_ACTIVATE_TEMP_INFO, GSON.toJson(params));
+    String response = this.weChatOfficialAccountService.post(WxMpApiUrl.MemberCard.MEMBER_CARD_ACTIVATE_TEMP_INFO, GSON.toJson(params));
     return GSON.fromJson(response, WxMpMemberCardActivateTempInfoResult.class);
   }
 

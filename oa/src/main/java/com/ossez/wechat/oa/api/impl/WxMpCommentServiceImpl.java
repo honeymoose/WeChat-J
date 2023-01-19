@@ -4,7 +4,7 @@ import com.google.gson.JsonObject;
 import lombok.RequiredArgsConstructor;
 import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.oa.api.WxMpCommentService;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.bean.comment.WxMpCommentListVo;
 
 import static com.ossez.wechat.oa.enums.WxMpApiUrl.Comment.*;
@@ -15,7 +15,7 @@ import static com.ossez.wechat.oa.enums.WxMpApiUrl.Comment.*;
  */
 @RequiredArgsConstructor
 public class WxMpCommentServiceImpl implements WxMpCommentService {
-  private final WxMpService wxMpService;
+  private final WeChatOfficialAccountService weChatOfficialAccountService;
 
   @Override
   public void open(String msgDataId, Integer index) throws WxErrorException {
@@ -25,7 +25,7 @@ public class WxMpCommentServiceImpl implements WxMpCommentService {
       json.addProperty("index", index);
     }
 
-    this.wxMpService.post(OPEN, json.toString());
+    this.weChatOfficialAccountService.post(OPEN, json.toString());
   }
 
   @Override
@@ -36,7 +36,7 @@ public class WxMpCommentServiceImpl implements WxMpCommentService {
       json.addProperty("index", index);
     }
 
-    this.wxMpService.post(CLOSE, json.toString());
+    this.weChatOfficialAccountService.post(CLOSE, json.toString());
   }
 
   @Override
@@ -51,26 +51,26 @@ public class WxMpCommentServiceImpl implements WxMpCommentService {
       json.addProperty("index", index);
     }
 
-    return WxMpCommentListVo.fromJson(this.wxMpService.post(LIST, json.toString()));
+    return WxMpCommentListVo.fromJson(this.weChatOfficialAccountService.post(LIST, json.toString()));
   }
 
   @Override
   public void markElect(String msgDataId, Integer index, Long userCommentId) throws WxErrorException {
     JsonObject json = this.buildJson(msgDataId, index, userCommentId);
-    this.wxMpService.post(MARK_ELECT, json.toString());
+    this.weChatOfficialAccountService.post(MARK_ELECT, json.toString());
   }
 
   @Override
   public void unmarkElect(String msgDataId, Integer index, Long userCommentId) throws WxErrorException {
     JsonObject json = this.buildJson(msgDataId, index, userCommentId);
-    this.wxMpService.post(UNMARK_ELECT, json.toString());
+    this.weChatOfficialAccountService.post(UNMARK_ELECT, json.toString());
   }
 
   @Override
   public void delete(String msgDataId, Integer index, Long userCommentId) throws WxErrorException {
     JsonObject json = this.buildJson(msgDataId, index, userCommentId);
 
-    this.wxMpService.post(DELETE, json.toString());
+    this.weChatOfficialAccountService.post(DELETE, json.toString());
   }
 
   @Override
@@ -78,13 +78,13 @@ public class WxMpCommentServiceImpl implements WxMpCommentService {
     JsonObject json = this.buildJson(msgDataId, index, userCommentId);
     json.addProperty("content", content);
 
-    this.wxMpService.post(REPLY_ADD, json.toString());
+    this.weChatOfficialAccountService.post(REPLY_ADD, json.toString());
   }
 
   @Override
   public void replyDelete(String msgDataId, Integer index, Long userCommentId) throws WxErrorException {
     JsonObject json = this.buildJson(msgDataId, index, userCommentId);
-    this.wxMpService.post(REPLY_DELETE, json.toString());
+    this.weChatOfficialAccountService.post(REPLY_DELETE, json.toString());
   }
 
   private JsonObject buildJson(String msgDataId, Integer index, Long userCommentId) {

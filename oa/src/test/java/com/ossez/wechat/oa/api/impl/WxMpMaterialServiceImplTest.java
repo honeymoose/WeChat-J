@@ -5,7 +5,7 @@ import com.ossez.wechat.common.api.WxConsts;
 import com.ossez.wechat.common.bean.result.WxMediaUploadResult;
 import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.common.util.fs.FileUtils;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.api.test.ApiTestModule;
 import com.ossez.wechat.oa.api.test.TestConstants;
 import com.ossez.wechat.oa.bean.material.*;
@@ -32,7 +32,7 @@ import static org.testng.AssertJUnit.assertEquals;
 @Guice(modules = ApiTestModule.class)
 public class WxMpMaterialServiceImplTest {
   @Inject
-  protected WxMpService wxService;
+  protected WeChatOfficialAccountService wxService;
 
   private Map<String, Map<String, Object>> mediaIds = new LinkedHashMap<>();
   // 缩略图的id，测试上传图文使用

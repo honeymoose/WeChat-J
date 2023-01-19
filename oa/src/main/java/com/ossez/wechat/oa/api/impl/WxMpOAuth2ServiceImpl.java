@@ -10,7 +10,7 @@ import com.ossez.wechat.common.exception.WxRuntimeException;
 import com.ossez.wechat.common.util.http.RequestExecutor;
 import com.ossez.wechat.common.util.http.SimpleGetRequestExecutor;
 import com.ossez.wechat.common.util.http.URIUtil;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.common.service.WxOAuth2Service;
 import com.ossez.wechat.oa.config.WxMpConfigStorage;
 import org.apache.commons.lang3.StringUtils;
@@ -27,7 +27,7 @@ import static com.ossez.wechat.oa.enums.WxMpApiUrl.OAuth2.*;
  */
 @RequiredArgsConstructor
 public class WxMpOAuth2ServiceImpl implements WxOAuth2Service {
-  private final WxMpService wxMpService;
+  private final WeChatOfficialAccountService weChatOfficialAccountService;
 
   @Override
   public String buildAuthorizationUrl(String redirectUri, String scope, String state) {
@@ -37,7 +37,7 @@ public class WxMpOAuth2ServiceImpl implements WxOAuth2Service {
 
   private WxOAuth2AccessToken getOAuth2AccessToken(String url) throws WxErrorException {
     try {
-      RequestExecutor<String, String> executor = SimpleGetRequestExecutor.create(this.wxMpService.getRequestHttp());
+      RequestExecutor<String, String> executor = SimpleGetRequestExecutor.create(this.weChatOfficialAccountService.getRequestHttp());
       String responseText = executor.execute(url, null, WxType.MP);
       return WxOAuth2AccessToken.fromJson(responseText);
     } catch (IOException e) {
@@ -62,7 +62,7 @@ public class WxMpOAuth2ServiceImpl implements WxOAuth2Service {
   }
 
   protected WxMpConfigStorage getMpConfigStorage() {
-    return this.wxMpService.getWxMpConfigStorage();
+    return this.weChatOfficialAccountService.getWxMpConfigStorage();
   }
 
   @Override
@@ -74,7 +74,7 @@ public class WxMpOAuth2ServiceImpl implements WxOAuth2Service {
     String url = String.format(OAUTH2_USERINFO_URL.getUrl(getMpConfigStorage()), token.getAccessToken(), token.getOpenId(), lang);
 
     try {
-      RequestExecutor<String, String> executor = SimpleGetRequestExecutor.create(this.wxMpService.getRequestHttp());
+      RequestExecutor<String, String> executor = SimpleGetRequestExecutor.create(this.weChatOfficialAccountService.getRequestHttp());
       String responseText = executor.execute(url, null, WxType.MP);
       return WxOAuth2UserInfo.fromJson(responseText);
     } catch (IOException e) {
@@ -87,7 +87,7 @@ public class WxMpOAuth2ServiceImpl implements WxOAuth2Service {
     String url = String.format(OAUTH2_VALIDATE_TOKEN_URL.getUrl(getMpConfigStorage()), token.getAccessToken(), token.getOpenId());
 
     try {
-      SimpleGetRequestExecutor.create(this.wxMpService.getRequestHttp()).execute(url, null, WxType.MP);
+      SimpleGetRequestExecutor.create(this.weChatOfficialAccountService.getRequestHttp()).execute(url, null, WxType.MP);
     } catch (IOException e) {
       throw new WxRuntimeException(e);
     } catch (WxErrorException e) {

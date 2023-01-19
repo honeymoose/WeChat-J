@@ -13,7 +13,7 @@ import com.ossez.wechat.common.util.http.SimpleGetRequestExecutor;
 import com.ossez.wechat.common.util.json.GsonParser;
 import com.ossez.wechat.common.util.json.WxGsonBuilder;
 import com.ossez.wechat.oa.api.WxMpCardService;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.common.enums.TicketType;
 import com.ossez.wechat.oa.enums.WxMpApiUrl;
 import com.ossez.wechat.oa.util.json.WxMpGsonBuilder;
@@ -33,11 +33,10 @@ import java.util.concurrent.locks.Lock;
 @RequiredArgsConstructor
 public class WxMpCardServiceImpl implements WxMpCardService {
   private static final Gson GSON = WxMpGsonBuilder.create();
-  private final WxMpService wxMpService;
+  private final WeChatOfficialAccountService weChatOfficialAccountService;
 
-  @Override
-  public WxMpService getWxMpService() {
-    return this.wxMpService;
+  public WeChatOfficialAccountService getWeChatOfficialAccountService() {
+    return this.weChatOfficialAccountService;
   }
 
   @Override
@@ -50,26 +49,26 @@ public class WxMpCardServiceImpl implements WxMpCardService {
     final TicketType type = TicketType.WX_CARD;
 
     if (forceRefresh) {
-      this.getWxMpService().getWxMpConfigStorage().expireTicket(type);
+      this.getWeChatOfficialAccountService().getWxMpConfigStorage().expireTicket(type);
     }
 
-    if (this.getWxMpService().getWxMpConfigStorage().isTicketExpired(type)) {
-      Lock lock = getWxMpService().getWxMpConfigStorage().getTicketLock(type);
+    if (this.getWeChatOfficialAccountService().getWxMpConfigStorage().isTicketExpired(type)) {
+      Lock lock = getWeChatOfficialAccountService().getWxMpConfigStorage().getTicketLock(type);
       lock.lock();
       try {
-        if (this.getWxMpService().getWxMpConfigStorage().isTicketExpired(type)) {
-          String responseContent = this.wxMpService.execute(SimpleGetRequestExecutor
-            .create(this.getWxMpService().getRequestHttp()), WxMpApiUrl.Card.CARD_GET_TICKET, null);
+        if (this.getWeChatOfficialAccountService().getWxMpConfigStorage().isTicketExpired(type)) {
+          String responseContent = this.weChatOfficialAccountService.execute(SimpleGetRequestExecutor
+            .create(this.getWeChatOfficialAccountService().getRequestHttp()), WxMpApiUrl.Card.CARD_GET_TICKET, null);
           JsonObject tmpJsonObject = GsonParser.parse(responseContent);
           String cardApiTicket = tmpJsonObject.get("ticket").getAsString();
           int expiresInSeconds = tmpJsonObject.get("expires_in").getAsInt();
-          this.getWxMpService().getWxMpConfigStorage().updateTicket(type, cardApiTicket, expiresInSeconds);
+          this.getWeChatOfficialAccountService().getWxMpConfigStorage().updateTicket(type, cardApiTicket, expiresInSeconds);
         }
       } finally {
         lock.unlock();
       }
     }
-    return this.getWxMpService().getWxMpConfigStorage().getTicket(type);
+    return this.getWeChatOfficialAccountService().getWxMpConfigStorage().getTicket(type);
   }
 
   @Override
@@ -100,7 +99,7 @@ public class WxMpCardServiceImpl implements WxMpCardService {
   public String decryptCardCode(String encryptCode) throws WxErrorException {
     JsonObject param = new JsonObject();
     param.addProperty("encrypt_code", encryptCode);
-    String responseContent = this.wxMpService.post(WxMpApiUrl.Card.CARD_CODE_DECRYPT, param.toString());
+    String responseContent = this.weChatOfficialAccountService.post(WxMpApiUrl.Card.CARD_CODE_DECRYPT, param.toString());
     JsonObject tmpJsonObject = GsonParser.parse(responseContent);
     JsonPrimitive jsonPrimitive = tmpJsonObject.getAsJsonPrimitive("code");
     return jsonPrimitive.getAsString();
@@ -112,7 +111,7 @@ public class WxMpCardServiceImpl implements WxMpCardService {
     param.addProperty("card_id", cardId);
     param.addProperty("code", code);
     param.addProperty("check_consume", checkConsume);
-    String responseContent = this.wxMpService.post(WxMpApiUrl.Card.CARD_CODE_GET, param.toString());
+    String responseContent = this.weChatOfficialAccountService.post(WxMpApiUrl.Card.CARD_CODE_GET, param.toString());
     JsonElement tmpJsonElement = new JsonParser().parse(responseContent);
     return WxMpGsonBuilder.create().fromJson(tmpJsonElement,
       new TypeToken<WxMpCardResult>() {
@@ -133,7 +132,7 @@ public class WxMpCardServiceImpl implements WxMpCardService {
       param.addProperty("card_id", cardId);
     }
 
-    return this.wxMpService.post(WxMpApiUrl.Card.CARD_CODE_CONSUME, param.toString());
+    return this.weChatOfficialAccountService.post(WxMpApiUrl.Card.CARD_CODE_CONSUME, param.toString());
   }
 
   @Override
@@ -143,7 +142,7 @@ public class WxMpCardServiceImpl implements WxMpCardService {
     param.addProperty("card_id", cardId);
     param.addProperty("openid", openId);
     param.addProperty("is_mark", isMark);
-    String responseContent = this.getWxMpService().post(WxMpApiUrl.Card.CARD_CODE_MARK, param.toString());
+    String responseContent = this.getWeChatOfficialAccountService().post(WxMpApiUrl.Card.CARD_CODE_MARK, param.toString());
     JsonElement tmpJsonElement = new JsonParser().parse(responseContent);
     WxMpCardResult cardResult = WxMpGsonBuilder.create().fromJson(tmpJsonElement,
       new TypeToken<WxMpCardResult>() {
@@ -157,7 +156,7 @@ public class WxMpCardServiceImpl implements WxMpCardService {
   public String getCardDetail(String cardId) throws WxErrorException {
     JsonObject param = new JsonObject();
     param.addProperty("card_id", cardId);
-    String responseContent = this.wxMpService.post(WxMpApiUrl.Card.CARD_GET, param.toString());
+    String responseContent = this.weChatOfficialAccountService.post(WxMpApiUrl.Card.CARD_GET, param.toString());
 
     // 判断返回值
     JsonObject json = GsonParser.parse(responseContent);
@@ -178,12 +177,12 @@ public class WxMpCardServiceImpl implements WxMpCardService {
     array.add(openid);
     JsonObject jsonObject = new JsonObject();
     jsonObject.add("openid", array);
-    return this.wxMpService.post(WxMpApiUrl.Card.CARD_TEST_WHITELIST, GSON.toJson(jsonObject));
+    return this.weChatOfficialAccountService.post(WxMpApiUrl.Card.CARD_TEST_WHITELIST, GSON.toJson(jsonObject));
   }
 
   @Override
   public WxMpCardCreateResult createCard(WxMpCardCreateRequest cardCreateMessage) throws WxErrorException {
-    String response = this.wxMpService.post(WxMpApiUrl.Card.CARD_CREATE, GSON.toJson(cardCreateMessage));
+    String response = this.weChatOfficialAccountService.post(WxMpApiUrl.Card.CARD_CREATE, GSON.toJson(cardCreateMessage));
     return WxMpCardCreateResult.fromJson(response);
   }
 
@@ -222,12 +221,12 @@ public class WxMpCardServiceImpl implements WxMpCardService {
     actionInfoJson.add("card", cardJson);
     jsonObject.add("action_info", actionInfoJson);
 
-    return WxMpCardQrcodeCreateResult.fromJson(this.wxMpService.post(WxMpApiUrl.Card.CARD_QRCODE_CREATE, GSON.toJson(jsonObject)));
+    return WxMpCardQrcodeCreateResult.fromJson(this.weChatOfficialAccountService.post(WxMpApiUrl.Card.CARD_QRCODE_CREATE, GSON.toJson(jsonObject)));
   }
 
   @Override
   public WxMpCardLandingPageCreateResult createLandingPage(WxMpCardLandingPageCreateRequest request) throws WxErrorException {
-    String response = this.wxMpService.post(WxMpApiUrl.Card.CARD_LANDING_PAGE_CREATE, GSON.toJson(request));
+    String response = this.weChatOfficialAccountService.post(WxMpApiUrl.Card.CARD_LANDING_PAGE_CREATE, GSON.toJson(request));
     return WxMpCardLandingPageCreateResult.fromJson(response);
   }
 
@@ -240,7 +239,7 @@ public class WxMpCardServiceImpl implements WxMpCardService {
     jsonRequest.addProperty("card_id", cardId);
     jsonRequest.addProperty("code", code);
     jsonRequest.addProperty("reason", reason);
-    return this.wxMpService.post(WxMpApiUrl.Card.CARD_CODE_UNAVAILABLE, GSON.toJson(jsonRequest));
+    return this.weChatOfficialAccountService.post(WxMpApiUrl.Card.CARD_CODE_UNAVAILABLE, GSON.toJson(jsonRequest));
   }
 
   @Override
@@ -248,7 +247,7 @@ public class WxMpCardServiceImpl implements WxMpCardService {
     checkCardId(cardId);
     JsonObject param = new JsonObject();
     param.addProperty("card_id", cardId);
-    String response = this.wxMpService.post(WxMpApiUrl.Card.CARD_DELETE, param.toString());
+    String response = this.weChatOfficialAccountService.post(WxMpApiUrl.Card.CARD_DELETE, param.toString());
     return WxMpCardDeleteResult.fromJson(response);
   }
 
@@ -264,7 +263,7 @@ public class WxMpCardServiceImpl implements WxMpCardService {
     param.add("code",
       WxGsonBuilder.create().toJsonTree(codeList, new TypeToken<List<String>>() {
       }.getType()).getAsJsonArray());
-    String response = this.wxMpService.post(WxMpApiUrl.Card.CARD_CODE_DEPOSIT, param.toString());
+    String response = this.weChatOfficialAccountService.post(WxMpApiUrl.Card.CARD_CODE_DEPOSIT, param.toString());
     return WxMpCardCodeDepositResult.fromJson(response);
   }
 
@@ -274,7 +273,7 @@ public class WxMpCardServiceImpl implements WxMpCardService {
     checkCardId(cardId);
     JsonObject param = new JsonObject();
     param.addProperty("card_id", cardId);
-    String response = this.wxMpService.post(WxMpApiUrl.Card.CARD_CODE_DEPOSIT_COUNT, param.toString());
+    String response = this.weChatOfficialAccountService.post(WxMpApiUrl.Card.CARD_CODE_DEPOSIT_COUNT, param.toString());
     return WxMpCardCodeDepositCountResult.fromJson(response);
   }
 
@@ -290,7 +289,7 @@ public class WxMpCardServiceImpl implements WxMpCardService {
     param.add("code",
       WxGsonBuilder.create().toJsonTree(codeList, new TypeToken<List<String>>() {
       }.getType()).getAsJsonArray());
-    String response = this.wxMpService.post(WxMpApiUrl.Card.CARD_CODE_CHECKCODE, param.toString());
+    String response = this.weChatOfficialAccountService.post(WxMpApiUrl.Card.CARD_CODE_CHECKCODE, param.toString());
     return WxMpCardCodeCheckcodeResult.fromJson(response);
   }
 
@@ -300,7 +299,7 @@ public class WxMpCardServiceImpl implements WxMpCardService {
     checkCardId(cardId);
     JsonObject param = new JsonObject();
     param.addProperty("card_id", cardId);
-    String response = this.wxMpService.post(WxMpApiUrl.Card.CARD_MPNEWS_GETHTML, param.toString());
+    String response = this.weChatOfficialAccountService.post(WxMpApiUrl.Card.CARD_MPNEWS_GETHTML, param.toString());
     return WxMpCardMpnewsGethtmlResult.fromJson(response);
   }
 
@@ -315,7 +314,7 @@ public class WxMpCardServiceImpl implements WxMpCardService {
     } else {
       param.addProperty("reduce_stock_value", Math.abs(changeValue));
     }
-    this.wxMpService.post(WxMpApiUrl.Card.CARD_MODIFY_STOCK, param.toString());
+    this.weChatOfficialAccountService.post(WxMpApiUrl.Card.CARD_MODIFY_STOCK, param.toString());
   }
 
 
@@ -326,7 +325,7 @@ public class WxMpCardServiceImpl implements WxMpCardService {
     param.addProperty("card_id", cardId);
     param.addProperty("code", oldCode);
     param.addProperty("new_code", newCode);
-    this.wxMpService.post(WxMpApiUrl.Card.CARD_CODE_UPDATE, param.toString());
+    this.weChatOfficialAccountService.post(WxMpApiUrl.Card.CARD_CODE_UPDATE, param.toString());
   }
 
 
@@ -336,7 +335,7 @@ public class WxMpCardServiceImpl implements WxMpCardService {
     JsonObject param = new JsonObject();
     param.addProperty("card_id", cardId);
     param.addProperty("is_open", isOpen);
-    this.wxMpService.post(WxMpApiUrl.Card.CARD_PAYCELL_SET, param.toString());
+    this.weChatOfficialAccountService.post(WxMpApiUrl.Card.CARD_PAYCELL_SET, param.toString());
   }
 
 
@@ -349,7 +348,7 @@ public class WxMpCardServiceImpl implements WxMpCardService {
     param.addProperty("is_open", isOpen);
     param.addProperty("need_verify_cod", needVerifyCod);
     param.addProperty("need_remark_amount", needRemarkAmount);
-    this.wxMpService.post(WxMpApiUrl.Card.CARD_SELF_CONSUME_CELL_SET, param.toString());
+    this.weChatOfficialAccountService.post(WxMpApiUrl.Card.CARD_SELF_CONSUME_CELL_SET, param.toString());
   }
 
 
@@ -358,7 +357,7 @@ public class WxMpCardServiceImpl implements WxMpCardService {
     JsonObject param = new JsonObject();
     param.addProperty("openid", openId);
     param.addProperty("card_id", cardId);
-    String response = this.wxMpService.post(WxMpApiUrl.Card.CARD_USER_CARD_LIST, param.toString());
+    String response = this.weChatOfficialAccountService.post(WxMpApiUrl.Card.CARD_USER_CARD_LIST, param.toString());
     return WxUserCardListResult.fromJson(response);
   }
 

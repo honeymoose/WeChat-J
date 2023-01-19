@@ -2,7 +2,7 @@ package com.ossez.wechat.oa.api.impl;
 
 import com.google.inject.Inject;
 import com.ossez.wechat.common.exception.WxErrorException;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.api.test.ApiTestModule;
 import com.ossez.wechat.oa.bean.wifi.WxMpWifiShopDataResult;
 import com.ossez.wechat.oa.bean.wifi.WxMpWifiShopListResult;
@@ -28,7 +28,7 @@ import static org.mockito.Mockito.mock;
 @Guice(modules = ApiTestModule.class)
 public class WxMpWifiServiceImplTest {
   @Inject
-  private WxMpService wxService;
+  private WeChatOfficialAccountService wxService;
 
   @Test
   public void testListShop() throws WxErrorException {
@@ -52,7 +52,7 @@ public class WxMpWifiServiceImplTest {
   }
 
   public static class MockTest {
-    private WxMpService wxService = Mockito.mock(WxMpService.class);
+    private WeChatOfficialAccountService wxService = Mockito.mock(WeChatOfficialAccountService.class);
 
     @Test
     public void testGetShopWifiInfo() throws Exception {

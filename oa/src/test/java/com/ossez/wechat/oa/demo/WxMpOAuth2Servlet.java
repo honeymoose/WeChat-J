@@ -2,7 +2,7 @@ package com.ossez.wechat.oa.demo;
 
 import com.ossez.wechat.common.bean.WxOAuth2UserInfo;
 import com.ossez.wechat.common.exception.WxErrorException;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.common.bean.oauth2.WxOAuth2AccessToken;
 
 import javax.servlet.http.HttpServlet;
@@ -13,10 +13,10 @@ import java.io.IOException;
 public class WxMpOAuth2Servlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
 
-  protected WxMpService wxMpService;
+  protected WeChatOfficialAccountService weChatOfficialAccountService;
 
-  public WxMpOAuth2Servlet(WxMpService wxMpService) {
-    this.wxMpService = wxMpService;
+  public WxMpOAuth2Servlet(WeChatOfficialAccountService weChatOfficialAccountService) {
+    this.weChatOfficialAccountService = weChatOfficialAccountService;
   }
 
   @Override
@@ -31,15 +31,15 @@ public class WxMpOAuth2Servlet extends HttpServlet {
       response.getWriter().println("<h1>code</h1>");
       response.getWriter().println(code);
 
-      WxOAuth2AccessToken oAuth2AccessToken = this.wxMpService.getOAuth2Service().getAccessToken(code);
+      WxOAuth2AccessToken oAuth2AccessToken = this.weChatOfficialAccountService.getOAuth2Service().getAccessToken(code);
       response.getWriter().println("<h1>access token</h1>");
       response.getWriter().println(oAuth2AccessToken.toString());
 
-      WxOAuth2UserInfo wxMpUser = this.wxMpService.getOAuth2Service().getUserInfo(oAuth2AccessToken, null);
+      WxOAuth2UserInfo wxMpUser = this.weChatOfficialAccountService.getOAuth2Service().getUserInfo(oAuth2AccessToken, null);
       response.getWriter().println("<h1>user info</h1>");
       response.getWriter().println(wxMpUser.toString());
 
-      oAuth2AccessToken = this.wxMpService.getOAuth2Service().refreshAccessToken(oAuth2AccessToken.getRefreshToken());
+      oAuth2AccessToken = this.weChatOfficialAccountService.getOAuth2Service().refreshAccessToken(oAuth2AccessToken.getRefreshToken());
       response.getWriter().println("<h1>after refresh</h1>");
       response.getWriter().println(oAuth2AccessToken.toString());
 

@@ -3,7 +3,7 @@ package com.ossez.wechat.oa.api.impl;
 import com.google.gson.GsonBuilder;
 import com.google.inject.Inject;
 import com.ossez.wechat.common.exception.WxErrorException;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.api.test.ApiTestModule;
 import com.ossez.wechat.oa.bean.invoice.reimburse.*;
 import lombok.extern.slf4j.Slf4j;
@@ -19,7 +19,7 @@ import java.util.List;
 public class WxMpReimburseInvoiceServiceImplTest {
 
   @Inject
-  protected WxMpService wxService;
+  protected WeChatOfficialAccountService wxService;
 
 
   public void getInvoiceInfo() throws WxErrorException {

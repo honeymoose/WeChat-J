@@ -2,7 +2,7 @@ package com.ossez.wechat.open.api;
 
 import cn.binarywang.wx.miniapp.config.WxMaConfig;
 import com.ossez.wechat.common.util.http.apache.ApacheHttpClientBuilder;
-import com.ossez.wechat.oa.api.impl.BaseWxMpServiceImpl;
+import com.ossez.wechat.oa.api.impl.BaseWeChatOfficialAccountServiceImpl;
 import com.ossez.wechat.oa.config.WxMpConfigStorage;
 import com.ossez.wechat.open.bean.WxOpenAuthorizerAccessToken;
 import com.ossez.wechat.open.bean.WxOpenComponentAccessToken;
@@ -143,7 +143,7 @@ public interface WxOpenConfigStorage {
   /**
    * http 请求重试间隔
    * <pre>
-   *   {@link BaseWxMpServiceImpl#setRetrySleepMillis(int)}
+   *   {@link BaseWeChatOfficialAccountServiceImpl#setRetrySleepMillis(int)}
    *   {@link cn.binarywang.wx.miniapp.api.impl.BaseWxMaServiceImpl#setRetrySleepMillis(int)}
    * </pre>
    */
@@ -152,7 +152,7 @@ public interface WxOpenConfigStorage {
   /**
    * http 请求最大重试次数
    * <pre>
-   *   {@link BaseWxMpServiceImpl#setMaxRetryTimes(int)}
+   *   {@link BaseWeChatOfficialAccountServiceImpl#setMaxRetryTimes(int)}
    *   {@link cn.binarywang.wx.miniapp.api.impl.BaseWxMaServiceImpl#setMaxRetryTimes(int)}
    * </pre>
    */

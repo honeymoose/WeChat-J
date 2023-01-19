@@ -2,7 +2,7 @@ package com.ossez.wechat.oa.api.impl;
 
 import com.google.inject.Inject;
 import com.ossez.wechat.common.exception.WxErrorException;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.api.test.ApiTestModule;
 import com.ossez.wechat.oa.api.test.TestConfigStorage;
 import com.ossez.wechat.oa.bean.subscribe.WxMpSubscribeMessage;
@@ -18,7 +18,7 @@ import org.testng.annotations.Test;
 public class WxMpSubscribeMsgServiceImplTest {
 
   @Inject
-  protected WxMpService wxService;
+  protected WeChatOfficialAccountService wxService;
 
   @Test
   public void testSendSubscribeOnceMessage() throws WxErrorException {

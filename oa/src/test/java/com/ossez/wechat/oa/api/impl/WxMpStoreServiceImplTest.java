@@ -2,7 +2,7 @@ package com.ossez.wechat.oa.api.impl;
 
 import com.google.inject.Inject;
 import com.ossez.wechat.common.exception.WxErrorException;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.api.test.ApiTestModule;
 import com.ossez.wechat.oa.bean.store.WxMpStoreBaseInfo;
 import com.ossez.wechat.oa.bean.store.WxMpStoreInfo;
@@ -22,13 +22,13 @@ import java.util.List;
 @Guice(modules = ApiTestModule.class)
 public class WxMpStoreServiceImplTest {
   @Inject
-  private WxMpService wxMpService;
+  private WeChatOfficialAccountService weChatOfficialAccountService;
 
   /**
    * Test method for {@link WxMpStoreServiceImpl#add(WxMpStoreBaseInfo)}.
    */
   public void testAdd() throws WxErrorException {
-    this.wxMpService.getStoreService()
+    this.weChatOfficialAccountService.getStoreService()
       .add(WxMpStoreBaseInfo.builder()
         .businessName("haha")
         .branchName("abc")
@@ -42,11 +42,11 @@ public class WxMpStoreServiceImplTest {
         .city("aaa")
         .build());
     // 以下运行会抛异常
-    this.wxMpService.getStoreService().add(WxMpStoreBaseInfo.builder().build());
+    this.weChatOfficialAccountService.getStoreService().add(WxMpStoreBaseInfo.builder().build());
   }
 
   public void testUpdate() throws WxErrorException {
-    this.wxMpService.getStoreService()
+    this.weChatOfficialAccountService.getStoreService()
       .update(WxMpStoreBaseInfo.builder()
         .poiId("291503654")
         .telephone("020-12345678")
@@ -59,29 +59,29 @@ public class WxMpStoreServiceImplTest {
   }
 
   public void testGet() throws WxErrorException {
-    WxMpStoreBaseInfo result = this.wxMpService.getStoreService().get("291503654");
+    WxMpStoreBaseInfo result = this.weChatOfficialAccountService.getStoreService().get("291503654");
     AssertJUnit.assertNotNull(result);
     System.err.println(result);
   }
 
   public void testDelete() throws WxErrorException {
-    this.wxMpService.getStoreService().delete("463558057");
+    this.weChatOfficialAccountService.getStoreService().delete("463558057");
   }
 
   public void testListCategories() throws WxErrorException {
-    List<String> result = this.wxMpService.getStoreService().listCategories();
+    List<String> result = this.weChatOfficialAccountService.getStoreService().listCategories();
     AssertJUnit.assertNotNull(result);
     System.err.println(result);
   }
 
   public void testList() throws WxErrorException {
-    WxMpStoreListResult result = this.wxMpService.getStoreService().list(0, 10);
+    WxMpStoreListResult result = this.weChatOfficialAccountService.getStoreService().list(0, 10);
     AssertJUnit.assertNotNull(result);
     System.err.println(result);
   }
 
   public void testListAll() throws WxErrorException {
-    List<WxMpStoreInfo> list = this.wxMpService.getStoreService().listAll();
+    List<WxMpStoreInfo> list = this.weChatOfficialAccountService.getStoreService().listAll();
     AssertJUnit.assertNotNull(list);
     System.err.println(list.size());
     System.err.println(list);

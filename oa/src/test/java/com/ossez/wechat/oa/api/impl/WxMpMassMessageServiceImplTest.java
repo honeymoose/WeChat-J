@@ -5,7 +5,7 @@ import com.google.inject.Inject;
 import com.ossez.wechat.common.api.WxConsts;
 import com.ossez.wechat.common.bean.result.WxMediaUploadResult;
 import com.ossez.wechat.common.exception.WxErrorException;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.api.test.ApiTestModule;
 import com.ossez.wechat.oa.api.test.TestConfigStorage;
 import com.ossez.wechat.oa.api.test.TestConstants;
@@ -37,7 +37,7 @@ import static org.testng.Assert.assertNotNull;
 @Guice(modules = ApiTestModule.class)
 public class WxMpMassMessageServiceImplTest {
   @Inject
-  protected WxMpService wxService;
+  protected WeChatOfficialAccountService wxService;
 
   @Test
   public void testTextMassOpenIdsMessageSend() throws WxErrorException {

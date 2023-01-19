@@ -2,7 +2,7 @@ package com.ossez.wechat.oa.demo;
 
 import com.ossez.wechat.common.session.WxSessionManager;
 import com.ossez.wechat.oa.api.WxMpMessageHandler;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.bean.message.WxMpXmlMessage;
 import com.ossez.wechat.oa.bean.message.WxMpXmlOutMessage;
 
@@ -13,7 +13,7 @@ import java.util.Map;
  */
 public class DemoLogHandler implements WxMpMessageHandler {
   @Override
-  public WxMpXmlOutMessage handle(WxMpXmlMessage wxMessage, Map<String, Object> context, WxMpService wxMpService,
+  public WxMpXmlOutMessage handle(WxMpXmlMessage wxMessage, Map<String, Object> context, WeChatOfficialAccountService weChatOfficialAccountService,
                                   WxSessionManager sessionManager) {
     System.out.println(wxMessage.toString());
     return null;

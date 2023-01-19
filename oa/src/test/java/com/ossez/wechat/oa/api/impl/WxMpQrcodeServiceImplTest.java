@@ -2,7 +2,7 @@ package com.ossez.wechat.oa.api.impl;
 
 import com.google.inject.Inject;
 import com.ossez.wechat.common.exception.WxErrorException;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.api.test.ApiTestModule;
 import com.ossez.wechat.oa.bean.result.WxMpQrCodeTicket;
 import org.apache.commons.io.FileUtils;
@@ -22,7 +22,7 @@ import java.io.IOException;
 @Guice(modules = ApiTestModule.class)
 public class WxMpQrcodeServiceImplTest {
   @Inject
-  protected WxMpService wxService;
+  protected WeChatOfficialAccountService wxService;
 
   @DataProvider
   public Object[][] sceneIds() {

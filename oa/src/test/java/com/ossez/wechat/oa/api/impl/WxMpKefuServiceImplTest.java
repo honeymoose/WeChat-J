@@ -5,7 +5,7 @@ import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.api.test.ApiTestModule;
 import com.ossez.wechat.oa.api.test.TestConfigStorage;
 import com.ossez.wechat.oa.bean.kefu.WxMpKefuMessage;
@@ -36,7 +36,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class WxMpKefuServiceImplTest {
 
   @Inject
-  protected WxMpService wxService;
+  protected WeChatOfficialAccountService wxService;
 
   public void testSendKefuMpNewsMessage() throws WxErrorException {
     TestConfigStorage configStorage = (TestConfigStorage) this.wxService.getWxMpConfigStorage();

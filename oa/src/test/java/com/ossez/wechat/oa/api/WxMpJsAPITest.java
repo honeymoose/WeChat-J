@@ -17,7 +17,7 @@ import org.testng.annotations.Test;
 public class WxMpJsAPITest {
 
   @Inject
-  protected WxMpService wxService;
+  protected WeChatOfficialAccountService wxService;
 
   public void test() {
     long timestamp = 1419835025L;

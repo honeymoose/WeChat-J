@@ -90,7 +90,7 @@ public class WxMpMessageRouterTest {
     final WxMpMessageRouter router = new WxMpMessageRouter(null);
     router.rule().handler(new WxMpMessageHandler() {
       @Override
-      public WxMpXmlOutMessage handle(WxMpXmlMessage wxMessage, Map<String, Object> context, WxMpService wxMpService,
+      public WxMpXmlOutMessage handle(WxMpXmlMessage wxMessage, Map<String, Object> context, WeChatOfficialAccountService weChatOfficialAccountService,
                                       WxSessionManager sessionManager) {
         return null;
       }
@@ -296,7 +296,7 @@ public class WxMpMessageRouterTest {
     }
 
     @Override
-    public WxMpXmlOutMessage handle(WxMpXmlMessage wxMessage, Map<String, Object> context, WxMpService wxMpService,
+    public WxMpXmlOutMessage handle(WxMpXmlMessage wxMessage, Map<String, Object> context, WeChatOfficialAccountService weChatOfficialAccountService,
                                     WxSessionManager sessionManager) {
       this.sb.append(this.echoStr).append(',');
       return null;
@@ -307,7 +307,7 @@ public class WxMpMessageRouterTest {
   public static class WxSessionMessageHandler implements WxMpMessageHandler {
 
     @Override
-    public WxMpXmlOutMessage handle(WxMpXmlMessage wxMessage, Map<String, Object> context, WxMpService wxMpService,
+    public WxMpXmlOutMessage handle(WxMpXmlMessage wxMessage, Map<String, Object> context, WeChatOfficialAccountService weChatOfficialAccountService,
                                     WxSessionManager sessionManager) {
       sessionManager.getSession(wxMessage.getFromUser());
       return null;

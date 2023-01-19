@@ -6,7 +6,7 @@ import com.ossez.wechat.common.exception.WxError;
 import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.common.util.json.GsonParser;
 import com.ossez.wechat.oa.api.WxMpAiOpenService;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.enums.AiLangType;
 import com.ossez.wechat.oa.util.requestexecuter.voice.VoiceUploadRequestExecutor;
 
@@ -23,7 +23,7 @@ import static com.ossez.wechat.oa.enums.WxMpApiUrl.AiOpen.*;
  */
 @RequiredArgsConstructor
 public class WxMpAiOpenServiceImpl implements WxMpAiOpenService {
-  private final WxMpService wxMpService;
+  private final WeChatOfficialAccountService weChatOfficialAccountService;
 
   @Override
   public void uploadVoice(String voiceId, AiLangType lang, File voiceFile) throws WxErrorException {
@@ -31,8 +31,8 @@ public class WxMpAiOpenServiceImpl implements WxMpAiOpenService {
       lang = AiLangType.zh_CN;
     }
 
-    this.wxMpService.execute(VoiceUploadRequestExecutor.create(this.wxMpService.getRequestHttp()),
-      String.format(VOICE_UPLOAD_URL.getUrl(this.wxMpService.getWxMpConfigStorage()), "mp3", voiceId, lang.getCode()),
+    this.weChatOfficialAccountService.execute(VoiceUploadRequestExecutor.create(this.weChatOfficialAccountService.getRequestHttp()),
+      String.format(VOICE_UPLOAD_URL.getUrl(this.weChatOfficialAccountService.getWxMpConfigStorage()), "mp3", voiceId, lang.getCode()),
       voiceFile);
   }
 
@@ -44,7 +44,7 @@ public class WxMpAiOpenServiceImpl implements WxMpAiOpenService {
 
   @Override
   public String translate(AiLangType langFrom, AiLangType langTo, String content) throws WxErrorException {
-    String response = this.wxMpService.post(String.format(TRANSLATE_URL.getUrl(this.wxMpService.getWxMpConfigStorage()),
+    String response = this.weChatOfficialAccountService.post(String.format(TRANSLATE_URL.getUrl(this.weChatOfficialAccountService.getWxMpConfigStorage()),
       langFrom.getCode(), langTo.getCode()), content);
 
     WxError error = WxError.fromJson(response, WxType.MP);
@@ -61,7 +61,7 @@ public class WxMpAiOpenServiceImpl implements WxMpAiOpenService {
       lang = AiLangType.zh_CN;
     }
 
-    final String response = this.wxMpService.get(VOICE_QUERY_RESULT_URL,
+    final String response = this.weChatOfficialAccountService.get(VOICE_QUERY_RESULT_URL,
       String.format("voice_id=%s&lang=%s", voiceId, lang.getCode()));
     WxError error = WxError.fromJson(response, WxType.MP);
     if (error.getErrorCode() != 0) {

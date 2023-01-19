@@ -3,7 +3,7 @@ package com.ossez.wechat.oa.api.impl;
 import lombok.RequiredArgsConstructor;
 import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.common.service.WxImgProcService;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.common.bean.imgproc.WxImgProcAiCropResult;
 import com.ossez.wechat.common.bean.imgproc.WxImgProcQrCodeResult;
 import com.ossez.wechat.common.bean.imgproc.WxImgProcSuperResolutionResult;
@@ -28,7 +28,7 @@ import static com.ossez.wechat.oa.enums.WxMpApiUrl.ImgProc.SUPER_RESOLUTION;
  */
 @RequiredArgsConstructor
 public class WxMpImgProcServiceImpl implements WxImgProcService {
-  private final WxMpService wxMpService;
+  private final WeChatOfficialAccountService weChatOfficialAccountService;
 
   @Override
   public WxImgProcQrCodeResult qrCode(String imgUrl) throws WxErrorException {
@@ -38,15 +38,15 @@ public class WxMpImgProcServiceImpl implements WxImgProcService {
       //ignore
     }
 
-    String result = this.wxMpService.get(String.format(QRCODE.getUrl(this.wxMpService.getWxMpConfigStorage()), imgUrl),
+    String result = this.weChatOfficialAccountService.get(String.format(QRCODE.getUrl(this.weChatOfficialAccountService.getWxMpConfigStorage()), imgUrl),
       null);
     return WxImgProcQrCodeResult.fromJson(result);
   }
 
   @Override
   public WxImgProcQrCodeResult qrCode(File imgFile) throws WxErrorException {
-    String result = this.wxMpService.execute(OcrDiscernRequestExecutor.create(this.wxMpService.getRequestHttp()),
-      FILE_QRCODE.getUrl(this.wxMpService.getWxMpConfigStorage()), imgFile);
+    String result = this.weChatOfficialAccountService.execute(OcrDiscernRequestExecutor.create(this.weChatOfficialAccountService.getRequestHttp()),
+      FILE_QRCODE.getUrl(this.weChatOfficialAccountService.getWxMpConfigStorage()), imgFile);
     return WxImgProcQrCodeResult.fromJson(result);
   }
 
@@ -58,14 +58,14 @@ public class WxMpImgProcServiceImpl implements WxImgProcService {
       //ignore
     }
 
-    final String result = this.wxMpService.get(String.format(SUPER_RESOLUTION.getUrl(this.wxMpService.getWxMpConfigStorage()), imgUrl), null);
+    final String result = this.weChatOfficialAccountService.get(String.format(SUPER_RESOLUTION.getUrl(this.weChatOfficialAccountService.getWxMpConfigStorage()), imgUrl), null);
     return WxImgProcSuperResolutionResult.fromJson(result);
   }
 
   @Override
   public WxImgProcSuperResolutionResult superResolution(File imgFile) throws WxErrorException {
-    String result = this.wxMpService.execute(OcrDiscernRequestExecutor.create(this.wxMpService.getRequestHttp()),
-      FILE_SUPER_RESOLUTION.getUrl(this.wxMpService.getWxMpConfigStorage()), imgFile);
+    String result = this.weChatOfficialAccountService.execute(OcrDiscernRequestExecutor.create(this.weChatOfficialAccountService.getRequestHttp()),
+      FILE_SUPER_RESOLUTION.getUrl(this.weChatOfficialAccountService.getWxMpConfigStorage()), imgFile);
     return WxImgProcSuperResolutionResult.fromJson(result);
   }
 
@@ -86,7 +86,7 @@ public class WxMpImgProcServiceImpl implements WxImgProcService {
       ratios = "";
     }
 
-    final String result = this.wxMpService.get(String.format(AI_CROP.getUrl(this.wxMpService.getWxMpConfigStorage()),
+    final String result = this.weChatOfficialAccountService.get(String.format(AI_CROP.getUrl(this.weChatOfficialAccountService.getWxMpConfigStorage()),
       imgUrl, ratios), null);
     return WxImgProcAiCropResult.fromJson(result);
   }
@@ -102,8 +102,8 @@ public class WxMpImgProcServiceImpl implements WxImgProcService {
       ratios = "";
     }
 
-    String result = this.wxMpService.execute(OcrDiscernRequestExecutor.create(this.wxMpService.getRequestHttp()),
-      String.format(FILE_AI_CROP.getUrl(this.wxMpService.getWxMpConfigStorage()), ratios), imgFile);
+    String result = this.weChatOfficialAccountService.execute(OcrDiscernRequestExecutor.create(this.weChatOfficialAccountService.getRequestHttp()),
+      String.format(FILE_AI_CROP.getUrl(this.weChatOfficialAccountService.getWxMpConfigStorage()), ratios), imgFile);
     return WxImgProcAiCropResult.fromJson(result);
   }
 }

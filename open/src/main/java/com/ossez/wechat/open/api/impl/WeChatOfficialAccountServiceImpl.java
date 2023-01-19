@@ -8,10 +8,9 @@ import com.ossez.wechat.open.bean.result.WxAmpLinkResult;
 import com.ossez.wechat.open.bean.result.WxOpenResult;
 import lombok.SneakyThrows;
 import com.ossez.wechat.common.exception.WxErrorException;
-import com.ossez.wechat.oa.api.impl.WxMpServiceImpl;
 import com.ossez.wechat.oa.config.WxMpConfigStorage;
 import com.ossez.wechat.open.api.WxOpenComponentService;
-import com.ossez.wechat.open.api.WxOpenMpService;
+import com.ossez.wechat.open.api.WeChatOfficialAccountService;
 
 import java.net.URLEncoder;
 import java.util.Objects;
@@ -19,12 +18,12 @@ import java.util.Objects;
 /**
  * @author <a href="https://github.com/007gzs">007</a>
  */
-public class WxOpenMpServiceImpl extends WxMpServiceImpl implements WxOpenMpService {
+public class WeChatOfficialAccountServiceImpl extends com.ossez.wechat.oa.api.impl.WeChatOfficialAccountServiceImpl implements WeChatOfficialAccountService {
   private WxOpenComponentService wxOpenComponentService;
   private WxMpConfigStorage wxMpConfigStorage;
   private String appId;
 
-  public WxOpenMpServiceImpl(WxOpenComponentService wxOpenComponentService, String appId, WxMpConfigStorage wxMpConfigStorage) {
+  public WeChatOfficialAccountServiceImpl(WxOpenComponentService wxOpenComponentService, String appId, WxMpConfigStorage wxMpConfigStorage) {
 //    wxOpenComponentService.oauth2getAccessToken(appId)
     this.wxOpenComponentService = wxOpenComponentService;
     this.appId = appId;

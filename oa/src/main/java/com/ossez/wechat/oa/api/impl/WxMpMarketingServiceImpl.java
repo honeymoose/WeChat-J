@@ -7,7 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.common.util.json.GsonParser;
 import com.ossez.wechat.oa.api.WxMpMarketingService;
-import com.ossez.wechat.oa.api.WxMpService;
+import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.bean.marketing.WxMpAdLeadFilter;
 import com.ossez.wechat.oa.bean.marketing.WxMpAdLeadResult;
 import com.ossez.wechat.oa.bean.marketing.WxMpUserAction;
@@ -28,7 +28,7 @@ import static com.ossez.wechat.oa.enums.WxMpApiUrl.Marketing.*;
 @Slf4j
 @RequiredArgsConstructor
 public class WxMpMarketingServiceImpl implements WxMpMarketingService {
-  private final WxMpService wxMpService;
+  private final WeChatOfficialAccountService weChatOfficialAccountService;
 
   @Override
   public long addUserActionSets(String type, String name, String description) throws WxErrorException {
@@ -36,20 +36,20 @@ public class WxMpMarketingServiceImpl implements WxMpMarketingService {
     json.addProperty("type", type);
     json.addProperty("name", name);
     json.addProperty("description", description);
-    String responseContent = wxMpService.post(USER_ACTION_SETS_ADD, json.toString());
+    String responseContent = weChatOfficialAccountService.post(USER_ACTION_SETS_ADD, json.toString());
     JsonObject tmpJson = GsonParser.parse(responseContent);
     return tmpJson.get("data").getAsJsonObject().get("user_action_set_id").getAsLong();
   }
 
   @Override
   public List<WxMpUserActionSet> getUserActionSets(Long userActionSetId) throws WxErrorException {
-    String responseContent = wxMpService.get(USER_ACTION_SETS_GET, "version=v1.0&user_action_set_id=" + userActionSetId);
+    String responseContent = weChatOfficialAccountService.get(USER_ACTION_SETS_GET, "version=v1.0&user_action_set_id=" + userActionSetId);
     return WxMpUserActionSet.fromJson(responseContent);
   }
 
   @Override
   public void addUserAction(List<WxMpUserAction> actions) throws WxErrorException {
-    wxMpService.post(USER_ACTIONS_ADD, WxMpUserAction.listToJson(actions));
+    weChatOfficialAccountService.post(USER_ACTIONS_ADD, WxMpUserAction.listToJson(actions));
   }
 
   @Override
@@ -76,7 +76,7 @@ public class WxMpMarketingServiceImpl implements WxMpMarketingService {
       }
       params += "&filtering=" + URLEncoder.encode(filterJson.toString(), StandardCharsets.UTF_8.name());
     }
-    String responseContent = wxMpService.get(WECHAT_AD_LEADS_GET, params);
+    String responseContent = weChatOfficialAccountService.get(WECHAT_AD_LEADS_GET, params);
     return WxMpAdLeadResult.fromJson(responseContent);
   }
 }
