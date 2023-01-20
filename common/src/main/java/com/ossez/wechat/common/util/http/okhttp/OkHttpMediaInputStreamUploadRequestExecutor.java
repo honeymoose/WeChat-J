@@ -29,7 +29,7 @@ public class OkHttpMediaInputStreamUploadRequestExecutor extends MediaInputStrea
 
     RequestBody body = new MultipartBody.Builder()
       .setType(MediaType.parse("multipart/form-data"))
-      .addFormDataPart("media", data.getFilename(), RequestBody.create(this.toByteArray(data.getInputStream()), MediaType.parse("application/octet-stream")))
+      .addFormDataPart("media", data.getFilename(), RequestBody.create(this.toByteArray(data.getInputStream()), String.valueOf(MediaType.parse("application/octet-stream"))))
       .build();
     Request request = new Request.Builder().url(uri).post(body).build();
 
@@ -43,14 +43,15 @@ public class OkHttpMediaInputStreamUploadRequestExecutor extends MediaInputStrea
   }
 
 
-  public byte[] toByteArray(InputStream input) throws IOException {
+  public MediaType toByteArray(InputStream input) throws IOException {
     try (ByteArrayOutputStream output = new ByteArrayOutputStream()) {
       byte[] buffer = new byte[4096];
       int n = 0;
       while (-1 != (n = input.read(buffer))) {
         output.write(buffer, 0, n);
       }
-      return output.toByteArray();
+//      return output.toByteArray();
+      return  null;
     }
   }
 }

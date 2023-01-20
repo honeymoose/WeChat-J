@@ -27,6 +27,7 @@ import java.util.Map;
  * @author chanjarster
  */
 public interface WeChatOfficialAccountService extends WxService {
+
   /**
    * <pre>
    * 短key托管 类似于短链API.

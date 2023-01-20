@@ -50,7 +50,7 @@ public class ApacheQrcodeBytesRequestExecutor extends QrcodeBytesRequestExecutor
       );
     }
 
-    httpPost.setEntity(new StringEntity(qrcodeWrapper.toJson()));
+    httpPost.setEntity(new StringEntity(qrcodeWrapper.toJson().toString()));
 
     try (final CloseableHttpResponse response = requestHttp.getRequestHttpClient().execute(httpPost);
          final InputStream inputStream = InputStreamResponseHandler.INSTANCE.handleResponse(response)) {

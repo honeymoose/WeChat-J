@@ -35,7 +35,7 @@ public class OkHttpQrcodeBytesRequestExecutor extends QrcodeBytesRequestExecutor
    */
   @Override
   public byte[] execute(String uri, AbstractWxMaQrcodeWrapper qrcodeWrapper, WxType wxType) throws WxErrorException, IOException {
-    RequestBody body = RequestBody.Companion.create(qrcodeWrapper.toJson(), MediaType.parse("application/json; charset=utf-8"));
+    RequestBody body = RequestBody.create(qrcodeWrapper.toJson(), String.valueOf(MediaType.parse("application/json; charset=utf-8")));
     Request request = new Request.Builder().url(uri).post(body).build();
     Response response = requestHttp.getRequestHttpClient().newCall(request).execute();
     String contentTypeHeader = response.header("Content-Type");

@@ -41,7 +41,7 @@ public class OkHttpQrcodeFileRequestExecutor extends QrcodeRequestExecutor<OkHtt
    */
   @Override
   public File execute(String uri, AbstractWxMaQrcodeWrapper qrcodeWrapper, WxType wxType) throws WxErrorException, IOException {
-    RequestBody body = RequestBody.Companion.create(qrcodeWrapper.toJson(), MediaType.parse("application/json; charset=utf-8"));
+    RequestBody body = null; //RequestBody.create(qrcodeWrapper.toJson(), MediaType.parse("application/json; charset=utf-8"));
     Request request = new Request.Builder().url(uri).post(body).build();
     Response response = requestHttp.getRequestHttpClient().newCall(request).execute();
     String contentTypeHeader = response.header("Content-Type");

@@ -1,475 +1,525 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.ossez.wechat</groupId>
-  <artifactId>wechat-j</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>pom</packaging>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.ossez.wechat</groupId>
+    <artifactId>wechat-j</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
 
 
-  <name>WeChat Java</name>
-  <description>WeChat API SDK</description>
+    <name>WeChat Java</name>
+    <description>WeChat API SDK</description>
 
-  <licenses>
-    <license>
-      <name>The MIT license</name>
-      <url>https://opensource.org/licenses/mit-license.php</url>
-      <distribution>repo</distribution>
-    </license>
-  </licenses>
+    <licenses>
+        <license>
+            <name>The MIT license</name>
+            <url>https://opensource.org/licenses/mit-license.php</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
 
-  <developers>
-    <developer>
-      <name>YuCheng Hu</name>
-      <id>honeymoose</id>
-      <email>huyuchengus@gmail.com</email>
-      <timezone>-5</timezone>
-      <organization>Open Source</organization>
-      <roles>
-        <role>Java Developer</role>
-      </roles>
-    </developer>
-  </developers>
+    <developers>
+        <developer>
+            <name>YuCheng Hu</name>
+            <id>honeymoose</id>
+            <email>huyuchengus@gmail.com</email>
+            <timezone>-5</timezone>
+            <organization>Open Source</organization>
+            <roles>
+                <role>Java Developer</role>
+            </roles>
+        </developer>
+    </developers>
 
-  <scm>
-    <connection>scm:git:https://github.com/Wechat-Group/WxJava.git</connection>
-    <developerConnection>scm:git:git@github.com:Wechat-Group/WxJava.git</developerConnection>
-    <url>https://github.com/Wechat-Group/WxJava</url>
-  </scm>
+    <scm>
+        <connection>scm:git:https://github.com/Wechat-Group/WxJava.git</connection>
+        <developerConnection>scm:git:git@github.com:Wechat-Group/WxJava.git</developerConnection>
+        <url>https://github.com/Wechat-Group/WxJava</url>
+    </scm>
 
-  <modules>
-    <!--    <module>weixin-graal</module>-->
-    <module>common</module>
-    <module>open</module>
-    <module>oa</module>
-    <module>mp</module>
-    <!--    <module>weixin-java-cp</module>-->
-    <!--    <module>weixin-java-pay</module>-->
-    <!--    <module>weixin-java-qidian</module>-->
-    <!--    <module>spring-boot-starters</module>-->
-    <!--module>weixin-java-osgi</module-->
-  </modules>
+    <modules>
+        <!--    <module>weixin-graal</module>-->
+        <module>common</module>
+        <module>open</module>
+        <module>oa</module>
+        <module>mp</module>
+        <!--    <module>weixin-java-cp</module>-->
+        <!--    <module>weixin-java-pay</module>-->
+        <!--    <module>weixin-java-qidian</module>-->
+        <!--    <module>spring-boot-starters</module>-->
+        <!--module>weixin-java-osgi</module-->
+    </modules>
 
-  <properties>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
 
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <httpclient.version>4.5.13</httpclient.version>
-    <jetty.version>9.4.43.v20210629</jetty.version>
-  </properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <httpclient.version>4.5.13</httpclient.version>
+        <jetty.version>9.4.43.v20210629</jetty.version>
+    </properties>
 
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>com.github.binarywang</groupId>
-        <artifactId>qrcode-utils</artifactId>
-        <version>1.1</version>
-      </dependency>
-      <dependency>
-        <groupId>org.jodd</groupId>
-        <artifactId>jodd-http</artifactId>
-        <version>6.2.1</version>
-        <scope>provided</scope>
-      </dependency>
-      <dependency>
-        <groupId>com.squareup.okhttp3</groupId>
-        <artifactId>okhttp</artifactId>
-        <version>4.5.0</version>
-        <scope>provided</scope>
-      </dependency>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.github.binarywang</groupId>
+                <artifactId>qrcode-utils</artifactId>
+                <version>1.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jodd</groupId>
+                <artifactId>jodd-http</artifactId>
+                <version>6.2.1</version>
+                <scope>provided</scope>
+            </dependency>
 
-      <dependency>
-        <groupId>org.apache.httpcomponents</groupId>
-        <artifactId>httpclient</artifactId>
-        <version>${httpclient.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.httpcomponents</groupId>
-        <artifactId>httpmime</artifactId>
-        <version>${httpclient.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>commons-codec</groupId>
-        <artifactId>commons-codec</artifactId>
-        <version>1.13</version>
-      </dependency>
-      <dependency>
-        <groupId>commons-io</groupId>
-        <artifactId>commons-io</artifactId>
-        <version>2.7</version>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.commons</groupId>
-        <artifactId>commons-lang3</artifactId>
-        <version>3.10</version>
-      </dependency>
-      <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-api</artifactId>
-        <version>1.7.30</version>
-      </dependency>
-      <dependency>
-        <groupId>com.thoughtworks.xstream</groupId>
-        <artifactId>xstream</artifactId>
-        <version>1.4.19</version>
-      </dependency>
-      <dependency>
-        <groupId>com.google.guava</groupId>
-        <artifactId>guava</artifactId>
-        <version>30.0-jre</version>
-      </dependency>
-      <dependency>
-        <groupId>com.google.code.gson</groupId>
-        <artifactId>gson</artifactId>
-        <version>2.8.9</version>
-      </dependency>
-      <dependency>
-        <groupId>com.fasterxml.jackson.dataformat</groupId>
-        <artifactId>jackson-dataformat-xml</artifactId>
-        <version>2.13.0</version>
-      </dependency>
+            <!-- UTILITIES -->
+            <dependency>
+                <groupId>com.squareup.retrofit2</groupId>
+                <artifactId>retrofit</artifactId>
+                <version>2.9.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.squareup.retrofit2</groupId>
+                <artifactId>adapter-rxjava2</artifactId>
+                <version>2.9.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.squareup.retrofit2</groupId>
+                <artifactId>converter-jackson</artifactId>
+                <version>2.9.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${httpclient.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpmime</artifactId>
+                <version>${httpclient.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-codec</groupId>
+                <artifactId>commons-codec</artifactId>
+                <version>1.13</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>2.7</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.10</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>1.7.30</version>
+            </dependency>
+            <dependency>
+                <groupId>com.thoughtworks.xstream</groupId>
+                <artifactId>xstream</artifactId>
+                <version>1.4.19</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>30.0-jre</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>2.8.9</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.dataformat</groupId>
+                <artifactId>jackson-dataformat-xml</artifactId>
+                <version>2.13.0</version>
+            </dependency>
 
-      <!-- 测试所用依赖 -->
-      <dependency>
-        <groupId>joda-time</groupId>
-        <artifactId>joda-time</artifactId>
-        <version>2.10.6</version>
-        <scope>test</scope>
-      </dependency>
-      <dependency>
-        <groupId>ch.qos.logback</groupId>
-        <artifactId>logback-classic</artifactId>
-        <version>1.2.9</version>
-        <scope>test</scope>
-      </dependency>
-      <dependency>
-        <groupId>com.google.inject</groupId>
-        <artifactId>guice</artifactId>
-        <version>4.2.3</version>
-        <scope>test</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.testng</groupId>
-        <artifactId>testng</artifactId>
-        <version>7.1.0</version>
-        <scope>test</scope>
-        <exclusions>
-          <exclusion>
-            <artifactId>guice</artifactId>
-            <groupId>com.google.inject</groupId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.yaml</groupId>
-            <artifactId>snakeyaml</artifactId>
-          </exclusion>
-        </exclusions>
-      </dependency>
-      <dependency>
-        <groupId>org.mockito</groupId>
-        <artifactId>mockito-all</artifactId>
-        <version>1.10.19</version>
-        <scope>test</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.eclipse.jetty</groupId>
-        <artifactId>jetty-server</artifactId>
-        <version>${jetty.version}</version>
-        <scope>test</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.eclipse.jetty</groupId>
-        <artifactId>jetty-servlet</artifactId>
-        <version>${jetty.version}</version>
-        <scope>test</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.assertj</groupId>
-        <artifactId>assertj-guava</artifactId>
-        <version>3.0.0</version>
-        <scope>test</scope>
-      </dependency>
-      <dependency>
-        <groupId>com.github.dreamhead</groupId>
-        <artifactId>moco-runner</artifactId>
-        <version>1.1.0</version>
-        <scope>test</scope>
-      </dependency>
+            <!-- 测试所用依赖 -->
+            <dependency>
+                <groupId>joda-time</groupId>
+                <artifactId>joda-time</artifactId>
+                <version>2.10.6</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>1.2.9</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.google.inject</groupId>
+                <artifactId>guice</artifactId>
+                <version>4.2.3</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.testng</groupId>
+                <artifactId>testng</artifactId>
+                <version>7.1.0</version>
+                <scope>test</scope>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>guice</artifactId>
+                        <groupId>com.google.inject</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.yaml</groupId>
+                        <artifactId>snakeyaml</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-all</artifactId>
+                <version>1.10.19</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-server</artifactId>
+                <version>${jetty.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-servlet</artifactId>
+                <version>${jetty.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.assertj</groupId>
+                <artifactId>assertj-guava</artifactId>
+                <version>3.0.0</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.github.dreamhead</groupId>
+                <artifactId>moco-runner</artifactId>
+                <version>1.1.0</version>
+                <scope>test</scope>
+            </dependency>
 
-      <dependency>
-        <groupId>redis.clients</groupId>
-        <artifactId>jedis</artifactId>
-        <version>3.3.0</version>
-        <scope>provided</scope>
-      </dependency>
-      <dependency>
-        <groupId>com.github.jedis-lock</groupId>
-        <artifactId>jedis-lock</artifactId>
-        <version>1.0.0</version>
-        <scope>provided</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.redisson</groupId>
-        <artifactId>redisson</artifactId>
-        <version>3.12.0</version>
-        <optional>true</optional>
-        <scope>provided</scope>
-        <exclusions>
-          <exclusion>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-core</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.jodd</groupId>
-            <artifactId>jodd-core</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.reactivestreams</groupId>
-            <artifactId>reactive-streams</artifactId>
-          </exclusion>
-        </exclusions>
-      </dependency>
-      <dependency>
-        <groupId>org.springframework.data</groupId>
-        <artifactId>spring-data-redis</artifactId>
-        <version>2.3.3.RELEASE</version>
-        <optional>true</optional>
-        <scope>provided</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.projectlombok</groupId>
-        <artifactId>lombok</artifactId>
-        <version>1.18.24</version>
-        <scope>provided</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.bouncycastle</groupId>
-        <artifactId>bcpkix-jdk15on</artifactId>
-        <version>1.68</version>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
+            <dependency>
+                <groupId>redis.clients</groupId>
+                <artifactId>jedis</artifactId>
+                <version>3.3.0</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.github.jedis-lock</groupId>
+                <artifactId>jedis-lock</artifactId>
+                <version>1.0.0</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson</artifactId>
+                <version>3.12.0</version>
+                <optional>true</optional>
+                <scope>provided</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.fasterxml.jackson.core</groupId>
+                        <artifactId>jackson-core</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.jodd</groupId>
+                        <artifactId>jodd-core</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.reactivestreams</groupId>
+                        <artifactId>reactive-streams</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-redis</artifactId>
+                <version>2.3.3.RELEASE</version>
+                <optional>true</optional>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.18.24</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.bouncycastle</groupId>
+                <artifactId>bcpkix-jdk15on</artifactId>
+                <version>1.68</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
-  <distributionManagement>
-    <repository>
-      <id>ossrh</id>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-    </repository>
-  </distributionManagement>
+  <dependencies>
 
-  <profiles>
-    <profile>
-      <id>doclint-java8-disable</id>
-      <activation>
-        <jdk>[1.8,)</jdk>
-      </activation>
-      <properties>
-        <javadoc.opts>-Xdoclint:none</javadoc.opts>
-      </properties>
-    </profile>
+    <!-- LOGGING WITH SELF4J AND LOG4J2 -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.7.36</version>
+    </dependency>
 
-    <profile>
-      <id>release</id>
-      <build>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.24</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>redis.clients</groupId>
+      <artifactId>jedis</artifactId>
+      <scope>compile</scope>
+    </dependency>
+
+    <!-- UTILITIES -->
+    <dependency>
+      <groupId>com.squareup.retrofit2</groupId>
+      <artifactId>retrofit</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.squareup.retrofit2</groupId>
+      <artifactId>adapter-rxjava2</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.squareup.retrofit2</groupId>
+      <artifactId>converter-jackson</artifactId>
+    </dependency>
+
+
+    <!-- TEST -->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+        <version>5.9.2</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+      <version>3.24.1</version>
+      <scope>test</scope>
+    </dependency>
+    <!--/ TEST -->
+
+  </dependencies>
+
+    <distributionManagement>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+
+    <profiles>
+        <profile>
+            <id>doclint-java8-disable</id>
+            <activation>
+                <jdk>[1.8,)</jdk>
+            </activation>
+            <properties>
+                <javadoc.opts>-Xdoclint:none</javadoc.opts>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>release</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>2.2.1</version>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <goals>
+                                    <goal>jar-no-fork</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>2.9.1</version>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <additionalparam>${javadoc.opts}</additionalparam>
+                            <charset>UTF-8</charset>
+                            <locale>zh_CN</locale>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <id>native-image</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+        </profile>
+
+    </profiles>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.17</version>
+                    <configuration>
+                        <skip>true</skip>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>3.0.0</version>
+                    <executions>
+                        <execution>
+                            <id>default-deploy</id>
+                            <phase>deploy</phase>
+                            <goals>
+                                <goal>deploy</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
         <plugins>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-source-plugin</artifactId>
-            <version>2.2.1</version>
-            <executions>
-              <execution>
-                <id>attach-sources</id>
-                <goals>
-                  <goal>jar-no-fork</goal>
-                </goals>
-              </execution>
-            </executions>
-          </plugin>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-javadoc-plugin</artifactId>
-            <version>2.9.1</version>
-            <executions>
-              <execution>
-                <id>attach-javadocs</id>
-                <goals>
-                  <goal>jar</goal>
-                </goals>
-              </execution>
-            </executions>
-            <configuration>
-              <additionalparam>${javadoc.opts}</additionalparam>
-              <charset>UTF-8</charset>
-              <locale>zh_CN</locale>
-            </configuration>
-          </plugin>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-gpg-plugin</artifactId>
-            <version>1.6</version>
-            <executions>
-              <execution>
-                <id>sign-artifacts</id>
-                <phase>verify</phase>
-                <goals>
-                  <goal>sign</goal>
-                </goals>
-              </execution>
-            </executions>
-          </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.2.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!--      <plugin>-->
+            <!--        <groupId>org.apache.maven.plugins</groupId>-->
+            <!--        <artifactId>maven-javadoc-plugin</artifactId>-->
+            <!--        <version>3.4.1</version>-->
+            <!--        <configuration>-->
+            <!--          <source>11</source>-->
+            <!--        </configuration>-->
+            <!--        <executions>-->
+            <!--          <execution>-->
+            <!--            <id>attach-javadocs</id>-->
+            <!--            <goals>-->
+            <!--              <goal>jar</goal>-->
+            <!--            </goals>-->
+            <!--          </execution>-->
+            <!--        </executions>-->
+            <!--      </plugin>-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.10.1</version>
+                <configuration>
+                    <release>11</release>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>3.0.1</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                        <configuration>
+                            <passphraseServerId>ossez</passphraseServerId>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>default-deploy</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>deploy</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!--      <plugin>-->
+            <!--        <groupId>org.sonatype.plugins</groupId>-->
+            <!--        <artifactId>nexus-staging-maven-plugin</artifactId>-->
+            <!--        <version>1.6.3</version>-->
+            <!--        <extensions>true</extensions>-->
+            <!--        <configuration>-->
+            <!--          <serverId>ossrh</serverId>-->
+            <!--          <nexusUrl>https://oss.sonatype.org/</nexusUrl>-->
+            <!--          <autoReleaseAfterClose>true</autoReleaseAfterClose>-->
+            <!--        </configuration>-->
+            <!--      </plugin>-->
+            <!--      <plugin>-->
+            <!--        <groupId>org.apache.maven.plugins</groupId>-->
+            <!--        <artifactId>maven-release-plugin</artifactId>-->
+            <!--        <version>2.5.1</version>-->
+            <!--        <configuration>-->
+            <!--          <autoVersionSubmodules>true</autoVersionSubmodules>-->
+            <!--          <useReleaseProfile>false</useReleaseProfile>-->
+            <!--          <releaseProfiles>release</releaseProfiles>-->
+            <!--          <goals>deploy</goals>-->
+            <!--        </configuration>-->
+            <!--      </plugin>-->
+            <!--      <plugin>-->
+            <!--        <groupId>org.apache.maven.plugins</groupId>-->
+            <!--        <artifactId>maven-checkstyle-plugin</artifactId>-->
+            <!--        <version>2.17</version>-->
+            <!--        <configuration>-->
+            <!--          <skip>true</skip>-->
+            <!--          <configLocation>quality-checks/google_checks.xml</configLocation>-->
+            <!--          <includeTestSourceDirectory>true</includeTestSourceDirectory>-->
+            <!--          <consoleOutput>true</consoleOutput>-->
+            <!--          <failsOnError>true</failsOnError>-->
+            <!--        </configuration>-->
+            <!--        <executions>-->
+            <!--          <execution>-->
+            <!--            <phase>verify</phase>-->
+            <!--            <goals>-->
+            <!--              <goal>check</goal>-->
+            <!--            </goals>-->
+            <!--          </execution>-->
+            <!--        </executions>-->
+            <!--      </plugin>-->
         </plugins>
-      </build>
-    </profile>
-
-    <profile>
-      <id>native-image</id>
-      <activation>
-        <activeByDefault>false</activeByDefault>
-      </activation>
-    </profile>
-
-  </profiles>
-
-  <build>
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-surefire-plugin</artifactId>
-          <version>2.17</version>
-          <configuration>
-            <skip>true</skip>
-          </configuration>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-deploy-plugin</artifactId>
-          <version>3.0.0</version>
-          <executions>
-            <execution>
-              <id>default-deploy</id>
-              <phase>deploy</phase>
-              <goals>
-                <goal>deploy</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
-      </plugins>
-    </pluginManagement>
-
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-source-plugin</artifactId>
-        <version>3.2.1</version>
-        <executions>
-          <execution>
-            <id>attach-sources</id>
-            <goals>
-              <goal>jar-no-fork</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-<!--      <plugin>-->
-<!--        <groupId>org.apache.maven.plugins</groupId>-->
-<!--        <artifactId>maven-javadoc-plugin</artifactId>-->
-<!--        <version>3.4.1</version>-->
-<!--        <configuration>-->
-<!--          <source>11</source>-->
-<!--        </configuration>-->
-<!--        <executions>-->
-<!--          <execution>-->
-<!--            <id>attach-javadocs</id>-->
-<!--            <goals>-->
-<!--              <goal>jar</goal>-->
-<!--            </goals>-->
-<!--          </execution>-->
-<!--        </executions>-->
-<!--      </plugin>-->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.10.1</version>
-        <configuration>
-          <release>11</release>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-gpg-plugin</artifactId>
-        <version>3.0.1</version>
-        <executions>
-          <execution>
-            <id>sign-artifacts</id>
-            <phase>verify</phase>
-            <goals>
-              <goal>sign</goal>
-            </goals>
-            <configuration>
-              <passphraseServerId>ossez</passphraseServerId>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-deploy-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>default-deploy</id>
-            <phase>deploy</phase>
-            <goals>
-              <goal>deploy</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-
-      <!--      <plugin>-->
-      <!--        <groupId>org.sonatype.plugins</groupId>-->
-      <!--        <artifactId>nexus-staging-maven-plugin</artifactId>-->
-      <!--        <version>1.6.3</version>-->
-      <!--        <extensions>true</extensions>-->
-      <!--        <configuration>-->
-      <!--          <serverId>ossrh</serverId>-->
-      <!--          <nexusUrl>https://oss.sonatype.org/</nexusUrl>-->
-      <!--          <autoReleaseAfterClose>true</autoReleaseAfterClose>-->
-      <!--        </configuration>-->
-      <!--      </plugin>-->
-      <!--      <plugin>-->
-      <!--        <groupId>org.apache.maven.plugins</groupId>-->
-      <!--        <artifactId>maven-release-plugin</artifactId>-->
-      <!--        <version>2.5.1</version>-->
-      <!--        <configuration>-->
-      <!--          <autoVersionSubmodules>true</autoVersionSubmodules>-->
-      <!--          <useReleaseProfile>false</useReleaseProfile>-->
-      <!--          <releaseProfiles>release</releaseProfiles>-->
-      <!--          <goals>deploy</goals>-->
-      <!--        </configuration>-->
-      <!--      </plugin>-->
-      <!--      <plugin>-->
-      <!--        <groupId>org.apache.maven.plugins</groupId>-->
-      <!--        <artifactId>maven-checkstyle-plugin</artifactId>-->
-      <!--        <version>2.17</version>-->
-      <!--        <configuration>-->
-      <!--          <skip>true</skip>-->
-      <!--          <configLocation>quality-checks/google_checks.xml</configLocation>-->
-      <!--          <includeTestSourceDirectory>true</includeTestSourceDirectory>-->
-      <!--          <consoleOutput>true</consoleOutput>-->
-      <!--          <failsOnError>true</failsOnError>-->
-      <!--        </configuration>-->
-      <!--        <executions>-->
-      <!--          <execution>-->
-      <!--            <phase>verify</phase>-->
-      <!--            <goals>-->
-      <!--              <goal>check</goal>-->
-      <!--            </goals>-->
-      <!--          </execution>-->
-      <!--        </executions>-->
-      <!--      </plugin>-->
-    </plugins>
-  </build>
+    </build>
 
 </project>

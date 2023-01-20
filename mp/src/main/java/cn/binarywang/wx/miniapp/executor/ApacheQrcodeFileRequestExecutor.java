@@ -56,7 +56,7 @@ public class ApacheQrcodeFileRequestExecutor extends QrcodeRequestExecutor<Close
       );
     }
 
-    httpPost.setEntity(new StringEntity(qrcodeWrapper.toJson(), ContentType.APPLICATION_JSON));
+    httpPost.setEntity(new StringEntity(String.valueOf(qrcodeWrapper.toJson()), ContentType.APPLICATION_JSON));
 
     try (final CloseableHttpResponse response = requestHttp.getRequestHttpClient().execute(httpPost);
          final InputStream inputStream = InputStreamResponseHandler.INSTANCE.handleResponse(response)) {

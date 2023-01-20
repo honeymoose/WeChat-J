@@ -150,7 +150,7 @@ public class GenericUploadRequestExecutor implements RequestExecutor<String, Inp
       byte[] bytes = IOUtils.toByteArray(data);
       RequestBody body = new MultipartBody.Builder()
         .setType(Objects.requireNonNull(MediaType.parse("multipart/form-data")))
-        .addFormDataPart("media", getFileName(), RequestBody.create(bytes, MediaType.parse("application/octet-stream")))
+        .addFormDataPart("media", getFileName(), RequestBody.create(MediaType.parse("application/octet-stream"), bytes))
         .build();
 
       Request request = new Request.Builder().url(uri).method(getHttpMethod(), body).build();
