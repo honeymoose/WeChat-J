@@ -71,36 +71,12 @@ WeChat-J 开发使用的库。
   - 企业号/企业微信：`weixin-java-cp`
 
 
----------------------------------
-### 版本说明
-
-<details>
-<summary>点此展开查看</summary>
-  
-1. 本项目定为大约每两个月发布一次正式版（同时 `develop` 分支代码合并进入 `master` 分支），版本号格式为 `X.X.0`（如`2.1.0`，`2.2.0`等），遇到重大问题需修复会及时提交新版本，欢迎大家随时提交Pull Request；
-2. BUG修复和新特性一般会先发布成小版本作为临时测试版本（如`3.6.8.B`，即尾号不为0，并添加B，以区别于正式版），代码仅存在于 `develop` 分支中；
-3. 目前最新版本号为 [![Maven Central](https://img.shields.io/maven-central/v/com.github.binarywang/wx-java.svg)](http://mvnrepository.com/artifact/com.github.binarywang/wx-java) ，也可以通过访问链接 [【微信支付】](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.github.binarywang%22%20AND%20a%3A%22weixin-java-pay%22) 、[【微信小程序】](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.github.binarywang%22%20AND%20a%3A%22weixin-java-miniapp%22) 、[【公众号】](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.github.binarywang%22%20AND%20a%3A%22weixin-java-mp%22) 、[【企业微信】](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.github.binarywang%22%20AND%20a%3A%22weixin-java-cp%22)、[【开放平台】](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.github.binarywang%22%20AND%20a%3A%22weixin-java-open%22)
-分别查看所有最新的版本。 
-
-</details>
-
-----------------------------------
 ### 框架和案例
-完整案例登记列表，请[【访问这里】](https://github.com/Wechat-Group/weixin-java-tools/issues/729)查看，欢迎登记更多的案例。
+如果你想登记你的项目，请[访问这里](https://www.ossez.com/t/wechat-j-demo/14303)。
 
+同时，我们也提供了一些开发框架，能够让你直接检出项目就可以直接对微信 SDK 进行接入和测试。
 
-
-#### 开源项目：
-- 基于微信公众号的签到、抽奖、发送弹幕程序：https://github.com/workcheng/weiya
-- Jeepay 支付系统：https://gitee.com/jeequan/jeepay
-- 微同商城：https://gitee.com/fuyang_lipengjun/platform
-- 微信点餐系统：https://github.com/sqmax/springboot-project
-- 专注批量推送的小而美的工具：https://github.com/rememberber/WePush
-- yshop意象商城系统：https://gitee.com/guchengwuyue/yshopmall
-- wx-manage（微信公众号管理项目）：https://github.com/niefy/wx-manage
-- 基于若依开发的微信公众号管理系统：https://gitee.com/joolun/JooLun-wx
-- SAAS微信小程序电商：https://gitee.com/wei-it/weiit-saas
-- mall4j 电商商城系统：https://gitee.com/gz-yami/mall4j
+* [公众号 Spring Boot 测试程序](https://github.com/honeymoose/WeChat-Official-Account-Spring)
 
 
 # 联系方式
