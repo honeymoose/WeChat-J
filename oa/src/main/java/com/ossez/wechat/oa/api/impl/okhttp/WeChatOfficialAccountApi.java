@@ -7,6 +7,6 @@ import retrofit2.http.Query;
 
 public interface WeChatOfficialAccountApi {
 
-    @GET("/token")
+    @GET("token")
     Call<ResponseBody> getAccessToken(@Query("grant_type") String grantType, @Query("appid") String appId, @Query("secret") String secret);
 }

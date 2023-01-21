@@ -68,11 +68,11 @@ public class WeChatOfficialAccountServiceOkHttp extends BaseWeChatOfficialAccoun
 
       Response response = weChatOfficialAccountApi.getAccessToken("client_credential", config.getAppId(),config.getSecret()).execute();
 
-      return "response";
+//      return "response";
 //
-      Request request = new Request.Builder().url(url).get().build();
-      Response response = getRequestHttpClient().newCall(request).execute();
-      return this.extractAccessToken(Objects.requireNonNull(response.body()).string());
+//      Request request = new Request.Builder().url(url).get().build();
+//      Response response = getRequestHttpClient().newCall(request).execute();
+      return this.extractAccessToken(Objects.requireNonNull(response.body().toString()));
     } catch (Exception e) {
       throw new WxRuntimeException(e);
     } finally {
@@ -91,7 +91,7 @@ public class WeChatOfficialAccountServiceOkHttp extends BaseWeChatOfficialAccoun
     mapper.setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE);
 
     OkHttpClient client = new OkHttpClient.Builder()
-            .addInterceptor(new AuthenticationInterceptor(null))
+//            .addInterceptor(new AuthenticationInterceptor(null))
             .connectionPool(new ConnectionPool(5, 1, TimeUnit.SECONDS))
             .readTimeout(1000, TimeUnit.SECONDS)
             .build();

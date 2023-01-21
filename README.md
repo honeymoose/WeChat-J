@@ -1,51 +1,28 @@
-## WxJava - 微信开发 Java SDK
+# WeChat-J - 微信开发 Java SDK
 
-[![码云Gitee](https://gitee.com/binary/weixin-java-tools/badge/star.svg?theme=blue)](https://gitee.com/binary/weixin-java-tools)
-[![Github](https://img.shields.io/github/stars/Wechat-Group/WxJava?logo=github&style=flat)](https://github.com/Wechat-Group/WxJava)
-[![GitHub release](https://img.shields.io/github/release/Wechat-Group/WxJava.svg)](https://github.com/Wechat-Group/WxJava/releases)
-[![Maven Central](https://img.shields.io/maven-central/v/com.github.binarywang/wx-java.svg)](http://mvnrepository.com/artifact/com.github.binarywang/wx-java)
-[![Build Status](https://img.shields.io/circleci/project/github/Wechat-Group/WxJava/develop.svg?sanitize=true)](https://circleci.com/gh/Wechat-Group/WxJava/tree/develop)
-[![使用IntelliJ IDEA开发维护](https://img.shields.io/badge/IntelliJ%20IDEA-支持-blue.svg)](https://www.jetbrains.com/?from=WxJava-weixin-java-tools)
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+<p align="center">
+    <a href="https://github.com/honeymoose">
+        <img height=85 src="https://avatars1.githubusercontent.com/u/45009982?s=200&v=4">
+    </a>
+    <br>This project builds by JDK 11 and OpenJ9 for JVM.
+</p>
 
-#### 微信`Java`开发工具包，支持包括微信支付、开放平台、公众号、企业微信/企业号、小程序等微信功能模块的后端开发。
+* [社区和讨论 (community)](https://www.ossez.com/tag/wechat)
 
-<div align="center">
-  <b>特别赞助</b>
-</div>
-<table align="center" cellspacing="0" cellpadding="0" width="500">
-  <tr>
-    <td align="center" valign="middle" colspan="3">
-      <a href="http://www.ccflow.org/?from=wxjava" target="_blank">
-        <img height="120" src="http://binary.ac.cn/images/banners/ccflow.png" alt="">
-      </a>
-    </td>
-  </tr>
-  <tr>
-    <td align="center" valign="middle" colspan="3">
-      <a href="https://www.jeequan.com/product/jeepay.html" target="_blank">
-        <img height="120" src="https://jeequan.oss-cn-beijing.aliyuncs.com/jeepay/img/wxjava_jeepay.png" alt="计全支付Jeepay,开源支付系统">
-      </a>
-    </td>
-  </tr>
-  <tr>
-    <td align="left" valign="middle">
-      <a href="http://mp.weixin.qq.com/mp/homepage?__biz=MzI3MzAwMzk4OA==&hid=1&sn=f31af3bf562b116b061c9ab4edf70b61&scene=18#wechat_redirect" target="_blank">
-        <img height="120" src="http://binary.ac.cn/images/qrcodes/mp.png" alt="">
-      </a>
-    </td>
-    <td valign="middle">
-      <a href="https://www.diboot.com/" target="_blank">
-        <img height="120" src="http://binary.ac.cn/images/banners/diboot.png" alt="diboot低代码开发平台"/>
-      </a>
-    </td>
-    <td align="right" valign="middle">
-      <a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=7makzf5h" target="_blank">
-        <img height="120" src="http://binary.ac.cn/images/banners/aliyun.jpg" alt="">
-      </a>
-    </td>
-  </tr>
-</table>
+WeChat-J 开发使用的库。
+
+我们旨在提供一个初始化的开发框架，能够让应用在使用 Spring Boot 框架的基础上让你的微信公众号快速接入微信平台。
+
+# 项目说明
+我们在网上找了一些微信相关的 SDK，要不就是缺少维护，要不就是集成了非常多的功能，因我们的公众号希望能够尽量的自动化处理，所以我们在已有的基础上进行了一些修改和整合。
+
+## 必须的包
+因微信开发 Java SDK 的开发其实并不非常复杂，主要是通过 HTTP 发送请求并且将获得的返回数据进行一些处理返回对象就可以了。
+
+我们需要调用微信的 HTTP 接口，所以我们需要在 Java 中使用一个 Http 客户端，在当前我们的环境中，我们只使用 OkHttp 来进行实现。
+
+在老的项目中，可能不少人会使用 Apache 的 HttpClient 来进行实现，但因为 OkHttp 广泛的被使用在安卓的手机上，所以使用 OkHttp 会更加简便。
+
 
 ### 重要信息
 1. 项目合作洽谈请联系微信`binary0000`（在微信里自行搜索并添加好友，请注明来意，如有关于SDK问题需讨论请参考下文入群讨论，不要加此微信）。
@@ -105,10 +82,10 @@
 </details>
 
 ----------------------------------
-### 应用案例
+### 框架和案例
 完整案例登记列表，请[【访问这里】](https://github.com/Wechat-Group/weixin-java-tools/issues/729)查看，欢迎登记更多的案例。
 
-以下为节选的部分案例：
+
 
 #### 开源项目：
 - 基于微信公众号的签到、抽奖、发送弹幕程序：https://github.com/workcheng/weiya
@@ -123,5 +100,37 @@
 - mall4j 电商商城系统：https://gitee.com/gz-yami/mall4j
 
 
+# 联系方式
 
-----------------------------------
+请使用下面的联系方式和我们联系。
+
+* [社区和讨论](https://www.ossez.com/tag/chat-gpt)
+
+| 联系方式名称           | 联系方式                                          |
+|------------------|-----------------------------------------------|
+| 电子邮件（Email）      | [yhu@ossez.com](mailto:yhu@ossez.com)         |
+| QQ 或微信（WeChat）   | 103899765                                     |
+| QQ 交流群           | 15186112                                      |
+| 社区论坛 （Community） | https://www.ossez.com/c/computer-technology/7 |
+
+# 公众平台
+
+我们建议您通过社区论坛来和我们进行沟通，请关注我们公众平台上的账号
+
+## 微信公众号
+
+![](https://cdn.ossez.com/img/cwikius/cwikius-qr-wechat-search-w400.png)
+
+## 头条号
+
+我们也在头条号上创建了我们的公众号，请扫描下面的 QR 关注我们的头条号。
+
+![](https://cdn.ossez.com/img/cwikius/cwikus-qr-toutiao.png)
+
+## 知乎
+
+请关注我们的知乎：https://www.zhihu.com/people/huyuchengus
+
+# License
+
+[WeChat-J is licensed under the MIT License](https://src.ossez.com/honeymoose/WeChat-J/src/branch/main/LICENSE)
