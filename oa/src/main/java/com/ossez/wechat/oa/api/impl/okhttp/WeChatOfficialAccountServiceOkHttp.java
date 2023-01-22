@@ -4,9 +4,11 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.ossez.wechat.common.constant.WeChatApiParameter;
 import com.ossez.wechat.common.constant.WeChatApiUrl;
 import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.common.exception.WxRuntimeException;
+import com.ossez.wechat.common.model.WeChatAccessToken;
 import com.ossez.wechat.common.util.http.HttpType;
 import com.ossez.wechat.common.util.http.okhttp.OkHttpProxyInfo;
 import com.ossez.wechat.oa.api.impl.BaseWeChatOfficialAccountServiceImpl;
@@ -14,6 +16,8 @@ import com.ossez.wechat.oa.config.WxMpConfigStorage;
 import okhttp3.*;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import retrofit2.converter.jackson.JacksonConverterFactory;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -64,15 +68,17 @@ public class WeChatOfficialAccountServiceOkHttp extends BaseWeChatOfficialAccoun
           return config.getAccessToken();
         }
       } while (!locked);
-      String url = String.format(GET_ACCESS_TOKEN_URL.getUrl(config), config.getAppId(), config.getSecret());
 
-      Response response = weChatOfficialAccountApi.getAccessToken("client_credential", config.getAppId(),config.getSecret()).execute();
+      WeChatAccessToken accessToken = weChatOfficialAccountApi.getAccessToken(WeChatApiParameter.ACCESS_TOKEN_GRANT_TYPE_CLIENT_CREDENTIAL, config.getAppId(),config.getSecret()).blockingGet();
+
+      return accessToken.getAccessToken();
+
 
 //      return "response";
 //
 //      Request request = new Request.Builder().url(url).get().build();
 //      Response response = getRequestHttpClient().newCall(request).execute();
-      return this.extractAccessToken(Objects.requireNonNull(response.body().toString()));
+//      return this.extractAccessToken(Objects.requireNonNull(response.body().toString()));
     } catch (Exception e) {
       throw new WxRuntimeException(e);
     } finally {
@@ -99,8 +105,8 @@ public class WeChatOfficialAccountServiceOkHttp extends BaseWeChatOfficialAccoun
     Retrofit retrofit = new Retrofit.Builder()
             .baseUrl(WeChatApiUrl.OFFICIAL_ACCOUNT)
             .client(client)
-//            .addConverterFactory(JacksonConverterFactory.create(mapper))
-//            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            .addConverterFactory(JacksonConverterFactory.create(mapper))
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build();
 
     this.weChatOfficialAccountApi = retrofit.create(WeChatOfficialAccountApi.class);

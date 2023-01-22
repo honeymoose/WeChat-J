@@ -1,5 +1,6 @@
-package com.ossez.wechat.common.bean;
+package com.ossez.wechat.common.model;
 
+import com.ossez.wechat.common.bean.WxNetCheckResult;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

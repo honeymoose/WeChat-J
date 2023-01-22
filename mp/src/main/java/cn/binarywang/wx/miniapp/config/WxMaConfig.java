@@ -1,6 +1,6 @@
 package cn.binarywang.wx.miniapp.config;
 
-import com.ossez.wechat.common.bean.WxAccessToken;
+import com.ossez.wechat.common.model.WeChatAccessToken;
 import com.ossez.wechat.common.util.http.apache.ApacheHttpClientBuilder;
 
 import java.util.concurrent.locks.Lock;
@@ -43,7 +43,7 @@ public interface WxMaConfig {
    *
    * @param accessToken 要更新的WxAccessToken对象
    */
-  void updateAccessToken(WxAccessToken accessToken);
+  void updateAccessToken(WeChatAccessToken accessToken);
 
   /**
    * 应该是线程安全的

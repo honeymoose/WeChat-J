@@ -1,7 +1,7 @@
 package com.ossez.wechat.oa.config.impl;
 
 import lombok.Data;
-import com.ossez.wechat.common.bean.WxAccessToken;
+import com.ossez.wechat.common.model.WeChatAccessToken;
 import com.ossez.wechat.common.enums.TicketType;
 import com.ossez.wechat.common.util.http.apache.ApacheHttpClientBuilder;
 import com.ossez.wechat.oa.config.WxMpConfigStorage;
@@ -66,7 +66,7 @@ public class WxMpDefaultConfigImpl implements WxMpConfigStorage, Serializable {
   }
 
   @Override
-  public synchronized void updateAccessToken(WxAccessToken accessToken) {
+  public synchronized void updateAccessToken(WeChatAccessToken accessToken) {
     updateAccessToken(accessToken.getAccessToken(), accessToken.getExpiresIn());
   }
 

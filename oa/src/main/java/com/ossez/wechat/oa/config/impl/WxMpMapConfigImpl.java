@@ -1,7 +1,7 @@
 package com.ossez.wechat.oa.config.impl;
 
 import lombok.Data;
-import com.ossez.wechat.common.bean.WxAccessToken;
+import com.ossez.wechat.common.model.WeChatAccessToken;
 
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -31,7 +31,7 @@ public class WxMpMapConfigImpl extends WxMpDefaultConfigImpl {
   }
 
   @Override
-  public void updateAccessToken(WxAccessToken accessToken) {
+  public void updateAccessToken(WeChatAccessToken accessToken) {
     updateAccessToken(accessToken.getAccessToken(), accessToken.getExpiresIn());
   }
 

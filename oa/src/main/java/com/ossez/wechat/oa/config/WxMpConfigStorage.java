@@ -1,6 +1,6 @@
 package com.ossez.wechat.oa.config;
 
-import com.ossez.wechat.common.bean.WxAccessToken;
+import com.ossez.wechat.common.model.WeChatAccessToken;
 import com.ossez.wechat.common.enums.TicketType;
 import com.ossez.wechat.common.util.http.apache.ApacheHttpClientBuilder;
 import com.ossez.wechat.oa.api.impl.BaseWeChatOfficialAccountServiceImpl;
@@ -45,7 +45,7 @@ public interface WxMpConfigStorage {
    *
    * @param accessToken 要更新的WxAccessToken对象
    */
-  void updateAccessToken(WxAccessToken accessToken);
+  void updateAccessToken(WeChatAccessToken accessToken);
 
   /**
    * 应该是线程安全的.

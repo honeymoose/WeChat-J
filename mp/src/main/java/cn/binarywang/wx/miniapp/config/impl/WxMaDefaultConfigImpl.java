@@ -3,7 +3,7 @@ package cn.binarywang.wx.miniapp.config.impl;
 import cn.binarywang.wx.miniapp.config.WxMaConfig;
 import cn.binarywang.wx.miniapp.json.WxMaGsonBuilder;
 import lombok.Getter;
-import com.ossez.wechat.common.bean.WxAccessToken;
+import com.ossez.wechat.common.model.WeChatAccessToken;
 import com.ossez.wechat.common.util.http.apache.ApacheHttpClientBuilder;
 
 import java.io.File;
@@ -96,7 +96,7 @@ public class WxMaDefaultConfigImpl implements WxMaConfig {
   }
 
   @Override
-  public synchronized void updateAccessToken(WxAccessToken accessToken) {
+  public synchronized void updateAccessToken(WeChatAccessToken accessToken) {
     updateAccessToken(accessToken.getAccessToken(), accessToken.getExpiresIn());
   }
 

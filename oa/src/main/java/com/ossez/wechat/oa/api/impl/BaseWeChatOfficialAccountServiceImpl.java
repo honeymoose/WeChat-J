@@ -6,7 +6,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.ossez.wechat.common.api.WxConsts;
 import com.ossez.wechat.common.bean.ToJson;
-import com.ossez.wechat.common.bean.WxAccessToken;
+import com.ossez.wechat.common.model.WeChatAccessToken;
 import com.ossez.wechat.common.bean.WxJsapiSignature;
 import com.ossez.wechat.common.bean.WxNetCheckResult;
 import com.ossez.wechat.common.enums.TicketType;
@@ -461,7 +461,7 @@ public abstract class BaseWeChatOfficialAccountServiceImpl<H, P> implements WeCh
     if (error.getErrorCode() != 0) {
       throw new WxErrorException(error);
     }
-    WxAccessToken accessToken = WxAccessToken.fromJson(resultContent);
+    WeChatAccessToken accessToken = WeChatAccessToken.fromJson(resultContent);
     config.updateAccessToken(accessToken.getAccessToken(), accessToken.getExpiresIn());
     return config.getAccessToken();
   }

@@ -7,7 +7,7 @@ import com.ossez.wechat.open.bean.WxOpenAuthorizerAccessToken;
 import com.ossez.wechat.open.bean.WxOpenComponentAccessToken;
 import com.ossez.wechat.open.util.json.WxOpenGsonBuilder;
 import lombok.Data;
-import com.ossez.wechat.common.bean.WxAccessToken;
+import com.ossez.wechat.common.model.WeChatAccessToken;
 import com.ossez.wechat.common.enums.TicketType;
 import com.ossez.wechat.common.util.http.apache.ApacheHttpClientBuilder;
 import com.ossez.wechat.oa.config.WxMpConfigStorage;
@@ -296,7 +296,7 @@ public class WxOpenInMemoryConfigStorage implements WxOpenConfigStorage {
     }
 
     @Override
-    public synchronized void updateAccessToken(WxAccessToken accessToken) {
+    public synchronized void updateAccessToken(WeChatAccessToken accessToken) {
       updateAccessToken(accessToken.getAccessToken(), accessToken.getExpiresIn());
     }
 

@@ -3,7 +3,7 @@ package com.ossez.wechat.common.util.json;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.ossez.wechat.common.exception.WxError;
-import com.ossez.wechat.common.bean.WxAccessToken;
+import com.ossez.wechat.common.model.WeChatAccessToken;
 import com.ossez.wechat.common.bean.WxNetCheckResult;
 import com.ossez.wechat.common.bean.menu.WxMenu;
 import com.ossez.wechat.common.bean.result.WxMediaUploadResult;
@@ -19,7 +19,7 @@ public class WxGsonBuilder {
 
   static {
     INSTANCE.disableHtmlEscaping();
-    INSTANCE.registerTypeAdapter(WxAccessToken.class, new WxAccessTokenAdapter());
+    INSTANCE.registerTypeAdapter(WeChatAccessToken.class, new WxAccessTokenAdapter());
     INSTANCE.registerTypeAdapter(WxError.class, new WxErrorAdapter());
     INSTANCE.registerTypeAdapter(WxMenu.class, new WxMenuGsonAdapter());
     INSTANCE.registerTypeAdapter(WxMediaUploadResult.class, new WxMediaUploadResultAdapter());

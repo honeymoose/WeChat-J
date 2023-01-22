@@ -12,7 +12,7 @@ import com.google.gson.JsonObject;
 import lombok.extern.slf4j.Slf4j;
 import com.ossez.wechat.common.api.WxConsts;
 import com.ossez.wechat.common.bean.ToJson;
-import com.ossez.wechat.common.bean.WxAccessToken;
+import com.ossez.wechat.common.model.WeChatAccessToken;
 import com.ossez.wechat.common.enums.WxType;
 import com.ossez.wechat.common.exception.WxError;
 import com.ossez.wechat.common.exception.WxErrorException;
@@ -323,7 +323,7 @@ public abstract class BaseWxMaServiceImpl<H, P> implements WxMaService, RequestH
     if (error.getErrorCode() != 0) {
       throw new WxErrorException(error);
     }
-    WxAccessToken accessToken = WxAccessToken.fromJson(resultContent);
+    WeChatAccessToken accessToken = WeChatAccessToken.fromJson(resultContent);
     config.updateAccessToken(accessToken.getAccessToken(), accessToken.getExpiresIn());
     return accessToken.getAccessToken();
   }

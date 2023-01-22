@@ -3,8 +3,8 @@
 <suite name="Weixin-java-tool-suite" verbose="1">
   <test name="Bean_Test">
     <classes>
-      <class name="com.ossez.wechat.common.bean.WxAccessTokenTest"/>
-      <class name="com.ossez.wechat.common.bean.WxMenuTest"/>
+      <class name="com.ossez.wechat.common.model.WeChatAccessTokenTest"/>
+      <class name="com.ossez.wechat.common.model.WxMenuTest"/>
       <class name="com.ossez.wechat.common.util.crypto.WxCryptUtilTest"/>
       <class name="com.ossez.wechat.common.api.WxMessageInMemoryDuplicateCheckerTest"/>
       <class name="com.ossez.wechat.common.session.SessionTest"/>

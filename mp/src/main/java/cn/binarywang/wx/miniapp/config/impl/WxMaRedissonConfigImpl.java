@@ -1,7 +1,7 @@
 package cn.binarywang.wx.miniapp.config.impl;
 
 import lombok.NonNull;
-import com.ossez.wechat.common.bean.WxAccessToken;
+import com.ossez.wechat.common.model.WeChatAccessToken;
 import com.ossez.wechat.common.redis.RedissonWxRedisOps;
 import com.ossez.wechat.common.redis.WxRedisOps;
 import org.apache.commons.lang3.StringUtils;
@@ -90,7 +90,7 @@ public class WxMaRedissonConfigImpl extends WxMaDefaultConfigImpl {
   }
 
   @Override
-  public void updateAccessToken(WxAccessToken accessToken) {
+  public void updateAccessToken(WeChatAccessToken accessToken) {
     redisOps.setValue(this.accessTokenKey, accessToken.getAccessToken(), accessToken.getExpiresIn(), TimeUnit.SECONDS);
   }
 

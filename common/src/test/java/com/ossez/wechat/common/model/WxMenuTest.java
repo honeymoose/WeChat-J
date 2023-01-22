@@ -1,4 +1,4 @@
-package com.ossez.wechat.common.bean;
+package com.ossez.wechat.common.model;
 
 import com.ossez.wechat.common.bean.menu.WxMenu;
 import com.ossez.wechat.common.bean.menu.WxMenuButton;

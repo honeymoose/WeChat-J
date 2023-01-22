@@ -1,18 +1,18 @@
 package com.ossez.wechat.common.util.json;
 
 import com.google.gson.*;
-import com.ossez.wechat.common.bean.WxAccessToken;
+import com.ossez.wechat.common.model.WeChatAccessToken;
 
 import java.lang.reflect.Type;
 
 /**
  * @author Daniel Qian
  */
-public class WxAccessTokenAdapter implements JsonDeserializer<WxAccessToken> {
+public class WxAccessTokenAdapter implements JsonDeserializer<WeChatAccessToken> {
 
   @Override
-  public WxAccessToken deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
-    WxAccessToken accessToken = new WxAccessToken();
+  public WeChatAccessToken deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
+    WeChatAccessToken accessToken = new WeChatAccessToken();
     JsonObject accessTokenJsonObject = json.getAsJsonObject();
 
     if (accessTokenJsonObject.get("access_token") != null && !accessTokenJsonObject.get("access_token").isJsonNull()) {
