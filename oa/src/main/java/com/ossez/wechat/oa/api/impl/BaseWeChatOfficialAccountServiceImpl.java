@@ -1,10 +1,11 @@
 package com.ossez.wechat.oa.api.impl;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import com.ossez.wechat.common.api.WxConsts;
+import com.ossez.wechat.common.constant.WeChatConstant;
 import com.ossez.wechat.common.bean.ToJson;
 import com.ossez.wechat.common.model.WeChatAccessToken;
 import com.ossez.wechat.common.bean.WxJsapiSignature;
@@ -35,6 +36,7 @@ import com.ossez.wechat.oa.enums.WxMpApiUrl;
 import com.ossez.wechat.oa.util.WxMpConfigStorageHolder;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.Synchronized;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 
@@ -51,6 +53,8 @@ import static com.ossez.wechat.oa.enums.WxMpApiUrl.Other.*;
  */
 @Slf4j
 public abstract class BaseWeChatOfficialAccountServiceImpl<H, P> implements WeChatOfficialAccountService, RequestHttp<H, P> {
+
+
   protected WxSessionManager sessionManager = new StandardSessionManager();
   @Getter
   @Setter
@@ -247,7 +251,7 @@ public abstract class BaseWeChatOfficialAccountServiceImpl<H, P> implements WeCh
   }
 
   @Override
-  public String getAccessToken() throws WxErrorException {
+  public synchronized String getAccessToken() throws WxErrorException {
     return getAccessToken(false);
   }
 
@@ -413,7 +417,7 @@ public abstract class BaseWeChatOfficialAccountServiceImpl<H, P> implements WeCh
       return result;
     } catch (WxErrorException e) {
       WxError error = e.getError();
-      if (WxConsts.ACCESS_TOKEN_ERROR_CODES.contains(error.getErrorCode())) {
+      if (WeChatConstant.ACCESS_TOKEN_ERROR_CODES.contains(error.getErrorCode())) {
         // 强制设置wxMpConfigStorage它的access token过期了，这样在下一次请求里就会刷新access token
         Lock lock = this.getWxMpConfigStorage().getAccessTokenLock();
         lock.lock();
