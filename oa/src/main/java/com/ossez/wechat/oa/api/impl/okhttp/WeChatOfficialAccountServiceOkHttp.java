@@ -5,26 +5,23 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.ossez.wechat.common.constant.WeChatApiParameter;
-import com.ossez.wechat.common.constant.WeChatApiUrl;
+import com.ossez.wechat.common.constant.WeChatConstant;
 import com.ossez.wechat.common.exception.WxErrorException;
-import com.ossez.wechat.common.exception.WxRuntimeException;
 import com.ossez.wechat.common.model.WeChatAccessToken;
 import com.ossez.wechat.common.util.http.HttpType;
 import com.ossez.wechat.common.util.http.okhttp.OkHttpProxyInfo;
 import com.ossez.wechat.oa.api.impl.BaseWeChatOfficialAccountServiceImpl;
 import com.ossez.wechat.oa.config.WxMpConfigStorage;
-import okhttp3.*;
-import retrofit2.Response;
+import okhttp3.ConnectionPool;
+import okhttp3.OkHttpClient;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import retrofit2.HttpException;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 
-import java.io.IOException;
-import java.util.Objects;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.locks.Lock;
-
-import static com.ossez.wechat.oa.enums.WxMpApiUrl.Other.GET_ACCESS_TOKEN_URL;
 
 /**
  * okhttp实现.
@@ -32,6 +29,8 @@ import static com.ossez.wechat.oa.enums.WxMpApiUrl.Other.GET_ACCESS_TOKEN_URL;
  * @author someone
  */
 public class WeChatOfficialAccountServiceOkHttp extends BaseWeChatOfficialAccountServiceImpl<OkHttpClient, OkHttpProxyInfo> {
+
+    final Logger log = LoggerFactory.getLogger(WeChatOfficialAccountServiceOkHttp.class);
 
     WeChatOfficialAccountApi weChatOfficialAccountApi;
     private OkHttpClient httpClient;
@@ -53,21 +52,27 @@ public class WeChatOfficialAccountServiceOkHttp extends BaseWeChatOfficialAccoun
     }
 
     @Override
-    public String getAccessToken(boolean forceRefresh) throws WxErrorException {
+    public synchronized String getAccessToken(boolean forceRefresh) throws WxErrorException {
+
+        WeChatAccessToken weChatAccessToken = new WeChatAccessToken();
 
         final WxMpConfigStorage config = this.getWxMpConfigStorage();
         if (!config.isAccessTokenExpired() && !forceRefresh) {
             return config.getAccessToken();
         }
 
-        WeChatAccessToken weChatAccessToken = weChatOfficialAccountApi.getAccessToken(WeChatApiParameter.ACCESS_TOKEN_GRANT_TYPE_CLIENT_CREDENTIAL, config.getAppId(), config.getSecret()).blockingGet();
-        config.updateAccessToken(weChatAccessToken.getAccessToken(), weChatAccessToken.getExpiresIn());
+        try {
+            weChatAccessToken = weChatOfficialAccountApi.getAccessToken(WeChatApiParameter.ACCESS_TOKEN_GRANT_TYPE_CLIENT_CREDENTIAL, config.getAppId(), config.getSecret()).blockingGet();
+        }
+        catch (HttpException ex) {
+            log.warn("Access WeChat API return error.",ex);
+            if(ex.code() == 400) {
+                throw new WxErrorException(ex);
+            }
+            System.out.println(">>>>>>>>>>>>>>>>>>>> "+ex.getMessage());
+        }
 
-        return weChatAccessToken.getAccessToken();
 
-
-//      return "response";
-//
 //      Request request = new Request.Builder().url(url).get().build();
 //      Response response = getRequestHttpClient().newCall(request).execute();
 //      return this.extractAccessToken(Objects.requireNonNull(response.body().toString()));
@@ -75,7 +80,7 @@ public class WeChatOfficialAccountServiceOkHttp extends BaseWeChatOfficialAccoun
 //            throw new WxRuntimeException(e);
 //        }
 
-
+        return weChatAccessToken.getAccessToken();
     }
 
     @Override
@@ -87,10 +92,10 @@ public class WeChatOfficialAccountServiceOkHttp extends BaseWeChatOfficialAccoun
         mapper.setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE);
 
         OkHttpClient client = new OkHttpClient.Builder()
-//            .addInterceptor(new AuthenticationInterceptor(null))
+                .addInterceptor(new WeChatErrorInterceptor())
                 .connectionPool(new ConnectionPool(5, 1, TimeUnit.SECONDS)).readTimeout(1000, TimeUnit.SECONDS).build();
 
-        Retrofit retrofit = new Retrofit.Builder().baseUrl(WeChatApiUrl.OFFICIAL_ACCOUNT).client(client)
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(WeChatConstant.ENDPOINT_OFFICIAL_ACCOUNT).client(client)
                 .addConverterFactory(JacksonConverterFactory.create(mapper))
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
