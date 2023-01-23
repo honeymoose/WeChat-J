@@ -24,52 +24,57 @@ WeChat-J 开发使用的库。
 在老的项目中，可能不少人会使用 Apache 的 HttpClient 来进行实现，但因为 OkHttp 广泛的被使用在安卓的手机上，所以使用 OkHttp 会更加简便。
 
 * [Retrofit 是什么](https://www.ossez.com/t/retrofit/14302)
+* [RxJava 是什么](https://www.ossez.com/t/rxjava/14305)
 * [微信测试平台获得测试账号](https://www.ossez.com/t/topic/14281)
 
+### Maven 和依赖 
+当前我们还没有把正式版发布到仓库中，我们还在使用 0.0.1-SNAPSHOT 版本进行内部测试。
 
-### 重要信息
-1. 项目合作洽谈请联系微信`binary0000`（在微信里自行搜索并添加好友，请注明来意，如有关于SDK问题需讨论请参考下文入群讨论，不要加此微信）。
-2. **2022-8-21 发布 [【4.4.0正式版】](https://mp.weixin.qq.com/s/kHg-QHMK6ymbQwTdKFF2lQ)**！
-3. 贡献源码可以参考视频：[【贡献源码全过程（上集）】](https://mp.weixin.qq.com/s/3xUZSATWwHR_gZZm207h7Q)、[【贡献源码全过程（下集）】](https://mp.weixin.qq.com/s/nyzJwVVoYSJ4hSbwyvTx9A) ，友情提供：[程序员小山与Bug](https://space.bilibili.com/473631007)
-4. 新手重要提示：本项目仅是一个SDK开发工具包，未提供Web实现，建议使用 `maven` 或 `gradle` 引用本项目即可使用本SDK提供的各种功能，详情可参考 **[【Demo项目】](demo.md)** 或本项目中的部分单元测试代码；
-5. 微信开发新手请务必阅读【开发文档】（[Gitee Wiki](https://gitee.com/binary/weixin-java-tools/wikis/Home) 或者 [Github Wiki](https://github.com/Wechat-Group/WxJava/wiki)）的常见问题部分，可以少走很多弯路，节省不少时间。
-6. 技术交流群：想获得QQ群/微信群/钉钉企业群等信息的同学，请使用微信扫描上面的微信公众号二维码关注 `WxJava` 后点击相关菜单即可获取加入方式，同时也可以在微信中搜索 `weixin-java-tools` 或 `WxJava` 后选择正确的公众号进行关注，该公众号会及时通知SDK相关更新信息，并不定期分享微信Java开发相关技术知识；
-7. 钉钉技术交流群：`32206329`（技术交流2群）, `30294972`（技术交流1群，目前已满），`35724728`（通知群，实时通知Github项目变更记录）。
-8. 微信开发新手或者Java开发新手在群内提问或新开Issue提问前，请先阅读[【提问的智慧】](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/master/README-zh_CN.md)，并确保已查阅过 [【开发文档Wiki】](https://github.com/wechat-group/WxJava/wiki) ，避免浪费大家的宝贵时间；
-9. 寻求帮助时需贴代码或大长串异常信息的，请利用 http://paste.ubuntu.com 
+最好的版本就是下载我们的源代码后 Fork 到你本地，然后直接使用 Maven 来进行编译。
 
---------------------------------
-### 其他说明
-1. **阅读源码的同学请注意，本SDK为简化代码编译时加入了`lombok`支持，如果不了解`lombok`的话，请先学习下相关知识，比如可以阅读[此文章](https://mp.weixin.qq.com/s/cUc-bUcprycADfNepnSwZQ)；**
-2. 如有新功能需求，发现BUG，或者由于微信官方接口调整导致的代码问题，可以直接在[【Issues】](https://github.com/Wechat-Group/WxJava/issues)页提出issue，便于讨论追踪问题；
-3. 如果需要贡献代码，请务必在提交PR之前先仔细阅读[【代码贡献指南】](CONTRIBUTING.md)，谢谢理解配合；
-4. 目前本`SDK`最新版本要求的`JDK`最低版本是`8`，使用`7`的同学可以使用`WxJava` `3.8.0`及以前版本，而还在使用`JDK`6的用户请参考[【此项目】]( https://github.com/binarywang/weixin-java-tools-for-jdk6) ，而其他更早的JDK版本则需要自己改造实现。
-5. [本项目在开源中国的页面](https://www.oschina.net/p/weixin-java-tools-new)，欢迎大家积极留言评分 🙂
-6. SDK开发文档请查阅 [【开发文档Wiki】](https://github.com/wechat-group/WxJava/wiki)，部分文档可能未能及时更新，如有发现，可以及时上报或者自行修改。
-7. **如果本开发工具包对您有所帮助，欢迎对我们的努力进行肯定，可以直接前往[【托管于码云的项目首页】](http://gitee.com/binary/weixin-java-tools)，在页尾部分找到“捐助”按钮进行打赏，多多益善 😄。非常感谢各位打赏和捐助的同学！**
-8. 各个模块的Javadoc可以在线查看：[weixin-java-miniapp](http://binary.ac.cn/weixin-java-miniapp-javadoc/)、[weixin-java-pay](http://binary.ac.cn/weixin-java-pay-javadoc/)、[weixin-java-mp](http://binary.ac.cn/weixin-java-mp-javadoc/)、[weixin-java-common](http://binary.ac.cn/weixin-java-common-javadoc/)、[weixin-java-cp](http://binary.ac.cn/weixin-java-cp-javadoc/)、[weixin-java-open](http://binary.ac.cn/weixin-java-open-javadoc/)
-9. 本SDK项目在以下代码托管网站同步更新:
-* 码云：https://gitee.com/binary/weixin-java-tools
-* GitHub：https://github.com/wechat-group/WxJava
-
----------------------------------
-### Maven 引用方式
-注意：最新版本（包括测试版）为 [![Maven Central](https://img.shields.io/maven-central/v/com.github.binarywang/wx-java.svg)](http://mvnrepository.com/artifact/com.github.binarywang/wx-java)，以下为最新正式版。
+#### 微信公众号（WeChat Java Official Account）
+模块名：wechat-j-oa
 
 ```xml
 <dependency>
-  <groupId>com.github.binarywang</groupId>
-  <artifactId>（不同模块参考下文）</artifactId>
-  <version>4.4.0</version>
+    <groupId>com.ossez.wechat</groupId>
+    <artifactId>wechat-j-oa</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
 </dependency>
 ```
 
-  - 微信小程序：`weixin-java-miniapp`   
-  - 微信支付：`weixin-java-pay`
-  - 微信开放平台：`weixin-java-open`   
-  - 公众号（包括订阅号和服务号）：`weixin-java-mp`    
-  - 企业号/企业微信：`weixin-java-cp`
+#### 微信小程序（WeChat Java Mini Programs）
+模块名：wechat-j-mp
 
+```xml
+<dependency>
+    <groupId>com.ossez.wechat</groupId>
+    <artifactId>wechat-j-mp</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+</dependency>
+```
+
+#### 微信支付（WeChat Java Pay）
+模块名：wechat-j-pay （模块还在开发，无实际内容，请不要使用。）
+
+#### 企业微信（WeChat Java WeCom）
+模块名：wechat-j-work （模块还在开发，无实际内容，请不要使用。）
+
+
+#### 微信开放平台（WeChat Java Open）
+模块名：wechat-j-open
+
+```xml
+<dependency>
+    <groupId>com.ossez.wechat</groupId>
+    <artifactId>wechat-j-open</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+</dependency>
+```
+
+### 其他内容
+* 任何有关讨论，请访问 [社区](https://www.ossez.com/tag/wechat)，您可以在这里提出功能需求，Bug 修复，问题解答。
+* 可以考虑使用 http://paste.ubuntu.com 来对你在提交问题的时候出现的为代码进行简化。
 
 ### 框架和案例
 如果你想登记你的项目，请[访问这里](https://www.ossez.com/t/wechat-j-demo/14303)。
