@@ -33,45 +33,37 @@ import static com.ossez.wechat.oa.enums.WxMpApiUrl.Other.GET_ACCESS_TOKEN_URL;
  */
 public class WeChatOfficialAccountServiceOkHttp extends BaseWeChatOfficialAccountServiceImpl<OkHttpClient, OkHttpProxyInfo> {
 
-  WeChatOfficialAccountApi weChatOfficialAccountApi;
-  private OkHttpClient httpClient;
-  private OkHttpProxyInfo httpProxy;
+    WeChatOfficialAccountApi weChatOfficialAccountApi;
+    private OkHttpClient httpClient;
+    private OkHttpProxyInfo httpProxy;
 
-  @Override
-  public OkHttpClient getRequestHttpClient() {
-    return httpClient;
-  }
-
-  @Override
-  public OkHttpProxyInfo getRequestHttpProxy() {
-    return httpProxy;
-  }
-
-  @Override
-  public HttpType getRequestType() {
-    return HttpType.OK_HTTP;
-  }
-
-  @Override
-  public String getAccessToken(boolean forceRefresh) throws WxErrorException {
-    final WxMpConfigStorage config = this.getWxMpConfigStorage();
-    if (!config.isAccessTokenExpired() && !forceRefresh) {
-      return config.getAccessToken();
+    @Override
+    public OkHttpClient getRequestHttpClient() {
+        return httpClient;
     }
 
-    Lock lock = config.getAccessTokenLock();
-    boolean locked = false;
-    try {
-      do {
-        locked = lock.tryLock(100, TimeUnit.MILLISECONDS);
-        if (!forceRefresh && !config.isAccessTokenExpired()) {
-          return config.getAccessToken();
+    @Override
+    public OkHttpProxyInfo getRequestHttpProxy() {
+        return httpProxy;
+    }
+
+    @Override
+    public HttpType getRequestType() {
+        return HttpType.OK_HTTP;
+    }
+
+    @Override
+    public String getAccessToken(boolean forceRefresh) throws WxErrorException {
+
+        final WxMpConfigStorage config = this.getWxMpConfigStorage();
+        if (!config.isAccessTokenExpired() && !forceRefresh) {
+            return config.getAccessToken();
         }
-      } while (!locked);
 
-      WeChatAccessToken accessToken = weChatOfficialAccountApi.getAccessToken(WeChatApiParameter.ACCESS_TOKEN_GRANT_TYPE_CLIENT_CREDENTIAL, config.getAppId(),config.getSecret()).blockingGet();
+        WeChatAccessToken weChatAccessToken = weChatOfficialAccountApi.getAccessToken(WeChatApiParameter.ACCESS_TOKEN_GRANT_TYPE_CLIENT_CREDENTIAL, config.getAppId(), config.getSecret()).blockingGet();
+        config.updateAccessToken(weChatAccessToken.getAccessToken(), weChatAccessToken.getExpiresIn());
 
-      return accessToken.getAccessToken();
+        return weChatAccessToken.getAccessToken();
 
 
 //      return "response";
@@ -79,37 +71,31 @@ public class WeChatOfficialAccountServiceOkHttp extends BaseWeChatOfficialAccoun
 //      Request request = new Request.Builder().url(url).get().build();
 //      Response response = getRequestHttpClient().newCall(request).execute();
 //      return this.extractAccessToken(Objects.requireNonNull(response.body().toString()));
-    } catch (Exception e) {
-      throw new WxRuntimeException(e);
-    } finally {
-      if (locked) {
-        lock.unlock();
-      }
+//        } catch (Exception e) {
+//            throw new WxRuntimeException(e);
+//        }
+
+
     }
-  }
 
-  @Override
-  public void initHttp() {
+    @Override
+    public void initHttp() {
 
-    ObjectMapper mapper = new ObjectMapper();
-    mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-    mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
-    mapper.setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE);
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+        mapper.setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE);
 
-    OkHttpClient client = new OkHttpClient.Builder()
+        OkHttpClient client = new OkHttpClient.Builder()
 //            .addInterceptor(new AuthenticationInterceptor(null))
-            .connectionPool(new ConnectionPool(5, 1, TimeUnit.SECONDS))
-            .readTimeout(1000, TimeUnit.SECONDS)
-            .build();
+                .connectionPool(new ConnectionPool(5, 1, TimeUnit.SECONDS)).readTimeout(1000, TimeUnit.SECONDS).build();
 
-    Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl(WeChatApiUrl.OFFICIAL_ACCOUNT)
-            .client(client)
-            .addConverterFactory(JacksonConverterFactory.create(mapper))
-            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-            .build();
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(WeChatApiUrl.OFFICIAL_ACCOUNT).client(client)
+                .addConverterFactory(JacksonConverterFactory.create(mapper))
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .build();
 
-    this.weChatOfficialAccountApi = retrofit.create(WeChatOfficialAccountApi.class);
+        this.weChatOfficialAccountApi = retrofit.create(WeChatOfficialAccountApi.class);
 
 
 //    WxMpConfigStorage wxMpConfigStorage = getWxMpConfigStorage();
@@ -137,6 +123,6 @@ public class WeChatOfficialAccountServiceOkHttp extends BaseWeChatOfficialAccoun
 //      });
 //    }
 //    httpClient = clientBuilder.build();
-  }
+    }
 
 }
