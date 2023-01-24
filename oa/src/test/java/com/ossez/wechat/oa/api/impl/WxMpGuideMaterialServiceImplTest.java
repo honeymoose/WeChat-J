@@ -1,7 +1,7 @@
 package com.ossez.wechat.oa.api.impl;
 
 import com.google.inject.Inject;
-import com.ossez.wechat.common.api.WxConsts;
+import com.ossez.wechat.common.constant.WeChatConstant;
 import com.ossez.wechat.common.bean.result.WxMediaUploadResult;
 import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
@@ -37,7 +37,7 @@ public class WxMpGuideMaterialServiceImplTest {
   @Test
   public void testSetGuideCardMaterial() throws WxErrorException {
     WxMediaUploadResult wxMediaUploadResult = this.wxService.getMaterialService()
-      .mediaUpload(WxConsts.MediaFileType.IMAGE, new File(IMG_URL));
+      .mediaUpload(WeChatConstant.MediaFileType.IMAGE, new File(IMG_URL));
     this.wxService.getGuideMaterialService().setGuideCardMaterial(wxMediaUploadResult.getMediaId(), 0, "小程序素材标题", "pages/login-type/index.html", "wx4f793c04fd3be5a8");
   }
 
@@ -55,7 +55,7 @@ public class WxMpGuideMaterialServiceImplTest {
   @Test
   public void testSetGuideImageMaterial() throws WxErrorException {
     WxMediaUploadResult wxMediaUploadResult = this.wxService.getMaterialService()
-      .mediaUpload(WxConsts.MediaFileType.IMAGE, new File(IMG_URL));
+      .mediaUpload(WeChatConstant.MediaFileType.IMAGE, new File(IMG_URL));
     this.wxService.getGuideMaterialService().setGuideImageMaterial(wxMediaUploadResult.getMediaId(), 0);
   }
 

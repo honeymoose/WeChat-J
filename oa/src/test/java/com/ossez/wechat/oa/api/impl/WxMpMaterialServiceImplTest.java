@@ -1,7 +1,7 @@
 package com.ossez.wechat.oa.api.impl;
 
 import com.google.inject.Inject;
-import com.ossez.wechat.common.api.WxConsts;
+import com.ossez.wechat.common.constant.WeChatConstant;
 import com.ossez.wechat.common.bean.result.WxMediaUploadResult;
 import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.common.util.fs.FileUtils;
@@ -51,10 +51,10 @@ public class WxMpMaterialServiceImplTest {
   @DataProvider
   public Object[][] mediaFiles() {
     return new Object[][]{
-      new Object[]{WxConsts.MediaFileType.IMAGE, TestConstants.FILE_JPG, "mm.jpeg"},
-      new Object[]{WxConsts.MediaFileType.VOICE, TestConstants.FILE_MP3, "mm.mp3"},
-      new Object[]{WxConsts.MediaFileType.VIDEO, TestConstants.FILE_MP4, "mm.mp4"},
-      new Object[]{WxConsts.MediaFileType.THUMB, TestConstants.FILE_JPG, "mm.jpeg"}
+      new Object[]{WeChatConstant.MediaFileType.IMAGE, TestConstants.FILE_JPG, "mm.jpeg"},
+      new Object[]{WeChatConstant.MediaFileType.VOICE, TestConstants.FILE_MP3, "mm.mp3"},
+      new Object[]{WeChatConstant.MediaFileType.VIDEO, TestConstants.FILE_MP4, "mm.mp4"},
+      new Object[]{WeChatConstant.MediaFileType.THUMB, TestConstants.FILE_JPG, "mm.jpeg"}
     };
   }
 
@@ -72,7 +72,7 @@ public class WxMpMaterialServiceImplTest {
       WxMpMaterial wxMaterial = new WxMpMaterial();
       wxMaterial.setFile(tempFile);
       wxMaterial.setName(fileName);
-      if (WxConsts.MediaFileType.VIDEO.equals(mediaType)) {
+      if (WeChatConstant.MediaFileType.VIDEO.equals(mediaType)) {
         wxMaterial.setVideoTitle("title");
         wxMaterial.setVideoIntroduction("test video description");
       }
@@ -81,12 +81,12 @@ public class WxMpMaterialServiceImplTest {
         .materialFileUpload(mediaType, wxMaterial);
       Assert.assertNotNull(res.getMediaId());
 
-      if (WxConsts.MediaFileType.IMAGE.equals(mediaType)
-        || WxConsts.MediaFileType.THUMB.equals(mediaType)) {
+      if (WeChatConstant.MediaFileType.IMAGE.equals(mediaType)
+        || WeChatConstant.MediaFileType.THUMB.equals(mediaType)) {
         Assert.assertNotNull(res.getUrl());
       }
 
-      if (WxConsts.MediaFileType.THUMB.equals(mediaType)) {
+      if (WeChatConstant.MediaFileType.THUMB.equals(mediaType)) {
         this.thumbMediaId = res.getMediaId();
       }
 
@@ -236,9 +236,9 @@ public class WxMpMaterialServiceImplTest {
 
   @Test//(dependsOnMethods = {"testMaterialNewsList"})
   public void testMaterialFileList() throws WxErrorException {
-    WxMpMaterialFileBatchGetResult wxMpMaterialVoiceBatchGetResult = this.wxService.getMaterialService().materialFileBatchGet(WxConsts.MaterialType.VOICE, 0, 20);
-    WxMpMaterialFileBatchGetResult wxMpMaterialVideoBatchGetResult = this.wxService.getMaterialService().materialFileBatchGet(WxConsts.MaterialType.VIDEO, 0, 20);
-    WxMpMaterialFileBatchGetResult wxMpMaterialImageBatchGetResult = this.wxService.getMaterialService().materialFileBatchGet(WxConsts.MaterialType.IMAGE, 0, 20);
+    WxMpMaterialFileBatchGetResult wxMpMaterialVoiceBatchGetResult = this.wxService.getMaterialService().materialFileBatchGet(WeChatConstant.MaterialType.VOICE, 0, 20);
+    WxMpMaterialFileBatchGetResult wxMpMaterialVideoBatchGetResult = this.wxService.getMaterialService().materialFileBatchGet(WeChatConstant.MaterialType.VIDEO, 0, 20);
+    WxMpMaterialFileBatchGetResult wxMpMaterialImageBatchGetResult = this.wxService.getMaterialService().materialFileBatchGet(WeChatConstant.MaterialType.IMAGE, 0, 20);
     Assert.assertNotNull(wxMpMaterialVoiceBatchGetResult);
     Assert.assertNotNull(wxMpMaterialVideoBatchGetResult);
     Assert.assertNotNull(wxMpMaterialImageBatchGetResult);
@@ -289,12 +289,12 @@ public class WxMpMaterialServiceImplTest {
       Assert.assertNotNull(res.getCreatedAt());
       Assert.assertTrue(res.getMediaId() != null || res.getThumbMediaId() != null);
 
-      if (res.getMediaId() != null && !mediaType.equals(WxConsts.MediaFileType.VIDEO)) {
+      if (res.getMediaId() != null && !mediaType.equals(WeChatConstant.MediaFileType.VIDEO)) {
         //video 不支持下载，所以不加入
         this.mediaIdsToDownload.add(res.getMediaId());
 
         // 音频media, 用于测试下载高清语音接口
-        if (mediaType.equals(WxConsts.MediaFileType.VOICE)) {
+        if (mediaType.equals(WeChatConstant.MediaFileType.VOICE)) {
           this.voiceMediaIdsToDownload.add(res.getMediaId());
         }
       }

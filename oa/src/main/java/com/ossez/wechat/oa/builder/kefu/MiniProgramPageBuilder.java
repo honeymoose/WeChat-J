@@ -1,6 +1,6 @@
 package com.ossez.wechat.oa.builder.kefu;
 
-import com.ossez.wechat.common.api.WxConsts.KefuMsgType;
+import com.ossez.wechat.common.constant.WeChatConstant.KefuMsgType;
 import com.ossez.wechat.oa.bean.kefu.WxMpKefuMessage;
 
 /**

@@ -2,7 +2,7 @@ package com.ossez.wechat.oa.util.json;
 
 import com.google.gson.*;
 
-import com.ossez.wechat.common.api.WxConsts;
+import com.ossez.wechat.common.constant.WeChatConstant;
 import com.ossez.wechat.oa.bean.WxMpMassOpenIdsMessage;
 import org.apache.commons.lang3.StringUtils;
 
@@ -24,39 +24,39 @@ public class WxMpMassOpenIdsMessageGsonAdapter implements JsonSerializer<WxMpMas
     }
     messageJson.add("touser", toUsers);
 
-    if (WxConsts.MassMsgType.MPNEWS.equals(message.getMsgType())) {
+    if (WeChatConstant.MassMsgType.MPNEWS.equals(message.getMsgType())) {
       JsonObject sub = new JsonObject();
       sub.addProperty("media_id", message.getMediaId());
-      messageJson.add(WxConsts.MassMsgType.MPNEWS, sub);
+      messageJson.add(WeChatConstant.MassMsgType.MPNEWS, sub);
     }
-    if (WxConsts.MassMsgType.TEXT.equals(message.getMsgType())) {
+    if (WeChatConstant.MassMsgType.TEXT.equals(message.getMsgType())) {
       JsonObject sub = new JsonObject();
       sub.addProperty("content", message.getContent());
-      messageJson.add(WxConsts.MassMsgType.TEXT, sub);
+      messageJson.add(WeChatConstant.MassMsgType.TEXT, sub);
     }
-    if (WxConsts.MassMsgType.VOICE.equals(message.getMsgType())) {
+    if (WeChatConstant.MassMsgType.VOICE.equals(message.getMsgType())) {
       JsonObject sub = new JsonObject();
       sub.addProperty("media_id", message.getMediaId());
-      messageJson.add(WxConsts.MassMsgType.VOICE, sub);
+      messageJson.add(WeChatConstant.MassMsgType.VOICE, sub);
     }
-    if (WxConsts.MassMsgType.IMAGE.equals(message.getMsgType())) {
+    if (WeChatConstant.MassMsgType.IMAGE.equals(message.getMsgType())) {
       JsonObject sub = new JsonObject();
       List<String> mediaIds = message.getMediaIds();
       if (mediaIds != null && !mediaIds.isEmpty() ) {
         JsonArray json = new JsonArray();
         mediaIds.forEach(json::add);
         sub.add("media_ids", json);
-        messageJson.add(WxConsts.MassMsgType.IMAGES, sub);
+        messageJson.add(WeChatConstant.MassMsgType.IMAGES, sub);
       } else {
         String mediaId = message.getMediaId();
         sub.addProperty("media_id", mediaId);
-        messageJson.add(WxConsts.MassMsgType.IMAGE, sub);
+        messageJson.add(WeChatConstant.MassMsgType.IMAGE, sub);
       }
     }
-    if (WxConsts.MassMsgType.MPVIDEO.equals(message.getMsgType())) {
+    if (WeChatConstant.MassMsgType.MPVIDEO.equals(message.getMsgType())) {
       JsonObject sub = new JsonObject();
       sub.addProperty("media_id", message.getMediaId());
-      messageJson.add(WxConsts.MassMsgType.MPVIDEO, sub);
+      messageJson.add(WeChatConstant.MassMsgType.MPVIDEO, sub);
     }
     messageJson.addProperty("msgtype", message.getMsgType());
 

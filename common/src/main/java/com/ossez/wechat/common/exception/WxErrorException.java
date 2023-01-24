@@ -1,5 +1,7 @@
 package com.ossez.wechat.common.exception;
 
+import static com.ossez.wechat.common.exception.WxError.*;
+
 /**
  * @author Daniel Qian
  */

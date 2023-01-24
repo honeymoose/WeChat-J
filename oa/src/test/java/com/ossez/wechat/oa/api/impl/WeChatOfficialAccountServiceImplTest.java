@@ -9,7 +9,7 @@ import org.testng.*;
 import org.testng.annotations.*;
 
 import com.google.inject.Inject;
-import com.ossez.wechat.common.api.WxConsts;
+import com.ossez.wechat.common.constant.WeChatConstant;
 import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.oa.config.WxMpConfigStorage;
 import com.ossez.wechat.common.enums.TicketType;
@@ -37,7 +37,7 @@ public class WeChatOfficialAccountServiceImplTest {
   public void testBuildQrConnectUrl() {
     String qrconnectRedirectUrl = ((TestConfigStorage) this.wxService.getWxMpConfigStorage()).getQrconnectRedirectUrl();
     String qrConnectUrl = this.wxService.buildQrConnectUrl(qrconnectRedirectUrl,
-      WxConsts.QrConnectScope.SNSAPI_LOGIN, null);
+      WeChatConstant.QrConnectScope.SNSAPI_LOGIN, null);
     Assert.assertNotNull(qrConnectUrl);
     System.out.println(qrConnectUrl);
   }

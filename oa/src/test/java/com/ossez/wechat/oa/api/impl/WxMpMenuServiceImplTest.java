@@ -1,7 +1,7 @@
 package com.ossez.wechat.oa.api.impl;
 
 import com.google.inject.Inject;
-import com.ossez.wechat.common.api.WxConsts;
+import com.ossez.wechat.common.constant.WeChatConstant;
 import com.ossez.wechat.common.bean.menu.WxMenu;
 import com.ossez.wechat.common.bean.menu.WxMenuButton;
 import com.ossez.wechat.common.exception.WxErrorException;
@@ -201,7 +201,7 @@ public class WxMpMenuServiceImplTest {
   public Object[][] getMenu() {
     WxMenu menu = new WxMenu();
     WxMenuButton button1 = new WxMenuButton();
-    button1.setType(WxConsts.MenuButtonType.CLICK);
+    button1.setType(WeChatConstant.MenuButtonType.CLICK);
     button1.setName("今日歌曲");
     button1.setKey("V1001_TODAY_MUSIC");
 
@@ -220,17 +220,17 @@ public class WxMpMenuServiceImplTest {
     menu.getButtons().add(button3);
 
     WxMenuButton button31 = new WxMenuButton();
-    button31.setType(WxConsts.MenuButtonType.VIEW);
+    button31.setType(WeChatConstant.MenuButtonType.VIEW);
     button31.setName("搜索");
     button31.setUrl("http://www.soso.com/");
 
     WxMenuButton button32 = new WxMenuButton();
-    button32.setType(WxConsts.MenuButtonType.VIEW);
+    button32.setType(WeChatConstant.MenuButtonType.VIEW);
     button32.setName("视频");
     button32.setUrl("http://v.qq.com/");
 
     WxMenuButton button33 = new WxMenuButton();
-    button33.setType(WxConsts.MenuButtonType.CLICK);
+    button33.setType(WeChatConstant.MenuButtonType.CLICK);
     button33.setName("赞一下我们");
     button33.setKey("V1001_GOOD");
 

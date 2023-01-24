@@ -3,7 +3,7 @@ package com.ossez.wechat.oa.api;
 import java.io.File;
 import java.io.InputStream;
 
-import com.ossez.wechat.common.api.WxConsts;
+import com.ossez.wechat.common.constant.WeChatConstant;
 import com.ossez.wechat.common.bean.result.WxMediaUploadResult;
 import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.oa.bean.material.WxMediaImgUploadResult;
@@ -49,7 +49,7 @@ public interface WxMpMaterialService {
    * 接口url格式：https://api.weixin.qq.com/cgi-bin/media/upload?access_token=ACCESS_TOKEN&type=TYPE
    * </pre>
    *
-   * @param mediaType 媒体类型, 请看{@link WxConsts}
+   * @param mediaType 媒体类型, 请看{@link WeChatConstant}
    * @param file      文件对象
    * @return the wx media upload result
    * @throws WxErrorException the wx error exception
@@ -66,8 +66,8 @@ public interface WxMpMaterialService {
    * 接口url格式：https://api.weixin.qq.com/cgi-bin/media/upload?access_token=ACCESS_TOKEN&type=TYPE
    * </pre>
    *
-   * @param mediaType   媒体类型, 请看{@link WxConsts}
-   * @param fileType    文件类型，请看{@link WxConsts}
+   * @param mediaType   媒体类型, 请看{@link WeChatConstant}
+   * @param fileType    文件类型，请看{@link WeChatConstant}
    * @param inputStream 输入流
    * @return the wx media upload result
    * @throws WxErrorException the wx error exception
@@ -140,7 +140,7 @@ public interface WxMpMaterialService {
    * 4、调用该接口需https协议
    * </pre>
    *
-   * @param mediaType 媒体类型, 请看{@link WxConsts}
+   * @param mediaType 媒体类型, 请看{@link WeChatConstant}
    * @param material  上传的素材, 请看{@link WxMpMaterial}
    * @return the wx mp material upload result
    * @throws WxErrorException the wx error exception
@@ -288,7 +288,7 @@ public interface WxMpMaterialService {
    * 接口url格式：https://api.weixin.qq.com/cgi-bin/material/batchget_material?access_token=ACCESS_TOKEN
    * </pre>
    *
-   * @param type   媒体类型, 请看{@link WxConsts}
+   * @param type   媒体类型, 请看{@link WeChatConstant}
    * @param offset 从全部素材的该偏移位置开始返回，0表示从第一个素材 返回
    * @param count  返回素材的数量，取值在1到20之间
    * @return the wx mp material file batch get result

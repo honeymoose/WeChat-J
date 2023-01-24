@@ -1,6 +1,6 @@
 package cn.binarywang.wx.miniapp.bean;
 
-import com.ossez.wechat.common.api.WxConsts;
+import com.ossez.wechat.common.constant.WeChatConstant;
 import org.testng.annotations.Test;
 
 import java.util.List;
@@ -38,7 +38,7 @@ public class WxMaMessageTest {
     assertEquals(wxMessage.getToUser(), "toUser");
     assertEquals(wxMessage.getFromUser(), "fromUser");
     assertEquals(wxMessage.getCreateTime(), new Integer(1482048670));
-    assertEquals(wxMessage.getMsgType(), WxConsts.XmlMsgType.TEXT);
+    assertEquals(wxMessage.getMsgType(), WeChatConstant.XmlMsgType.TEXT);
     assertEquals(wxMessage.getContent(), "this is a test");
     assertEquals(wxMessage.getMsgId(), new Long(1234567890123456L));
     assertEquals(wxMessage.getPicUrl(), "this is a url");
@@ -108,7 +108,7 @@ public class WxMaMessageTest {
     assertEquals(wxMessage.getToUser(), "gh_123456789abc");
     assertEquals(wxMessage.getFromUser(), "otFpruAK8D-E6EfStSYonYSBZ8_4");
     assertEquals(wxMessage.getCreateTime(), new Integer(1610969440));
-    assertEquals(wxMessage.getMsgType(), WxConsts.XmlMsgType.EVENT);
+    assertEquals(wxMessage.getMsgType(), WeChatConstant.XmlMsgType.EVENT);
     assertEquals(wxMessage.getEvent(), "subscribe_msg_popup_event");
     assertEquals(wxMessage.getSubscribeMsgPopupEvent().getList().size(), 1);
     WxMaSubscribeMsgEvent.PopupEvent event = wxMessage.getSubscribeMsgPopupEvent().getList().get(0);
@@ -170,7 +170,7 @@ public class WxMaMessageTest {
     assertEquals(wxMessage.getToUser(), "gh_123456789abc");
     assertEquals(wxMessage.getFromUser(), "o7esq5OI1Uej6Xixw1lA2H7XDVbc");
     assertEquals(wxMessage.getCreateTime(), new Integer(1610968440));
-    assertEquals(wxMessage.getMsgType(), WxConsts.XmlMsgType.EVENT);
+    assertEquals(wxMessage.getMsgType(), WeChatConstant.XmlMsgType.EVENT);
     assertEquals(wxMessage.getEvent(), "subscribe_msg_change_event");
     assertEquals(wxMessage.getSubscribeMsgChangeEvent().getList().size(), 1);
     WxMaSubscribeMsgEvent.ChangeEvent event = wxMessage.getSubscribeMsgChangeEvent().getList().get(0);
@@ -221,7 +221,7 @@ public class WxMaMessageTest {
     assertEquals(wxMessage.getToUser(), "gh_123456789abc");
     assertEquals(wxMessage.getFromUser(), "o7esq5PHRGBQYmeNyfG064wEFVpQ");
     assertEquals(wxMessage.getCreateTime(), new Integer(1620963428));
-    assertEquals(wxMessage.getMsgType(), WxConsts.XmlMsgType.EVENT);
+    assertEquals(wxMessage.getMsgType(), WeChatConstant.XmlMsgType.EVENT);
     assertEquals(wxMessage.getEvent(), "subscribe_msg_sent_event");
     assertNotNull(wxMessage.getSubscribeMsgSentEvent());
     WxMaSubscribeMsgEvent.SentEvent event = wxMessage.getSubscribeMsgSentEvent().getList();
@@ -315,7 +315,7 @@ public class WxMaMessageTest {
       "</xml>";
     WxMaMessage wxMessage = WxMaMessage.fromXml(xml);
     assertThat(wxMessage.getMsgType()).isEqualTo("event");
-    assertThat(wxMessage.getEvent()).isEqualTo(WxConsts.EventType.OPEN_PRODUCT_ORDER_PAY);
+    assertThat(wxMessage.getEvent()).isEqualTo(WeChatConstant.EventType.OPEN_PRODUCT_ORDER_PAY);
     Map<String, Object> allFieldsMap = wxMessage.getAllFieldsMap();
     Map<String, Object> orderInfo = (Map<String, Object>) allFieldsMap.get("order_info");
     assertThat(orderInfo).isNotEmpty();

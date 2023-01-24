@@ -1,6 +1,6 @@
 package com.ossez.wechat.oa.demo;
 
-import com.ossez.wechat.common.api.WxConsts;
+import com.ossez.wechat.common.constant.WeChatConstant;
 import com.ossez.wechat.oa.api.WxMpMessageHandler;
 import com.ossez.wechat.oa.api.WxMpMessageRouter;
 import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
@@ -54,7 +54,7 @@ public class WxMpDemoServer {
 
       wxMpMessageRouter = new WxMpMessageRouter(weChatOfficialAccountService);
       wxMpMessageRouter.rule().handler(logHandler).next().rule()
-        .msgType(WxConsts.XmlMsgType.TEXT).matcher(guessNumberHandler)
+        .msgType(WeChatConstant.XmlMsgType.TEXT).matcher(guessNumberHandler)
         .handler(guessNumberHandler).end().rule().async(false).content("哈哈")
         .handler(textHandler).end().rule().async(false).content("图片")
         .handler(imageHandler).end().rule().async(false).content("oauth")

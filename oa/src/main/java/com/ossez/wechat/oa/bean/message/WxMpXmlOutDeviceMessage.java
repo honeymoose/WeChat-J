@@ -8,7 +8,7 @@ import com.thoughtworks.xstream.annotations.XStreamConverter;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import com.ossez.wechat.common.api.WxConsts;
+import com.ossez.wechat.common.constant.WeChatConstant;
 import com.ossez.wechat.common.util.xml.XStreamCDataConverter;
 
 @Data
@@ -43,6 +43,6 @@ public class WxMpXmlOutDeviceMessage extends WxMpXmlOutMessage {
   private String sessionId;
 
   public WxMpXmlOutDeviceMessage() {
-    this.msgType = WxConsts.XmlMsgType.DEVICE_TEXT;
+    this.msgType = WeChatConstant.XmlMsgType.DEVICE_TEXT;
   }
 }

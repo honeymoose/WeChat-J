@@ -1,6 +1,6 @@
 package com.ossez.wechat.oa.bean.message;
 
-import com.ossez.wechat.common.api.WxConsts;
+import com.ossez.wechat.common.constant.WeChatConstant;
 import org.assertj.core.api.Assertions;
 import org.testng.annotations.Test;
 
@@ -73,7 +73,7 @@ public class WxMpXmlMessageTest {
     assertEquals(wxMessage.getToUser(), "toUser");
     assertEquals(wxMessage.getFromUser(), "fromUser");
     assertEquals(wxMessage.getCreateTime(), new Long(1348831860L));
-    assertEquals(wxMessage.getMsgType(), WxConsts.XmlMsgType.TEXT);
+    assertEquals(wxMessage.getMsgType(), WeChatConstant.XmlMsgType.TEXT);
     assertEquals(wxMessage.getContent(), "this is a test");
     assertEquals(wxMessage.getMsgId(), new Long(1234567890123456L));
     assertEquals(wxMessage.getPicUrl(), "this is a url");
@@ -164,7 +164,7 @@ public class WxMpXmlMessageTest {
     assertEquals(wxMessage.getToUser(), "toUser");
     assertEquals(wxMessage.getFromUser(), "fromUser");
     assertEquals(wxMessage.getCreateTime(), new Long(1348831860L));
-    assertEquals(wxMessage.getMsgType(), WxConsts.XmlMsgType.TEXT);
+    assertEquals(wxMessage.getMsgType(), WeChatConstant.XmlMsgType.TEXT);
     assertEquals(wxMessage.getContent(), "this is a test");
     assertEquals(wxMessage.getMsgId(), new Long(1234567890123456L));
     assertEquals(wxMessage.getPicUrl(), "this is a url");
@@ -240,7 +240,7 @@ public class WxMpXmlMessageTest {
     assertEquals(wxMessage.getToUser(), "gh_4d00ed8d6399");
     assertEquals(wxMessage.getFromUser(), "oV5CrjpxgaGXNHIQigzNlgLTnwic");
     assertEquals(wxMessage.getCreateTime(), new Long(1481013459));
-    assertEquals(wxMessage.getMsgType(), WxConsts.XmlMsgType.EVENT);
+    assertEquals(wxMessage.getMsgType(), WeChatConstant.XmlMsgType.EVENT);
     assertEquals(wxMessage.getEvent(), "MASSSENDJOBFINISH");
     assertEquals(wxMessage.getMsgId(), new Long(1000001625L));
     assertEquals(wxMessage.getStatus(), "err(30003)");

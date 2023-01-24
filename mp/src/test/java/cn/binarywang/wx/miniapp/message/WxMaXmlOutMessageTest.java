@@ -1,6 +1,6 @@
 package cn.binarywang.wx.miniapp.message;
 
-import com.ossez.wechat.common.api.WxConsts;
+import com.ossez.wechat.common.constant.WeChatConstant;
 import org.testng.annotations.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -12,7 +12,7 @@ public class WxMaXmlOutMessageTest {
     WxMaXmlOutMessage message = WxMaXmlOutMessage.builder()
       .fromUserName("1")
       .toUserName("2")
-      .msgType(WxConsts.XmlMsgType.TRANSFER_CUSTOMER_SERVICE)
+      .msgType(WeChatConstant.XmlMsgType.TRANSFER_CUSTOMER_SERVICE)
       .createTime(System.currentTimeMillis() / 1000)
       .build();
 

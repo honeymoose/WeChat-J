@@ -1,6 +1,6 @@
 package com.ossez.wechat.oa.builder.kefu;
 
-import com.ossez.wechat.common.api.WxConsts;
+import com.ossez.wechat.common.constant.WeChatConstant;
 import com.ossez.wechat.oa.bean.kefu.WxMpKefuMessage;
 
 import java.util.ArrayList;
@@ -23,7 +23,7 @@ public final class WxMsgMenuBuilder extends BaseBuilder<WxMsgMenuBuilder> {
 
 
   public WxMsgMenuBuilder() {
-    this.msgType = WxConsts.KefuMsgType.MSGMENU;
+    this.msgType = WeChatConstant.KefuMsgType.MSGMENU;
   }
 
   public WxMsgMenuBuilder addMenus(WxMpKefuMessage.MsgMenu... msgMenus) {

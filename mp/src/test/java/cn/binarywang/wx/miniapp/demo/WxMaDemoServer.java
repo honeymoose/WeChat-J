@@ -10,7 +10,7 @@ import cn.binarywang.wx.miniapp.message.WxMaMessageHandler;
 import cn.binarywang.wx.miniapp.message.WxMaMessageRouter;
 import cn.binarywang.wx.miniapp.message.WxMaXmlOutMessage;
 import cn.binarywang.wx.miniapp.test.TestConfig;
-import com.ossez.wechat.common.api.WxConsts;
+import com.ossez.wechat.common.constant.WeChatConstant;
 import com.ossez.wechat.common.bean.result.WxMediaUploadResult;
 import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.common.session.WxSessionManager;
@@ -98,7 +98,7 @@ public class WxMaDemoServer {
     @Override
     public WxMaXmlOutMessage handle(WxMaMessage message, Map<String, Object> context, WxMaService service, WxSessionManager sessionManager) {
       return new WxMaXmlOutMessage()
-        .setMsgType(WxConsts.XmlMsgType.TRANSFER_CUSTOMER_SERVICE)
+        .setMsgType(WeChatConstant.XmlMsgType.TRANSFER_CUSTOMER_SERVICE)
         .setFromUserName(message.getToUser())
         .setCreateTime(Calendar.getInstance().getTimeInMillis() / 1000)
         .setToUserName(message.getFromUser());

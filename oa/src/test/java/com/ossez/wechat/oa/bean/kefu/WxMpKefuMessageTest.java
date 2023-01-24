@@ -1,6 +1,6 @@
 package com.ossez.wechat.oa.bean.kefu;
 
-import com.ossez.wechat.common.api.WxConsts;
+import com.ossez.wechat.common.constant.WeChatConstant;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -10,7 +10,7 @@ public class WxMpKefuMessageTest {
   public void testTextReply() {
     WxMpKefuMessage reply = new WxMpKefuMessage();
     reply.setToUser("OPENID");
-    reply.setMsgType(WxConsts.KefuMsgType.TEXT);
+    reply.setMsgType(WeChatConstant.KefuMsgType.TEXT);
     reply.setContent("sfsfdsdf");
     Assert
       .assertEquals(reply.toJson(), "{\"touser\":\"OPENID\",\"msgtype\":\"text\",\"text\":{\"content\":\"sfsfdsdf\"}}");
@@ -25,7 +25,7 @@ public class WxMpKefuMessageTest {
   public void testImageReply() {
     WxMpKefuMessage reply = new WxMpKefuMessage();
     reply.setToUser("OPENID");
-    reply.setMsgType(WxConsts.KefuMsgType.IMAGE);
+    reply.setMsgType(WeChatConstant.KefuMsgType.IMAGE);
     reply.setMediaId("MEDIA_ID");
     Assert.assertEquals(reply.toJson(),
       "{\"touser\":\"OPENID\",\"msgtype\":\"image\",\"image\":{\"media_id\":\"MEDIA_ID\"}}");
@@ -40,7 +40,7 @@ public class WxMpKefuMessageTest {
   public void testVoiceReply() {
     WxMpKefuMessage reply = new WxMpKefuMessage();
     reply.setToUser("OPENID");
-    reply.setMsgType(WxConsts.KefuMsgType.VOICE);
+    reply.setMsgType(WeChatConstant.KefuMsgType.VOICE);
     reply.setMediaId("MEDIA_ID");
     Assert.assertEquals(reply.toJson(),
       "{\"touser\":\"OPENID\",\"msgtype\":\"voice\",\"voice\":{\"media_id\":\"MEDIA_ID\"}}");
@@ -55,7 +55,7 @@ public class WxMpKefuMessageTest {
   public void testVideoReply() {
     WxMpKefuMessage reply = new WxMpKefuMessage();
     reply.setToUser("OPENID");
-    reply.setMsgType(WxConsts.KefuMsgType.VIDEO);
+    reply.setMsgType(WeChatConstant.KefuMsgType.VIDEO);
     reply.setMediaId("MEDIA_ID");
     reply.setThumbMediaId("MEDIA_ID");
     reply.setTitle("TITLE");
@@ -74,7 +74,7 @@ public class WxMpKefuMessageTest {
   public void testMusicReply() {
     WxMpKefuMessage reply = new WxMpKefuMessage();
     reply.setToUser("OPENID");
-    reply.setMsgType(WxConsts.KefuMsgType.MUSIC);
+    reply.setMsgType(WeChatConstant.KefuMsgType.MUSIC);
     reply.setThumbMediaId("MEDIA_ID");
     reply.setDescription("DESCRIPTION");
     reply.setTitle("TITLE");
@@ -100,7 +100,7 @@ public class WxMpKefuMessageTest {
   public void testNewsReply() {
     WxMpKefuMessage reply = new WxMpKefuMessage();
     reply.setToUser("OPENID");
-    reply.setMsgType(WxConsts.KefuMsgType.NEWS);
+    reply.setMsgType(WeChatConstant.KefuMsgType.NEWS);
 
     WxMpKefuMessage.WxArticle article1 = new WxMpKefuMessage.WxArticle();
     article1.setUrl("URL");

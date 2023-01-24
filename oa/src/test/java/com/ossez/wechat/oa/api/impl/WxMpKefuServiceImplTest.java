@@ -14,7 +14,7 @@ import org.assertj.core.api.Assertions;
 import org.testng.annotations.*;
 
 import com.google.inject.Inject;
-import com.ossez.wechat.common.api.WxConsts;
+import com.ossez.wechat.common.constant.WeChatConstant;
 import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.oa.bean.kefu.result.WxMpKfInfo;
 import com.ossez.wechat.oa.bean.kefu.result.WxMpKfList;
@@ -41,7 +41,7 @@ public class WxMpKefuServiceImplTest {
   public void testSendKefuMpNewsMessage() throws WxErrorException {
     TestConfigStorage configStorage = (TestConfigStorage) this.wxService.getWxMpConfigStorage();
     WxMpKefuMessage message = new WxMpKefuMessage();
-    message.setMsgType(WxConsts.KefuMsgType.MPNEWS);
+    message.setMsgType(WeChatConstant.KefuMsgType.MPNEWS);
     message.setToUser(configStorage.getOpenid());
     message.setMpNewsMediaId("52R6dL2FxDpM9N1rCY3sYBqHwq-L7K_lz1sPI71idMg");
 
@@ -52,7 +52,7 @@ public class WxMpKefuServiceImplTest {
   public void testSendKefuMessage() throws WxErrorException {
     TestConfigStorage configStorage = (TestConfigStorage) this.wxService.getWxMpConfigStorage();
     WxMpKefuMessage message = new WxMpKefuMessage();
-    message.setMsgType(WxConsts.KefuMsgType.TEXT);
+    message.setMsgType(WeChatConstant.KefuMsgType.TEXT);
     message.setToUser(configStorage.getOpenid());
     message.setContent("欢迎欢迎，热烈欢迎\n换行测试\n超链接:<a href=\"http://www.baidu.com\">Hello World</a>");
 
@@ -63,7 +63,7 @@ public class WxMpKefuServiceImplTest {
   public void testSendKefuMessageWithKfAccount() throws WxErrorException {
     TestConfigStorage configStorage = (TestConfigStorage) this.wxService.getWxMpConfigStorage();
     WxMpKefuMessage message = new WxMpKefuMessage();
-    message.setMsgType(WxConsts.KefuMsgType.TEXT);
+    message.setMsgType(WeChatConstant.KefuMsgType.TEXT);
     message.setToUser(configStorage.getOpenid());
     message.setKfAccount(configStorage.getKfAccount());
     message.setContent("欢迎欢迎，热烈欢迎\n换行测试\n超链接:<a href=\"http://www.baidu.com\">Hello World</a>");

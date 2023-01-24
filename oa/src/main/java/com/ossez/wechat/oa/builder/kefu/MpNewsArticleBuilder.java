@@ -1,6 +1,6 @@
 package com.ossez.wechat.oa.builder.kefu;
 
-import com.ossez.wechat.common.api.WxConsts;
+import com.ossez.wechat.common.constant.WeChatConstant;
 import com.ossez.wechat.oa.bean.kefu.WxMpKefuMessage;
 
 /**
@@ -16,7 +16,7 @@ public final class MpNewsArticleBuilder extends BaseBuilder<MpNewsArticleBuilder
   private String articleId;
 
   public MpNewsArticleBuilder() {
-    this.msgType = WxConsts.KefuMsgType.MP_NEWS_ARTICLE;
+    this.msgType = WeChatConstant.KefuMsgType.MP_NEWS_ARTICLE;
   }
 
   public MpNewsArticleBuilder articleId(String articleId) {

@@ -4,7 +4,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
-import com.ossez.wechat.common.api.WxConsts;
+import com.ossez.wechat.common.constant.WeChatConstant;
 import com.ossez.wechat.oa.bean.WxMpMassPreviewMessage;
 
 import java.lang.reflect.Type;
@@ -18,30 +18,30 @@ public class WxMpMassPreviewMessageGsonAdapter implements JsonSerializer<WxMpMas
     JsonObject jsonObject = new JsonObject();
     jsonObject.addProperty("towxname", wxMpMassPreviewMessage.getToWxUserName());
     jsonObject.addProperty("touser", wxMpMassPreviewMessage.getToWxUserOpenid());
-    if (WxConsts.MassMsgType.MPNEWS.equals(wxMpMassPreviewMessage.getMsgType())) {
+    if (WeChatConstant.MassMsgType.MPNEWS.equals(wxMpMassPreviewMessage.getMsgType())) {
       JsonObject news = new JsonObject();
       news.addProperty("media_id", wxMpMassPreviewMessage.getMediaId());
-      jsonObject.add(WxConsts.MassMsgType.MPNEWS, news);
+      jsonObject.add(WeChatConstant.MassMsgType.MPNEWS, news);
     }
-    if (WxConsts.MassMsgType.TEXT.equals(wxMpMassPreviewMessage.getMsgType())) {
+    if (WeChatConstant.MassMsgType.TEXT.equals(wxMpMassPreviewMessage.getMsgType())) {
       JsonObject sub = new JsonObject();
       sub.addProperty("content", wxMpMassPreviewMessage.getContent());
-      jsonObject.add(WxConsts.MassMsgType.TEXT, sub);
+      jsonObject.add(WeChatConstant.MassMsgType.TEXT, sub);
     }
-    if (WxConsts.MassMsgType.VOICE.equals(wxMpMassPreviewMessage.getMsgType())) {
+    if (WeChatConstant.MassMsgType.VOICE.equals(wxMpMassPreviewMessage.getMsgType())) {
       JsonObject sub = new JsonObject();
       sub.addProperty("media_id", wxMpMassPreviewMessage.getMediaId());
-      jsonObject.add(WxConsts.MassMsgType.VOICE, sub);
+      jsonObject.add(WeChatConstant.MassMsgType.VOICE, sub);
     }
-    if (WxConsts.MassMsgType.IMAGE.equals(wxMpMassPreviewMessage.getMsgType())) {
+    if (WeChatConstant.MassMsgType.IMAGE.equals(wxMpMassPreviewMessage.getMsgType())) {
       JsonObject sub = new JsonObject();
       sub.addProperty("media_id", wxMpMassPreviewMessage.getMediaId());
-      jsonObject.add(WxConsts.MassMsgType.IMAGE, sub);
+      jsonObject.add(WeChatConstant.MassMsgType.IMAGE, sub);
     }
-    if (WxConsts.MassMsgType.MPVIDEO.equals(wxMpMassPreviewMessage.getMsgType())) {
+    if (WeChatConstant.MassMsgType.MPVIDEO.equals(wxMpMassPreviewMessage.getMsgType())) {
       JsonObject sub = new JsonObject();
       sub.addProperty("media_id", wxMpMassPreviewMessage.getMediaId());
-      jsonObject.add(WxConsts.MassMsgType.MPVIDEO, sub);
+      jsonObject.add(WeChatConstant.MassMsgType.MPVIDEO, sub);
     }
     jsonObject.addProperty("msgtype", wxMpMassPreviewMessage.getMsgType());
     return jsonObject;

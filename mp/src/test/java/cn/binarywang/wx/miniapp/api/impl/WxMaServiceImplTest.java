@@ -7,7 +7,7 @@ import cn.binarywang.wx.miniapp.test.ApiTestModule;
 import com.google.inject.Inject;
 import com.ossez.wechat.common.exception.WxError;
 import com.ossez.wechat.common.exception.WxErrorException;
-import com.ossez.wechat.common.exception.WxMpErrorMsgEnum;
+import com.ossez.wechat.common.enums.WeChatErrorCode;
 import com.ossez.wechat.common.util.http.RequestExecutor;
 import org.apache.commons.lang3.StringUtils;
 import org.mockito.Mockito;
@@ -129,14 +129,14 @@ public class WxMaServiceImplTest {
     AtomicInteger counter = new AtomicInteger();
     Mockito.when(re.execute(Mockito.anyString(), Mockito.any(), Mockito.any())).thenAnswer((invocation) -> {
       counter.incrementAndGet();
-      WxError error = WxError.builder().errorCode(WxMpErrorMsgEnum.CODE_40001.getCode()).errorMsg(WxMpErrorMsgEnum.CODE_40001.getMsg()).build();
+      WxError error = WxError.builder().errorCode(WeChatErrorCode.CODE_40001.getCode()).errorMsg(WeChatErrorCode.CODE_40001.getMsg()).build();
       throw new WxErrorException(error);
     });
     try {
       Object execute = service.execute(re, "http://baidu.com", new HashMap<>());
       Assert.assertTrue(false, "代码应该不会执行到这里");
     } catch (WxErrorException e) {
-      Assert.assertEquals(WxMpErrorMsgEnum.CODE_40001.getCode(), e.getError().getErrorCode());
+      Assert.assertEquals(WeChatErrorCode.CODE_40001.getCode(), e.getError().getErrorCode());
       Assert.assertEquals(2, counter.get());
     }
   }

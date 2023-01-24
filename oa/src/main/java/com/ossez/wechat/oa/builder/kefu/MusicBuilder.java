@@ -1,6 +1,6 @@
 package com.ossez.wechat.oa.builder.kefu;
 
-import com.ossez.wechat.common.api.WxConsts;
+import com.ossez.wechat.common.constant.WeChatConstant;
 import com.ossez.wechat.oa.bean.kefu.WxMpKefuMessage;
 
 /**
@@ -24,7 +24,7 @@ public final class MusicBuilder extends BaseBuilder<MusicBuilder> {
   private String hqMusicUrl;
 
   public MusicBuilder() {
-    this.msgType = WxConsts.KefuMsgType.MUSIC;
+    this.msgType = WeChatConstant.KefuMsgType.MUSIC;
   }
 
   public MusicBuilder musicUrl(String musicurl) {

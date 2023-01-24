@@ -10,7 +10,7 @@ import com.google.common.collect.Maps;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import lombok.extern.slf4j.Slf4j;
-import com.ossez.wechat.common.api.WxConsts;
+import com.ossez.wechat.common.constant.WeChatConstant;
 import com.ossez.wechat.common.bean.ToJson;
 import com.ossez.wechat.common.model.WeChatAccessToken;
 import com.ossez.wechat.common.enums.WxType;
@@ -277,7 +277,7 @@ public abstract class BaseWxMaServiceImpl<H, P> implements WxMaService, RequestH
       return result;
     } catch (WxErrorException e) {
       WxError error = e.getError();
-      if (WxConsts.ACCESS_TOKEN_ERROR_CODES.contains(error.getErrorCode())) {
+      if (WeChatConstant.ACCESS_TOKEN_ERROR_CODES.contains(error.getErrorCode())) {
         // 强制设置WxMaConfig的access token过期了，这样在下一次请求里就会刷新access token
         Lock lock = this.getWxMaConfig().getAccessTokenLock();
         lock.lock();

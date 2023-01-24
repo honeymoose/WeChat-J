@@ -1,6 +1,6 @@
 package com.ossez.wechat.oa.builder.kefu;
 
-import com.ossez.wechat.common.api.WxConsts;
+import com.ossez.wechat.common.constant.WeChatConstant;
 import com.ossez.wechat.oa.bean.kefu.WxMpKefuMessage;
 
 /**
@@ -15,7 +15,7 @@ public final class ImageBuilder extends BaseBuilder<ImageBuilder> {
   private String mediaId;
 
   public ImageBuilder() {
-    this.msgType = WxConsts.KefuMsgType.IMAGE;
+    this.msgType = WeChatConstant.KefuMsgType.IMAGE;
   }
 
   public ImageBuilder mediaId(String media_id) {

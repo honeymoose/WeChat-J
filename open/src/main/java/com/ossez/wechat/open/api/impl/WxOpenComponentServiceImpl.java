@@ -5,7 +5,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
-import com.ossez.wechat.common.api.WxConsts;
+import com.ossez.wechat.common.constant.WeChatConstant;
 import com.ossez.wechat.common.bean.oauth2.WxOAuth2AccessToken;
 import com.ossez.wechat.common.bean.result.WxMinishopImageUploadResult;
 import com.ossez.wechat.common.exception.WxError;
@@ -204,7 +204,7 @@ public class WxOpenComponentServiceImpl implements WxOpenComponentService {
       return getWxOpenService().post(uriWithComponentAccessToken, postData);
     } catch (WxErrorException e) {
       WxError error = e.getError();
-      if (WxConsts.ACCESS_TOKEN_ERROR_CODES.contains(error.getErrorCode())) {
+      if (WeChatConstant.ACCESS_TOKEN_ERROR_CODES.contains(error.getErrorCode())) {
         // 强制设置access token过期，这样在下一次请求里就会刷新access token
         Lock lock = this.getWxOpenConfigStorage().getComponentAccessTokenLock();
         lock.lock();
@@ -243,7 +243,7 @@ public class WxOpenComponentServiceImpl implements WxOpenComponentService {
       return getWxOpenService().get(uriWithComponentAccessToken, null);
     } catch (WxErrorException e) {
       WxError error = e.getError();
-      if (WxConsts.ACCESS_TOKEN_ERROR_CODES.contains(error.getErrorCode())) {
+      if (WeChatConstant.ACCESS_TOKEN_ERROR_CODES.contains(error.getErrorCode())) {
         // 强制设置wxMpConfigStorage它的access token过期了，这样在下一次请求里就会刷新access token
         Lock lock = this.getWxOpenConfigStorage().getComponentAccessTokenLock();
         lock.lock();
@@ -551,11 +551,11 @@ public class WxOpenComponentServiceImpl implements WxOpenComponentService {
   private String openAccountServicePost(String appId, String appIdType, String requestUrl, JsonObject param) throws WxErrorException {
     String result = "";
     switch (appIdType) {
-      case WxConsts.AppIdType.MP_TYPE:
+      case WeChatConstant.AppIdType.MP_TYPE:
         WeChatOfficialAccountService weChatOfficialAccountService = this.getWxMpServiceByAppid(appId);
         result = weChatOfficialAccountService.post(requestUrl, param.toString());
         return result;
-      case WxConsts.AppIdType.MINI_TYPE:
+      case WeChatConstant.AppIdType.MINI_TYPE:
         WxOpenMaService maService = this.getWxMaServiceByAppid(appId);
         result = maService.post(requestUrl, param.toString());
         return result;

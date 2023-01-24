@@ -1,5 +1,6 @@
 package com.ossez.wechat.common.exception;
 
+import com.ossez.wechat.common.enums.WeChatErrorCode;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,7 +24,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @Builder
 public class WxError implements Serializable {
-  private static final long serialVersionUID = 7869786563361406291L;
+  private static final long serialVersionUID = -2696724276555657960L;
 
   /**
    * 微信错误代码.
@@ -64,7 +65,7 @@ public class WxError implements Serializable {
 
     switch (type) {
       case MP: {
-        final String msg = WxMpErrorMsgEnum.findMsgByCode(wxError.getErrorCode());
+        final String msg = WeChatErrorCode.findMsgByCode(wxError.getErrorCode());
         if (msg != null) {
           wxError.setErrorMsg(msg);
         }

@@ -1,6 +1,6 @@
 package com.ossez.wechat.oa.demo;
 
-import com.ossez.wechat.common.api.WxConsts;
+import com.ossez.wechat.common.constant.WeChatConstant;
 import com.ossez.wechat.common.bean.result.WxMediaUploadResult;
 import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.common.session.WxSessionManager;
@@ -19,7 +19,7 @@ public class DemoImageHandler implements WxMpMessageHandler {
                                   WeChatOfficialAccountService weChatOfficialAccountService, WxSessionManager sessionManager) {
     try {
       WxMediaUploadResult wxMediaUploadResult = weChatOfficialAccountService.getMaterialService()
-        .mediaUpload(WxConsts.MediaFileType.IMAGE, TestConstants.FILE_JPG, ClassLoader.getSystemResourceAsStream("mm.jpeg"));
+        .mediaUpload(WeChatConstant.MediaFileType.IMAGE, TestConstants.FILE_JPG, ClassLoader.getSystemResourceAsStream("mm.jpeg"));
       WxMpXmlOutImageMessage m
         = WxMpXmlOutMessage
         .IMAGE()

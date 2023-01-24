@@ -7,7 +7,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamConverter;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import com.ossez.wechat.common.api.WxConsts;
+import com.ossez.wechat.common.constant.WeChatConstant;
 import com.ossez.wechat.common.util.xml.XStreamCDataConverter;
 
 import java.io.Serializable;
@@ -24,7 +24,7 @@ public class WxMpXmlOutVideoMessage extends WxMpXmlOutMessage {
   protected final Video video = new Video();
 
   public WxMpXmlOutVideoMessage() {
-    this.msgType = WxConsts.XmlMsgType.VIDEO;
+    this.msgType = WeChatConstant.XmlMsgType.VIDEO;
   }
 
   @Data

@@ -1,6 +1,6 @@
 package com.ossez.wechat.oa.bean.kefu;
 
-import com.ossez.wechat.common.api.WxConsts;
+import com.ossez.wechat.common.constant.WeChatConstant;
 import com.ossez.wechat.oa.builder.kefu.*;
 import com.ossez.wechat.oa.util.json.WxMpGsonBuilder;
 import lombok.AllArgsConstructor;
@@ -124,18 +124,18 @@ public class WxMpKefuMessage implements Serializable {
   /**
    * <pre>
    * 请使用
-   * {@link WxConsts.KefuMsgType#TEXT}
-   * {@link WxConsts.KefuMsgType#IMAGE}
-   * {@link WxConsts.KefuMsgType#VOICE}
-   * {@link WxConsts.KefuMsgType#MUSIC}
-   * {@link WxConsts.KefuMsgType#VIDEO}
-   * {@link WxConsts.KefuMsgType#NEWS}
-   * {@link WxConsts.KefuMsgType#MPNEWS}
-   * {@link WxConsts.KefuMsgType#WXCARD}
-   * {@link WxConsts.KefuMsgType#MINIPROGRAMPAGE}
-   * {@link WxConsts.KefuMsgType#TASKCARD}
-   * {@link WxConsts.KefuMsgType#MSGMENU}
-   * {@link WxConsts.KefuMsgType#MP_NEWS_ARTICLE}
+   * {@link WeChatConstant.KefuMsgType#TEXT}
+   * {@link WeChatConstant.KefuMsgType#IMAGE}
+   * {@link WeChatConstant.KefuMsgType#VOICE}
+   * {@link WeChatConstant.KefuMsgType#MUSIC}
+   * {@link WeChatConstant.KefuMsgType#VIDEO}
+   * {@link WeChatConstant.KefuMsgType#NEWS}
+   * {@link WeChatConstant.KefuMsgType#MPNEWS}
+   * {@link WeChatConstant.KefuMsgType#WXCARD}
+   * {@link WeChatConstant.KefuMsgType#MINIPROGRAMPAGE}
+   * {@link WeChatConstant.KefuMsgType#TASKCARD}
+   * {@link WeChatConstant.KefuMsgType#MSGMENU}
+   * {@link WeChatConstant.KefuMsgType#MP_NEWS_ARTICLE}
    * </pre>
    */
   public void setMsgType(String msgType) {

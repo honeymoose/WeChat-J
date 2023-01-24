@@ -1,6 +1,6 @@
 package com.ossez.wechat.oa.builder.kefu;
 
-import com.ossez.wechat.common.api.WxConsts;
+import com.ossez.wechat.common.constant.WeChatConstant;
 import com.ossez.wechat.oa.bean.kefu.WxMpKefuMessage;
 
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ public final class NewsBuilder extends BaseBuilder<NewsBuilder> {
   private List<WxMpKefuMessage.WxArticle> articles = new ArrayList<>();
 
   public NewsBuilder() {
-    this.msgType = WxConsts.KefuMsgType.NEWS;
+    this.msgType = WeChatConstant.KefuMsgType.NEWS;
   }
 
   public NewsBuilder addArticle(WxMpKefuMessage.WxArticle... articles) {

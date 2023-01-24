@@ -2,12 +2,12 @@ package com.ossez.wechat.oa.api.impl;
 
 import com.google.common.collect.Sets;
 import com.google.inject.Inject;
-import com.ossez.wechat.common.api.WxConsts;
+import com.ossez.wechat.common.constant.WeChatConstant;
 import com.ossez.wechat.common.bean.WxJsapiSignature;
 import com.ossez.wechat.common.bean.WxNetCheckResult;
 import com.ossez.wechat.common.exception.WxError;
 import com.ossez.wechat.common.exception.WxErrorException;
-import com.ossez.wechat.common.exception.WxMpErrorMsgEnum;
+import com.ossez.wechat.common.enums.WeChatErrorCode;
 import com.ossez.wechat.common.util.http.HttpType;
 import com.ossez.wechat.common.util.http.RequestExecutor;
 import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
@@ -61,7 +61,7 @@ public class BaseWeChatOfficialAccountServiceImplTest {
 
   @Test
   public void testNetCheck() throws WxErrorException {
-    WxNetCheckResult result = this.wxService.netCheck(WxConsts.NetCheckArgs.ACTIONALL, WxConsts.NetCheckArgs.OPERATORDEFAULT);
+    WxNetCheckResult result = this.wxService.netCheck(WeChatConstant.NetCheckArgs.ACTIONALL, WeChatConstant.NetCheckArgs.OPERATORDEFAULT);
     Assert.assertNotNull(result);
 
   }
@@ -239,14 +239,14 @@ public class BaseWeChatOfficialAccountServiceImplTest {
     AtomicInteger counter = new AtomicInteger();
     Mockito.when(re.execute(Mockito.anyString(), Mockito.any(), Mockito.any())).thenAnswer(invocation -> {
       counter.incrementAndGet();
-      WxError error = WxError.builder().errorCode(WxMpErrorMsgEnum.CODE_40001.getCode()).errorMsg(WxMpErrorMsgEnum.CODE_40001.getMsg()).build();
+      WxError error = WxError.builder().errorCode(WeChatErrorCode.CODE_40001.getCode()).errorMsg(WeChatErrorCode.CODE_40001.getMsg()).build();
       throw new WxErrorException(error);
     });
     try {
       Object execute = service.execute(re, "http://baidu.com", new HashMap<>());
       Assert.assertTrue(false, "代码应该不会执行到这里");
     } catch (WxErrorException e) {
-      Assert.assertEquals(WxMpErrorMsgEnum.CODE_40001.getCode(), e.getError().getErrorCode());
+      Assert.assertEquals(WeChatErrorCode.CODE_40001.getCode(), e.getError().getErrorCode());
       Assert.assertEquals(2, counter.get());
     }
   }

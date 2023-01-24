@@ -11,7 +11,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamConverter;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
-import com.ossez.wechat.common.api.WxConsts;
+import com.ossez.wechat.common.constant.WeChatConstant;
 import com.ossez.wechat.common.exception.WxRuntimeException;
 import com.ossez.wechat.common.util.XmlUtils;
 import com.ossez.wechat.common.util.xml.XStreamCDataConverter;
@@ -908,13 +908,13 @@ public class WxMpXmlMessage implements Serializable {
   /**
    * <pre>
    * 当接受用户消息时，可能会获得以下值：
-   * {@link WxConsts.XmlMsgType#TEXT}
-   * {@link WxConsts.XmlMsgType#IMAGE}
-   * {@link WxConsts.XmlMsgType#VOICE}
-   * {@link WxConsts.XmlMsgType#VIDEO}
-   * {@link WxConsts.XmlMsgType#LOCATION}
-   * {@link WxConsts.XmlMsgType#LINK}
-   * {@link WxConsts.XmlMsgType#EVENT}
+   * {@link WeChatConstant.XmlMsgType#TEXT}
+   * {@link WeChatConstant.XmlMsgType#IMAGE}
+   * {@link WeChatConstant.XmlMsgType#VOICE}
+   * {@link WeChatConstant.XmlMsgType#VIDEO}
+   * {@link WeChatConstant.XmlMsgType#LOCATION}
+   * {@link WeChatConstant.XmlMsgType#LINK}
+   * {@link WeChatConstant.XmlMsgType#EVENT}
    * </pre>
    */
   public String getMsgType() {
@@ -924,12 +924,12 @@ public class WxMpXmlMessage implements Serializable {
   /**
    * <pre>
    * 当发送消息的时候使用：
-   * {@link WxConsts.XmlMsgType#TEXT}
-   * {@link WxConsts.XmlMsgType#IMAGE}
-   * {@link WxConsts.XmlMsgType#VOICE}
-   * {@link WxConsts.XmlMsgType#VIDEO}
-   * {@link WxConsts.XmlMsgType#NEWS}
-   * {@link WxConsts.XmlMsgType#MUSIC}
+   * {@link WeChatConstant.XmlMsgType#TEXT}
+   * {@link WeChatConstant.XmlMsgType#IMAGE}
+   * {@link WeChatConstant.XmlMsgType#VOICE}
+   * {@link WeChatConstant.XmlMsgType#VIDEO}
+   * {@link WeChatConstant.XmlMsgType#NEWS}
+   * {@link WeChatConstant.XmlMsgType#MUSIC}
    * </pre>
    */
   public void setMsgType(String msgType) {

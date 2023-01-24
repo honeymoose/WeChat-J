@@ -1,6 +1,6 @@
 package com.ossez.wechat.oa.api;
 
-import com.ossez.wechat.common.api.WxConsts;
+import com.ossez.wechat.common.constant.WeChatConstant;
 import com.ossez.wechat.common.session.StandardSessionManager;
 import com.ossez.wechat.common.session.WxSessionManager;
 import com.ossez.wechat.oa.bean.message.WxMpXmlMessage;
@@ -25,21 +25,21 @@ public class WxMpMessageRouterTest {
     router
       .rule()
       .async(async)
-      .msgType(WxConsts.XmlMsgType.TEXT).event(WxConsts.EventType.CLICK).eventKey("KEY_1").content("CONTENT_1")
+      .msgType(WeChatConstant.XmlMsgType.TEXT).event(WeChatConstant.EventType.CLICK).eventKey("KEY_1").content("CONTENT_1")
       .handler(new WxEchoMpMessageHandler(sb, "COMBINE_4"))
       .end()
       .rule()
       .async(async)
-      .msgType(WxConsts.XmlMsgType.TEXT).event(WxConsts.EventType.CLICK).eventKey("KEY_1")
+      .msgType(WeChatConstant.XmlMsgType.TEXT).event(WeChatConstant.EventType.CLICK).eventKey("KEY_1")
       .handler(new WxEchoMpMessageHandler(sb, "COMBINE_3"))
       .end()
       .rule()
       .async(async)
-      .msgType(WxConsts.XmlMsgType.TEXT).event(WxConsts.EventType.CLICK)
+      .msgType(WeChatConstant.XmlMsgType.TEXT).event(WeChatConstant.EventType.CLICK)
       .handler(new WxEchoMpMessageHandler(sb, "COMBINE_2"))
       .end()
-      .rule().async(async).msgType(WxConsts.XmlMsgType.TEXT).handler(new WxEchoMpMessageHandler(sb, WxConsts.XmlMsgType.TEXT)).end()
-      .rule().async(async).event(WxConsts.EventType.CLICK).handler(new WxEchoMpMessageHandler(sb, WxConsts.EventType.CLICK)).end()
+      .rule().async(async).msgType(WeChatConstant.XmlMsgType.TEXT).handler(new WxEchoMpMessageHandler(sb, WeChatConstant.XmlMsgType.TEXT)).end()
+      .rule().async(async).event(WeChatConstant.EventType.CLICK).handler(new WxEchoMpMessageHandler(sb, WeChatConstant.EventType.CLICK)).end()
       .rule().async(async).eventKey("KEY_1").handler(new WxEchoMpMessageHandler(sb, "KEY_1")).end()
       .rule().async(async).eventKeyRegex("KEY_1*").handler(new WxEchoMpMessageHandler(sb, "KEY_123")).end()
       .rule().async(async).content("CONTENT_1").handler(new WxEchoMpMessageHandler(sb, "CONTENT_1")).end()
@@ -114,10 +114,10 @@ public class WxMpMessageRouterTest {
   @DataProvider(name = "messages-1")
   public Object[][] messages2() {
     WxMpXmlMessage message1 = new WxMpXmlMessage();
-    message1.setMsgType(WxConsts.XmlMsgType.TEXT);
+    message1.setMsgType(WeChatConstant.XmlMsgType.TEXT);
 
     WxMpXmlMessage message2 = new WxMpXmlMessage();
-    message2.setEvent(WxConsts.EventType.CLICK);
+    message2.setEvent(WeChatConstant.EventType.CLICK);
 
     WxMpXmlMessage message3 = new WxMpXmlMessage();
     message3.setEventKey("KEY_1");
@@ -135,23 +135,23 @@ public class WxMpMessageRouterTest {
     message7.setFormat("strangeformat");
 
     WxMpXmlMessage c2 = new WxMpXmlMessage();
-    c2.setMsgType(WxConsts.XmlMsgType.TEXT);
-    c2.setEvent(WxConsts.EventType.CLICK);
+    c2.setMsgType(WeChatConstant.XmlMsgType.TEXT);
+    c2.setEvent(WeChatConstant.EventType.CLICK);
 
     WxMpXmlMessage c3 = new WxMpXmlMessage();
-    c3.setMsgType(WxConsts.XmlMsgType.TEXT);
-    c3.setEvent(WxConsts.EventType.CLICK);
+    c3.setMsgType(WeChatConstant.XmlMsgType.TEXT);
+    c3.setEvent(WeChatConstant.EventType.CLICK);
     c3.setEventKey("KEY_1");
 
     WxMpXmlMessage c4 = new WxMpXmlMessage();
-    c4.setMsgType(WxConsts.XmlMsgType.TEXT);
-    c4.setEvent(WxConsts.EventType.CLICK);
+    c4.setMsgType(WeChatConstant.XmlMsgType.TEXT);
+    c4.setEvent(WeChatConstant.EventType.CLICK);
     c4.setEventKey("KEY_1");
     c4.setContent("CONTENT_1");
 
     return new Object[][]{
-      new Object[]{message1, WxConsts.XmlMsgType.TEXT + ","},
-      new Object[]{message2, WxConsts.EventType.CLICK + ","},
+      new Object[]{message1, WeChatConstant.XmlMsgType.TEXT + ","},
+      new Object[]{message2, WeChatConstant.EventType.CLICK + ","},
       new Object[]{message3, "KEY_1,"},
       new Object[]{message4, "CONTENT_1,"},
       new Object[]{message5, "ALL,"},

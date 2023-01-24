@@ -7,7 +7,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamConverter;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import com.ossez.wechat.common.api.WxConsts;
+import com.ossez.wechat.common.constant.WeChatConstant;
 import com.ossez.wechat.common.util.xml.XStreamMediaIdConverter;
 
 @Data
@@ -24,7 +24,7 @@ public class WxMpXmlOutImageMessage extends WxMpXmlOutMessage {
   private String mediaId;
 
   public WxMpXmlOutImageMessage() {
-    this.msgType = WxConsts.XmlMsgType.IMAGE;
+    this.msgType = WeChatConstant.XmlMsgType.IMAGE;
   }
 
 }

@@ -1,7 +1,7 @@
 package com.ossez.wechat.oa.bean;
 
 import lombok.Data;
-import com.ossez.wechat.common.api.WxConsts;
+import com.ossez.wechat.common.constant.WeChatConstant;
 import com.ossez.wechat.oa.util.json.WxMpGsonBuilder;
 
 import java.io.Serializable;
@@ -25,11 +25,11 @@ public class WxMpMassOpenIdsMessage implements Serializable {
   /**
    * <pre>
    * 请使用
-   * {@link WxConsts.MassMsgType#IMAGE}
-   * {@link WxConsts.MassMsgType#MPNEWS}
-   * {@link WxConsts.MassMsgType#TEXT}
-   * {@link WxConsts.MassMsgType#MPVIDEO}
-   * {@link WxConsts.MassMsgType#VOICE}
+   * {@link WeChatConstant.MassMsgType#IMAGE}
+   * {@link WeChatConstant.MassMsgType#MPNEWS}
+   * {@link WeChatConstant.MassMsgType#TEXT}
+   * {@link WeChatConstant.MassMsgType#MPVIDEO}
+   * {@link WeChatConstant.MassMsgType#VOICE}
    * 如果msgtype和media_id不匹配的话，会返回系统繁忙的错误
    * </pre>
    */

@@ -1,6 +1,6 @@
 package com.ossez.wechat.oa.builder.kefu;
 
-import com.ossez.wechat.common.api.WxConsts;
+import com.ossez.wechat.common.constant.WeChatConstant;
 import com.ossez.wechat.oa.bean.kefu.WxMpKefuMessage;
 
 /**
@@ -15,7 +15,7 @@ public final class VoiceBuilder extends BaseBuilder<VoiceBuilder> {
   private String mediaId;
 
   public VoiceBuilder() {
-    this.msgType = WxConsts.KefuMsgType.VOICE;
+    this.msgType = WeChatConstant.KefuMsgType.VOICE;
   }
 
   public VoiceBuilder mediaId(String media_id) {

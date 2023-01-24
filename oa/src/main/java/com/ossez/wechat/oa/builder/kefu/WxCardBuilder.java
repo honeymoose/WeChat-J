@@ -1,6 +1,6 @@
 package com.ossez.wechat.oa.builder.kefu;
 
-import com.ossez.wechat.common.api.WxConsts;
+import com.ossez.wechat.common.constant.WeChatConstant;
 import com.ossez.wechat.oa.bean.kefu.WxMpKefuMessage;
 
 /**
@@ -15,7 +15,7 @@ public final class WxCardBuilder extends BaseBuilder<WxCardBuilder> {
   private String cardId;
 
   public WxCardBuilder() {
-    this.msgType = WxConsts.KefuMsgType.WXCARD;
+    this.msgType = WeChatConstant.KefuMsgType.WXCARD;
   }
 
   public WxCardBuilder cardId(String cardId) {

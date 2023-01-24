@@ -7,7 +7,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamConverter;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import com.ossez.wechat.common.api.WxConsts;
+import com.ossez.wechat.common.constant.WeChatConstant;
 import com.ossez.wechat.common.util.xml.XStreamCDataConverter;
 
 import java.io.Serializable;
@@ -24,7 +24,7 @@ public class WxMpXmlOutTransferKefuMessage extends WxMpXmlOutMessage {
   protected TransInfo transInfo;
 
   public WxMpXmlOutTransferKefuMessage() {
-    this.msgType = WxConsts.KefuMsgType.TRANSFER_CUSTOMER_SERVICE;
+    this.msgType = WeChatConstant.KefuMsgType.TRANSFER_CUSTOMER_SERVICE;
   }
 
   @Data

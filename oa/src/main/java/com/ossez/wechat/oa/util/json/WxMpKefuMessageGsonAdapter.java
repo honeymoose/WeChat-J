@@ -1,7 +1,7 @@
 package com.ossez.wechat.oa.util.json;
 
 import com.google.gson.*;
-import com.ossez.wechat.common.api.WxConsts.KefuMsgType;
+import com.ossez.wechat.common.constant.WeChatConstant.KefuMsgType;
 import com.ossez.wechat.common.exception.WxRuntimeException;
 import com.ossez.wechat.oa.bean.kefu.WxMpKefuMessage;
 import org.apache.commons.lang3.StringUtils;

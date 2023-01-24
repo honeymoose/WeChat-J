@@ -26,10 +26,9 @@ import java.util.concurrent.TimeUnit;
 /**
  * okhttp实现.
  *
- * @author someone
+ * @author YuCheng Hu
  */
 public class WeChatOfficialAccountServiceOkHttp extends BaseWeChatOfficialAccountServiceImpl<OkHttpClient, OkHttpProxyInfo> {
-
     final Logger log = LoggerFactory.getLogger(WeChatOfficialAccountServiceOkHttp.class);
 
     WeChatOfficialAccountApi weChatOfficialAccountApi;
@@ -63,13 +62,12 @@ public class WeChatOfficialAccountServiceOkHttp extends BaseWeChatOfficialAccoun
 
         try {
             weChatAccessToken = weChatOfficialAccountApi.getAccessToken(WeChatApiParameter.ACCESS_TOKEN_GRANT_TYPE_CLIENT_CREDENTIAL, config.getAppId(), config.getSecret()).blockingGet();
-        }
-        catch (HttpException ex) {
-            log.warn("Access WeChat API return error.",ex);
-            if(ex.code() == 400) {
+        } catch (HttpException ex) {
+            log.warn("Access WeChat API return error.", ex);
+            if (ex.code() == 400) {
                 throw new WxErrorException(ex);
             }
-            System.out.println(">>>>>>>>>>>>>>>>>>>> "+ex.getMessage());
+            System.out.println(">>>>>>>>>>>>>>>>>>>> " + ex.getMessage());
         }
 
 

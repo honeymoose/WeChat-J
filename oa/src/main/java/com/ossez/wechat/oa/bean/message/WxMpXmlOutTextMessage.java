@@ -7,7 +7,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamConverter;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import com.ossez.wechat.common.api.WxConsts;
+import com.ossez.wechat.common.constant.WeChatConstant;
 import com.ossez.wechat.common.util.xml.XStreamCDataConverter;
 
 @Data
@@ -24,7 +24,7 @@ public class WxMpXmlOutTextMessage extends WxMpXmlOutMessage {
   private String content;
 
   public WxMpXmlOutTextMessage() {
-    this.msgType = WxConsts.XmlMsgType.TEXT;
+    this.msgType = WeChatConstant.XmlMsgType.TEXT;
   }
 
 }

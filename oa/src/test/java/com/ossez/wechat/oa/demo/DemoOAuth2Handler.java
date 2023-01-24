@@ -1,6 +1,6 @@
 package com.ossez.wechat.oa.demo;
 
-import com.ossez.wechat.common.api.WxConsts;
+import com.ossez.wechat.common.constant.WeChatConstant;
 import com.ossez.wechat.common.session.WxSessionManager;
 import com.ossez.wechat.oa.api.WxMpMessageHandler;
 import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
@@ -19,7 +19,7 @@ public class DemoOAuth2Handler implements WxMpMessageHandler {
                                   WxSessionManager sessionManager) {
     String href = "<a href=\"" + weChatOfficialAccountService.getOAuth2Service().buildAuthorizationUrl(
       weChatOfficialAccountService.getWxMpConfigStorage().getOauth2redirectUri(),
-      WxConsts.OAuth2Scope.SNSAPI_USERINFO, null) + "\">测试oauth2</a>";
+      WeChatConstant.OAuth2Scope.SNSAPI_USERINFO, null) + "\">测试oauth2</a>";
     return WxMpXmlOutMessage.TEXT().content(href)
       .fromUser(wxMessage.getToUser()).toUser(wxMessage.getFromUser())
       .build();

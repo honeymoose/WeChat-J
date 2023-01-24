@@ -7,7 +7,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamConverter;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import com.ossez.wechat.common.api.WxConsts;
+import com.ossez.wechat.common.constant.WeChatConstant;
 import com.ossez.wechat.common.util.xml.XStreamCDataConverter;
 
 import java.io.Serializable;
@@ -24,7 +24,7 @@ public class WxMpXmlOutMusicMessage extends WxMpXmlOutMessage {
   protected final Music music = new Music();
 
   public WxMpXmlOutMusicMessage() {
-    this.msgType = WxConsts.XmlMsgType.MUSIC;
+    this.msgType = WeChatConstant.XmlMsgType.MUSIC;
   }
 
   @Data
