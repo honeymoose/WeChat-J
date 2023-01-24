@@ -1,6 +1,5 @@
 package com.ossez.wechat.oa.api.impl;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
 import com.google.gson.JsonArray;
@@ -31,12 +30,11 @@ import com.ossez.wechat.oa.bean.WxMpSemanticQuery;
 import com.ossez.wechat.oa.bean.result.WxMpCurrentAutoReplyInfo;
 import com.ossez.wechat.oa.bean.result.WxMpSemanticQueryResult;
 import com.ossez.wechat.oa.bean.result.WxMpShortKeyResult;
-import com.ossez.wechat.oa.config.WxMpConfigStorage;
+import com.ossez.wechat.oa.config.ConfigStorage;
 import com.ossez.wechat.oa.enums.WxMpApiUrl;
 import com.ossez.wechat.oa.util.WxMpConfigStorageHolder;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.Synchronized;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 
@@ -158,7 +156,7 @@ public abstract class BaseWeChatOfficialAccountServiceImpl<H, P> implements WeCh
   @Setter
   private WxMpFreePublishService freePublishService = new WxMpFreePublishServiceImpl(this);
 
-  private Map<String, WxMpConfigStorage> configStorageMap;
+  private Map<String, ConfigStorage> configStorageMap;
 
   private int retrySleepMillis = 1000;
   private int maxRetryTimes = 5;
@@ -450,7 +448,7 @@ public abstract class BaseWeChatOfficialAccountServiceImpl<H, P> implements WeCh
   }
 
   @Override
-  public WxMpConfigStorage getWxMpConfigStorage() {
+  public ConfigStorage getWxMpConfigStorage() {
     if (this.configStorageMap.size() == 1) {
       // 只有一个公众号，直接返回其配置即可
       return this.configStorageMap.values().iterator().next();
@@ -460,7 +458,7 @@ public abstract class BaseWeChatOfficialAccountServiceImpl<H, P> implements WeCh
   }
 
   protected String extractAccessToken(String resultContent) throws WxErrorException {
-    WxMpConfigStorage config = this.getWxMpConfigStorage();
+    ConfigStorage config = this.getWxMpConfigStorage();
     WxError error = WxError.fromJson(resultContent, WxType.MP);
     if (error.getErrorCode() != 0) {
       throw new WxErrorException(error);
@@ -471,7 +469,7 @@ public abstract class BaseWeChatOfficialAccountServiceImpl<H, P> implements WeCh
   }
 
   @Override
-  public void setWxMpConfigStorage(WxMpConfigStorage wxConfigProvider) {
+  public void setWxMpConfigStorage(ConfigStorage wxConfigProvider) {
     final String defaultMpId = wxConfigProvider.getAppId();
     if (defaultMpId == null) {
       throw new WxRuntimeException("appid不能设置为null");
@@ -481,19 +479,19 @@ public abstract class BaseWeChatOfficialAccountServiceImpl<H, P> implements WeCh
   }
 
   @Override
-  public void setMultiConfigStorages(Map<String, WxMpConfigStorage> configStorages) {
+  public void setMultiConfigStorages(Map<String, ConfigStorage> configStorages) {
     this.setMultiConfigStorages(configStorages, configStorages.keySet().iterator().next());
   }
 
   @Override
-  public void setMultiConfigStorages(Map<String, WxMpConfigStorage> configStorages, String defaultMpId) {
+  public void setMultiConfigStorages(Map<String, ConfigStorage> configStorages, String defaultMpId) {
     this.configStorageMap = Maps.newHashMap(configStorages);
     WxMpConfigStorageHolder.set(defaultMpId);
     this.initHttp();
   }
 
   @Override
-  public void addConfigStorage(String mpId, WxMpConfigStorage configStorages) {
+  public void addConfigStorage(String mpId, ConfigStorage configStorages) {
     synchronized (this) {
       if (this.configStorageMap == null) {
         this.setWxMpConfigStorage(configStorages);

@@ -5,7 +5,7 @@ import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.common.service.WxOAuth2Service;
 import com.ossez.wechat.common.service.WxOAuth2ServiceDecorator;
 import com.ossez.wechat.common.util.http.URIUtil;
-import com.ossez.wechat.oa.config.WxMpConfigStorage;
+import com.ossez.wechat.oa.config.ConfigStorage;
 import com.ossez.wechat.open.api.WxOpenComponentService;
 import org.apache.commons.lang3.StringUtils;
 
@@ -17,13 +17,13 @@ import org.apache.commons.lang3.StringUtils;
 public class WxOpenMpOAuth2ServiceImpl extends WxOAuth2ServiceDecorator {
 
   private final WxOpenComponentService wxOpenComponentService;
-  private final WxMpConfigStorage wxMpConfigStorage;
+  private final ConfigStorage configStorage;
 
 
-  public WxOpenMpOAuth2ServiceImpl(WxOpenComponentService wxOpenComponentService, WxOAuth2Service wxOAuth2Service, WxMpConfigStorage wxMpConfigStorage) {
+  public WxOpenMpOAuth2ServiceImpl(WxOpenComponentService wxOpenComponentService, WxOAuth2Service wxOAuth2Service, ConfigStorage configStorage) {
     super(wxOAuth2Service);
     this.wxOpenComponentService = wxOpenComponentService;
-    this.wxMpConfigStorage = wxMpConfigStorage;
+    this.configStorage = configStorage;
   }
 
   /**
@@ -38,7 +38,7 @@ public class WxOpenMpOAuth2ServiceImpl extends WxOAuth2ServiceDecorator {
   public WxOAuth2AccessToken getAccessToken(String code) throws WxErrorException {
     String url = String.format(
       WxOpenComponentService.OAUTH2_ACCESS_TOKEN_URL,
-      wxMpConfigStorage.getAppId(),
+      configStorage.getAppId(),
       code,
       wxOpenComponentService.getWxOpenConfigStorage().getComponentAppId()
     );
@@ -50,7 +50,7 @@ public class WxOpenMpOAuth2ServiceImpl extends WxOAuth2ServiceDecorator {
   public String buildAuthorizationUrl(String redirectUri, String scope, String state) {
     return String.format(
       WxOpenComponentService.CONNECT_OAUTH2_AUTHORIZE_URL,
-      wxMpConfigStorage.getAppId(),
+      configStorage.getAppId(),
       URIUtil.encodeURIComponent(redirectUri),
       scope,
       StringUtils.trimToEmpty(state),

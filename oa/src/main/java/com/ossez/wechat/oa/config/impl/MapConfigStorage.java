@@ -1,5 +1,6 @@
 package com.ossez.wechat.oa.config.impl;
 
+import com.ossez.wechat.oa.config.DefaultConfigStorage;
 import lombok.Data;
 import com.ossez.wechat.common.model.WeChatAccessToken;
 
@@ -11,7 +12,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * 提供accesstoken保存在concurrenthashmap中的实现，支持高并发。仅限于单机部署。
  */
 @Data
-public class WxMpMapConfigImpl extends WxMpDefaultConfigImpl {
+public class MapConfigStorage extends DefaultConfigStorage {
 
   private static final long serialVersionUID = 5311395137835650104L;
 

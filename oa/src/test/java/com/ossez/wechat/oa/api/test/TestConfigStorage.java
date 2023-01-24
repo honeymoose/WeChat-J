@@ -1,13 +1,13 @@
 package com.ossez.wechat.oa.api.test;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
-import com.ossez.wechat.oa.config.impl.WxMpDefaultConfigImpl;
+import com.ossez.wechat.oa.config.DefaultConfigStorage;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import java.util.concurrent.locks.Lock;
 
 @XStreamAlias("xml")
-public class TestConfigStorage extends WxMpDefaultConfigImpl {
+public class TestConfigStorage extends DefaultConfigStorage {
 
   private String openid;
   private String kfAccount;

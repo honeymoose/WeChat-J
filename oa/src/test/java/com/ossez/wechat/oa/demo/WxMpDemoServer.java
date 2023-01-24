@@ -5,7 +5,7 @@ import com.ossez.wechat.oa.api.WxMpMessageHandler;
 import com.ossez.wechat.oa.api.WxMpMessageRouter;
 import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.api.impl.WeChatOfficialAccountServiceHttpClientImpl;
-import com.ossez.wechat.oa.config.WxMpConfigStorage;
+import com.ossez.wechat.oa.config.ConfigStorage;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
@@ -15,7 +15,7 @@ import java.io.InputStream;
 
 public class WxMpDemoServer {
 
-  private static WxMpConfigStorage wxMpConfigStorage;
+  private static ConfigStorage configStorage;
   private static WeChatOfficialAccountService weChatOfficialAccountService;
   private static WxMpMessageRouter wxMpMessageRouter;
 
@@ -27,7 +27,7 @@ public class WxMpDemoServer {
     ServletHandler servletHandler = new ServletHandler();
     server.setHandler(servletHandler);
 
-    ServletHolder endpointServletHolder = new ServletHolder(new WxMpEndpointServlet(wxMpConfigStorage, weChatOfficialAccountService,
+    ServletHolder endpointServletHolder = new ServletHolder(new WxMpEndpointServlet(configStorage, weChatOfficialAccountService,
       wxMpMessageRouter));
     servletHandler.addServletWithMapping(endpointServletHolder, "/*");
 
@@ -40,9 +40,9 @@ public class WxMpDemoServer {
 
   private static void initWeixin() {
     try (InputStream is1 = ClassLoader.getSystemResourceAsStream("test-config.xml")) {
-      WxMpDemoInMemoryConfigStorage config = WxMpDemoInMemoryConfigStorage.fromXml(is1);
+      DemoInMemoryConfigStorage config = DemoInMemoryConfigStorage.fromXml(is1);
 
-      wxMpConfigStorage = config;
+      configStorage = config;
       weChatOfficialAccountService = new WeChatOfficialAccountServiceHttpClientImpl();
       weChatOfficialAccountService.setWxMpConfigStorage(config);
 

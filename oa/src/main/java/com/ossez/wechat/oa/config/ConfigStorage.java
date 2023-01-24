@@ -13,7 +13,7 @@ import java.util.concurrent.locks.Lock;
  *
  * @author chanjarster
  */
-public interface WxMpConfigStorage {
+public interface ConfigStorage {
   /**
    * Gets access token.
    *

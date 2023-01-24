@@ -14,7 +14,7 @@ import com.ossez.wechat.common.exception.WxError;
 import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.common.util.http.URIUtil;
 import com.ossez.wechat.common.util.json.GsonParser;
-import com.ossez.wechat.oa.config.WxMpConfigStorage;
+import com.ossez.wechat.oa.config.ConfigStorage;
 import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.api.WxMpSubscribeMsgService;
 import com.ossez.wechat.oa.bean.subscribe.WxMpSubscribeMessage;
@@ -39,7 +39,7 @@ public class WxMpSubscribeMsgServiceImpl implements WxMpSubscribeMsgService {
 
   @Override
   public String subscribeMsgAuthorizationUrl(String redirectUri, int scene, String reserved) {
-    WxMpConfigStorage storage = this.service.getWxMpConfigStorage();
+    ConfigStorage storage = this.service.getWxMpConfigStorage();
     return String.format(SUBSCRIBE_MESSAGE_AUTHORIZE_URL.getUrl(storage), storage.getAppId(), scene, storage.getTemplateId(),
       URIUtil.encodeURIComponent(redirectUri), reserved);
   }

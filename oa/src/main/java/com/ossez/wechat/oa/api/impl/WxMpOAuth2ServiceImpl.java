@@ -12,7 +12,7 @@ import com.ossez.wechat.common.util.http.SimpleGetRequestExecutor;
 import com.ossez.wechat.common.util.http.URIUtil;
 import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.common.service.WxOAuth2Service;
-import com.ossez.wechat.oa.config.WxMpConfigStorage;
+import com.ossez.wechat.oa.config.ConfigStorage;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.IOException;
@@ -61,7 +61,7 @@ public class WxMpOAuth2ServiceImpl implements WxOAuth2Service {
     return this.getOAuth2AccessToken(url);
   }
 
-  protected WxMpConfigStorage getMpConfigStorage() {
+  protected ConfigStorage getMpConfigStorage() {
     return this.weChatOfficialAccountService.getWxMpConfigStorage();
   }
 

@@ -6,7 +6,7 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import com.ossez.wechat.common.util.crypto.WxCryptUtil;
 import com.ossez.wechat.common.util.xml.XStreamCDataConverter;
 import com.ossez.wechat.oa.builder.outxml.*;
-import com.ossez.wechat.oa.config.WxMpConfigStorage;
+import com.ossez.wechat.oa.config.ConfigStorage;
 import com.ossez.wechat.oa.util.crypto.WxMpCryptUtil;
 import com.ossez.wechat.oa.util.xml.XStreamTransformer;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
@@ -132,9 +132,9 @@ public abstract class WxMpXmlOutMessage implements Serializable {
   /**
    * 转换成加密的结果
    */
-  public WxMpXmlOutMessage toEncrypted(WxMpConfigStorage wxMpConfigStorage) {
+  public WxMpXmlOutMessage toEncrypted(ConfigStorage configStorage) {
     String plainXml = toXml();
-    WxMpCryptUtil pc = new WxMpCryptUtil(wxMpConfigStorage);
+    WxMpCryptUtil pc = new WxMpCryptUtil(configStorage);
     WxCryptUtil.EncryptContext context = pc.encryptContext(plainXml);
     WxMpXmlOutMessage res = new WxMpXmlOutMessage() {};
     res.setNonce(context.getNonce());
@@ -147,9 +147,9 @@ public abstract class WxMpXmlOutMessage implements Serializable {
   /**
    * 转换成加密的xml格式
    */
-  public String toEncryptedXml(WxMpConfigStorage wxMpConfigStorage) {
+  public String toEncryptedXml(ConfigStorage configStorage) {
     String plainXml = toXml();
-    WxMpCryptUtil pc = new WxMpCryptUtil(wxMpConfigStorage);
+    WxMpCryptUtil pc = new WxMpCryptUtil(configStorage);
     return pc.encrypt(plainXml);
   }
 }

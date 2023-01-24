@@ -3,7 +3,7 @@ package com.ossez.wechat.open.api;
 import cn.binarywang.wx.miniapp.config.WxMaConfig;
 import com.ossez.wechat.common.util.http.apache.ApacheHttpClientBuilder;
 import com.ossez.wechat.oa.api.impl.BaseWeChatOfficialAccountServiceImpl;
-import com.ossez.wechat.oa.config.WxMpConfigStorage;
+import com.ossez.wechat.oa.config.ConfigStorage;
 import com.ossez.wechat.open.bean.WxOpenAuthorizerAccessToken;
 import com.ossez.wechat.open.bean.WxOpenComponentAccessToken;
 
@@ -171,7 +171,7 @@ public interface WxOpenConfigStorage {
    * @param appId the app id
    * @return the wx mp config storage
    */
-  WxMpConfigStorage getWxMpConfigStorage(String appId);
+  ConfigStorage getWxMpConfigStorage(String appId);
 
   /**
    * Gets wx ma config.

@@ -14,7 +14,7 @@ import com.google.inject.Binder;
 import com.google.inject.Module;
 import com.thoughtworks.xstream.XStream;
 import com.ossez.wechat.common.util.xml.XStreamInitializer;
-import com.ossez.wechat.oa.config.WxMpConfigStorage;
+import com.ossez.wechat.oa.config.ConfigStorage;
 
 public class ApiTestModule implements Module {
   private final Logger log = LoggerFactory.getLogger(this.getClass());
@@ -34,7 +34,7 @@ public class ApiTestModule implements Module {
       mpService.setWxMpConfigStorage(config);
       mpService.addConfigStorage("another", config);
 
-      binder.bind(WxMpConfigStorage.class).toInstance(config);
+      binder.bind(ConfigStorage.class).toInstance(config);
       binder.bind(WeChatOfficialAccountService.class).toInstance(mpService);
     } catch (IOException e) {
       this.log.error(e.getMessage(), e);

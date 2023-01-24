@@ -5,7 +5,7 @@ import com.ossez.wechat.common.exception.WxRuntimeException;
 import com.ossez.wechat.common.util.http.HttpType;
 import com.ossez.wechat.common.util.http.apache.ApacheHttpClientBuilder;
 import com.ossez.wechat.common.util.http.apache.DefaultApacheHttpClientBuilder;
-import com.ossez.wechat.oa.config.WxMpConfigStorage;
+import com.ossez.wechat.oa.config.ConfigStorage;
 import org.apache.http.HttpHost;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -45,7 +45,7 @@ public class WeChatOfficialAccountServiceHttpClientImpl extends BaseWeChatOffici
 
   @Override
   public void initHttp() {
-    WxMpConfigStorage configStorage = this.getWxMpConfigStorage();
+    ConfigStorage configStorage = this.getWxMpConfigStorage();
     ApacheHttpClientBuilder apacheHttpClientBuilder = configStorage.getApacheHttpClientBuilder();
     if (null == apacheHttpClientBuilder) {
       apacheHttpClientBuilder = DefaultApacheHttpClientBuilder.get();
@@ -65,7 +65,7 @@ public class WeChatOfficialAccountServiceHttpClientImpl extends BaseWeChatOffici
 
   @Override
   public String getAccessToken(boolean forceRefresh) throws WxErrorException {
-    final WxMpConfigStorage config = this.getWxMpConfigStorage();
+    final ConfigStorage config = this.getWxMpConfigStorage();
     if (!config.isAccessTokenExpired() && !forceRefresh) {
       return config.getAccessToken();
     }

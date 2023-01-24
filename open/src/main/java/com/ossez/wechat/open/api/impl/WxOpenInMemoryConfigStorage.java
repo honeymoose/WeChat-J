@@ -10,7 +10,7 @@ import lombok.Data;
 import com.ossez.wechat.common.model.WeChatAccessToken;
 import com.ossez.wechat.common.enums.TicketType;
 import com.ossez.wechat.common.util.http.apache.ApacheHttpClientBuilder;
-import com.ossez.wechat.oa.config.WxMpConfigStorage;
+import com.ossez.wechat.oa.config.ConfigStorage;
 import com.ossez.wechat.oa.config.WxMpHostConfig;
 import com.ossez.wechat.open.api.WxOpenConfigStorage;
 
@@ -108,7 +108,7 @@ public class WxOpenInMemoryConfigStorage implements WxOpenConfigStorage {
   }
 
   @Override
-  public WxMpConfigStorage getWxMpConfigStorage(String appId) {
+  public ConfigStorage getWxMpConfigStorage(String appId) {
     return new WxOpenInnerConfigStorage(this, appId);
   }
 
@@ -253,7 +253,7 @@ public class WxOpenInMemoryConfigStorage implements WxOpenConfigStorage {
   }
 
   @Data
-  private static class WxOpenInnerConfigStorage implements WxMpConfigStorage, WxMaConfig {
+  private static class WxOpenInnerConfigStorage implements ConfigStorage, WxMaConfig {
     private final WxOpenConfigStorage wxOpenConfigStorage;
     private final String appId;
     private WxMpHostConfig hostConfig;

@@ -3,7 +3,7 @@ package com.ossez.wechat.oa.bean.message;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlCData;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
-import com.ossez.wechat.oa.config.WxMpConfigStorage;
+import com.ossez.wechat.oa.config.ConfigStorage;
 import com.ossez.wechat.oa.util.crypto.WxMpCryptUtil;
 import com.ossez.wechat.oa.util.json.WxMpGsonBuilder;
 import com.ossez.wechat.oa.util.xml.XStreamTransformer;
@@ -875,31 +875,31 @@ public class WxMpXmlMessage implements Serializable {
    * 从加密字符串转换.
    *
    * @param encryptedXml      密文
-   * @param wxMpConfigStorage 配置存储器对象
+   * @param configStorage 配置存储器对象
    * @param timestamp         时间戳
    * @param nonce             随机串
    * @param msgSignature      签名串
    */
-  public static WxMpXmlMessage fromEncryptedXml(String encryptedXml, WxMpConfigStorage wxMpConfigStorage,
+  public static WxMpXmlMessage fromEncryptedXml(String encryptedXml, ConfigStorage configStorage,
                                                 String timestamp, String nonce, String msgSignature) {
-    WxMpCryptUtil cryptUtil = new WxMpCryptUtil(wxMpConfigStorage);
+    WxMpCryptUtil cryptUtil = new WxMpCryptUtil(configStorage);
     String plainText = cryptUtil.decryptXml(msgSignature, timestamp, nonce, encryptedXml);
     log.debug("解密后的原始xml消息内容：{}", plainText);
     return fromXml(plainText);
   }
 
-  public static WxMpXmlMessage fromEncryptedXml(InputStream is, WxMpConfigStorage wxMpConfigStorage, String timestamp,
+  public static WxMpXmlMessage fromEncryptedXml(InputStream is, ConfigStorage configStorage, String timestamp,
                                                 String nonce, String msgSignature) {
     try {
-      return fromEncryptedXml(IOUtils.toString(is, StandardCharsets.UTF_8), wxMpConfigStorage, timestamp, nonce, msgSignature);
+      return fromEncryptedXml(IOUtils.toString(is, StandardCharsets.UTF_8), configStorage, timestamp, nonce, msgSignature);
     } catch (IOException e) {
       throw new WxRuntimeException(e);
     }
   }
 
-  public WxMpXmlMessage decryptField(WxMpConfigStorage wxMpConfigStorage,
+  public WxMpXmlMessage decryptField(ConfigStorage configStorage,
                                      String timestamp, String nonce, String msgSignature) {
-    WxMpCryptUtil cryptUtil = new WxMpCryptUtil(wxMpConfigStorage);
+    WxMpCryptUtil cryptUtil = new WxMpCryptUtil(configStorage);
     String plainText = cryptUtil.decryptContent(msgSignature, timestamp, nonce, this.encrypt);
     log.debug("解密后的原始xml消息内容：{}", plainText);
     return fromXml(plainText);

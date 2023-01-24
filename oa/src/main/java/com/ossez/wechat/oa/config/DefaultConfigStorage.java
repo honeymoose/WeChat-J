@@ -1,11 +1,9 @@
-package com.ossez.wechat.oa.config.impl;
+package com.ossez.wechat.oa.config;
 
 import lombok.Data;
 import com.ossez.wechat.common.model.WeChatAccessToken;
 import com.ossez.wechat.common.enums.TicketType;
 import com.ossez.wechat.common.util.http.apache.ApacheHttpClientBuilder;
-import com.ossez.wechat.oa.config.WxMpConfigStorage;
-import com.ossez.wechat.oa.config.WxMpHostConfig;
 import com.ossez.wechat.oa.util.json.WxMpGsonBuilder;
 
 import java.io.File;
@@ -19,7 +17,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * @author chanjarster
  */
 @Data
-public class WxMpDefaultConfigImpl implements WxMpConfigStorage, Serializable {
+public class DefaultConfigStorage implements ConfigStorage, Serializable {
   private static final long serialVersionUID = -6646519023303395185L;
 
   protected volatile String appId;

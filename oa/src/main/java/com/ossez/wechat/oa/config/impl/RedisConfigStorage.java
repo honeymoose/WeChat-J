@@ -1,41 +1,39 @@
 package com.ossez.wechat.oa.config.impl;
 
+import com.ossez.wechat.oa.config.DefaultConfigStorage;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.NonNull;
 import com.ossez.wechat.common.enums.TicketType;
-import com.ossez.wechat.common.redis.RedissonWxRedisOps;
 import com.ossez.wechat.common.redis.WxRedisOps;
-import org.redisson.api.RedissonClient;
 
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author wuxingye
- * created on  2020/6/12
+ * 基于Redis的微信配置provider.
+ *
+ * <pre>
+ *    使用说明：本实现仅供参考，并不完整，
+ *    比如为减少项目依赖，未加入redis分布式锁的实现，如有需要请自行实现。
+ * </pre>
+ *
+ * @author nickwong
  */
-@EqualsAndHashCode(callSuper = true)
 @Data
-public class WxMpRedissonConfigImpl extends WxMpDefaultConfigImpl {
+@EqualsAndHashCode(callSuper = false)
+public class RedisConfigStorage extends DefaultConfigStorage {
+  private static final long serialVersionUID = -988502871997239733L;
 
-  private static final long serialVersionUID = -5139855123878455556L;
   private static final String ACCESS_TOKEN_KEY_TPL = "%s:access_token:%s";
   private static final String TICKET_KEY_TPL = "%s:ticket:key:%s:%s";
   private static final String LOCK_KEY_TPL = "%s:lock:%s:";
+
   private final WxRedisOps redisOps;
   private final String keyPrefix;
+
   private String accessTokenKey;
   private String lockKey;
 
-  public WxMpRedissonConfigImpl(@NonNull RedissonClient redissonClient, String keyPrefix) {
-    this(new RedissonWxRedisOps(redissonClient), keyPrefix);
-  }
-
-  public WxMpRedissonConfigImpl(@NonNull RedissonClient redissonClient) {
-    this(redissonClient, null);
-  }
-
-  private WxMpRedissonConfigImpl(@NonNull WxRedisOps redisOps, String keyPrefix) {
+  public RedisConfigStorage(WxRedisOps redisOps, String keyPrefix) {
     this.redisOps = redisOps;
     this.keyPrefix = keyPrefix;
   }
@@ -98,4 +96,5 @@ public class WxMpRedissonConfigImpl extends WxMpDefaultConfigImpl {
   public void expireTicket(TicketType type) {
     redisOps.expire(this.getTicketRedisKey(type), 0, TimeUnit.SECONDS);
   }
+
 }

@@ -2,7 +2,7 @@ package com.ossez.wechat.oa.demo;
 
 import com.ossez.wechat.oa.api.WxMpMessageRouter;
 import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
-import com.ossez.wechat.oa.config.WxMpConfigStorage;
+import com.ossez.wechat.oa.config.ConfigStorage;
 import com.ossez.wechat.oa.bean.message.WxMpXmlMessage;
 import com.ossez.wechat.oa.bean.message.WxMpXmlOutMessage;
 import org.apache.commons.lang3.StringUtils;
@@ -18,13 +18,13 @@ import java.io.IOException;
 public class WxMpEndpointServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
 
-  protected WxMpConfigStorage wxMpConfigStorage;
+  protected ConfigStorage configStorage;
   protected WeChatOfficialAccountService weChatOfficialAccountService;
   protected WxMpMessageRouter wxMpMessageRouter;
 
-  public WxMpEndpointServlet(WxMpConfigStorage wxMpConfigStorage, WeChatOfficialAccountService weChatOfficialAccountService,
+  public WxMpEndpointServlet(ConfigStorage configStorage, WeChatOfficialAccountService weChatOfficialAccountService,
                              WxMpMessageRouter wxMpMessageRouter) {
-    this.wxMpConfigStorage = wxMpConfigStorage;
+    this.configStorage = configStorage;
     this.weChatOfficialAccountService = weChatOfficialAccountService;
     this.wxMpMessageRouter = wxMpMessageRouter;
   }
@@ -70,9 +70,9 @@ public class WxMpEndpointServlet extends HttpServlet {
     if ("aes".equals(encryptType)) {
       // 是aes加密的消息
       String msgSignature = request.getParameter("msg_signature");
-      WxMpXmlMessage inMessage = WxMpXmlMessage.fromEncryptedXml(request.getInputStream(), this.wxMpConfigStorage, timestamp, nonce, msgSignature);
+      WxMpXmlMessage inMessage = WxMpXmlMessage.fromEncryptedXml(request.getInputStream(), this.configStorage, timestamp, nonce, msgSignature);
       WxMpXmlOutMessage outMessage = this.wxMpMessageRouter.route(inMessage);
-      response.getWriter().write(outMessage.toEncryptedXml(this.wxMpConfigStorage));
+      response.getWriter().write(outMessage.toEncryptedXml(this.configStorage));
       return;
     }
 

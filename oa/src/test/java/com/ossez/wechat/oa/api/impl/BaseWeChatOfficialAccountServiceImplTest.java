@@ -12,7 +12,7 @@ import com.ossez.wechat.common.util.http.HttpType;
 import com.ossez.wechat.common.util.http.RequestExecutor;
 import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.api.test.ApiTestModule;
-import com.ossez.wechat.oa.config.impl.WxMpDefaultConfigImpl;
+import com.ossez.wechat.oa.config.DefaultConfigStorage;
 import com.ossez.wechat.oa.util.WxMpConfigStorageHolder;
 import org.assertj.core.api.Assertions;
 import org.mockito.Mockito;
@@ -231,7 +231,7 @@ public class BaseWeChatOfficialAccountServiceImplTest {
         return null;
       }
     };
-    WxMpDefaultConfigImpl config = new WxMpDefaultConfigImpl();
+    DefaultConfigStorage config = new DefaultConfigStorage();
     config.setAppId("1");
     service.setWxMpConfigStorage(config);
     RequestExecutor<Object, Object> re = Mockito.mock(RequestExecutor.class);

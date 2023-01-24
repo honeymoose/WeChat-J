@@ -1,6 +1,6 @@
 package com.ossez.wechat.oa.enums;
 
-import com.ossez.wechat.oa.config.WxMpConfigStorage;
+import com.ossez.wechat.oa.config.ConfigStorage;
 import com.ossez.wechat.oa.config.WxMpHostConfig;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,7 +21,7 @@ public interface WxMpApiUrl {
    * @param config 微信公众号配置
    * @return api地址
    */
-  default String getUrl(WxMpConfigStorage config) {
+  default String getUrl(ConfigStorage config) {
     WxMpHostConfig hostConfig = null;
     if (config != null) {
       hostConfig = config.getHostConfig();

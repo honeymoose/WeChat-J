@@ -16,7 +16,7 @@ import com.ossez.wechat.oa.bean.WxMpSemanticQuery;
 import com.ossez.wechat.oa.bean.result.WxMpCurrentAutoReplyInfo;
 import com.ossez.wechat.oa.bean.result.WxMpShortKeyResult;
 import com.ossez.wechat.oa.bean.result.WxMpSemanticQueryResult;
-import com.ossez.wechat.oa.config.WxMpConfigStorage;
+import com.ossez.wechat.oa.config.ConfigStorage;
 import com.ossez.wechat.oa.enums.WxMpApiUrl;
 
 import java.util.Map;
@@ -346,45 +346,45 @@ public interface WeChatOfficialAccountService extends WxService {
    *
    * @return WxMpConfigStorage wx mp config storage
    */
-  WxMpConfigStorage getWxMpConfigStorage();
+  ConfigStorage getWxMpConfigStorage();
 
   /**
-   * 设置 {@link WxMpConfigStorage} 的实现. 兼容老版本
+   * 设置 {@link ConfigStorage} 的实现. 兼容老版本
    *
    * @param wxConfigProvider .
    */
-  void setWxMpConfigStorage(WxMpConfigStorage wxConfigProvider);
+  void setWxMpConfigStorage(ConfigStorage wxConfigProvider);
 
   /**
-   * Map里 加入新的 {@link WxMpConfigStorage}，适用于动态添加新的微信公众号配置.
+   * Map里 加入新的 {@link ConfigStorage}，适用于动态添加新的微信公众号配置.
    *
    * @param mpId          公众号id
    * @param configStorage 新的微信配置
    */
-  void addConfigStorage(String mpId, WxMpConfigStorage configStorage);
+  void addConfigStorage(String mpId, ConfigStorage configStorage);
 
   /**
-   * 从 Map中 移除 {@link String mpId} 所对应的 {@link WxMpConfigStorage}，适用于动态移除微信公众号配置.
+   * 从 Map中 移除 {@link String mpId} 所对应的 {@link ConfigStorage}，适用于动态移除微信公众号配置.
    *
    * @param mpId 对应公众号的标识
    */
   void removeConfigStorage(String mpId);
 
   /**
-   * 注入多个 {@link WxMpConfigStorage} 的实现. 并为每个 {@link WxMpConfigStorage} 赋予不同的 {@link String mpId} 值
+   * 注入多个 {@link ConfigStorage} 的实现. 并为每个 {@link ConfigStorage} 赋予不同的 {@link String mpId} 值
    * 随机采用一个{@link String mpId}进行Http初始化操作
    *
    * @param configStorages WxMpConfigStorage map
    */
-  void setMultiConfigStorages(Map<String, WxMpConfigStorage> configStorages);
+  void setMultiConfigStorages(Map<String, ConfigStorage> configStorages);
 
   /**
-   * 注入多个 {@link WxMpConfigStorage} 的实现. 并为每个 {@link WxMpConfigStorage} 赋予不同的 {@link String label} 值
+   * 注入多个 {@link ConfigStorage} 的实现. 并为每个 {@link ConfigStorage} 赋予不同的 {@link String label} 值
    *
    * @param configStorages WxMpConfigStorage map
-   * @param defaultMpId    设置一个{@link WxMpConfigStorage} 所对应的{@link String mpId}进行Http初始化
+   * @param defaultMpId    设置一个{@link ConfigStorage} 所对应的{@link String mpId}进行Http初始化
    */
-  void setMultiConfigStorages(Map<String, WxMpConfigStorage> configStorages, String defaultMpId);
+  void setMultiConfigStorages(Map<String, ConfigStorage> configStorages, String defaultMpId);
 
   /**
    * 进行相应的公众号切换.

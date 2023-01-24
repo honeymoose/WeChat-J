@@ -8,7 +8,7 @@ import com.ossez.wechat.open.bean.result.WxAmpLinkResult;
 import com.ossez.wechat.open.bean.result.WxOpenResult;
 import lombok.SneakyThrows;
 import com.ossez.wechat.common.exception.WxErrorException;
-import com.ossez.wechat.oa.config.WxMpConfigStorage;
+import com.ossez.wechat.oa.config.ConfigStorage;
 import com.ossez.wechat.open.api.WxOpenComponentService;
 import com.ossez.wechat.open.api.WeChatOfficialAccountService;
 
@@ -20,21 +20,21 @@ import java.util.Objects;
  */
 public class WeChatOfficialAccountServiceImpl extends com.ossez.wechat.oa.api.impl.WeChatOfficialAccountServiceImpl implements WeChatOfficialAccountService {
   private WxOpenComponentService wxOpenComponentService;
-  private WxMpConfigStorage wxMpConfigStorage;
+  private ConfigStorage configStorage;
   private String appId;
 
-  public WeChatOfficialAccountServiceImpl(WxOpenComponentService wxOpenComponentService, String appId, WxMpConfigStorage wxMpConfigStorage) {
+  public WeChatOfficialAccountServiceImpl(WxOpenComponentService wxOpenComponentService, String appId, ConfigStorage configStorage) {
 //    wxOpenComponentService.oauth2getAccessToken(appId)
     this.wxOpenComponentService = wxOpenComponentService;
     this.appId = appId;
-    this.wxMpConfigStorage = wxMpConfigStorage;
-    setOAuth2Service(new WxOpenMpOAuth2ServiceImpl(wxOpenComponentService, getOAuth2Service(), wxMpConfigStorage));
+    this.configStorage = configStorage;
+    setOAuth2Service(new WxOpenMpOAuth2ServiceImpl(wxOpenComponentService, getOAuth2Service(), configStorage));
     initHttp();
   }
 
   @Override
-  public WxMpConfigStorage getWxMpConfigStorage() {
-    return wxMpConfigStorage;
+  public ConfigStorage getWxMpConfigStorage() {
+    return configStorage;
   }
 
   @Override

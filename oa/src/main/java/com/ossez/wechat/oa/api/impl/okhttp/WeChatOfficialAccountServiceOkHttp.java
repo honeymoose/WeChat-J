@@ -11,7 +11,7 @@ import com.ossez.wechat.common.model.WeChatAccessToken;
 import com.ossez.wechat.common.util.http.HttpType;
 import com.ossez.wechat.common.util.http.okhttp.OkHttpProxyInfo;
 import com.ossez.wechat.oa.api.impl.BaseWeChatOfficialAccountServiceImpl;
-import com.ossez.wechat.oa.config.WxMpConfigStorage;
+import com.ossez.wechat.oa.config.ConfigStorage;
 import okhttp3.ConnectionPool;
 import okhttp3.OkHttpClient;
 import org.slf4j.Logger;
@@ -55,7 +55,7 @@ public class WeChatOfficialAccountServiceOkHttp extends BaseWeChatOfficialAccoun
 
         WeChatAccessToken weChatAccessToken = new WeChatAccessToken();
 
-        final WxMpConfigStorage config = this.getWxMpConfigStorage();
+        final ConfigStorage config = this.getWxMpConfigStorage();
         if (!config.isAccessTokenExpired() && !forceRefresh) {
             return config.getAccessToken();
         }

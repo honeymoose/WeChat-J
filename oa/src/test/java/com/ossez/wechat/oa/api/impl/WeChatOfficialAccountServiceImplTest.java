@@ -11,7 +11,7 @@ import org.testng.annotations.*;
 import com.google.inject.Inject;
 import com.ossez.wechat.common.constant.WeChatConstant;
 import com.ossez.wechat.common.exception.WxErrorException;
-import com.ossez.wechat.oa.config.WxMpConfigStorage;
+import com.ossez.wechat.oa.config.ConfigStorage;
 import com.ossez.wechat.common.enums.TicketType;
 
 @Test
@@ -49,7 +49,7 @@ public class WeChatOfficialAccountServiceImplTest {
   }
 
   public void testRefreshAccessToken() throws WxErrorException {
-    WxMpConfigStorage configStorage = this.wxService.getWxMpConfigStorage();
+    ConfigStorage configStorage = this.wxService.getWxMpConfigStorage();
     String before = configStorage.getAccessToken();
     this.wxService.getAccessToken(false);
 
