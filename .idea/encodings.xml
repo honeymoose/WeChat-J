@@ -9,6 +9,8 @@
     <file url="file://$PROJECT_DIR$/oa/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/open/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/open/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pay/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pay/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spring-boot-starters/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spring-boot-starters/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spring-boot-starters/wx-java-cp-spring-boot-starter/src/main/java" charset="UTF-8" />
@@ -33,8 +35,6 @@
     <file url="file://$PROJECT_DIR$/weixin-java-miniapp/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/weixin-java-mp/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/weixin-java-mp/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/weixin-java-pay/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/weixin-java-pay/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/weixin-java-qidian/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/weixin-java-qidian/src/main/resources" charset="UTF-8" />
   </component>
