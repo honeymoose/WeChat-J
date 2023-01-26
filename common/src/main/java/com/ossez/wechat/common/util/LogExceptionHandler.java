@@ -1,17 +1,16 @@
 package com.ossez.wechat.common.util;
 
-import com.ossez.wechat.common.exception.WxErrorException;
-import lombok.extern.slf4j.Slf4j;
 import com.ossez.wechat.common.api.WxErrorExceptionHandler;
+import com.ossez.wechat.common.exception.WxErrorException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-/**
- * @author Daniel Qian
- */
-@Slf4j
 public class LogExceptionHandler implements WxErrorExceptionHandler {
-  @Override
-  public void handle(WxErrorException e) {
-    log.error("Error happens", e);
-  }
+    private final Logger log = LoggerFactory.getLogger(LogExceptionHandler.class);
+
+    @Override
+    public void handle(WxErrorException e) {
+        log.error("App Error", e);
+    }
 
 }
