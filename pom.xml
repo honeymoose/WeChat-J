@@ -38,16 +38,13 @@
     </scm>
 
     <modules>
-        <!--    <module>weixin-graal</module>-->
         <module>common</module>
         <module>open</module>
         <module>oa</module>
         <module>mp</module>
-        <!--    <module>weixin-java-cp</module>-->
         <module>pay</module>
+        <module>wecom</module>
         <!--    <module>weixin-java-qidian</module>-->
-        <!--    <module>spring-boot-starters</module>-->
-        <!--module>weixin-java-osgi</module-->
     </modules>
 
     <properties>

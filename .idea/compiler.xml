@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="wechat-j-open" />
+        <module name="wechat-j-wecom" />
         <module name="wechat-j-pay" />
         <module name="wechat-j-common" />
         <module name="wechat-j-mp" />
