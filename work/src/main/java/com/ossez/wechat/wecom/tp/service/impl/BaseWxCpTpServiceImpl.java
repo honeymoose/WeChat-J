@@ -13,7 +13,6 @@ import com.ossez.wechat.common.model.WeChatAccessToken;
 import com.ossez.wechat.common.session.StandardSessionManager;
 import com.ossez.wechat.common.session.WxSessionManager;
 import com.ossez.wechat.common.util.DataUtils;
-import com.ossez.wechat.common.util.RandomUtils;
 import com.ossez.wechat.common.util.crypto.SHA1;
 import com.ossez.wechat.common.util.http.RequestExecutor;
 import com.ossez.wechat.common.util.http.RequestHttp;
@@ -27,6 +26,7 @@ import com.ossez.wechat.wecom.constant.WxCpApiPathConsts;
 import com.ossez.wechat.wecom.tp.service.*;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
@@ -727,7 +727,7 @@ public abstract class BaseWxCpTpServiceImpl<H, P> implements WxCpTpService, Requ
 
   private WxJsapiSignature doCreateWxJsapiSignature(String url, String authCorpId, String jsapiTicket) {
     long timestamp = System.currentTimeMillis() / 1000;
-    String noncestr = RandomUtils.getRandomStr();
+    String noncestr = RandomStringUtils.randomAlphanumeric(16);
     String signature = SHA1
       .genWithAmple("jsapi_ticket=" + jsapiTicket, "noncestr=" + noncestr, "timestamp=" + timestamp,
         "url=" + url);

@@ -6,9 +6,9 @@ import com.google.gson.JsonObject;
 import lombok.RequiredArgsConstructor;
 import com.ossez.wechat.common.bean.WxJsapiSignature;
 import com.ossez.wechat.common.exception.WxErrorException;
-import com.ossez.wechat.common.util.RandomUtils;
 import com.ossez.wechat.common.util.crypto.SHA1;
 import com.ossez.wechat.common.util.json.GsonParser;
+import org.apache.commons.lang3.RandomStringUtils;
 
 import java.util.concurrent.locks.Lock;
 
@@ -84,7 +84,7 @@ public class WxMaJsapiServiceImpl implements WxMaJsapiService {
   @Override
   public WxJsapiSignature createJsapiSignature(String url) throws WxErrorException {
     long timestamp = System.currentTimeMillis() / 1000;
-    String randomStr = RandomUtils.getRandomStr();
+    String randomStr = RandomStringUtils.randomAlphanumeric(16);
     String jsapiTicket = getJsapiTicket(false);
     String signature = SHA1.genWithAmple("jsapi_ticket=" + jsapiTicket,
       "noncestr=" + randomStr, "timestamp=" + timestamp, "url=" + url);

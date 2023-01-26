@@ -12,8 +12,8 @@ import com.ossez.wechat.pay.exception.WxPayException;
 import com.ossez.wechat.pay.service.WxPayService;
 import com.ossez.wechat.pay.testbase.ApiTestModule;
 import com.google.inject.Inject;
-import com.ossez.wechat.common.util.RandomUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.testng.annotations.Guice;
 import org.testng.annotations.Test;
 
@@ -58,7 +58,7 @@ public class EcommerceServiceImplTest {
 
   @Test
   public void testCombinePay() throws WxPayException {
-    String outTradeNo = RandomUtils.getRandomStr();
+    String outTradeNo = RandomStringUtils.randomAlphanumeric(16);
     String notifyUrl = "https://api.qq.com/";
     System.out.println("outTradeNo = " + outTradeNo);
     CombineTransactionsRequest request = new CombineTransactionsRequest();

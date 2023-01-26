@@ -23,8 +23,8 @@ import com.ossez.wechat.pay.util.XmlConfig;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.inject.Inject;
-import com.ossez.wechat.common.util.RandomUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Guice;
 import org.testng.annotations.Test;
@@ -713,7 +713,7 @@ public class BaseWxPayServiceImplTest {
 
   @Test
   public void testUnifiedOrderV3() throws WxPayException {
-    String outTradeNo = RandomUtils.getRandomStr();
+    String outTradeNo = RandomStringUtils.randomAlphanumeric(16);
     String notifyUrl = "https://api.qq.com/";
     System.out.println("outTradeNo = " + outTradeNo);
     WxPayUnifiedOrderV3Request request = new WxPayUnifiedOrderV3Request();
@@ -755,7 +755,7 @@ public class BaseWxPayServiceImplTest {
 
   @Test
   public void testRefundV3() throws WxPayException {
-    String outRefundNo = RandomUtils.getRandomStr();
+    String outRefundNo = RandomStringUtils.randomAlphanumeric(16);
     String notifyUrl = "https://api.qq.com/";
     System.out.println("outRefundNo = " + outRefundNo);
     WxPayRefundV3Request request = new WxPayRefundV3Request();

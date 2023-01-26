@@ -14,7 +14,6 @@ import com.ossez.wechat.common.session.StandardSessionManager;
 import com.ossez.wechat.common.session.WxSession;
 import com.ossez.wechat.common.session.WxSessionManager;
 import com.ossez.wechat.common.util.DataUtils;
-import com.ossez.wechat.common.util.RandomUtils;
 import com.ossez.wechat.common.util.crypto.SHA1;
 import com.ossez.wechat.common.util.http.*;
 import com.ossez.wechat.common.util.json.GsonParser;
@@ -25,6 +24,7 @@ import com.ossez.wechat.wecom.bean.WxCpProviderToken;
 import com.ossez.wechat.wecom.config.WxCpConfigStorage;
 import com.ossez.wechat.wecom.constant.WxCpApiPathConsts;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
@@ -167,7 +167,7 @@ public abstract class BaseWxCpServiceImpl<H, P> implements WxCpService, RequestH
   @Override
   public WxJsapiSignature createJsapiSignature(String url) throws WxErrorException {
     long timestamp = System.currentTimeMillis() / 1000;
-    String noncestr = RandomUtils.getRandomStr();
+    String noncestr = RandomStringUtils.randomAlphanumeric(16);
     String jsapiTicket = getJsapiTicket(false);
     String signature = SHA1.genWithAmple(
       "jsapi_ticket=" + jsapiTicket,
@@ -190,7 +190,7 @@ public abstract class BaseWxCpServiceImpl<H, P> implements WxCpService, RequestH
   @Override
   public WxCpAgentJsapiSignature createAgentJsapiSignature(String url) throws WxErrorException {
     long timestamp = System.currentTimeMillis() / 1000;
-    String noncestr = RandomUtils.getRandomStr();
+    String noncestr = RandomStringUtils.randomAlphanumeric(16);
     String jsapiTicket = getAgentJsapiTicket(false);
     String signature = SHA1.genWithAmple(
       "jsapi_ticket=" + jsapiTicket,

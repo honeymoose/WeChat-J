@@ -8,7 +8,6 @@ import lombok.extern.slf4j.Slf4j;
 import com.ossez.wechat.common.bean.WxCardApiSignature;
 import com.ossez.wechat.common.exception.WxError;
 import com.ossez.wechat.common.exception.WxErrorException;
-import com.ossez.wechat.common.util.RandomUtils;
 import com.ossez.wechat.common.util.http.SimpleGetRequestExecutor;
 import com.ossez.wechat.common.util.json.GsonParser;
 import com.ossez.wechat.common.util.json.WxGsonBuilder;
@@ -18,6 +17,7 @@ import com.ossez.wechat.common.enums.TicketType;
 import com.ossez.wechat.oa.enums.WxMpApiUrl;
 import com.ossez.wechat.oa.util.json.WxMpGsonBuilder;
 import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Arrays;
@@ -74,7 +74,7 @@ public class WxMpCardServiceImpl implements WxMpCardService {
   @Override
   public WxCardApiSignature createCardApiSignature(String... optionalSignParam) throws WxErrorException {
     long timestamp = System.currentTimeMillis() / 1000;
-    String nonceStr = RandomUtils.getRandomStr();
+    String nonceStr = RandomStringUtils.randomAlphanumeric(16);
     String cardApiTicket = getCardApiTicket(false);
 
     String[] signParams = Arrays.copyOf(optionalSignParam, optionalSignParam.length + 3);

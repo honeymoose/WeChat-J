@@ -20,7 +20,6 @@ import com.ossez.wechat.common.service.WxOcrService;
 import com.ossez.wechat.common.session.StandardSessionManager;
 import com.ossez.wechat.common.session.WxSessionManager;
 import com.ossez.wechat.common.util.DataUtils;
-import com.ossez.wechat.common.util.RandomUtils;
 import com.ossez.wechat.common.util.crypto.SHA1;
 import com.ossez.wechat.common.util.http.*;
 import com.ossez.wechat.common.util.json.GsonParser;
@@ -36,6 +35,7 @@ import com.ossez.wechat.oa.util.WxMpConfigStorageHolder;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.IOException;
@@ -235,7 +235,7 @@ public abstract class BaseWeChatOfficialAccountServiceImpl<H, P> implements WeCh
   @Override
   public WxJsapiSignature createJsapiSignature(String url) throws WxErrorException {
     long timestamp = System.currentTimeMillis() / 1000;
-    String randomStr = RandomUtils.getRandomStr();
+    String randomStr = RandomStringUtils.randomAlphanumeric(16);
     String jsapiTicket = getJsapiTicket(false);
     String signature = SHA1.genWithAmple("jsapi_ticket=" + jsapiTicket,
       "noncestr=" + randomStr, "timestamp=" + timestamp, "url=" + url);

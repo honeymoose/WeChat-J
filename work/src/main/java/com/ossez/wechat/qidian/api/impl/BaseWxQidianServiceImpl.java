@@ -20,7 +20,6 @@ import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.common.exception.WxRuntimeException;
 import com.ossez.wechat.common.model.WeChatAccessToken;
 import com.ossez.wechat.common.util.DataUtils;
-import com.ossez.wechat.common.util.RandomUtils;
 import com.ossez.wechat.common.util.crypto.SHA1;
 import com.ossez.wechat.common.util.http.*;
 import com.ossez.wechat.common.util.json.GsonParser;
@@ -28,6 +27,7 @@ import com.ossez.wechat.common.util.json.WxGsonBuilder;
 import com.ossez.wechat.qidian.config.WxQidianConfigStorage;
 import com.ossez.wechat.qidian.enums.WxQidianApiUrl;
 import com.ossez.wechat.qidian.util.WxQidianConfigStorageHolder;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import lombok.Getter;
@@ -109,7 +109,7 @@ public abstract class BaseWxQidianServiceImpl<H, P> implements WxQidianService, 
   @Override
   public WxJsapiSignature createJsapiSignature(String url) throws WxErrorException {
     long timestamp = System.currentTimeMillis() / 1000;
-    String randomStr = RandomUtils.getRandomStr();
+    String randomStr = RandomStringUtils.randomAlphanumeric(16);
     String jsapiTicket = getJsapiTicket(false);
     String signature = SHA1.genWithAmple("jsapi_ticket=" + jsapiTicket, "noncestr=" + randomStr,
         "timestamp=" + timestamp, "url=" + url);
