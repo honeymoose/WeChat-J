@@ -1,0 +1,66 @@
+package com.ossez.wechat.wecom.bean.living;
+
+import com.google.gson.annotations.SerializedName;
+import com.ossez.wechat.wecom.util.json.WxCpGsonBuilder;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+
+/**
+ * 创建预约直播请求.
+ *
+ * @author Wang_Wong  created on  2021-12-23
+ */
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Accessors(chain = true)
+public class WxCpLivingModifyRequest implements Serializable {
+  private static final long serialVersionUID = -4960239393895754138L;
+
+  @SerializedName("livingid")
+  private String livingId;
+
+  @SerializedName("theme")
+  private String theme;
+
+  @SerializedName("living_start")
+  private Long livingStart;
+
+  @SerializedName("living_duration")
+  private Long livingDuration;
+
+  @SerializedName("remind_time")
+  private Long remindTime;
+
+  @SerializedName("description")
+  private String description;
+
+  @SerializedName("type")
+  private Integer type;
+
+  /**
+   * From json wx cp living modify request.
+   *
+   * @param json the json
+   * @return the wx cp living modify request
+   */
+  public static WxCpLivingModifyRequest fromJson(String json) {
+    return WxCpGsonBuilder.create().fromJson(json, WxCpLivingModifyRequest.class);
+  }
+
+  /**
+   * To json string.
+   *
+   * @return the string
+   */
+  public String toJson() {
+    return WxCpGsonBuilder.create().toJson(this);
+  }
+
+}

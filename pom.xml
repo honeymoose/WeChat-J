@@ -43,7 +43,7 @@
         <module>oa</module>
         <module>mp</module>
         <module>pay</module>
-        <module>wecom</module>
+        <module>work</module>
         <!--    <module>weixin-java-qidian</module>-->
     </modules>
 

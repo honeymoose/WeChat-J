@@ -1,0 +1,26 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<!-- 不再维护 -->
+<suite name="WxJava-suite" verbose="1">
+  <test name="API_Test">
+    <classes>
+      <class name="com.ossez.wechat.wecom.api.WxCpBusyRetryTest"/>
+      <class name="com.ossez.wechat.wecom.api.WxCpBaseAPITest"/>
+      <class name="com.ossez.wechat.wecom.api.WxCpMessageRouterTest"/>
+      <class name="com.ossez.wechat.wecom.tp.service.impl.WxCpTpServiceApacheHttpClientImplTest"/>
+      <class name="com.ossez.wechat.wecom.config.impl.WxCpTpDefaultConfigImplTest"/>
+      <class name="com.ossez.wechat.wecom.tp.service.impl.WxCpTpTagServiceImplTest"/>
+    </classes>
+  </test>
+
+  <test name="Bean_Test">
+    <classes>
+      <class name="com.ossez.wechat.wecom.bean.message.WxCpMessageTest"/>
+      <class name="com.ossez.wechat.wecom.bean.message.WxCpXmlMessageTest"/>
+      <class name="com.ossez.wechat.wecom.bean.message.WxCpXmlOutImageMessageTest"/>
+      <class name="com.ossez.wechat.wecom.bean.message.WxCpXmlOutNewsMessageTest"/>
+      <class name="com.ossez.wechat.wecom.bean.message.WxCpXmlOutVideoMessageTest"/>
+      <class name="com.ossez.wechat.wecom.bean.message.WxCpXmlOutVoiceMessageTest"/>
+      <class name="com.ossez.wechat.wecom.bean.message.WxCpXmlOutTextMessageTest"/>
+    </classes>
+  </test>
+</suite>

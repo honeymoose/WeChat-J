@@ -77,7 +77,16 @@ WeChat-J 开发使用的库。
 
 #### 企业微信（WeChat Java WeCom）
 
-模块名：wechat-j-wecom （模块还在开发，无实际内容，请不要使用。）
+模块名：wechat-j-work
+
+```xml
+
+<dependency>
+    <groupId>com.ossez.wechat</groupId>
+    <artifactId>wechat-j-work</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+</dependency>
+```
 
 #### 微信开放平台（WeChat Java Open）
 
