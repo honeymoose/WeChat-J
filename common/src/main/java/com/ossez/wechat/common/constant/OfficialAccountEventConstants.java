@@ -1,4 +1,4 @@
-package com.ossez.wechat.oa.constant;
+package com.ossez.wechat.common.constant;
 
 /**
  * <pre>
@@ -8,7 +8,7 @@ package com.ossez.wechat.oa.constant;
  *
  * @author <a href="https://github.com/binarywang">Binary Wang</a>
  */
-public class WxMpEventConstants {
+public class OfficialAccountEventConstants {
   /**
    * 门店审核事件.
    */
