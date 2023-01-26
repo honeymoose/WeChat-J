@@ -1,7 +1,6 @@
 package com.ossez.wechat.open.api.impl;
 
 import lombok.NonNull;
-import com.ossez.wechat.common.redis.JedisWxRedisOps;
 import com.ossez.wechat.common.redis.WxRedisOps;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.util.Pool;
@@ -16,13 +15,6 @@ public class WxOpenInRedisConfigStorage extends AbstractWxOpenInRedisConfigStora
 
   private final WxRedisOps redisOps;
 
-  public WxOpenInRedisConfigStorage(Pool<Jedis> jedisPool) {
-    this(jedisPool, null);
-  }
-
-  public WxOpenInRedisConfigStorage(@NonNull Pool<Jedis> jedisPool, String keyPrefix) {
-    this(new JedisWxRedisOps(jedisPool), keyPrefix);
-  }
 
   public WxOpenInRedisConfigStorage(@NonNull WxRedisOps redisOps, String keyPrefix) {
     this.redisOps = redisOps;
