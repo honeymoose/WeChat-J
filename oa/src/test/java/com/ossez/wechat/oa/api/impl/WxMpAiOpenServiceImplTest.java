@@ -9,7 +9,7 @@ import org.testng.annotations.*;
 
 import com.google.inject.Inject;
 import com.ossez.wechat.common.exception.WxErrorException;
-import com.ossez.wechat.oa.enums.AiLangType;
+import com.ossez.wechat.common.enums.Language;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -29,21 +29,21 @@ public class WxMpAiOpenServiceImplTest {
   @Test
   public void testUploadVoice() throws WxErrorException {
     String voiceId = System.currentTimeMillis() + "a";
-    AiLangType lang = AiLangType.zh_CN;
+    Language lang = Language.ZH_CN;
     this.wxService.getAiOpenService().uploadVoice(voiceId, lang, new File("d:\\t.mp3"));
   }
 
   @Test
   public void testRecogniseVoice() throws WxErrorException {
     String voiceId = System.currentTimeMillis() + "a";
-    AiLangType lang = AiLangType.zh_CN;
+    Language lang = Language.ZH_CN;
     final String result = this.wxService.getAiOpenService().recogniseVoice(voiceId, lang, new File("d:\\t.mp3"));
     Assertions.assertThat(result).isNotEmpty();
   }
 
   @Test
   public void testTranslate() throws WxErrorException {
-    final String result = this.wxService.getAiOpenService().translate(AiLangType.zh_CN, AiLangType.en_US, "微信文档很坑爹");
+    final String result = this.wxService.getAiOpenService().translate(Language.ZH_CN, Language.EN_US, "微信文档很坑爹");
     Assertions.assertThat(result).isNotEmpty();
   }
 }

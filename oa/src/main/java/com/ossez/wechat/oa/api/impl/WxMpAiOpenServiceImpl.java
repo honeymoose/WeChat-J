@@ -7,7 +7,7 @@ import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.common.util.json.GsonParser;
 import com.ossez.wechat.oa.api.WxMpAiOpenService;
 import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
-import com.ossez.wechat.oa.enums.AiLangType;
+import com.ossez.wechat.common.enums.Language;
 import com.ossez.wechat.oa.util.requestexecuter.voice.VoiceUploadRequestExecutor;
 
 import java.io.File;
@@ -26,9 +26,9 @@ public class WxMpAiOpenServiceImpl implements WxMpAiOpenService {
   private final WeChatOfficialAccountService weChatOfficialAccountService;
 
   @Override
-  public void uploadVoice(String voiceId, AiLangType lang, File voiceFile) throws WxErrorException {
+  public void uploadVoice(String voiceId, Language lang, File voiceFile) throws WxErrorException {
     if (lang == null) {
-      lang = AiLangType.zh_CN;
+      lang = Language.ZH_CN;
     }
 
     this.weChatOfficialAccountService.execute(VoiceUploadRequestExecutor.create(this.weChatOfficialAccountService.getRequestHttp()),
@@ -37,13 +37,13 @@ public class WxMpAiOpenServiceImpl implements WxMpAiOpenService {
   }
 
   @Override
-  public String recogniseVoice(String voiceId, AiLangType lang, File voiceFile) throws WxErrorException {
+  public String recogniseVoice(String voiceId, Language lang, File voiceFile) throws WxErrorException {
     this.uploadVoice(voiceId, lang, voiceFile);
     return this.queryRecognitionResult(voiceId, lang);
   }
 
   @Override
-  public String translate(AiLangType langFrom, AiLangType langTo, String content) throws WxErrorException {
+  public String translate(Language langFrom, Language langTo, String content) throws WxErrorException {
     String response = this.weChatOfficialAccountService.post(String.format(TRANSLATE_URL.getUrl(this.weChatOfficialAccountService.getWxMpConfigStorage()),
       langFrom.getCode(), langTo.getCode()), content);
 
@@ -56,9 +56,9 @@ public class WxMpAiOpenServiceImpl implements WxMpAiOpenService {
   }
 
   @Override
-  public String queryRecognitionResult(String voiceId, AiLangType lang) throws WxErrorException {
+  public String queryRecognitionResult(String voiceId, Language lang) throws WxErrorException {
     if (lang == null) {
-      lang = AiLangType.zh_CN;
+      lang = Language.ZH_CN;
     }
 
     final String response = this.weChatOfficialAccountService.get(VOICE_QUERY_RESULT_URL,

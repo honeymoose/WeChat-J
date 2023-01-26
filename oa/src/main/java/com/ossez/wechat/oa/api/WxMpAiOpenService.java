@@ -3,7 +3,7 @@ package com.ossez.wechat.oa.api;
 import java.io.File;
 
 import com.ossez.wechat.common.exception.WxErrorException;
-import com.ossez.wechat.oa.enums.AiLangType;
+import com.ossez.wechat.common.enums.Language;
 
 /**
  * <pre>
@@ -27,7 +27,7 @@ public interface WxMpAiOpenService {
    * @param voiceFile 语音文件
    * @param voiceId   语音唯一标识
    */
-  void uploadVoice(String voiceId, AiLangType lang, File voiceFile) throws WxErrorException;
+  void uploadVoice(String voiceId, Language lang, File voiceFile) throws WxErrorException;
 
   /**
    * <pre>
@@ -42,7 +42,7 @@ public interface WxMpAiOpenService {
    * @param lang    语言，zh_CN 或 en_US，默认中文
    * @param voiceId 语音唯一标识
    */
-  String queryRecognitionResult(String voiceId, AiLangType lang) throws WxErrorException;
+  String queryRecognitionResult(String voiceId, Language lang) throws WxErrorException;
 
   /**
    * 识别指定语音文件内容.
@@ -52,7 +52,7 @@ public interface WxMpAiOpenService {
    * @param voiceFile 语音文件
    * @param voiceId   语音唯一标识
    */
-  String recogniseVoice(String voiceId, AiLangType lang, File voiceFile) throws WxErrorException;
+  String recogniseVoice(String voiceId, Language lang, File voiceFile) throws WxErrorException;
 
   /**
    * <pre>
@@ -68,5 +68,5 @@ public interface WxMpAiOpenService {
    * @param langTo   目标语言，zh_CN 或 en_US
    * @param content  要翻译的文本内容
    */
-  String translate(AiLangType langFrom, AiLangType langTo, String content) throws WxErrorException;
+  String translate(Language langFrom, Language langTo, String content) throws WxErrorException;
 }
