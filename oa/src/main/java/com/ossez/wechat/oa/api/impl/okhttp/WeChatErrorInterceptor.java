@@ -1,14 +1,12 @@
 package com.ossez.wechat.oa.api.impl.okhttp;
 
 import com.ossez.wechat.common.constant.HttpClientMediaType;
-import okhttp3.Interceptor;
-import okhttp3.Request;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
-import okhttp3.MediaType;
+import okhttp3.*;
+import okio.Buffer;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 
 /**
  * The reason we have Interceptor here was because will return code 200 with error message.
@@ -32,10 +30,12 @@ public class WeChatErrorInterceptor implements Interceptor {
         Request request = chain.request();
         Response response = chain.proceed(request);
 
-        String responseStr = response.body().string();
+        ResponseBody responseBody = response.body();
+        Buffer buffer = responseBody.source().getBuffer();
+        String responseStr = buffer.clone().readString(StandardCharsets.UTF_8);
 
         if (StringUtils.contains(responseStr, "errcode")) {
-            ResponseBody responseBody = ResponseBody.create(MediaType.get(HttpClientMediaType.APPLICATION_JSON), responseStr);
+            responseBody = ResponseBody.create(MediaType.get(HttpClientMediaType.APPLICATION_JSON), responseStr);
             return response.newBuilder().code(400).body(responseBody).build();
         }
         return response;
