@@ -1,6 +1,6 @@
 package com.ossez.wechat.oa.api;
 
-import com.ossez.wechat.oa.api.impl.WeChatOfficialAccountServiceHttpClientImpl;
+import com.ossez.wechat.oa.api.impl.okhttp.WeChatOfficialAccountServiceOkHttp;
 import lombok.extern.slf4j.Slf4j;
 import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.common.exception.WxRuntimeException;
@@ -19,7 +19,7 @@ public class WxMpBusyRetryTest {
 
   @DataProvider(name = "getService")
   public Object[][] getService() {
-    WeChatOfficialAccountService service = new WeChatOfficialAccountServiceHttpClientImpl() {
+    WeChatOfficialAccountService service = new WeChatOfficialAccountServiceOkHttp() {
 
       @Override
       public synchronized <T, E> T executeInternal(

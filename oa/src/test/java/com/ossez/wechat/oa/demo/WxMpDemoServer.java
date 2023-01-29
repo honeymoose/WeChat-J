@@ -4,8 +4,8 @@ import com.ossez.wechat.common.constant.WeChatConstant;
 import com.ossez.wechat.oa.api.WxMpMessageHandler;
 import com.ossez.wechat.oa.api.WxMpMessageRouter;
 import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
-import com.ossez.wechat.oa.api.impl.WeChatOfficialAccountServiceHttpClientImpl;
 import com.ossez.wechat.common.config.ConfigStorage;
+import com.ossez.wechat.oa.api.impl.okhttp.WeChatOfficialAccountServiceOkHttp;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
@@ -43,7 +43,7 @@ public class WxMpDemoServer {
       DemoInMemoryConfigStorage config = DemoInMemoryConfigStorage.fromXml(is1);
 
       configStorage = config;
-      weChatOfficialAccountService = new WeChatOfficialAccountServiceHttpClientImpl();
+      weChatOfficialAccountService = new WeChatOfficialAccountServiceOkHttp();
       weChatOfficialAccountService.setWxMpConfigStorage(config);
 
       WxMpMessageHandler logHandler = new DemoLogHandler();

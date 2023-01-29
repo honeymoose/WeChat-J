@@ -6,7 +6,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 import com.ossez.wechat.common.exception.WxRuntimeException;
 import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
-import com.ossez.wechat.oa.api.impl.WeChatOfficialAccountServiceHttpClientImpl;
+import com.ossez.wechat.oa.api.impl.okhttp.WeChatOfficialAccountServiceOkHttp;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,7 +29,7 @@ public class ApiTestModule implements Module {
 
       TestConfigStorage config = this.fromXml(TestConfigStorage.class, inputStream);
       config.setAccessTokenLock(new ReentrantLock());
-      WeChatOfficialAccountService mpService = new WeChatOfficialAccountServiceHttpClientImpl();
+      WeChatOfficialAccountService mpService = new WeChatOfficialAccountServiceOkHttp();
 
       mpService.setWxMpConfigStorage(config);
       mpService.addConfigStorage("another", config);
