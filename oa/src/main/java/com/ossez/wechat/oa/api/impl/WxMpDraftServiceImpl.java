@@ -11,7 +11,7 @@ import com.ossez.wechat.oa.bean.draft.WxMpDraftArticles;
 import com.ossez.wechat.oa.bean.draft.WxMpDraftInfo;
 import com.ossez.wechat.oa.bean.draft.WxMpDraftList;
 import com.ossez.wechat.oa.bean.draft.WxMpUpdateDraft;
-import com.ossez.wechat.oa.enums.WxMpApiUrl;
+import com.ossez.wechat.common.enums.WxMpApiUrl;
 
 import java.util.ArrayList;
 import java.util.List;

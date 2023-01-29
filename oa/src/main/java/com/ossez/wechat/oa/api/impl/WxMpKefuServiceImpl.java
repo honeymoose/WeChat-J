@@ -16,7 +16,7 @@ import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import java.io.File;
 import java.util.Date;
 
-import static com.ossez.wechat.oa.enums.WxMpApiUrl.Kefu.*;
+import static com.ossez.wechat.common.enums.WxMpApiUrl.Kefu.*;
 
 /**
  * @author Binary Wang

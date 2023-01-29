@@ -10,9 +10,9 @@ import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.common.util.json.GsonParser;
 import com.ossez.wechat.oa.api.WxMpMenuService;
 import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
-import com.ossez.wechat.oa.enums.WxMpApiUrl;
+import com.ossez.wechat.common.enums.WxMpApiUrl;
 
-import static com.ossez.wechat.oa.enums.WxMpApiUrl.Menu.*;
+import static com.ossez.wechat.common.enums.WxMpApiUrl.Menu.*;
 
 /**
  * Created by Binary Wang on 2016/7/21.

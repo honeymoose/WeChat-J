@@ -10,7 +10,7 @@ import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.api.WxMpShakeService;
 
-import static com.ossez.wechat.oa.enums.WxMpApiUrl.ShakeAround.*;
+import static com.ossez.wechat.common.enums.WxMpApiUrl.ShakeAround.*;
 
 /**
  * Created by rememberber on 2017/6/5.

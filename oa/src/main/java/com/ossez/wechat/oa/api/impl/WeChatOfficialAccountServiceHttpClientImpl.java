@@ -5,7 +5,7 @@ import com.ossez.wechat.common.exception.WxRuntimeException;
 import com.ossez.wechat.common.util.http.HttpType;
 import com.ossez.wechat.common.util.http.apache.ApacheHttpClientBuilder;
 import com.ossez.wechat.common.util.http.apache.DefaultApacheHttpClientBuilder;
-import com.ossez.wechat.oa.config.ConfigStorage;
+import com.ossez.wechat.common.config.ConfigStorage;
 import org.apache.http.HttpHost;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 
-import static com.ossez.wechat.oa.enums.WxMpApiUrl.Other.GET_ACCESS_TOKEN_URL;
+import static com.ossez.wechat.common.enums.WxMpApiUrl.Other.GET_ACCESS_TOKEN_URL;
 
 /**
  * apache http client方式实现.

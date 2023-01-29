@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.ossez.wechat.oa.enums.WxMpApiUrl.UserBlacklist.*;
+import static com.ossez.wechat.common.enums.WxMpApiUrl.UserBlacklist.*;
 
 /**
  * @author miller

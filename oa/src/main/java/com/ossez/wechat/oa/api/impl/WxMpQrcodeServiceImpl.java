@@ -14,7 +14,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
-import static com.ossez.wechat.oa.enums.WxMpApiUrl.Qrcode.*;
+import static com.ossez.wechat.common.enums.WxMpApiUrl.Qrcode.*;
 
 /**
  * Created by Binary Wang on 2016/7/21.

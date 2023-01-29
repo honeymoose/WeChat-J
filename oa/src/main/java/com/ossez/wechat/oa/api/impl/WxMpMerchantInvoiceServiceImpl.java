@@ -11,11 +11,11 @@ import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.oa.api.WxMpCardService;
 import com.ossez.wechat.oa.api.WxMpMerchantInvoiceService;
 import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
-import com.ossez.wechat.oa.enums.WxMpApiUrl;
+import com.ossez.wechat.common.enums.WxMpApiUrl;
 
 import java.util.Map;
 
-import static com.ossez.wechat.oa.enums.WxMpApiUrl.Invoice.*;
+import static com.ossez.wechat.common.enums.WxMpApiUrl.Invoice.*;
 
 
 /**

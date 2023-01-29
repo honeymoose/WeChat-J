@@ -18,7 +18,7 @@
 package com.ossez.wechat.oa.util.crypto;
 
 import com.ossez.wechat.common.util.crypto.WxCryptUtil;
-import com.ossez.wechat.oa.config.ConfigStorage;
+import com.ossez.wechat.common.config.ConfigStorage;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Base64;

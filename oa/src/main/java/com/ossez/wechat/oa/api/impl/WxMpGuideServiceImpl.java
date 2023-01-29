@@ -11,7 +11,7 @@ import com.ossez.wechat.common.util.json.GsonParser;
 import com.ossez.wechat.common.util.json.WxGsonBuilder;
 import com.ossez.wechat.oa.api.WxMpGuideService;
 import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
-import com.ossez.wechat.oa.enums.WxMpApiUrl;
+import com.ossez.wechat.common.enums.WxMpApiUrl;
 
 import java.util.LinkedHashMap;
 import java.util.List;

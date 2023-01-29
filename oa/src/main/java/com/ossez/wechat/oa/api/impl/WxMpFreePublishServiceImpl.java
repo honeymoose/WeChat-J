@@ -9,7 +9,7 @@ import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.bean.freepublish.WxMpFreePublishInfo;
 import com.ossez.wechat.oa.bean.freepublish.WxMpFreePublishList;
 import com.ossez.wechat.oa.bean.freepublish.WxMpFreePublishStatus;
-import com.ossez.wechat.oa.enums.WxMpApiUrl;
+import com.ossez.wechat.common.enums.WxMpApiUrl;
 
 /**
  * 发布能力-service实现类.

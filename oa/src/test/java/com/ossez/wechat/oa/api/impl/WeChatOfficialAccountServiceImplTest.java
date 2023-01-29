@@ -11,7 +11,7 @@ import org.testng.annotations.*;
 import com.google.inject.Inject;
 import com.ossez.wechat.common.constant.WeChatConstant;
 import com.ossez.wechat.common.exception.WxErrorException;
-import com.ossez.wechat.oa.config.ConfigStorage;
+import com.ossez.wechat.common.config.ConfigStorage;
 import com.ossez.wechat.common.enums.TicketType;
 
 @Test

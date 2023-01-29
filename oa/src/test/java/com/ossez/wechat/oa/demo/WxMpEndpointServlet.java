@@ -1,8 +1,8 @@
 package com.ossez.wechat.oa.demo;
 
+import com.ossez.wechat.common.config.ConfigStorage;
 import com.ossez.wechat.oa.api.WxMpMessageRouter;
 import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
-import com.ossez.wechat.oa.config.ConfigStorage;
 import com.ossez.wechat.oa.bean.message.WxMpXmlMessage;
 import com.ossez.wechat.oa.bean.message.WxMpXmlOutMessage;
 import org.apache.commons.lang3.StringUtils;

@@ -17,7 +17,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
 
-import static com.ossez.wechat.oa.enums.WxMpApiUrl.UserTag.*;
+import static com.ossez.wechat.common.enums.WxMpApiUrl.UserTag.*;
 
 /**
  * Created by Binary Wang on 2016/9/2.

@@ -1,9 +1,8 @@
-package com.ossez.wechat.oa.config;
+package com.ossez.wechat.common.config;
 
 import com.ossez.wechat.common.model.WeChatAccessToken;
 import com.ossez.wechat.common.enums.TicketType;
 import com.ossez.wechat.common.util.http.apache.ApacheHttpClientBuilder;
-import com.ossez.wechat.oa.api.impl.BaseWeChatOfficialAccountServiceImpl;
 
 import java.io.File;
 import java.util.concurrent.locks.Lock;

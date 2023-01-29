@@ -13,7 +13,7 @@ import com.ossez.wechat.common.util.BeanUtils;
 import com.ossez.wechat.common.util.json.GsonParser;
 import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.api.WxMpStoreService;
-import com.ossez.wechat.oa.enums.WxMpApiUrl;
+import com.ossez.wechat.common.enums.WxMpApiUrl;
 import com.ossez.wechat.oa.util.json.WxMpGsonBuilder;
 
 import java.util.List;

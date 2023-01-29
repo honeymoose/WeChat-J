@@ -12,7 +12,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
-import static com.ossez.wechat.oa.enums.WxMpApiUrl.Ocr.*;
+import static com.ossez.wechat.common.enums.WxMpApiUrl.Ocr.*;
 
 /**
  * ocr 接口实现.

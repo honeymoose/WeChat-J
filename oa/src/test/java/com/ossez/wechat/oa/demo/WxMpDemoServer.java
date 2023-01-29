@@ -5,7 +5,7 @@ import com.ossez.wechat.oa.api.WxMpMessageHandler;
 import com.ossez.wechat.oa.api.WxMpMessageRouter;
 import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.api.impl.WeChatOfficialAccountServiceHttpClientImpl;
-import com.ossez.wechat.oa.config.ConfigStorage;
+import com.ossez.wechat.common.config.ConfigStorage;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletHandler;
 import org.eclipse.jetty.servlet.ServletHolder;

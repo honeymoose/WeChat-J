@@ -6,7 +6,7 @@ import java.util.concurrent.locks.ReentrantLock;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.ossez.wechat.common.util.xml.XStreamInitializer;
-import com.ossez.wechat.oa.config.DefaultConfigStorage;
+import com.ossez.wechat.common.config.DefaultConfigStorage;
 
 /**
  * @author Daniel Qian

@@ -3,7 +3,7 @@ package com.ossez.wechat.oa.bean.message;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlCData;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
-import com.ossez.wechat.oa.config.ConfigStorage;
+import com.ossez.wechat.common.config.ConfigStorage;
 import com.ossez.wechat.oa.util.crypto.WxMpCryptUtil;
 import com.ossez.wechat.oa.util.json.WxMpGsonBuilder;
 import com.ossez.wechat.oa.util.xml.XStreamTransformer;

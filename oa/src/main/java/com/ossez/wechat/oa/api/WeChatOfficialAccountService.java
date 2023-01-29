@@ -16,8 +16,8 @@ import com.ossez.wechat.oa.bean.WxMpSemanticQuery;
 import com.ossez.wechat.oa.bean.result.WxMpCurrentAutoReplyInfo;
 import com.ossez.wechat.oa.bean.result.WxMpShortKeyResult;
 import com.ossez.wechat.oa.bean.result.WxMpSemanticQueryResult;
-import com.ossez.wechat.oa.config.ConfigStorage;
-import com.ossez.wechat.oa.enums.WxMpApiUrl;
+import com.ossez.wechat.common.config.ConfigStorage;
+import com.ossez.wechat.common.enums.WxMpApiUrl;
 
 import java.util.Map;
 

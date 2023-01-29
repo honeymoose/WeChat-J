@@ -3,7 +3,7 @@ package com.ossez.wechat.open.api;
 import cn.binarywang.wx.miniapp.config.WxMaConfig;
 import com.ossez.wechat.common.util.http.apache.ApacheHttpClientBuilder;
 import com.ossez.wechat.oa.api.impl.BaseWeChatOfficialAccountServiceImpl;
-import com.ossez.wechat.oa.config.ConfigStorage;
+import com.ossez.wechat.common.config.ConfigStorage;
 import com.ossez.wechat.open.bean.WxOpenAuthorizerAccessToken;
 import com.ossez.wechat.open.bean.WxOpenComponentAccessToken;
 

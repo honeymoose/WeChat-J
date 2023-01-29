@@ -12,12 +12,12 @@ import com.ossez.wechat.common.util.http.SimpleGetRequestExecutor;
 import com.ossez.wechat.common.util.http.URIUtil;
 import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.common.service.WxOAuth2Service;
-import com.ossez.wechat.oa.config.ConfigStorage;
+import com.ossez.wechat.common.config.ConfigStorage;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.IOException;
 
-import static com.ossez.wechat.oa.enums.WxMpApiUrl.OAuth2.*;
+import static com.ossez.wechat.common.enums.WxMpApiUrl.OAuth2.*;
 
 /**
  * oauth2 相关接口实现类.

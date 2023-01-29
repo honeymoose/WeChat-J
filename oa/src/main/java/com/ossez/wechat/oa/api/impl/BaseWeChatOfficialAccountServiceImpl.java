@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.ossez.wechat.common.config.ConfigStorage;
 import com.ossez.wechat.common.constant.WeChatConstant;
 import com.ossez.wechat.common.bean.ToJson;
 import com.ossez.wechat.common.model.WeChatAccessToken;
@@ -29,8 +30,7 @@ import com.ossez.wechat.oa.bean.WxMpSemanticQuery;
 import com.ossez.wechat.oa.bean.result.WxMpCurrentAutoReplyInfo;
 import com.ossez.wechat.oa.bean.result.WxMpSemanticQueryResult;
 import com.ossez.wechat.oa.bean.result.WxMpShortKeyResult;
-import com.ossez.wechat.oa.config.ConfigStorage;
-import com.ossez.wechat.oa.enums.WxMpApiUrl;
+import com.ossez.wechat.common.enums.WxMpApiUrl;
 import com.ossez.wechat.oa.util.WxMpConfigStorageHolder;
 import lombok.Getter;
 import lombok.Setter;
@@ -42,7 +42,7 @@ import java.io.IOException;
 import java.util.Map;
 import java.util.concurrent.locks.Lock;
 
-import static com.ossez.wechat.oa.enums.WxMpApiUrl.Other.*;
+import static com.ossez.wechat.common.enums.WxMpApiUrl.Other.*;
 
 /**
  * 基础实现类.

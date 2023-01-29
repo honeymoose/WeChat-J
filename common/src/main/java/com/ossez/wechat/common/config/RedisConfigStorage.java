@@ -1,6 +1,6 @@
-package com.ossez.wechat.oa.config.impl;
+package com.ossez.wechat.common.config;
 
-import com.ossez.wechat.oa.config.DefaultConfigStorage;
+import com.ossez.wechat.common.config.DefaultConfigStorage;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import com.ossez.wechat.common.enums.TicketType;
@@ -18,8 +18,6 @@ import java.util.concurrent.TimeUnit;
  *
  * @author nickwong
  */
-@Data
-@EqualsAndHashCode(callSuper = false)
 public class RedisConfigStorage extends DefaultConfigStorage {
   private static final long serialVersionUID = -988502871997239733L;
 

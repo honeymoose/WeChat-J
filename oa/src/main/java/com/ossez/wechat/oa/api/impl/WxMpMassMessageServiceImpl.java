@@ -12,7 +12,7 @@ import com.ossez.wechat.oa.bean.result.WxMpMassUploadResult;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-import static com.ossez.wechat.oa.enums.WxMpApiUrl.MassMessage;
+import static com.ossez.wechat.common.enums.WxMpApiUrl.MassMessage;
 
 /**
  * <pre>

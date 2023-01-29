@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.ossez.wechat.oa.enums.WxMpApiUrl.User.*;
+import static com.ossez.wechat.common.enums.WxMpApiUrl.User.*;
 
 /**
  * Created by Binary Wang on 2016/7/21.

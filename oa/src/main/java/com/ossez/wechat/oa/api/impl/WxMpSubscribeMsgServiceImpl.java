@@ -14,7 +14,7 @@ import com.ossez.wechat.common.exception.WxError;
 import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.common.util.http.URIUtil;
 import com.ossez.wechat.common.util.json.GsonParser;
-import com.ossez.wechat.oa.config.ConfigStorage;
+import com.ossez.wechat.common.config.ConfigStorage;
 import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.api.WxMpSubscribeMsgService;
 import com.ossez.wechat.oa.bean.subscribe.WxMpSubscribeMessage;
@@ -24,7 +24,7 @@ import org.apache.commons.lang3.StringUtils;
 import java.io.Serializable;
 import java.util.List;
 
-import static com.ossez.wechat.oa.enums.WxMpApiUrl.SubscribeMsg.*;
+import static com.ossez.wechat.common.enums.WxMpApiUrl.SubscribeMsg.*;
 
 /**
  * 订阅消息接口.

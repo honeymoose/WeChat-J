@@ -1,10 +1,9 @@
-package com.ossez.wechat.oa.config;
+package com.ossez.wechat.common.config;
 
 import lombok.Data;
 import com.ossez.wechat.common.model.WeChatAccessToken;
 import com.ossez.wechat.common.enums.TicketType;
 import com.ossez.wechat.common.util.http.apache.ApacheHttpClientBuilder;
-import com.ossez.wechat.oa.util.json.WxMpGsonBuilder;
 
 import java.io.File;
 import java.io.Serializable;
@@ -174,10 +173,6 @@ public class DefaultConfigStorage implements ConfigStorage, Serializable {
     }
   }
 
-  @Override
-  public String toString() {
-    return WxMpGsonBuilder.create().toJson(this);
-  }
 
   @Override
   public boolean autoRefreshToken() {

@@ -14,7 +14,7 @@ import com.ossez.wechat.oa.bean.template.WxMpTemplateMessage;
 
 import java.util.List;
 
-import static com.ossez.wechat.oa.enums.WxMpApiUrl.TemplateMsg.*;
+import static com.ossez.wechat.common.enums.WxMpApiUrl.TemplateMsg.*;
 
 /**
  * <pre>

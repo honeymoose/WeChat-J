@@ -13,8 +13,8 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.io.IOException;
 
-import static com.ossez.wechat.oa.enums.WxMpApiUrl.OAuth2.*;
-import static com.ossez.wechat.oa.enums.WxMpApiUrl.Other.QRCONNECT_URL;
+import static com.ossez.wechat.common.enums.WxMpApiUrl.OAuth2.*;
+import static com.ossez.wechat.common.enums.WxMpApiUrl.Other.QRCONNECT_URL;
 
 /**
  * oauth2接口实现.

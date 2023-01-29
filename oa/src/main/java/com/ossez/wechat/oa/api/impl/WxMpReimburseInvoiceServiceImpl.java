@@ -8,7 +8,7 @@ import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 
 import java.util.List;
 
-import static com.ossez.wechat.oa.enums.WxMpApiUrl.Invoice.*;
+import static com.ossez.wechat.common.enums.WxMpApiUrl.Invoice.*;
 
 /**
  * 电子发票报销方相关接口实现

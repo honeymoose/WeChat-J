@@ -15,12 +15,12 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
-import static com.ossez.wechat.oa.enums.WxMpApiUrl.ImgProc.AI_CROP;
-import static com.ossez.wechat.oa.enums.WxMpApiUrl.ImgProc.FILE_AI_CROP;
-import static com.ossez.wechat.oa.enums.WxMpApiUrl.ImgProc.FILE_QRCODE;
-import static com.ossez.wechat.oa.enums.WxMpApiUrl.ImgProc.FILE_SUPER_RESOLUTION;
-import static com.ossez.wechat.oa.enums.WxMpApiUrl.ImgProc.QRCODE;
-import static com.ossez.wechat.oa.enums.WxMpApiUrl.ImgProc.SUPER_RESOLUTION;
+import static com.ossez.wechat.common.enums.WxMpApiUrl.ImgProc.AI_CROP;
+import static com.ossez.wechat.common.enums.WxMpApiUrl.ImgProc.FILE_AI_CROP;
+import static com.ossez.wechat.common.enums.WxMpApiUrl.ImgProc.FILE_QRCODE;
+import static com.ossez.wechat.common.enums.WxMpApiUrl.ImgProc.FILE_SUPER_RESOLUTION;
+import static com.ossez.wechat.common.enums.WxMpApiUrl.ImgProc.QRCODE;
+import static com.ossez.wechat.common.enums.WxMpApiUrl.ImgProc.SUPER_RESOLUTION;
 
 /**
  * 图像处理接口实现.

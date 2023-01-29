@@ -1,11 +1,11 @@
 package com.ossez.wechat.open.api.impl;
 
 import com.ossez.wechat.common.bean.oauth2.WxOAuth2AccessToken;
+import com.ossez.wechat.common.config.ConfigStorage;
 import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.common.service.WxOAuth2Service;
 import com.ossez.wechat.common.service.WxOAuth2ServiceDecorator;
 import com.ossez.wechat.common.util.http.URIUtil;
-import com.ossez.wechat.oa.config.ConfigStorage;
 import com.ossez.wechat.open.api.WxOpenComponentService;
 import org.apache.commons.lang3.StringUtils;
 

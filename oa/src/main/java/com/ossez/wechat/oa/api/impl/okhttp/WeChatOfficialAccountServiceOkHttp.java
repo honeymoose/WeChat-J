@@ -11,7 +11,7 @@ import com.ossez.wechat.common.model.WeChatAccessToken;
 import com.ossez.wechat.common.util.http.HttpType;
 import com.ossez.wechat.common.util.http.okhttp.OkHttpProxyInfo;
 import com.ossez.wechat.oa.api.impl.BaseWeChatOfficialAccountServiceImpl;
-import com.ossez.wechat.oa.config.ConfigStorage;
+import com.ossez.wechat.common.config.ConfigStorage;
 import okhttp3.ConnectionPool;
 import okhttp3.OkHttpClient;
 import org.slf4j.Logger;
@@ -93,7 +93,7 @@ public class WeChatOfficialAccountServiceOkHttp extends BaseWeChatOfficialAccoun
                 .addInterceptor(new WeChatErrorInterceptor())
                 .connectionPool(new ConnectionPool(5, 1, TimeUnit.SECONDS)).readTimeout(1000, TimeUnit.SECONDS).build();
 
-        Retrofit retrofit = new Retrofit.Builder().baseUrl(WeChatConstant.ENDPOINT_OFFICIAL_ACCOUNT).client(client)
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(WeChatConstant.ENDPOINT_WECHAT).client(client)
                 .addConverterFactory(JacksonConverterFactory.create(mapper))
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();

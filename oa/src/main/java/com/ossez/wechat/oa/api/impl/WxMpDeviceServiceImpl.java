@@ -7,7 +7,7 @@ import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.oa.api.WxMpDeviceService;
 import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 
-import static com.ossez.wechat.oa.enums.WxMpApiUrl.Device.*;
+import static com.ossez.wechat.common.enums.WxMpApiUrl.Device.*;
 
 /**
  * Created by keungtung on 10/12/2016.

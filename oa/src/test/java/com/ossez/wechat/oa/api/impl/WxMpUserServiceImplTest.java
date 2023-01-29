@@ -21,7 +21,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.ossez.wechat.oa.enums.WxMpApiUrl.User.USER_CHANGE_OPENID_URL;
+import static com.ossez.wechat.common.enums.WxMpApiUrl.User.USER_CHANGE_OPENID_URL;
 import static org.mockito.Mockito.mock;
 
 /**

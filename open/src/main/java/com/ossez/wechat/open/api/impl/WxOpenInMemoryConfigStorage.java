@@ -10,8 +10,8 @@ import lombok.Data;
 import com.ossez.wechat.common.model.WeChatAccessToken;
 import com.ossez.wechat.common.enums.TicketType;
 import com.ossez.wechat.common.util.http.apache.ApacheHttpClientBuilder;
-import com.ossez.wechat.oa.config.ConfigStorage;
-import com.ossez.wechat.oa.config.WxMpHostConfig;
+import com.ossez.wechat.common.config.ConfigStorage;
+import com.ossez.wechat.common.config.WxMpHostConfig;
 import com.ossez.wechat.open.api.WxOpenConfigStorage;
 
 import java.io.File;

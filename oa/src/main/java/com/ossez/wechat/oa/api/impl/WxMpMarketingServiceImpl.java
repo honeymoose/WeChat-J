@@ -20,7 +20,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Date;
 import java.util.List;
 
-import static com.ossez.wechat.oa.enums.WxMpApiUrl.Marketing.*;
+import static com.ossez.wechat.common.enums.WxMpApiUrl.Marketing.*;
 
 /**
  * @author <a href="https://github.com/007gzs">007</a>

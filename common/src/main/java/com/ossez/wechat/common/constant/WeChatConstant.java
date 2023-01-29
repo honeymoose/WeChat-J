@@ -1,6 +1,7 @@
 package com.ossez.wechat.common.constant;
 
 import com.ossez.wechat.common.enums.WeChatErrorCode;
+
 import java.util.*;
 
 /**
@@ -10,7 +11,10 @@ import java.util.*;
  */
 public class WeChatConstant {
 
-    public static final String  ENDPOINT_OFFICIAL_ACCOUNT = "https://api.weixin.qq.com/cgi-bin/";
+    public static final String ENDPOINT_WECHAT = "https://api.weixin.qq.com";
+    public static final String ENDPOINT_MP = "https://mp.weixin.qq.com";
+    public static final String ENDPOINT_OPEN = "https://open.weixin.qq.com";
+
 
     /**
      * access_token 相关错误代码

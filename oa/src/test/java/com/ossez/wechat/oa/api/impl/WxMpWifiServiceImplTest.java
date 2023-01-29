@@ -12,7 +12,7 @@ import org.mockito.Mockito;
 import org.testng.annotations.Guice;
 import org.testng.annotations.Test;
 
-import static com.ossez.wechat.oa.enums.WxMpApiUrl.Wifi.BIZWIFI_SHOP_GET;
+import static com.ossez.wechat.common.enums.WxMpApiUrl.Wifi.BIZWIFI_SHOP_GET;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.mock;

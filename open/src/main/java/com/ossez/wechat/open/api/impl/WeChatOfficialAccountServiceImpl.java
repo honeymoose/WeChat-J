@@ -8,7 +8,7 @@ import com.ossez.wechat.open.bean.result.WxAmpLinkResult;
 import com.ossez.wechat.open.bean.result.WxOpenResult;
 import lombok.SneakyThrows;
 import com.ossez.wechat.common.exception.WxErrorException;
-import com.ossez.wechat.oa.config.ConfigStorage;
+import com.ossez.wechat.common.config.ConfigStorage;
 import com.ossez.wechat.open.api.WxOpenComponentService;
 import com.ossez.wechat.open.api.WeChatOfficialAccountService;
 

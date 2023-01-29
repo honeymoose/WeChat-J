@@ -12,7 +12,7 @@ import com.ossez.wechat.oa.util.requestexecuter.voice.VoiceUploadRequestExecutor
 
 import java.io.File;
 
-import static com.ossez.wechat.oa.enums.WxMpApiUrl.AiOpen.*;
+import static com.ossez.wechat.common.enums.WxMpApiUrl.AiOpen.*;
 
 /**
  * <pre>

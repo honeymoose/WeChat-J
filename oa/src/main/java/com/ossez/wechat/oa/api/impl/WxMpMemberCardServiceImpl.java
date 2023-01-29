@@ -10,7 +10,7 @@ import com.ossez.wechat.oa.bean.card.enums.CardColor;
 import com.ossez.wechat.oa.bean.card.enums.DateInfoType;
 import com.ossez.wechat.oa.bean.card.membercard.*;
 import lombok.RequiredArgsConstructor;
-import com.ossez.wechat.oa.enums.WxMpApiUrl;
+import com.ossez.wechat.common.enums.WxMpApiUrl;
 import org.apache.commons.lang3.StringUtils;
 
 import com.google.gson.Gson;

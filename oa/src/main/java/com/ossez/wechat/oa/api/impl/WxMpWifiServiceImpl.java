@@ -8,7 +8,7 @@ import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.api.WxMpWifiService;
 
-import static com.ossez.wechat.oa.enums.WxMpApiUrl.Wifi.*;
+import static com.ossez.wechat.common.enums.WxMpApiUrl.Wifi.*;
 
 /**
  * <pre>

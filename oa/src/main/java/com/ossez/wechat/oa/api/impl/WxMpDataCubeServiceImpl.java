@@ -6,14 +6,14 @@ import lombok.RequiredArgsConstructor;
 import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.oa.api.WxMpDataCubeService;
 import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
-import com.ossez.wechat.oa.enums.WxMpApiUrl;
+import com.ossez.wechat.common.enums.WxMpApiUrl;
 import org.apache.commons.lang3.time.FastDateFormat;
 
 import java.text.Format;
 import java.util.Date;
 import java.util.List;
 
-import static com.ossez.wechat.oa.enums.WxMpApiUrl.DataCube.*;
+import static com.ossez.wechat.common.enums.WxMpApiUrl.DataCube.*;
 
 /**
  * Created by Binary Wang on 2016/8/23.

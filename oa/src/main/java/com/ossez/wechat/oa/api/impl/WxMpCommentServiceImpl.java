@@ -7,7 +7,7 @@ import com.ossez.wechat.oa.api.WxMpCommentService;
 import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.bean.comment.WxMpCommentListVo;
 
-import static com.ossez.wechat.oa.enums.WxMpApiUrl.Comment.*;
+import static com.ossez.wechat.common.enums.WxMpApiUrl.Comment.*;
 
 /**
  * @author <a href="https://github.com/binarywang">Binary Wang</a>

@@ -24,7 +24,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-import static com.ossez.wechat.oa.enums.WxMpApiUrl.Material.*;
+import static com.ossez.wechat.common.enums.WxMpApiUrl.Material.*;
 
 
 /**
