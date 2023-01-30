@@ -212,6 +212,11 @@ public class BaseWeChatOfficialAccountServiceImplTest {
       }
 
       @Override
+      public String getDomainIPs() throws WxErrorException {
+        return null;
+      }
+
+      @Override
       public void initHttp() {
 
       }
