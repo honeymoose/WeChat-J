@@ -13,4 +13,8 @@ public interface WeChatOfficialAccountApi {
 
     @GET("/cgi-bin/get_api_domain_ip")
     Single<WeChatApiDomainIp> getDomainIPs(@Query("access_token") String accessToken);
+
+    @GET("/cgi-bin/callback/check")
+    Single<String> checkNetwork(@Query("access_token") String accessToken);
+
 }
