@@ -92,7 +92,7 @@ public class WeChatOfficialAccountServiceOkHttp extends BaseWeChatOfficialAccoun
         WeChatApiDomainIp apiDomainIp = new WeChatApiDomainIp();
 
         try {
-            apiDomainIp = weChatOfficialAccountApi.getDomainIPs(config.getAccessToken()).blockingGet();
+            apiDomainIp = weChatOfficialAccountApi.getDomainIPs().blockingGet();
         } catch (HttpException ex) {
             log.warn("Access WeChat API return error.", ex);
             if (ex.code() == 400) {

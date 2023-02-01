@@ -69,7 +69,7 @@ public class WxOpenComponentServiceImpl implements WxOpenComponentService {
         wxMpService = WX_OPEN_MP_SERVICE_MAP.get(appId);
         if (wxMpService == null) {
           WxOpenConfigStorage storage = this.getWxOpenConfigStorage();
-          wxMpService = new WeChatOfficialAccountServiceImpl(this, appId, storage.getWxMpConfigStorage(appId));
+//          wxMpService = new WeChatOfficialAccountServiceImpl(this, appId, storage.getWxMpConfigStorage(appId));
           // 配置重试次数和重试间隔
           wxMpService.setMaxRetryTimes(storage.getMaxRetryTimes());
           wxMpService.setRetrySleepMillis(storage.getRetrySleepMillis());

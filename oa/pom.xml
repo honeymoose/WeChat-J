@@ -99,10 +99,6 @@
             <version>4.11.0</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>com.squareup.retrofit2</groupId>
-            <artifactId>retrofit</artifactId>
-        </dependency>
 
     </dependencies>
 

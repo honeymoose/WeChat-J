@@ -1,16 +1,15 @@
 package com.ossez.wechat.oa.api.impl.okhttp;
 
+import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
-
 import java.io.IOException;
 
 /**
  * OkHttp Interceptor that adds an authorization token header
  */
 public class AuthenticationInterceptor implements Interceptor {
-
     private final String token;
 
     AuthenticationInterceptor(String token) {
@@ -19,10 +18,9 @@ public class AuthenticationInterceptor implements Interceptor {
 
     @Override
     public Response intercept(Chain chain) throws IOException {
-        Request request = chain.request()
-                .newBuilder()
-                .header("Authorization", "Bearer " + token)
-                .build();
+        HttpUrl url = chain.request().url().newBuilder().addQueryParameter("access_token", token).build();
+        Request request = chain.request().newBuilder().url(url).build();
+        //                .header("Authorization", "Bearer " + token)
         return chain.proceed(request);
     }
 }

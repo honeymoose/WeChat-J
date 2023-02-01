@@ -39,6 +39,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.locks.Lock;
 
@@ -156,7 +157,7 @@ public abstract class BaseWeChatOfficialAccountServiceImpl<H, P> implements WeCh
   @Setter
   private WxMpFreePublishService freePublishService = new WxMpFreePublishServiceImpl(this);
 
-  private Map<String, ConfigStorage> configStorageMap;
+  private Map<String, ConfigStorage> configStorageMap = new HashMap<>();
 
   private int retrySleepMillis = 1000;
   private int maxRetryTimes = 5;

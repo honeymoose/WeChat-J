@@ -4,41 +4,24 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
-import com.google.gson.JsonObject;
-import com.ossez.wechat.common.bean.WxJsapiSignature;
-import com.ossez.wechat.common.bean.WxNetCheckResult;
-import com.ossez.wechat.common.config.ConfigStorage;
 import com.ossez.wechat.common.constant.WeChatConstant;
-import com.ossez.wechat.common.enums.TicketType;
-import com.ossez.wechat.common.enums.WxMpApiUrl;
 import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.common.model.WeChatApiDomainIp;
-import com.ossez.wechat.common.service.WxImgProcService;
-import com.ossez.wechat.common.service.WxOAuth2Service;
-import com.ossez.wechat.common.service.WxOcrService;
-import com.ossez.wechat.common.service.WxService;
-import com.ossez.wechat.common.util.http.MediaUploadRequestExecutor;
-import com.ossez.wechat.common.util.http.RequestExecutor;
-import com.ossez.wechat.common.util.http.RequestHttp;
+import com.ossez.wechat.common.model.req.NetworkCheck;
+import com.ossez.wechat.common.model.req.QueryQuota;
+import com.ossez.wechat.common.model.res.NetworkCheckResponse;
+import com.ossez.wechat.common.model.res.QueryQuotaResponse;
 import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
-import com.ossez.wechat.oa.bean.WxMpSemanticQuery;
-import com.ossez.wechat.oa.bean.result.WxMpCurrentAutoReplyInfo;
-import com.ossez.wechat.oa.bean.result.WxMpSemanticQueryResult;
-import com.ossez.wechat.oa.bean.result.WxMpShortKeyResult;
 import okhttp3.ConnectionPool;
 import okhttp3.OkHttpClient;
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import retrofit2.HttpException;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.jackson.JacksonConverterFactory;
-
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
-
-/**
+import java.util.concurrent.TimeUnit;/**
  * 微信公众号API的Service.
  *
  * @author chanjarster
@@ -59,18 +42,20 @@ public class WeChatPlatformService {
     }
 
 
-    public WeChatPlatformService() {
+    public WeChatPlatformService(String accessToken) {
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
         mapper.setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE);
 
         OkHttpClient client = new OkHttpClient.Builder()
+                .addInterceptor(new AuthenticationInterceptor(accessToken))
                 .addInterceptor(new WeChatErrorInterceptor())
                 .connectionPool(new ConnectionPool(5, 1, TimeUnit.SECONDS)).readTimeout(1000, TimeUnit.SECONDS).build();
 
         Retrofit retrofit = new Retrofit.Builder().baseUrl(WeChatConstant.ENDPOINT_WECHAT).client(client)
-                .addConverterFactory(JacksonConverterFactory.create(mapper))
+//                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(JacksonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
 
@@ -84,7 +69,7 @@ public class WeChatPlatformService {
         WeChatApiDomainIp apiDomainIp = new WeChatApiDomainIp();
 
         try {
-            apiDomainIp = weChatOfficialAccountApi.getDomainIPs(xx).blockingGet();
+            apiDomainIp = weChatOfficialAccountApi.getDomainIPs().blockingGet();
         } catch (HttpException ex) {
             log.warn("Access WeChat API return error.", ex);
             if (ex.code() == 400) {
@@ -95,13 +80,15 @@ public class WeChatPlatformService {
         return apiDomainIp.getIpList().toString();
     }
 
-    public String checkNetwork() throws WxErrorException {
-        String xx = weChatOfficialAccountService.getAccessToken();
+    public NetworkCheckResponse checkNetwork() throws WxErrorException {
 
-        String networkResponse = StringUtils.EMPTY;
+
+        NetworkCheck networkCheck = new NetworkCheck();
+        networkCheck.setAction("all");
+        NetworkCheckResponse networkCheckResponse = new NetworkCheckResponse();
 
         try {
-            networkResponse = weChatOfficialAccountApi.checkNetwork(xx).blockingGet();
+            networkCheckResponse = weChatOfficialAccountApi.checkNetwork(networkCheck).blockingGet();
         } catch (HttpException ex) {
             log.warn("Access WeChat API return error.", ex);
             if (ex.code() == 400) {
@@ -109,7 +96,47 @@ public class WeChatPlatformService {
             }
             System.out.println(">>>>>>>>>>>>>>>>>>>> " + ex.getMessage());
         }
-        return networkResponse;
+        return networkCheckResponse;
     }
+
+    public NetworkCheckResponse clearQuota() throws WxErrorException {
+
+
+        NetworkCheck networkCheck = new NetworkCheck();
+        networkCheck.setAction("all");
+        NetworkCheckResponse networkCheckResponse = new NetworkCheckResponse();
+
+        try {
+            networkCheckResponse = weChatOfficialAccountApi.clearQuota(networkCheck).blockingGet();
+        } catch (HttpException ex) {
+            log.warn("Access WeChat API return error.", ex);
+            if (ex.code() == 400) {
+                throw new WxErrorException(ex);
+            }
+            System.out.println(">>>>>>>>>>>>>>>>>>>> " + ex.getMessage());
+        }
+        return networkCheckResponse;
+    }
+
+    public QueryQuotaResponse queryQuota() throws WxErrorException {
+
+
+        QueryQuota queryQuota = new QueryQuota();
+        queryQuota.setCgiPath("/cgi-bin/message/custom/send");
+
+        QueryQuotaResponse queryQuotaResponse = new QueryQuotaResponse();
+
+        try {
+            queryQuotaResponse = weChatOfficialAccountApi.queryQuota(queryQuota).blockingGet();
+        } catch (HttpException ex) {
+            log.warn("Access WeChat API return error.", ex);
+            if (ex.code() == 400) {
+                throw new WxErrorException(ex);
+            }
+            System.out.println(">>>>>>>>>>>>>>>>>>>> " + ex.getMessage());
+        }
+        return queryQuotaResponse;
+    }
+
 
 }
