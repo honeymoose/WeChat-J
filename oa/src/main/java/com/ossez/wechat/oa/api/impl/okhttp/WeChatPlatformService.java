@@ -27,8 +27,7 @@ import java.util.concurrent.TimeUnit;/**
  * @author chanjarster
  */
 public class WeChatPlatformService {
-
-    final Logger log = LoggerFactory.getLogger(WeChatPlatformService.class);
+    private final Logger log = LoggerFactory.getLogger(WeChatPlatformService.class);
 
     WeChatOfficialAccountApi weChatOfficialAccountApi;
     WeChatOfficialAccountService weChatOfficialAccountService;
@@ -82,7 +81,6 @@ public class WeChatPlatformService {
 
     public NetworkCheckResponse checkNetwork() throws WxErrorException {
 
-
         NetworkCheck networkCheck = new NetworkCheck();
         networkCheck.setAction("all");
         NetworkCheckResponse networkCheckResponse = new NetworkCheckResponse();
@@ -118,6 +116,11 @@ public class WeChatPlatformService {
         return networkCheckResponse;
     }
 
+    /**
+     * queryQuota for WeChat API
+     * @return
+     * @throws WxErrorException
+     */
     public QueryQuotaResponse queryQuota() throws WxErrorException {
 
 
