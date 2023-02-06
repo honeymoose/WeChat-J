@@ -1,7 +1,7 @@
 package com.ossez.wechat.open.api;
 
 import cn.binarywang.wx.miniapp.bean.WxMaJscode2SessionResult;
-import com.ossez.wechat.common.bean.oauth2.WxOAuth2AccessToken;
+import com.ossez.wechat.common.model.WeChatOAuth2AccessToken;
 import com.ossez.wechat.common.bean.result.WxMinishopImageUploadResult;
 import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
@@ -427,7 +427,7 @@ public interface WxOpenComponentService {
    * @deprecated 2021-05-21: 已修正公众号相关接口,请使用:WxOpenComponentService.getWxMpServiceByAppid(mpAppId).getOAuth2Service().getAccessToken(code)
    */
   @Deprecated
-  WxOAuth2AccessToken oauth2getAccessToken(String appid, String code) throws WxErrorException;
+  WeChatOAuth2AccessToken oauth2getAccessToken(String appid, String code) throws WxErrorException;
 
   /**
    * Check signature boolean.
@@ -448,7 +448,7 @@ public interface WxOpenComponentService {
    * @return the wx mp o auth 2 access token
    * @throws WxErrorException the wx error exception
    */
-  WxOAuth2AccessToken oauth2refreshAccessToken(String appid, String refreshToken) throws WxErrorException;
+  WeChatOAuth2AccessToken oauth2refreshAccessToken(String appid, String refreshToken) throws WxErrorException;
 
   /**
    * Oauth 2 build authorization url string.

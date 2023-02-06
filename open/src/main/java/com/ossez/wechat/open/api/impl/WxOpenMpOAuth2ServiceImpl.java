@@ -1,8 +1,8 @@
 package com.ossez.wechat.open.api.impl;
 
-import com.ossez.wechat.common.bean.oauth2.WxOAuth2AccessToken;
 import com.ossez.wechat.common.config.ConfigStorage;
 import com.ossez.wechat.common.exception.WxErrorException;
+import com.ossez.wechat.common.model.WeChatOAuth2AccessToken;
 import com.ossez.wechat.common.service.WxOAuth2Service;
 import com.ossez.wechat.common.service.WxOAuth2ServiceDecorator;
 import com.ossez.wechat.common.util.http.URIUtil;
@@ -35,7 +35,7 @@ public class WxOpenMpOAuth2ServiceImpl extends WxOAuth2ServiceDecorator {
    * @throws WxErrorException 如果微信接口调用失败将抛出此异常
    */
   @Override
-  public WxOAuth2AccessToken getAccessToken(String code) throws WxErrorException {
+  public WeChatOAuth2AccessToken getAccessToken(String code) throws WxErrorException {
     String url = String.format(
       WxOpenComponentService.OAUTH2_ACCESS_TOKEN_URL,
       configStorage.getAppId(),
@@ -43,7 +43,7 @@ public class WxOpenMpOAuth2ServiceImpl extends WxOAuth2ServiceDecorator {
       wxOpenComponentService.getWxOpenConfigStorage().getComponentAppId()
     );
     String responseContent = wxOpenComponentService.get(url);
-    return WxOAuth2AccessToken.fromJson(responseContent);
+    return WeChatOAuth2AccessToken.fromJson(responseContent);
   }
 
   @Override

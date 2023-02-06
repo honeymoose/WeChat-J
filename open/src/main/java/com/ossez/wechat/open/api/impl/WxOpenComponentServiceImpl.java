@@ -6,8 +6,9 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import com.ossez.wechat.common.constant.WeChatConstant;
-import com.ossez.wechat.common.bean.oauth2.WxOAuth2AccessToken;
+import com.ossez.wechat.common.model.WeChatOAuth2AccessToken;
 import com.ossez.wechat.common.bean.result.WxMinishopImageUploadResult;
+import com.ossez.wechat.open.api.WxOpenConfigStorage;
 import com.ossez.wechat.common.exception.WxError;
 import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.common.exception.WxRuntimeException;
@@ -17,6 +18,7 @@ import com.ossez.wechat.common.util.json.GsonParser;
 import com.ossez.wechat.common.util.json.WxGsonBuilder;
 import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.open.api.*;
+import com.ossez.wechat.open.api.WeChatOpenService;
 import com.ossez.wechat.open.bean.*;
 import com.ossez.wechat.open.bean.auth.WxOpenAuthorizationInfo;
 import com.ossez.wechat.open.bean.message.WxOpenXmlMessage;
@@ -59,7 +61,7 @@ public class WxOpenComponentServiceImpl implements WxOpenComponentService {
 
   private static final Map<String, WxOpenMinishopService> WX_OPEN_MINISHOP_SERVICE_MAP = new ConcurrentHashMap<>();
 
-  private final WxOpenService wxOpenService;
+  private final WeChatOpenService wxOpenService;
 
   @Override
   public com.ossez.wechat.open.api.WeChatOfficialAccountService getWxMpServiceByAppid(String appId) {
@@ -134,7 +136,7 @@ public class WxOpenComponentServiceImpl implements WxOpenComponentService {
     return minishopService;
   }
 
-  public WxOpenService getWxOpenService() {
+  public WeChatOpenService getWxOpenService() {
     return wxOpenService;
   }
 
@@ -451,10 +453,10 @@ public class WxOpenComponentServiceImpl implements WxOpenComponentService {
   }
 
   @Override
-  public WxOAuth2AccessToken oauth2getAccessToken(String appId, String code) throws WxErrorException {
+  public WeChatOAuth2AccessToken oauth2getAccessToken(String appId, String code) throws WxErrorException {
     String url = String.format(OAUTH2_ACCESS_TOKEN_URL, appId, code, getWxOpenConfigStorage().getComponentAppId());
     String responseContent = get(url);
-    return WxOAuth2AccessToken.fromJson(responseContent);
+    return WeChatOAuth2AccessToken.fromJson(responseContent);
   }
 
   @Override
@@ -463,10 +465,10 @@ public class WxOpenComponentServiceImpl implements WxOpenComponentService {
   }
 
   @Override
-  public WxOAuth2AccessToken oauth2refreshAccessToken(String appId, String refreshToken) throws WxErrorException {
+  public WeChatOAuth2AccessToken oauth2refreshAccessToken(String appId, String refreshToken) throws WxErrorException {
     String url = String.format(OAUTH2_REFRESH_TOKEN_URL, appId, refreshToken, getWxOpenConfigStorage().getComponentAppId());
     String responseContent = get(url);
-    return WxOAuth2AccessToken.fromJson(responseContent);
+    return WeChatOAuth2AccessToken.fromJson(responseContent);
   }
 
   @Override

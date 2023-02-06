@@ -10,7 +10,7 @@ import java.io.File;
  *
  * @author <a href="https://github.com/007gzs">007</a>
  */
-public interface WxOpenService {
+public interface WeChatOpenService {
   /**
    * Gets wx open component service.
    *

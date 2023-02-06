@@ -1,6 +1,6 @@
 package com.ossez.wechat.open.api.impl;
 
-import com.ossez.wechat.common.bean.oauth2.WxOAuth2AccessToken;
+import com.ossez.wechat.common.model.WeChatOAuth2AccessToken;
 import com.ossez.wechat.common.exception.WxErrorException;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -11,8 +11,8 @@ import org.testng.annotations.Test;
  * @author <a href="https://github.com/binarywang">Binary Wang</a>
  * created on  2020-10-19
  */
-public class WxOpenOAuth2ServiceImplTest {
-  private final WxOpenOAuth2ServiceImpl service = new WxOpenOAuth2ServiceImpl("123", "");
+public class WxOpenWeChatOAuth2ServiceImplTest {
+  private final WeChatOAuth2Service service = new WeChatOAuth2Service("123", "");
 
   @BeforeTest
   public void init() {
@@ -41,11 +41,11 @@ public class WxOpenOAuth2ServiceImplTest {
 
   @Test
   public void testGetUserInfo() throws WxErrorException {
-    this.service.getUserInfo(new WxOAuth2AccessToken(), "");
+    this.service.getUserInfo(new WeChatOAuth2AccessToken(), "");
   }
 
   @Test
   public void testValidateAccessToken() {
-    this.service.validateAccessToken(new WxOAuth2AccessToken());
+    this.service.validateAccessToken(new WeChatOAuth2AccessToken());
   }
 }

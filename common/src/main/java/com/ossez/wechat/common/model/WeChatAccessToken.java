@@ -40,4 +40,5 @@ public class WeChatAccessToken {
     public void setExpiresIn(int expiresIn) {
         this.expiresIn = expiresIn;
     }
+
 }

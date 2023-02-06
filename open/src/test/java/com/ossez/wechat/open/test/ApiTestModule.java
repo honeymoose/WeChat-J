@@ -5,8 +5,8 @@ import com.google.inject.Module;
 import com.ossez.wechat.open.api.WxOpenComponentService;
 import com.ossez.wechat.open.api.WxOpenMaService;
 import com.ossez.wechat.open.api.WeChatOfficialAccountService;
-import com.ossez.wechat.open.api.WxOpenService;
-import com.ossez.wechat.open.api.impl.WxOpenServiceImpl;
+import com.ossez.wechat.open.api.WeChatOpenService;
+import com.ossez.wechat.open.api.impl.WeChatOpenServiceImpl;
 import com.thoughtworks.xstream.XStream;
 import com.ossez.wechat.common.exception.WxRuntimeException;
 import com.ossez.wechat.common.util.xml.XStreamInitializer;
@@ -28,12 +28,12 @@ public class ApiTestModule implements Module {
       }
 
       TestConfigStorage config = this.fromXml(TestConfigStorage.class, inputStream);
-      WxOpenService service = new WxOpenServiceImpl();
+      WeChatOpenService service = new WeChatOpenServiceImpl<>();
 
       service.setWxOpenConfigStorage(config);
 
       binder.bind(TestConfigStorage.class).toInstance(config);
-      binder.bind(WxOpenService.class).toInstance(service);
+      binder.bind(WeChatOpenService.class).toInstance(service);
       binder.bind(WxOpenComponentService.class).toInstance(service.getWxOpenComponentService());
 
       if (config.getTestMpAppId() != null && !config.getTestMpAppId().isEmpty()) {

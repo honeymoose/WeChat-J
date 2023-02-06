@@ -1,7 +1,7 @@
 package com.ossez.wechat.common.service;
 
-import com.ossez.wechat.common.bean.WxOAuth2UserInfo;
-import com.ossez.wechat.common.bean.oauth2.WxOAuth2AccessToken;
+import com.ossez.wechat.common.model.entity.WeChatOAuth2UserInfo;
+import com.ossez.wechat.common.model.WeChatOAuth2AccessToken;
 import com.ossez.wechat.common.exception.WxErrorException;
 
 /**
@@ -34,7 +34,7 @@ public interface WxOAuth2Service {
    * @return token对象
    * @throws WxErrorException .
    */
-  WxOAuth2AccessToken getAccessToken(String code) throws WxErrorException;
+  WeChatOAuth2AccessToken getAccessToken(String code) throws WxErrorException;
 
   /**
    * 用code换取oauth2的access token.
@@ -45,7 +45,7 @@ public interface WxOAuth2Service {
    * @return token对象
    * @throws WxErrorException .
    */
-  WxOAuth2AccessToken getAccessToken(String appId, String appSecret, String code) throws WxErrorException;
+  WeChatOAuth2AccessToken getAccessToken(String appId, String appSecret, String code) throws WxErrorException;
 
   /**
    * <pre>
@@ -56,7 +56,7 @@ public interface WxOAuth2Service {
    * @return 新的token对象
    * @throws WxErrorException .
    */
-  WxOAuth2AccessToken refreshAccessToken(String refreshToken) throws WxErrorException;
+  WeChatOAuth2AccessToken refreshAccessToken(String refreshToken) throws WxErrorException;
 
   /**
    * <pre>
@@ -68,7 +68,7 @@ public interface WxOAuth2Service {
    * @return 用户对象
    * @throws WxErrorException .
    */
-  WxOAuth2UserInfo getUserInfo(WxOAuth2AccessToken oAuth2AccessToken, String lang) throws WxErrorException;
+  WeChatOAuth2UserInfo getUserInfo(WeChatOAuth2AccessToken oAuth2AccessToken, String lang) throws WxErrorException;
 
   /**
    * <pre>
@@ -78,6 +78,6 @@ public interface WxOAuth2Service {
    * @param oAuth2AccessToken token对象
    * @return 是否有效
    */
-  boolean validateAccessToken(WxOAuth2AccessToken oAuth2AccessToken);
+  boolean validateAccessToken(WeChatOAuth2AccessToken oAuth2AccessToken);
 
 }

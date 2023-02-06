@@ -1,7 +1,7 @@
 package com.ossez.wechat.open.api.impl;
 
 import com.google.inject.Inject;
-import com.ossez.wechat.common.bean.oauth2.WxOAuth2AccessToken;
+import com.ossez.wechat.common.model.WeChatOAuth2AccessToken;
 import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.open.api.WeChatOfficialAccountService;
 import com.ossez.wechat.open.test.ApiTestModule;
@@ -9,7 +9,7 @@ import org.testng.annotations.Guice;
 import org.testng.annotations.Test;
 
 @Guice(modules = ApiTestModule.class)
-public class WxOpenMpOAuth2ServiceImplTest {
+public class WxOpenMpWeChatOAuth2ServiceImplTest {
 
   @Inject
   protected WeChatOfficialAccountService wxOpenMpService;
@@ -23,7 +23,7 @@ public class WxOpenMpOAuth2ServiceImplTest {
 
   @Test
   public void getAccessToken() throws WxErrorException {
-    WxOAuth2AccessToken result = wxOpenMpService.getOAuth2Service().getAccessToken("041crm0005iFJL1b2l400I0s0k4crm0z");
+    WeChatOAuth2AccessToken result = wxOpenMpService.getOAuth2Service().getAccessToken("041crm0005iFJL1b2l400I0s0k4crm0z");
     System.out.println(result);
   }
 }

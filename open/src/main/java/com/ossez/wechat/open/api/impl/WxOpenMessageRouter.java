@@ -3,15 +3,15 @@ package com.ossez.wechat.open.api.impl;
 import com.ossez.wechat.oa.api.WxMpMessageRouter;
 import com.ossez.wechat.oa.bean.message.WxMpXmlMessage;
 import com.ossez.wechat.oa.bean.message.WxMpXmlOutMessage;
-import com.ossez.wechat.open.api.WxOpenService;
+import com.ossez.wechat.open.api.WeChatOpenService;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class WxOpenMessageRouter extends WxMpMessageRouter {
-  private WxOpenService wxOpenService;
+  private WeChatOpenService wxOpenService;
 
-  public WxOpenMessageRouter(WxOpenService wxOpenService) {
+  public WxOpenMessageRouter(WeChatOpenService wxOpenService) {
     super(null);
     this.wxOpenService = wxOpenService;
   }

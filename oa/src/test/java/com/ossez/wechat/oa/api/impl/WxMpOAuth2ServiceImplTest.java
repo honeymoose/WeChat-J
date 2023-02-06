@@ -1,8 +1,8 @@
 package com.ossez.wechat.oa.api.impl;
 
-import com.ossez.wechat.common.bean.WxOAuth2UserInfo;
-import com.ossez.wechat.common.bean.oauth2.WxOAuth2AccessToken;
 import com.ossez.wechat.common.exception.WxErrorException;
+import com.ossez.wechat.common.model.WeChatOAuth2AccessToken;
+import com.ossez.wechat.common.model.entity.WeChatOAuth2UserInfo;
 import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.api.test.ApiTestModule;
 import org.assertj.core.api.Assertions;
@@ -35,26 +35,26 @@ public class WxMpOAuth2ServiceImplTest {
 
   @Test
   public void testGetAccessToken() throws WxErrorException {
-    final WxOAuth2AccessToken accessToken = this.mpService.getOAuth2Service().getAccessToken("11");
+    final WeChatOAuth2AccessToken accessToken = this.mpService.getOAuth2Service().getAccessToken("11");
     Assertions.assertThat(accessToken).isNotNull();
   }
 
   @Test
   public void testRefreshAccessToken() throws WxErrorException {
-    final WxOAuth2AccessToken accessToken = this.mpService.getOAuth2Service().refreshAccessToken("11");
+    final WeChatOAuth2AccessToken accessToken = this.mpService.getOAuth2Service().refreshAccessToken("11");
     Assertions.assertThat(accessToken).isNotNull();
   }
 
   @Test
   public void testGetUserInfo() throws WxErrorException {
-    final WxOAuth2AccessToken accessToken = this.mpService.getOAuth2Service().getAccessToken("11");
-    final WxOAuth2UserInfo userInfo = this.mpService.getOAuth2Service().getUserInfo(accessToken, null);
+    final WeChatOAuth2AccessToken accessToken = this.mpService.getOAuth2Service().getAccessToken("11");
+    final WeChatOAuth2UserInfo userInfo = this.mpService.getOAuth2Service().getUserInfo(accessToken, null);
     Assertions.assertThat(userInfo).isNotNull();
   }
 
   @Test
   public void testValidateAccessToken() {
-    final boolean result = this.mpService.getOAuth2Service().validateAccessToken(new WxOAuth2AccessToken());
+    final boolean result = this.mpService.getOAuth2Service().validateAccessToken(new WeChatOAuth2AccessToken());
     Assertions.assertThat(result).isTrue();
   }
 }

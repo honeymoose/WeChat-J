@@ -1,8 +1,8 @@
 package com.ossez.wechat.oa.api.impl;
 
+import com.ossez.wechat.common.model.WeChatOAuth2AccessToken;
+import com.ossez.wechat.common.model.entity.WeChatOAuth2UserInfo;
 import lombok.RequiredArgsConstructor;
-import com.ossez.wechat.common.bean.WxOAuth2UserInfo;
-import com.ossez.wechat.common.bean.oauth2.WxOAuth2AccessToken;
 import com.ossez.wechat.common.enums.WxType;
 import com.ossez.wechat.common.exception.WxError;
 import com.ossez.wechat.common.exception.WxErrorException;
@@ -35,28 +35,28 @@ public class WxMpOAuth2ServiceImpl implements WxOAuth2Service {
       getMpConfigStorage().getAppId(), URIUtil.encodeURIComponent(redirectUri), scope, StringUtils.trimToEmpty(state));
   }
 
-  private WxOAuth2AccessToken getOAuth2AccessToken(String url) throws WxErrorException {
+  private WeChatOAuth2AccessToken getOAuth2AccessToken(String url) throws WxErrorException {
     try {
       RequestExecutor<String, String> executor = SimpleGetRequestExecutor.create(this.weChatOfficialAccountService.getRequestHttp());
       String responseText = executor.execute(url, null, WxType.MP);
-      return WxOAuth2AccessToken.fromJson(responseText);
+      return WeChatOAuth2AccessToken.fromJson(responseText);
     } catch (IOException e) {
       throw new WxErrorException(WxError.builder().errorCode(99999).errorMsg(e.getMessage()).build(), e);
     }
   }
 
   @Override
-  public WxOAuth2AccessToken getAccessToken(String code) throws WxErrorException {
+  public WeChatOAuth2AccessToken getAccessToken(String code) throws WxErrorException {
     return this.getAccessToken(getMpConfigStorage().getAppId(), getMpConfigStorage().getSecret(), code);
   }
 
   @Override
-  public WxOAuth2AccessToken getAccessToken(String appId, String appSecret, String code) throws WxErrorException {
+  public WeChatOAuth2AccessToken getAccessToken(String appId, String appSecret, String code) throws WxErrorException {
     return this.getOAuth2AccessToken(String.format(OAUTH2_ACCESS_TOKEN_URL.getUrl(getMpConfigStorage()), appId, appSecret, code));
   }
 
   @Override
-  public WxOAuth2AccessToken refreshAccessToken(String refreshToken) throws WxErrorException {
+  public WeChatOAuth2AccessToken refreshAccessToken(String refreshToken) throws WxErrorException {
     String url = String.format(OAUTH2_REFRESH_TOKEN_URL.getUrl(getMpConfigStorage()), getMpConfigStorage().getAppId(), refreshToken);
     return this.getOAuth2AccessToken(url);
   }
@@ -66,7 +66,7 @@ public class WxMpOAuth2ServiceImpl implements WxOAuth2Service {
   }
 
   @Override
-  public WxOAuth2UserInfo getUserInfo(WxOAuth2AccessToken token, String lang) throws WxErrorException {
+  public WeChatOAuth2UserInfo getUserInfo(WeChatOAuth2AccessToken token, String lang) throws WxErrorException {
     if (lang == null) {
       lang = "zh_CN";
     }
@@ -76,14 +76,14 @@ public class WxMpOAuth2ServiceImpl implements WxOAuth2Service {
     try {
       RequestExecutor<String, String> executor = SimpleGetRequestExecutor.create(this.weChatOfficialAccountService.getRequestHttp());
       String responseText = executor.execute(url, null, WxType.MP);
-      return WxOAuth2UserInfo.fromJson(responseText);
+      return null;
     } catch (IOException e) {
       throw new WxRuntimeException(e);
     }
   }
 
   @Override
-  public boolean validateAccessToken(WxOAuth2AccessToken token) {
+  public boolean validateAccessToken(WeChatOAuth2AccessToken token) {
     String url = String.format(OAUTH2_VALIDATE_TOKEN_URL.getUrl(getMpConfigStorage()), token.getAccessToken(), token.getOpenId());
 
     try {
