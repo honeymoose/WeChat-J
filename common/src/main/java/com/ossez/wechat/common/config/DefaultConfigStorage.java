@@ -19,6 +19,8 @@ import java.util.concurrent.locks.ReentrantLock;
 public class DefaultConfigStorage implements ConfigStorage, Serializable {
   private static final long serialVersionUID = -6646519023303395185L;
 
+  protected volatile String openAppId;
+  protected volatile String openSecret;
   protected volatile String appId;
   protected volatile String secret;
   protected volatile String token;

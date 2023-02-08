@@ -78,6 +78,16 @@ public class WxOpenInMemoryConfigStorage implements WxOpenConfigStorage {
     updateComponentAccessToken(componentAccessToken.getComponentAccessToken(), componentAccessToken.getExpiresIn());
   }
 
+  @Override
+  public ConfigStorage getWxMpConfigStorage(String appId) {
+    return null;
+  }
+
+  @Override
+  public WxMaConfig getWxMaConfig(String appId) {
+    return null;
+  }
+
   private Lock accessTokenLockInstance;
 
   @Override
@@ -108,13 +118,13 @@ public class WxOpenInMemoryConfigStorage implements WxOpenConfigStorage {
   }
 
   @Override
-  public ConfigStorage getWxMpConfigStorage(String appId) {
-    return new WxOpenInnerConfigStorage(this, appId);
+  public ConfigStorage getWxMpConfigStorage(String appId,String openAppId, String openSecret) {
+    return new WxOpenInnerConfigStorage(this, appId,openAppId,openSecret);
   }
 
   @Override
-  public WxMaConfig getWxMaConfig(String appId) {
-    return new WxOpenInnerConfigStorage(this, appId);
+  public WxMaConfig getWxMaConfig(String appId,String openAppId, String openSecret) {
+    return new WxOpenInnerConfigStorage(this, appId,openAppId,openSecret);
   }
 
   @Override
@@ -256,6 +266,8 @@ public class WxOpenInMemoryConfigStorage implements WxOpenConfigStorage {
   private static class WxOpenInnerConfigStorage implements ConfigStorage, WxMaConfig {
     private final WxOpenConfigStorage wxOpenConfigStorage;
     private final String appId;
+    private final String openAppId;
+    private final String openSecret;
     private WxMpHostConfig hostConfig;
     private String apiHostUrl;
     private String accessTokenUrl;
@@ -272,9 +284,11 @@ public class WxOpenInMemoryConfigStorage implements WxOpenConfigStorage {
     private final Lock jsapiTicketLock;
     private final Lock cardApiTicketLock;
 
-    private WxOpenInnerConfigStorage(WxOpenConfigStorage wxOpenConfigStorage, String appId) {
+    private WxOpenInnerConfigStorage(WxOpenConfigStorage wxOpenConfigStorage, String appId, String openAppId, String openSecret) {
       this.wxOpenConfigStorage = wxOpenConfigStorage;
       this.appId = appId;
+      this.openAppId = openAppId;
+      this.openSecret = openSecret;
       this.accessTokenLock = wxOpenConfigStorage.getLockByKey(appId + ":accessTokenLock");
       this.jsapiTicketLock = wxOpenConfigStorage.getLockByKey(appId + ":jsapiTicketLock");
       this.cardApiTicketLock = wxOpenConfigStorage.getLockByKey(appId + ":cardApiTicketLock");

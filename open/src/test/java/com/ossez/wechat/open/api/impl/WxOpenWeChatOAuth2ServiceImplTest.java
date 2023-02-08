@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
  * created on  2020-10-19
  */
 public class WxOpenWeChatOAuth2ServiceImplTest {
-  private final WeChatOAuth2Service service = new WeChatOAuth2Service("123", "");
+  private final WeChatOAuth2Service service = new WeChatOAuth2Service("121", "", "123", "");
 
   @BeforeTest
   public void init() {

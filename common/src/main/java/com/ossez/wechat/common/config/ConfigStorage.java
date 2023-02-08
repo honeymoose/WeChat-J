@@ -95,6 +95,8 @@ public interface ConfigStorage {
    */
   void updateTicket(TicketType type, String ticket, int expiresInSeconds);
 
+  String getOpenAppId();
+  String getOpenSecret();
   /**
    * Gets app id.
    *

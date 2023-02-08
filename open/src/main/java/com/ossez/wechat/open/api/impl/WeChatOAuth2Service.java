@@ -27,10 +27,14 @@ import static com.ossez.wechat.common.enums.WxMpApiUrl.Other.QRCONNECT_URL;
  */
 @Slf4j
 public class WeChatOAuth2Service extends WeChatOpenServiceImpl implements WxOAuth2Service {
+    private final String openAppId;
+    private final String openSecret;
     private final String appId;
     private final String appSecret;
 
-    public WeChatOAuth2Service(String appId, String appSecret) {
+    public WeChatOAuth2Service(String openAppId, String openSecret, String appId, String appSecret) {
+        this.openAppId = openAppId;
+        this.openSecret = openSecret;
         this.appId = appId;
         this.appSecret = appSecret;
     }
@@ -47,7 +51,7 @@ public class WeChatOAuth2Service extends WeChatOpenServiceImpl implements WxOAut
 
     @Override
     public WeChatOAuth2AccessToken getAccessToken(String code) throws WxErrorException {
-        return this.getAccessToken(this.appId, this.appSecret, code);
+        return this.getAccessToken(this.openAppId, this.openSecret, code);
     }
 
     @Override

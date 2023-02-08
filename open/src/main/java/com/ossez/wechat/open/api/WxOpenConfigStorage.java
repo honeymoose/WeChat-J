@@ -196,6 +196,10 @@ public interface WxOpenConfigStorage {
    */
   Lock getLockByKey(String key);
 
+  ConfigStorage getWxMpConfigStorage(String appId, String openAppId, String openSecret);
+
+  WxMaConfig getWxMaConfig(String appId, String openAppId, String openSecret);
+
   /**
    * 应该是线程安全的
    *
