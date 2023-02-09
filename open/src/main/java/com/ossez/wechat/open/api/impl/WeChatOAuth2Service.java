@@ -1,10 +1,10 @@
 package com.ossez.wechat.open.api.impl;
 
-import com.ossez.wechat.common.model.entity.WeChatOAuth2UserInfo;
-import com.ossez.wechat.common.model.WeChatOAuth2AccessToken;
 import com.ossez.wechat.common.enums.WxType;
 import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.common.exception.WxRuntimeException;
+import com.ossez.wechat.common.model.WeChatOAuth2AccessToken;
+import com.ossez.wechat.common.model.entity.WeChatOAuth2UserInfo;
 import com.ossez.wechat.common.model.entity.WeChatUser;
 import com.ossez.wechat.common.service.WxOAuth2Service;
 import com.ossez.wechat.common.util.http.SimpleGetRequestExecutor;
@@ -20,10 +20,9 @@ import static com.ossez.wechat.common.enums.WxMpApiUrl.OAuth2.*;
 import static com.ossez.wechat.common.enums.WxMpApiUrl.Other.QRCONNECT_URL;
 
 /**
- * oauth2接口实现.
+ * oauth2 接口实现
  *
- * @author <a href="https://github.com/binarywang">Binary Wang</a>
- * created on  2020-10-19
+ * @author YuCheng
  */
 @Slf4j
 public class WeChatOAuth2Service extends WeChatOpenServiceImpl implements WxOAuth2Service {
