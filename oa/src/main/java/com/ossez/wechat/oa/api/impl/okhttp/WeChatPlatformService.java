@@ -19,12 +19,14 @@ import org.slf4j.LoggerFactory;
 import retrofit2.HttpException;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.jackson.JacksonConverterFactory;
-import java.util.concurrent.TimeUnit;/**
- * 微信公众号API的Service.
+
+import java.util.concurrent.TimeUnit;
+
+/**
+ * WeChat Official Account Platform related Service
  *
- * @author chanjarster
+ * @author YuCheng
  */
 public class WeChatPlatformService {
     private final Logger log = LoggerFactory.getLogger(WeChatPlatformService.class);
@@ -118,6 +120,7 @@ public class WeChatPlatformService {
 
     /**
      * queryQuota for WeChat API
+     *
      * @return
      * @throws WxErrorException
      */
