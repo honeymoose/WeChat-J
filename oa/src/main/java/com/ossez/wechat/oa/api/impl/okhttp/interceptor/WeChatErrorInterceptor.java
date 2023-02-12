@@ -1,14 +1,11 @@
-package com.ossez.wechat.oa.api.impl.okhttp;
+package com.ossez.wechat.oa.api.impl.okhttp.interceptor;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
 import com.ossez.wechat.common.constant.HttpClientMediaType;
-import com.ossez.wechat.common.exception.WxError;
 import com.ossez.wechat.common.model.entity.WeChatResponseStatus;
 import okhttp3.*;
-import okio.Buffer;
 import okio.BufferedSource;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;

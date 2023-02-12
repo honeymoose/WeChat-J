@@ -12,6 +12,8 @@ import com.ossez.wechat.common.model.req.QueryQuota;
 import com.ossez.wechat.common.model.res.NetworkCheckResponse;
 import com.ossez.wechat.common.model.res.QueryQuotaResponse;
 import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
+import com.ossez.wechat.oa.api.impl.okhttp.interceptor.AuthenticationInterceptor;
+import com.ossez.wechat.oa.api.impl.okhttp.interceptor.WeChatErrorInterceptor;
 import okhttp3.ConnectionPool;
 import okhttp3.OkHttpClient;
 import org.slf4j.Logger;
@@ -31,19 +33,18 @@ import java.util.concurrent.TimeUnit;
 public class WeChatPlatformService {
     private final Logger log = LoggerFactory.getLogger(WeChatPlatformService.class);
 
+    private final WeChatOfficialAccountService weChatOfficialAccountService;
     WeChatOfficialAccountApi weChatOfficialAccountApi;
-    WeChatOfficialAccountService weChatOfficialAccountService;
 
-    public WeChatOfficialAccountService getWeChatOfficialAccountService() {
-        return weChatOfficialAccountService;
-    }
-
-    public void setWeChatOfficialAccountService(WeChatOfficialAccountService weChatOfficialAccountService) {
+    public WeChatPlatformService(WeChatOfficialAccountService weChatOfficialAccountService) {
         this.weChatOfficialAccountService = weChatOfficialAccountService;
-    }
+        String accessToken = null;
+        try {
+            accessToken = weChatOfficialAccountService.getAccessToken();
+        } catch (WxErrorException e) {
+            throw new RuntimeException(e);
+        }
 
-
-    public WeChatPlatformService(String accessToken) {
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
@@ -64,8 +65,8 @@ public class WeChatPlatformService {
 
     }
 
+
     public String getDomainIPs() throws WxErrorException {
-        String xx = weChatOfficialAccountService.getAccessToken();
 
         WeChatApiDomainIp apiDomainIp = new WeChatApiDomainIp();
 

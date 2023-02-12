@@ -93,8 +93,6 @@ public interface WeChatOfficialAccountService extends WxService {
    */
   String getAccessToken(boolean forceRefresh) throws WxErrorException;
 
-  String getDomainIPs() throws WxErrorException;
-
   /**
    * 获得ticket,不强制刷新ticket.
    *

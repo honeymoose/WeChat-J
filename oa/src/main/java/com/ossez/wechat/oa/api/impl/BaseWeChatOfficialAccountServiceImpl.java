@@ -26,6 +26,7 @@ import com.ossez.wechat.common.util.http.*;
 import com.ossez.wechat.common.util.json.GsonParser;
 import com.ossez.wechat.common.util.json.WxGsonBuilder;
 import com.ossez.wechat.oa.api.*;
+import com.ossez.wechat.oa.api.impl.okhttp.WeChatMsgService;
 import com.ossez.wechat.oa.bean.WxMpSemanticQuery;
 import com.ossez.wechat.oa.bean.result.WxMpCurrentAutoReplyInfo;
 import com.ossez.wechat.oa.bean.result.WxMpSemanticQueryResult;
@@ -55,6 +56,8 @@ public abstract class BaseWeChatOfficialAccountServiceImpl<H, P> implements WeCh
 
 
   protected WxSessionManager sessionManager = new StandardSessionManager();
+
+
   @Getter
   @Setter
   private WxMpKefuService kefuService = new WxMpKefuServiceImpl(this);

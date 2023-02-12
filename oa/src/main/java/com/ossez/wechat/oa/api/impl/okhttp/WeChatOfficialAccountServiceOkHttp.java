@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
-import com.google.common.collect.Lists;
 import com.ossez.wechat.common.constant.WeChatApiParameter;
 import com.ossez.wechat.common.constant.WeChatConstant;
 import com.ossez.wechat.common.exception.WxErrorException;
@@ -14,9 +13,9 @@ import com.ossez.wechat.common.util.http.HttpType;
 import com.ossez.wechat.common.util.http.okhttp.OkHttpProxyInfo;
 import com.ossez.wechat.oa.api.impl.BaseWeChatOfficialAccountServiceImpl;
 import com.ossez.wechat.common.config.ConfigStorage;
+import com.ossez.wechat.oa.api.impl.okhttp.interceptor.WeChatErrorInterceptor;
 import okhttp3.ConnectionPool;
 import okhttp3.OkHttpClient;
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import retrofit2.HttpException;
@@ -83,24 +82,6 @@ public class WeChatOfficialAccountServiceOkHttp extends BaseWeChatOfficialAccoun
         config.updateAccessToken(weChatAccessToken.getAccessToken(), weChatAccessToken.getExpiresIn());
 
         return weChatAccessToken.getAccessToken();
-    }
-
-    @Override
-    public String getDomainIPs() throws WxErrorException {
-
-        final ConfigStorage config = this.getWxMpConfigStorage();
-        WeChatApiDomainIp apiDomainIp = new WeChatApiDomainIp();
-
-        try {
-            apiDomainIp = weChatOfficialAccountApi.getDomainIPs().blockingGet();
-        } catch (HttpException ex) {
-            log.warn("Access WeChat API return error.", ex);
-            if (ex.code() == 400) {
-                throw new WxErrorException(ex);
-            }
-            System.out.println(">>>>>>>>>>>>>>>>>>>> " + ex.getMessage());
-        }
-        return  apiDomainIp.getIpList().toString();
     }
 
     @Override

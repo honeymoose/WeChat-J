@@ -211,10 +211,6 @@ public class BaseWeChatOfficialAccountServiceImplTest {
         return "模拟一个过期的access token:" + System.currentTimeMillis();
       }
 
-      @Override
-      public String getDomainIPs() throws WxErrorException {
-        return null;
-      }
 
       @Override
       public void initHttp() {

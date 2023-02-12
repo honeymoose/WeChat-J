@@ -1,4 +1,4 @@
-package com.ossez.wechat.oa.api.impl.okhttp;
+package com.ossez.wechat.oa.api.impl.okhttp.interceptor;
 
 import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
@@ -12,7 +12,7 @@ import java.io.IOException;
 public class AuthenticationInterceptor implements Interceptor {
     private final String token;
 
-    AuthenticationInterceptor(String token) {
+    public AuthenticationInterceptor(String token) {
         this.token = token;
     }
 
