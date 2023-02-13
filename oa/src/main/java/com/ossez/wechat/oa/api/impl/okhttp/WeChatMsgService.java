@@ -59,14 +59,7 @@ public class WeChatMsgService {
     }
 
 
-    public String sendMessage() throws WxErrorException {
-
-        CustomMessage.KfText kfText = new CustomMessage.KfText("xxx");
-        CustomMessage customMessage = new CustomMessage();
-        customMessage.setToUser("o9phd5jz_We8mPs1ovmyjud97Ock");
-        customMessage.setMsgType("text");
-        customMessage.setText(kfText);
-
+    public String sendMessage(CustomMessage customMessage) throws WxErrorException {
 
         try {
             weChatOfficialAccountApi.sendMessage(customMessage).blockingGet();
