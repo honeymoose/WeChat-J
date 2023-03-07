@@ -2,6 +2,7 @@ package com.ossez.wechat.oa.api.impl.okhttp;
 
 import com.ossez.wechat.common.model.WeChatAccessToken;
 import com.ossez.wechat.common.model.WeChatApiDomainIp;
+import com.ossez.wechat.common.model.WeChatStatus;
 import com.ossez.wechat.common.model.req.CustomMessage;
 import com.ossez.wechat.common.model.req.NetworkCheck;
 import com.ossez.wechat.common.model.req.QueryQuota;
@@ -31,5 +32,5 @@ public interface WeChatOfficialAccountApi {
     Single<QueryQuotaResponse> queryQuota(@Body QueryQuota request);
 
     @POST("/cgi-bin/message/custom/send")
-    Single<WeChatAccessToken> sendMessage(@Body CustomMessage customMessage);
+    Single<WeChatStatus> sendMessage(@Body CustomMessage customMessage);
 }
