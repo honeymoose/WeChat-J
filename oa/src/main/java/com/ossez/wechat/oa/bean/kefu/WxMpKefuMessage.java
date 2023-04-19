@@ -11,10 +11,11 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
- * 客服消息.
+ * kefu message Object
  *
- * @author chanjarster
+ * @author YuCheng
  */
 @Data
 public class WxMpKefuMessage implements Serializable {
