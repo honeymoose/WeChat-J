@@ -8,9 +8,8 @@ import lombok.Data;
 import com.ossez.wechat.oa.util.json.WxMpGsonBuilder;
 
 /**
- * @author Binary Wang
+ * @author YuCheng
  */
-@Data
 public class WxMpKfOnlineList implements Serializable {
   private static final long serialVersionUID = -6154705288500854617L;
 
@@ -26,4 +25,11 @@ public class WxMpKfOnlineList implements Serializable {
     return WxMpGsonBuilder.create().toJson(this);
   }
 
+  public List<WxMpKfInfo> getKfOnlineList() {
+    return kfOnlineList;
+  }
+
+  public void setKfOnlineList(List<WxMpKfInfo> kfOnlineList) {
+    this.kfOnlineList = kfOnlineList;
+  }
 }
