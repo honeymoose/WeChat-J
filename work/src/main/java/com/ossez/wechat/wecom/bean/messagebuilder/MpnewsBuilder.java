@@ -26,7 +26,7 @@ public final class MpnewsBuilder extends BaseBuilder<MpnewsBuilder> {
    * Instantiates a new Mpnews builder.
    */
   public MpnewsBuilder() {
-    this.msgType = WeChatConstant.KefuMsgType.MPNEWS;
+    this.msgType = WeChatConstant.WeChatMsgType.MPNEWS;
   }
 
   /**

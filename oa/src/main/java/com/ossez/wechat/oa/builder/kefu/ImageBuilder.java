@@ -15,7 +15,7 @@ public final class ImageBuilder extends BaseBuilder<ImageBuilder> {
   private String mediaId;
 
   public ImageBuilder() {
-    this.msgType = WeChatConstant.KefuMsgType.IMAGE;
+    this.msgType = WeChatConstant.WeChatMsgType.IMAGE;
   }
 
   public ImageBuilder mediaId(String media_id) {

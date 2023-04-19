@@ -16,7 +16,7 @@ public final class MpNewsArticleBuilder extends BaseBuilder<MpNewsArticleBuilder
   private String articleId;
 
   public MpNewsArticleBuilder() {
-    this.msgType = WeChatConstant.KefuMsgType.MP_NEWS_ARTICLE;
+    this.msgType = WeChatConstant.WeChatMsgType.MP_NEWS_ARTICLE;
   }
 
   public MpNewsArticleBuilder articleId(String articleId) {

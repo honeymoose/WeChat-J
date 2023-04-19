@@ -58,51 +58,33 @@ public class WeChatConstant {
     /**
      * 主动发送消息(即客服消息)的消息类型.
      */
-    public static class KefuMsgType {
+    public static class WeChatMsgType {
         /**
-         * 文本消息.
+         * 消息类型:
+         * text(文本)
+         * image(图片)
+         * voice(语音)
+         * video(视频)
+         * music(音乐)
+         * news(图文消息 - 点击跳转到外链)
+         * mpnews(图文消息 - 点击跳转到图文消息页面)
+         * wxcard(卡券)
+         * miniprogrampage(小程序)
+         * markdown(目前仅支持markdown语法的子集，微工作台（原企业号）不支持展示markdown消息)
+         * file(发送文件 - CP专用)
+         * textcard(文本卡片消息 - CP专用)
+         * wxcard(卡券消息)
          */
         public static final String TEXT = "text";
-        /**
-         * 图片消息.
-         */
         public static final String IMAGE = "image";
-        /**
-         * 语音消息.
-         */
         public static final String VOICE = "voice";
-        /**
-         * 视频消息.
-         */
         public static final String VIDEO = "video";
-        /**
-         * 音乐消息.
-         */
         public static final String MUSIC = "music";
-        /**
-         * 图文消息（点击跳转到外链）.
-         */
         public static final String NEWS = "news";
-        /**
-         * 图文消息（点击跳转到图文消息页面）.
-         */
         public static final String MPNEWS = "mpnews";
-        /**
-         * markdown消息.
-         * （目前仅支持markdown语法的子集，微工作台（原企业号）不支持展示markdown消息）
-         */
         public static final String MARKDOWN = "markdown";
-        /**
-         * 发送文件（CP专用）.
-         */
         public static final String FILE = "file";
-        /**
-         * 文本卡片消息（CP专用）.
-         */
         public static final String TEXTCARD = "textcard";
-        /**
-         * 卡券消息.
-         */
         public static final String WXCARD = "wxcard";
         /**
          * 转发到客服的消息.

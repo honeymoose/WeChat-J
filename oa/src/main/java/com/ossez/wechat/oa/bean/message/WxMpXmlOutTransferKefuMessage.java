@@ -24,7 +24,7 @@ public class WxMpXmlOutTransferKefuMessage extends WxMpXmlOutMessage {
   protected TransInfo transInfo;
 
   public WxMpXmlOutTransferKefuMessage() {
-    this.msgType = WeChatConstant.KefuMsgType.TRANSFER_CUSTOMER_SERVICE;
+    this.msgType = WeChatConstant.WeChatMsgType.TRANSFER_CUSTOMER_SERVICE;
   }
 
   @Data

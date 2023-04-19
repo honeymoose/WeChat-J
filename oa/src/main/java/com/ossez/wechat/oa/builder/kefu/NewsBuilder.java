@@ -20,7 +20,7 @@ public final class NewsBuilder extends BaseBuilder<NewsBuilder> {
   private List<WxMpKefuMessage.WxArticle> articles = new ArrayList<>();
 
   public NewsBuilder() {
-    this.msgType = WeChatConstant.KefuMsgType.NEWS;
+    this.msgType = WeChatConstant.WeChatMsgType.NEWS;
   }
 
   public NewsBuilder addArticle(WxMpKefuMessage.WxArticle... articles) {

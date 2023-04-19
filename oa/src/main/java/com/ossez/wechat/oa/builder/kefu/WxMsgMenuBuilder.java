@@ -23,7 +23,7 @@ public final class WxMsgMenuBuilder extends BaseBuilder<WxMsgMenuBuilder> {
 
 
   public WxMsgMenuBuilder() {
-    this.msgType = WeChatConstant.KefuMsgType.MSGMENU;
+    this.msgType = WeChatConstant.WeChatMsgType.MSGMENU;
   }
 
   public WxMsgMenuBuilder addMenus(WxMpKefuMessage.MsgMenu... msgMenus) {

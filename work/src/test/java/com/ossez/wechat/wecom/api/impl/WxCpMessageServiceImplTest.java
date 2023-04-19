@@ -71,7 +71,7 @@ public class WxCpMessageServiceImplTest {
   public void testSendMessage() throws WxErrorException {
     WxCpMessage message = new WxCpMessage();
 //    message.setAgentId(configStorage.getAgentId());
-    message.setMsgType(WeChatConstant.KefuMsgType.TEXT);
+    message.setMsgType(WeChatConstant.WeChatMsgType.TEXT);
     message.setToUser(configStorage.getUserId());
     message.setContent("欢迎欢迎，热烈欢迎\n换行测试\n超链接:<a href=\"http://www.baidu.com\">Hello World</a>");
 
@@ -200,7 +200,7 @@ public class WxCpMessageServiceImplTest {
   @Test
   public void testSendLinkedCorpMessage() throws WxErrorException {
     this.wxService.getMessageService().sendLinkedCorpMessage(WxCpLinkedCorpMessage.builder()
-      .msgType(WeChatConstant.KefuMsgType.TEXT)
+      .msgType(WeChatConstant.WeChatMsgType.TEXT)
       .toUsers(new String[]{configStorage.getUserId()})
       .content("欢迎欢迎，热烈欢迎\n换行测试\n超链接:<a href=\"http://www.baidu.com\">Hello World</a>")
       .build());

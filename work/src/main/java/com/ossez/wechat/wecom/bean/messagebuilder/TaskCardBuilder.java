@@ -28,7 +28,7 @@ public class TaskCardBuilder extends BaseBuilder<TaskCardBuilder> {
    * Instantiates a new Task card builder.
    */
   public TaskCardBuilder() {
-    this.msgType = WeChatConstant.KefuMsgType.TASKCARD;
+    this.msgType = WeChatConstant.WeChatMsgType.TASKCARD;
   }
 
   /**

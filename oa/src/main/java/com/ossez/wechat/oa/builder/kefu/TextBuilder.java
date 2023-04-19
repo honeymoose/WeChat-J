@@ -15,7 +15,7 @@ public final class TextBuilder extends BaseBuilder<TextBuilder> {
   private String content;
 
   public TextBuilder() {
-    this.msgType = WeChatConstant.KefuMsgType.TEXT;
+    this.msgType = WeChatConstant.WeChatMsgType.TEXT;
   }
 
   public TextBuilder content(String content) {

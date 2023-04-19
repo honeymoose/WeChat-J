@@ -41,7 +41,7 @@ public class WxMpKefuServiceImplTest {
   public void testSendKefuMpNewsMessage() throws WxErrorException {
     TestConfigStorage configStorage = (TestConfigStorage) this.wxService.getWxMpConfigStorage();
     WxMpKefuMessage message = new WxMpKefuMessage();
-    message.setMsgType(WeChatConstant.KefuMsgType.MPNEWS);
+    message.setMsgType(WeChatConstant.WeChatMsgType.MPNEWS);
     message.setToUser(configStorage.getOpenid());
     message.setMpNewsMediaId("52R6dL2FxDpM9N1rCY3sYBqHwq-L7K_lz1sPI71idMg");
 
@@ -52,7 +52,7 @@ public class WxMpKefuServiceImplTest {
   public void testSendKefuMessage() throws WxErrorException {
     TestConfigStorage configStorage = (TestConfigStorage) this.wxService.getWxMpConfigStorage();
     WxMpKefuMessage message = new WxMpKefuMessage();
-    message.setMsgType(WeChatConstant.KefuMsgType.TEXT);
+    message.setMsgType(WeChatConstant.WeChatMsgType.TEXT);
     message.setToUser(configStorage.getOpenid());
     message.setContent("欢迎欢迎，热烈欢迎\n换行测试\n超链接:<a href=\"http://www.baidu.com\">Hello World</a>");
 
@@ -63,7 +63,7 @@ public class WxMpKefuServiceImplTest {
   public void testSendKefuMessageWithKfAccount() throws WxErrorException {
     TestConfigStorage configStorage = (TestConfigStorage) this.wxService.getWxMpConfigStorage();
     WxMpKefuMessage message = new WxMpKefuMessage();
-    message.setMsgType(WeChatConstant.KefuMsgType.TEXT);
+    message.setMsgType(WeChatConstant.WeChatMsgType.TEXT);
     message.setToUser(configStorage.getOpenid());
     message.setKfAccount(configStorage.getKfAccount());
     message.setContent("欢迎欢迎，热烈欢迎\n换行测试\n超链接:<a href=\"http://www.baidu.com\">Hello World</a>");

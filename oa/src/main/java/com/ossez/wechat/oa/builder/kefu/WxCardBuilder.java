@@ -15,7 +15,7 @@ public final class WxCardBuilder extends BaseBuilder<WxCardBuilder> {
   private String cardId;
 
   public WxCardBuilder() {
-    this.msgType = WeChatConstant.KefuMsgType.WXCARD;
+    this.msgType = WeChatConstant.WeChatMsgType.WXCARD;
   }
 
   public WxCardBuilder cardId(String cardId) {

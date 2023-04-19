@@ -23,7 +23,7 @@ public class WxCpLinkedCorpMessageTest {
   @Test
   public void testToJson_text() {
     WxCpLinkedCorpMessage message = WxCpLinkedCorpMessage.builder()
-      .msgType(WeChatConstant.KefuMsgType.TEXT)
+      .msgType(WeChatConstant.WeChatMsgType.TEXT)
       .toUsers(new String[]{"userid1", "userid2", "CorpId1/userid1", "CorpId2/userid2"})
       .toParties(new String[]{"partyid1", "partyid2", "LinkedId1/partyid1", "LinkedId2/partyid2"})
       .toTags(new String[]{"tagid1", "tagid2"})
@@ -57,7 +57,7 @@ public class WxCpLinkedCorpMessageTest {
   @Test
   public void testToJson_image() {
     WxCpLinkedCorpMessage message = WxCpLinkedCorpMessage.builder()
-      .msgType(WeChatConstant.KefuMsgType.IMAGE)
+      .msgType(WeChatConstant.WeChatMsgType.IMAGE)
       .toUsers(new String[]{"userid1", "userid2", "CorpId1/userid1", "CorpId2/userid2"})
       .toParties(new String[]{"partyid1", "partyid2", "LinkedId1/partyid1", "LinkedId2/partyid2"})
       .toTags(new String[]{"tagid1", "tagid2"})
@@ -90,7 +90,7 @@ public class WxCpLinkedCorpMessageTest {
   @Test
   public void testToJson_video() {
     WxCpLinkedCorpMessage message = WxCpLinkedCorpMessage.builder()
-      .msgType(WeChatConstant.KefuMsgType.VIDEO)
+      .msgType(WeChatConstant.WeChatMsgType.VIDEO)
       .toUsers(new String[]{"userid1", "userid2", "CorpId1/userid1", "CorpId2/userid2"})
       .toParties(new String[]{"partyid1", "partyid2", "LinkedId1/partyid1", "LinkedId2/partyid2"})
       .toTags(new String[]{"tagid1", "tagid2"})
@@ -127,7 +127,7 @@ public class WxCpLinkedCorpMessageTest {
   @Test
   public void testToJson_file() {
     WxCpLinkedCorpMessage message = WxCpLinkedCorpMessage.builder()
-      .msgType(WeChatConstant.KefuMsgType.FILE)
+      .msgType(WeChatConstant.WeChatMsgType.FILE)
       .toUsers(new String[]{"userid1", "userid2", "CorpId1/userid1", "CorpId2/userid2"})
       .toParties(new String[]{"partyid1", "partyid2", "LinkedId1/partyid1", "LinkedId2/partyid2"})
       .toTags(new String[]{"tagid1", "tagid2"})
@@ -160,7 +160,7 @@ public class WxCpLinkedCorpMessageTest {
   @Test
   public void testToJson_textCard() {
     WxCpLinkedCorpMessage message = WxCpLinkedCorpMessage.builder()
-      .msgType(WeChatConstant.KefuMsgType.TEXTCARD)
+      .msgType(WeChatConstant.WeChatMsgType.TEXTCARD)
       .toUsers(new String[]{"userid1", "userid2", "CorpId1/userid1", "CorpId2/userid2"})
       .toParties(new String[]{"partyid1", "partyid2", "LinkedId1/partyid1", "LinkedId2/partyid2"})
       .toTags(new String[]{"tagid1", "tagid2"})
@@ -199,7 +199,7 @@ public class WxCpLinkedCorpMessageTest {
   @Test
   public void testToJson_news() {
     WxCpLinkedCorpMessage message = WxCpLinkedCorpMessage.builder()
-      .msgType(WeChatConstant.KefuMsgType.NEWS)
+      .msgType(WeChatConstant.WeChatMsgType.NEWS)
       .toUsers(new String[]{"userid1", "userid2", "CorpId1/userid1", "CorpId2/userid2"})
       .toParties(new String[]{"partyid1", "partyid2", "LinkedId1/partyid1", "LinkedId2/partyid2"})
       .toTags(new String[]{"tagid1", "tagid2"})
@@ -246,7 +246,7 @@ public class WxCpLinkedCorpMessageTest {
   @Test
   public void testToJson_mpnews() {
     WxCpLinkedCorpMessage message = WxCpLinkedCorpMessage.builder()
-      .msgType(WeChatConstant.KefuMsgType.MPNEWS)
+      .msgType(WeChatConstant.WeChatMsgType.MPNEWS)
       .toUsers(new String[]{"userid1", "userid2", "CorpId1/userid1", "CorpId2/userid2"})
       .toParties(new String[]{"partyid1", "partyid2", "LinkedId1/partyid1", "LinkedId2/partyid2"})
       .toTags(new String[]{"tagid1", "tagid2"})
@@ -295,7 +295,7 @@ public class WxCpLinkedCorpMessageTest {
   @Test
   public void testToJson_markdown() {
     WxCpLinkedCorpMessage message = WxCpLinkedCorpMessage.builder()
-      .msgType(WeChatConstant.KefuMsgType.MARKDOWN)
+      .msgType(WeChatConstant.WeChatMsgType.MARKDOWN)
       .toUsers(new String[]{"userid1", "userid2", "CorpId1/userid1", "CorpId2/userid2"})
       .toParties(new String[]{"partyid1", "partyid2", "LinkedId1/partyid1", "LinkedId2/partyid2"})
       .toTags(new String[]{"tagid1", "tagid2"})
@@ -350,7 +350,7 @@ public class WxCpLinkedCorpMessageTest {
   @Test
   public void testToJson_miniProgramNotice() {
     WxCpLinkedCorpMessage message = WxCpLinkedCorpMessage.builder()
-      .msgType(WeChatConstant.KefuMsgType.MINIPROGRAM_NOTICE)
+      .msgType(WeChatConstant.WeChatMsgType.MINIPROGRAM_NOTICE)
       .toUsers(new String[]{"userid1", "userid2", "CorpId1/userid1", "CorpId2/userid2"})
       .toParties(new String[]{"partyid1", "partyid2", "LinkedId1/partyid1", "LinkedId2/partyid2"})
       .toTags(new String[]{"tagid1", "tagid2"})

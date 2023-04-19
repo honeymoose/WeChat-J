@@ -16,8 +16,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import static com.ossez.wechat.common.constant.WeChatConstant.KefuMsgType.TASKCARD;
-import static com.ossez.wechat.common.constant.WeChatConstant.KefuMsgType.TEMPLATE_CARD;
+import static com.ossez.wechat.common.constant.WeChatConstant.WeChatMsgType.TASKCARD;
+import static com.ossez.wechat.common.constant.WeChatConstant.WeChatMsgType.TEMPLATE_CARD;
 
 /**
  * 消息.
