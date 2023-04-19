@@ -18,7 +18,7 @@ public final class VoiceBuilder extends BaseBuilder<VoiceBuilder> {
    * Instantiates a new Voice builder.
    */
   public VoiceBuilder() {
-    this.msgType = WeChatConstant.WeChatMsgType.VOICE;
+    this.msgType = WeChatConstant.MsgType.VOICE;
   }
 
   /**

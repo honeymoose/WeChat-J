@@ -125,18 +125,18 @@ public class WxMpKefuMessage implements Serializable {
   /**
    * <pre>
    * 请使用
-   * {@link WeChatConstant.WeChatMsgType#TEXT}
-   * {@link WeChatConstant.WeChatMsgType#IMAGE}
-   * {@link WeChatConstant.WeChatMsgType#VOICE}
-   * {@link WeChatConstant.WeChatMsgType#MUSIC}
-   * {@link WeChatConstant.WeChatMsgType#VIDEO}
-   * {@link WeChatConstant.WeChatMsgType#NEWS}
-   * {@link WeChatConstant.WeChatMsgType#MPNEWS}
-   * {@link WeChatConstant.WeChatMsgType#WXCARD}
-   * {@link WeChatConstant.WeChatMsgType#MINIPROGRAMPAGE}
-   * {@link WeChatConstant.WeChatMsgType#TASKCARD}
-   * {@link WeChatConstant.WeChatMsgType#MSGMENU}
-   * {@link WeChatConstant.WeChatMsgType#MP_NEWS_ARTICLE}
+   * {@link WeChatConstant.MsgType#TEXT}
+   * {@link WeChatConstant.MsgType#IMAGE}
+   * {@link WeChatConstant.MsgType#VOICE}
+   * {@link WeChatConstant.MsgType#MUSIC}
+   * {@link WeChatConstant.MsgType#VIDEO}
+   * {@link WeChatConstant.MsgType#NEWS}
+   * {@link WeChatConstant.MsgType#MPNEWS}
+   * {@link WeChatConstant.MsgType#WXCARD}
+   * {@link WeChatConstant.MsgType#MINIPROGRAMPAGE}
+   * {@link WeChatConstant.MsgType#TASKCARD}
+   * {@link WeChatConstant.MsgType#MSGMENU}
+   * {@link WeChatConstant.MsgType#MP_NEWS_ARTICLE}
    * </pre>
    */
   public void setMsgType(String msgType) {

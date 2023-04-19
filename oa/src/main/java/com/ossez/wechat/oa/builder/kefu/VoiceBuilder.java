@@ -15,7 +15,7 @@ public final class VoiceBuilder extends BaseBuilder<VoiceBuilder> {
   private String mediaId;
 
   public VoiceBuilder() {
-    this.msgType = WeChatConstant.WeChatMsgType.VOICE;
+    this.msgType = WeChatConstant.MsgType.VOICE;
   }
 
   public VoiceBuilder mediaId(String media_id) {

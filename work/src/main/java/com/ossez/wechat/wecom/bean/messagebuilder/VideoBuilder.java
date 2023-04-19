@@ -27,7 +27,7 @@ public final class VideoBuilder extends BaseBuilder<VideoBuilder> {
    * Instantiates a new Video builder.
    */
   public VideoBuilder() {
-    this.msgType = WeChatConstant.WeChatMsgType.VIDEO;
+    this.msgType = WeChatConstant.MsgType.VIDEO;
   }
 
   /**

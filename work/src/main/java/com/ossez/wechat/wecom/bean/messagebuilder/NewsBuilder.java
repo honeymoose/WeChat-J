@@ -25,7 +25,7 @@ public final class NewsBuilder extends BaseBuilder<NewsBuilder> {
    * Instantiates a new News builder.
    */
   public NewsBuilder() {
-    this.msgType = WeChatConstant.WeChatMsgType.NEWS;
+    this.msgType = WeChatConstant.MsgType.NEWS;
   }
 
   /**

@@ -18,7 +18,7 @@ public final class ImageBuilder extends BaseBuilder<ImageBuilder> {
    * Instantiates a new Image builder.
    */
   public ImageBuilder() {
-    this.msgType = WeChatConstant.WeChatMsgType.IMAGE;
+    this.msgType = WeChatConstant.MsgType.IMAGE;
   }
 
   /**

@@ -1,7 +1,7 @@
 package com.ossez.wechat.oa.util.json;
 
 import com.google.gson.*;
-import com.ossez.wechat.common.constant.WeChatConstant.WeChatMsgType;
+import com.ossez.wechat.common.constant.WeChatConstant.MsgType;
 import com.ossez.wechat.common.exception.WxRuntimeException;
 import com.ossez.wechat.oa.bean.kefu.WxMpKefuMessage;
 import org.apache.commons.lang3.StringUtils;
@@ -17,22 +17,22 @@ public class WxMpKefuMessageGsonAdapter implements JsonSerializer<WxMpKefuMessag
     messageJson.addProperty("msgtype", message.getMsgType());
 
     switch (message.getMsgType()) {
-      case WeChatMsgType.TEXT:
+      case MsgType.TEXT:
         JsonObject text = new JsonObject();
         text.addProperty("content", message.getContent());
         messageJson.add("text", text);
         break;
-      case WeChatMsgType.IMAGE:
+      case MsgType.IMAGE:
         JsonObject image = new JsonObject();
         image.addProperty("media_id", message.getMediaId());
         messageJson.add("image", image);
         break;
-      case WeChatMsgType.VOICE:
+      case MsgType.VOICE:
         JsonObject voice = new JsonObject();
         voice.addProperty("media_id", message.getMediaId());
         messageJson.add("voice", voice);
         break;
-      case WeChatMsgType.VIDEO:
+      case MsgType.VIDEO:
         JsonObject video = new JsonObject();
         video.addProperty("media_id", message.getMediaId());
         video.addProperty("thumb_media_id", message.getThumbMediaId());
@@ -40,7 +40,7 @@ public class WxMpKefuMessageGsonAdapter implements JsonSerializer<WxMpKefuMessag
         video.addProperty("description", message.getDescription());
         messageJson.add("video", video);
         break;
-      case WeChatMsgType.MUSIC:
+      case MsgType.MUSIC:
         JsonObject music = new JsonObject();
         music.addProperty("title", message.getTitle());
         music.addProperty("description", message.getDescription());
@@ -49,7 +49,7 @@ public class WxMpKefuMessageGsonAdapter implements JsonSerializer<WxMpKefuMessag
         music.addProperty("hqmusicurl", message.getHqMusicUrl());
         messageJson.add("music", music);
         break;
-      case WeChatMsgType.NEWS:
+      case MsgType.NEWS:
         JsonObject newsJsonObject = new JsonObject();
         JsonArray articleJsonArray = new JsonArray();
         for (WxMpKefuMessage.WxArticle article : message.getArticles()) {
@@ -63,17 +63,17 @@ public class WxMpKefuMessageGsonAdapter implements JsonSerializer<WxMpKefuMessag
         newsJsonObject.add("articles", articleJsonArray);
         messageJson.add("news", newsJsonObject);
         break;
-      case WeChatMsgType.MPNEWS:
+      case MsgType.MPNEWS:
         JsonObject json = new JsonObject();
         json.addProperty("media_id", message.getMpNewsMediaId());
         messageJson.add("mpnews", json);
         break;
-      case WeChatMsgType.WXCARD:
+      case MsgType.WXCARD:
         JsonObject wxcard = new JsonObject();
         wxcard.addProperty("card_id", message.getCardId());
         messageJson.add("wxcard", wxcard);
         break;
-      case WeChatMsgType.MINIPROGRAMPAGE:
+      case MsgType.MINIPROGRAMPAGE:
         JsonObject miniProgramPage = new JsonObject();
         miniProgramPage.addProperty("title", message.getTitle());
         miniProgramPage.addProperty("appid", message.getMiniProgramAppId());
@@ -81,7 +81,7 @@ public class WxMpKefuMessageGsonAdapter implements JsonSerializer<WxMpKefuMessag
         miniProgramPage.addProperty("thumb_media_id", message.getThumbMediaId());
         messageJson.add("miniprogrampage", miniProgramPage);
         break;
-      case WeChatMsgType.MSGMENU: {
+      case MsgType.MSGMENU: {
           JsonObject msgmenuJsonObject = new JsonObject();
           JsonArray listJsonArray = new JsonArray();
           for (WxMpKefuMessage.MsgMenu list : message.getMsgMenus()) {
@@ -96,7 +96,7 @@ public class WxMpKefuMessageGsonAdapter implements JsonSerializer<WxMpKefuMessag
           messageJson.add("msgmenu", msgmenuJsonObject);
         break;
       }
-      case WeChatMsgType.MP_NEWS_ARTICLE:
+      case MsgType.MP_NEWS_ARTICLE:
         JsonObject mpNewsArticleJson = new JsonObject();
         mpNewsArticleJson.addProperty("article_id", message.getMpNewsArticleId());
         messageJson.add("mpnewsarticle", mpNewsArticleJson);

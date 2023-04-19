@@ -18,7 +18,7 @@ public final class TextBuilder extends BaseBuilder<TextBuilder> {
    * Instantiates a new Text builder.
    */
   public TextBuilder() {
-    this.msgType = WeChatConstant.WeChatMsgType.TEXT;
+    this.msgType = WeChatConstant.MsgType.TEXT;
   }
 
   /**

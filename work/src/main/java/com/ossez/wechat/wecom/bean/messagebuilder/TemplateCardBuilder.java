@@ -182,7 +182,7 @@ public class TemplateCardBuilder extends BaseBuilder<TemplateCardBuilder> {
    * Instantiates a new Template card builder.
    */
   public TemplateCardBuilder() {
-    this.msgType = WeChatConstant.WeChatMsgType.TEMPLATE_CARD;
+    this.msgType = WeChatConstant.MsgType.TEMPLATE_CARD;
   }
 
   /**

@@ -25,7 +25,7 @@ public class MiniProgramNoticeMsgBuilder extends BaseBuilder<MiniProgramNoticeMs
    * Instantiates a new Mini program notice msg builder.
    */
   public MiniProgramNoticeMsgBuilder() {
-    this.msgType = WeChatConstant.WeChatMsgType.MINIPROGRAM_NOTICE;
+    this.msgType = WeChatConstant.MsgType.MINIPROGRAM_NOTICE;
   }
 
   /**

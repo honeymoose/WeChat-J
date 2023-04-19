@@ -18,7 +18,7 @@ public class MarkdownMsgBuilder extends BaseBuilder<MarkdownMsgBuilder> {
    * Instantiates a new Markdown msg builder.
    */
   public MarkdownMsgBuilder() {
-    this.msgType = WeChatConstant.WeChatMsgType.MARKDOWN;
+    this.msgType = WeChatConstant.MsgType.MARKDOWN;
   }
 
   /**

@@ -24,7 +24,7 @@ public final class MusicBuilder extends BaseBuilder<MusicBuilder> {
   private String hqMusicUrl;
 
   public MusicBuilder() {
-    this.msgType = WeChatConstant.WeChatMsgType.MUSIC;
+    this.msgType = WeChatConstant.MsgType.MUSIC;
   }
 
   public MusicBuilder musicUrl(String musicurl) {

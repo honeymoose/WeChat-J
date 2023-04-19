@@ -1,6 +1,6 @@
 package com.ossez.wechat.oa.builder.kefu;
 
-import com.ossez.wechat.common.constant.WeChatConstant.WeChatMsgType;
+import com.ossez.wechat.common.constant.WeChatConstant.MsgType;
 import com.ossez.wechat.oa.bean.kefu.WxMpKefuMessage;
 
 /**
@@ -20,7 +20,7 @@ public final class MiniProgramPageBuilder extends BaseBuilder<MiniProgramPageBui
   private String thumbMediaId;
 
   public MiniProgramPageBuilder() {
-    this.msgType = WeChatMsgType.MINIPROGRAMPAGE;
+    this.msgType = MsgType.MINIPROGRAMPAGE;
   }
 
 

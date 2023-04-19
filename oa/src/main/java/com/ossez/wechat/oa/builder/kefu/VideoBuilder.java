@@ -24,7 +24,7 @@ public final class VideoBuilder extends BaseBuilder<VideoBuilder> {
   private String thumbMediaId;
 
   public VideoBuilder() {
-    this.msgType = WeChatConstant.WeChatMsgType.VIDEO;
+    this.msgType = WeChatConstant.MsgType.VIDEO;
   }
 
   public VideoBuilder mediaId(String mediaId) {

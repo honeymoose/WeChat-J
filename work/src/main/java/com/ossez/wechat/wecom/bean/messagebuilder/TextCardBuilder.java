@@ -22,7 +22,7 @@ public class TextCardBuilder extends BaseBuilder<TextCardBuilder> {
    * Instantiates a new Text card builder.
    */
   public TextCardBuilder() {
-    this.msgType = WeChatConstant.WeChatMsgType.TEXTCARD;
+    this.msgType = WeChatConstant.MsgType.TEXTCARD;
   }
 
   /**

@@ -58,7 +58,7 @@ public class WeChatConstant {
     /**
      * 主动发送消息(即客服消息)的消息类型.
      */
-    public static class WeChatMsgType {
+    public static class MsgType {
         /**
          * 消息类型:
          * text(文本)

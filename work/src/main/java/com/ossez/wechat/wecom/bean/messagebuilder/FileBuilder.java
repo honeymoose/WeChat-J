@@ -18,7 +18,7 @@ public final class FileBuilder extends BaseBuilder<FileBuilder> {
    * Instantiates a new File builder.
    */
   public FileBuilder() {
-    this.msgType = WeChatConstant.WeChatMsgType.FILE;
+    this.msgType = WeChatConstant.MsgType.FILE;
   }
 
   /**
