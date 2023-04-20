@@ -33,4 +33,11 @@ public interface WeChatOfficialAccountApi {
 
     @POST("/cgi-bin/message/custom/send")
     Single<WeChatStatus> sendMessage(@Body CustomMessage customMessage);
+
+    // DATA ANALYST
+    @POST("/datacube/getusersummary")
+    Single<WeChatStatus> getUserSummary(@Body CustomMessage customMessage);
+
+    @POST("/datacube/getusercumulate")
+    Single<WeChatStatus> getUserCumulate(@Body CustomMessage customMessage);
 }

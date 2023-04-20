@@ -6,7 +6,6 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import java.util.concurrent.locks.Lock;
 
-@XStreamAlias("xml")
 public class TestConfigStorage extends DefaultConfigStorage {
 
   private String openid;
