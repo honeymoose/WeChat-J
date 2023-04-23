@@ -1,47 +1,24 @@
 package com.ossez.wechat.oa.api.impl;
 
-import java.io.File;
-import java.time.Instant;
-import java.time.temporal.ChronoUnit;
-import java.util.Date;
-
-import com.ossez.wechat.common.config.ConfigStorage;
+import com.google.inject.Inject;
 import com.ossez.wechat.common.constant.WeChatConstant.MsgType;
+import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.common.model.req.CustomMessage;
 import com.ossez.wechat.common.model.req.CustomMessage.KfText;
-import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.api.impl.okhttp.WeChatMsgService;
-import com.ossez.wechat.oa.api.impl.okhttp.WeChatOfficialAccountApi;
-import com.ossez.wechat.oa.api.test.ApiTestModule;
 import com.ossez.wechat.oa.api.test.TestBase;
 import com.ossez.wechat.oa.api.test.TestConfigStorage;
-import com.ossez.wechat.oa.bean.kefu.WxMpKefuMessage;
-import com.ossez.wechat.oa.bean.kefu.request.WxMpKfAccountRequest;
 import lombok.extern.slf4j.Slf4j;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
-
-
-import com.google.inject.Inject;
-import com.ossez.wechat.common.constant.WeChatConstant;
-import com.ossez.wechat.common.exception.WxErrorException;
-import com.ossez.wechat.oa.bean.kefu.result.WxMpKfInfo;
-import com.ossez.wechat.oa.bean.kefu.result.WxMpKfList;
-import com.ossez.wechat.oa.bean.kefu.result.WxMpKfMsgList;
-import com.ossez.wechat.oa.bean.kefu.result.WxMpKfOnlineList;
-import com.ossez.wechat.oa.bean.kefu.result.WxMpKfSessionGetResult;
-import com.ossez.wechat.oa.bean.kefu.result.WxMpKfSessionList;
-import com.ossez.wechat.oa.bean.kefu.result.WxMpKfSessionWaitCaseList;
-
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.TestInstance.Lifecycle;
 
 /**
  * 测试客服相关接口
  *
  * @author Binary Wang
  */
-@org.junit.jupiter.api.TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@TestInstance(Lifecycle.PER_CLASS)
 @Slf4j
 public class WxMpKefuServiceImplTest extends TestBase {
     @Inject
