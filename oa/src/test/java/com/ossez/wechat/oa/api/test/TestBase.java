@@ -12,7 +12,6 @@ import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.io.SAXReader;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,11 +19,16 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.locks.ReentrantLock;
 
+/**
+ * Init Guice DI
+ *
+ * @author YuCheng
+ */
 public class TestBase {
-    private final Logger log = LoggerFactory.getLogger(this.getClass());
+    private static final Logger log = LoggerFactory.getLogger(TestBase.class);
     private static final String TEST_CONFIG_XML = "test-config.xml";
 
-    protected Injector injector = Guice.createInjector(new AbstractModule() {
+    private static final Injector injector = Guice.createInjector(new AbstractModule() {
         @Override
         public void configure() {
             try (InputStream inputStream = ClassLoader.getSystemResourceAsStream(TEST_CONFIG_XML)) {
@@ -64,9 +68,8 @@ public class TestBase {
     });
 
 
-
-    @BeforeEach
-    public void setup () {
+    @BeforeAll
+    public void setup() {
         injector.injectMembers(this);
     }
 }
