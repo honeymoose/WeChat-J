@@ -3,25 +3,25 @@ package com.ossez.wechat.oa.api.impl;
 import com.google.inject.Inject;
 import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
-import com.ossez.wechat.oa.api.test.ApiTestModule;
 import com.ossez.wechat.oa.bean.guide.WxMpGuideBuyerResp;
 import com.ossez.wechat.oa.bean.guide.WxMpGuideTagInfo;
+import lombok.extern.slf4j.Slf4j;
 import org.assertj.core.api.Assertions;
-import org.testng.annotations.Guice;
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * @author <a href="https://www.sacoc.cn">广州跨界-宋心成</a>
  * created on  2021/5/13/013
  */
 
-@Guice(modules = ApiTestModule.class)
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@Slf4j
 public class WxMpGuideTagServiceImplTest {
+  
   @Inject
   protected WeChatOfficialAccountService wxService;
 

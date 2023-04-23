@@ -19,7 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * created on  2021/5/13/013
  */
 
-@Guice(modules = ApiTestModule.class)
+//@Guice(modules = ApiTestModule.class)
 public class WxMpGuideBuyerServiceImplTest {
   @Inject
   protected WeChatOfficialAccountService wxService;

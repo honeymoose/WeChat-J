@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
  * @author rememberber
  */
 @Test(groups = "userAPI")
-@Guice(modules = ApiTestModule.class)
+//@Guice(modules = ApiTestModule.class)
 public class WxMpShakeServiceImplTest {
   @Inject
   private WeChatOfficialAccountService wxService;

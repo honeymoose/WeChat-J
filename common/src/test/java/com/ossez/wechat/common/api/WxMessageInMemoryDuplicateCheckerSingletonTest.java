@@ -1,11 +1,14 @@
 package com.ossez.wechat.common.api;
 
-import org.testng.annotations.Test;
+import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.TestInstance;
+
 
 import java.util.concurrent.TimeUnit;
 
-import static org.testng.Assert.assertFalse;
-import static org.testng.Assert.assertTrue;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
 
 /**
  * @author jiangby
@@ -13,7 +16,8 @@ import static org.testng.Assert.assertTrue;
  * @description: 作用
  * created on  2022/5/26 1:46
  */
-@Test
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@Slf4j
 public class WxMessageInMemoryDuplicateCheckerSingletonTest {
 
   private static WxMessageInMemoryDuplicateCheckerSingleton checkerSingleton = WxMessageInMemoryDuplicateCheckerSingleton.getInstance();
@@ -24,14 +28,14 @@ public class WxMessageInMemoryDuplicateCheckerSingletonTest {
     // 第一次检查
     for (Long msgId : msgIds) {
       boolean result = checkerSingleton.isDuplicate(String.valueOf(msgId));
-      assertFalse(result);
+      assertThat(result).isFalse();
     }
 
     // 初始化后1S进行检查 每五秒检查一次，过期时间为15秒，过15秒再检查
     TimeUnit.SECONDS.sleep(15);
     for (Long msgId : msgIds) {
       boolean result = checkerSingleton.isDuplicate(String.valueOf(msgId));
-      assertTrue(result);
+      assertThat(result).isTrue();
     }
 
     // 过6秒再检查

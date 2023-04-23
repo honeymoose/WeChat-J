@@ -17,7 +17,7 @@ import org.testng.collections.CollectionUtils;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.mockito.Matchers.*;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.when;
 import static org.testng.Assert.*;
 

@@ -13,11 +13,15 @@ import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.api.impl.okhttp.WeChatMsgService;
 import com.ossez.wechat.oa.api.impl.okhttp.WeChatOfficialAccountApi;
 import com.ossez.wechat.oa.api.test.ApiTestModule;
+import com.ossez.wechat.oa.api.test.TestBase;
 import com.ossez.wechat.oa.api.test.TestConfigStorage;
 import com.ossez.wechat.oa.bean.kefu.WxMpKefuMessage;
 import com.ossez.wechat.oa.bean.kefu.request.WxMpKfAccountRequest;
+import lombok.extern.slf4j.Slf4j;
 import org.assertj.core.api.Assertions;
-import org.testng.annotations.*;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
+
 
 import com.google.inject.Inject;
 import com.ossez.wechat.common.constant.WeChatConstant;
@@ -37,9 +41,9 @@ import static org.assertj.core.api.Assertions.assertThat;
  *
  * @author Binary Wang
  */
-@Test
-@Guice(modules = ApiTestModule.class)
-public class WxMpKefuServiceImplTest {
+@org.junit.jupiter.api.TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@Slf4j
+public class WxMpKefuServiceImplTest extends TestBase {
     @Inject
     protected TestConfigStorage testConfigStorage;
 
@@ -58,7 +62,9 @@ public class WxMpKefuServiceImplTest {
 //    Assertions.assertThat(result).isTrue();
 //  }
 
-    public void testSendKefuMessage() throws WxErrorException {
+
+    @Test
+    void testSendKefuMessage() throws WxErrorException {
 
 
         StringBuilder stringBuilder = new StringBuilder();
