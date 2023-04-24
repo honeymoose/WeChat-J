@@ -3,7 +3,8 @@ package com.ossez.wechat.oa.api.impl;
 import com.google.inject.Inject;
 import com.ossez.wechat.common.exception.DataStructureException;
 import com.ossez.wechat.common.exception.WxErrorException;
-import com.ossez.wechat.common.model.res.UserSummaryResponse;
+import com.ossez.wechat.common.model.res.DataCubeArticle;
+import com.ossez.wechat.common.model.res.DataCubeUser;
 import com.ossez.wechat.oa.api.impl.okhttp.WeChatDataCubeService;
 import com.ossez.wechat.oa.api.test.TestBase;
 import com.ossez.wechat.oa.api.test.TestConfigStorage;
@@ -32,23 +33,35 @@ public class DataCubeServiceTest extends TestBase {
 
     @Test
     public void testGetUserSummarye() throws WxErrorException, DataStructureException {
-        UserSummaryResponse userSummaryResponse = weChatDataCubeService.getUserSummary(LocalDateTime.now().minusDays(4), LocalDateTime.now().minusDays(1));
+        DataCubeUser dataCubeUser = weChatDataCubeService.getUserSummary(LocalDateTime.now().minusDays(4), LocalDateTime.now().minusDays(1));
 
-        assertThat(userSummaryResponse).isNotNull();
-        assertThat(userSummaryResponse.getUserDataList().size()).isEqualTo(4);
-        assertThat(userSummaryResponse.getUserDataList().get(0).getCancelUser()).isGreaterThanOrEqualTo(0);
+        assertThat(dataCubeUser).isNotNull();
+        assertThat(dataCubeUser.getUserDataList().size()).isEqualTo(4);
+        assertThat(dataCubeUser.getUserDataList().get(0).getCancelUser()).isGreaterThanOrEqualTo(0);
 
     }
 
     @Test
     public void testGetUserCumulate() throws WxErrorException {
-        UserSummaryResponse userSummaryResponse = weChatDataCubeService.getUserCumulate(LocalDateTime.now().minusDays(4), LocalDateTime.now().minusDays(1));
+        DataCubeUser dataCubeUser = weChatDataCubeService.getUserCumulate(LocalDateTime.now().minusDays(4), LocalDateTime.now().minusDays(1));
 
-        assertThat(userSummaryResponse).isNotNull();
-        assertThat(userSummaryResponse.getUserDataList().size()).isEqualTo(4);
-        assertThat(userSummaryResponse.getUserDataList().get(0).getCumulateUser()).isGreaterThanOrEqualTo(0);
+        assertThat(dataCubeUser).isNotNull();
+        assertThat(dataCubeUser.getUserDataList().size()).isEqualTo(4);
+        assertThat(dataCubeUser.getUserDataList().get(0).getCumulateUser()).isGreaterThanOrEqualTo(0);
 
     }
+
+    @Test
+    public void testGetarticlesummary() throws WxErrorException {
+        DataCubeArticle dataCubeArticle = weChatDataCubeService.getArticleSummary(LocalDateTime.now().minusDays(1), LocalDateTime.now().minusDays(1));
+
+        assertThat(dataCubeArticle).isNotNull();
+
+
+    }
+
+
+
 //
 //  @Test(dataProvider = "oneDay")
 //  public void testGetArticleSummary(Date date) throws WxErrorException {

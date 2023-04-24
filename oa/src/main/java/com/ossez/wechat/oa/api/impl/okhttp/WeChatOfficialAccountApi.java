@@ -7,9 +7,10 @@ import com.ossez.wechat.common.model.req.CustomMessage;
 import com.ossez.wechat.common.model.req.DataCubeRequest;
 import com.ossez.wechat.common.model.req.NetworkCheck;
 import com.ossez.wechat.common.model.req.QueryQuota;
+import com.ossez.wechat.common.model.res.DataCubeArticle;
 import com.ossez.wechat.common.model.res.NetworkCheckResponse;
 import com.ossez.wechat.common.model.res.QueryQuotaResponse;
-import com.ossez.wechat.common.model.res.UserSummaryResponse;
+import com.ossez.wechat.common.model.res.DataCubeUser;
 import io.reactivex.Single;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -38,8 +39,26 @@ public interface WeChatOfficialAccountApi {
 
     // DATA ANALYST
     @POST("/datacube/getusersummary")
-    Single<UserSummaryResponse> getUserSummary(@Body DataCubeRequest dataCubeRequest);
+    Single<DataCubeUser> getUserSummary(@Body DataCubeRequest dataCubeRequest);
 
     @POST("/datacube/getusercumulate")
-    Single<UserSummaryResponse> getUserCumulate(@Body DataCubeRequest dataCubeRequest);
+    Single<DataCubeUser> getUserCumulate(@Body DataCubeRequest dataCubeRequest);
+
+    @POST("/datacube/getarticlesummary")
+    Single<DataCubeArticle> getarticlesummary(@Body DataCubeRequest dataCubeRequest);
+
+    @POST("/datacube/getarticletotal")
+    Single<DataCubeUser> getarticletotal(@Body DataCubeRequest dataCubeRequest);
+
+    @POST("/datacube/getuserread")
+    Single<DataCubeUser> getuserread(@Body DataCubeRequest dataCubeRequest);
+
+    @POST("/datacube/getuserreadhour")
+    Single<DataCubeUser> getuserreadhour(@Body DataCubeRequest dataCubeRequest);
+
+    @POST("/datacube/getusershare")
+    Single<DataCubeUser> getusershare(@Body DataCubeRequest dataCubeRequest);
+
+    @POST("/datacube/getusersharehour")
+    Single<DataCubeUser> getusersharehour(@Body DataCubeRequest dataCubeRequest);
 }

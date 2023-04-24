@@ -7,16 +7,15 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.ossez.wechat.common.constant.WeChatConstant;
 import com.ossez.wechat.common.exception.DataStructureException;
 import com.ossez.wechat.common.exception.WxErrorException;
-import com.ossez.wechat.common.model.req.CustomMessage;
 import com.ossez.wechat.common.model.req.DataCubeRequest;
-import com.ossez.wechat.common.model.res.UserSummaryResponse;
+import com.ossez.wechat.common.model.res.DataCubeArticle;
+import com.ossez.wechat.common.model.res.DataCubeUser;
 import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.api.impl.okhttp.interceptor.AuthenticationInterceptor;
 import com.ossez.wechat.oa.api.impl.okhttp.interceptor.WeChatErrorInterceptor;
 import okhttp3.ConnectionPool;
 import okhttp3.OkHttpClient;
 import org.apache.commons.lang3.ObjectUtils;
-import org.apache.commons.lang3.time.DateUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import retrofit2.HttpException;
@@ -26,7 +25,6 @@ import retrofit2.converter.jackson.JacksonConverterFactory;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -52,15 +50,9 @@ public class WeChatDataCubeService {
         mapper.setSerializationInclusion(Include.NON_NULL);
         mapper.setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE);
 
-        OkHttpClient client = new OkHttpClient.Builder()
-                .addInterceptor(new AuthenticationInterceptor(accessToken))
-                .addInterceptor(new WeChatErrorInterceptor())
-                .connectionPool(new ConnectionPool(5, 1, TimeUnit.SECONDS)).readTimeout(1000, TimeUnit.SECONDS).build();
+        OkHttpClient client = new OkHttpClient.Builder().addInterceptor(new AuthenticationInterceptor(accessToken)).addInterceptor(new WeChatErrorInterceptor()).connectionPool(new ConnectionPool(5, 1, TimeUnit.SECONDS)).readTimeout(1000, TimeUnit.SECONDS).build();
 
-        Retrofit retrofit = new Retrofit.Builder().baseUrl(WeChatConstant.ENDPOINT_WECHAT).client(client)
-                .addConverterFactory(JacksonConverterFactory.create(mapper))
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .build();
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(WeChatConstant.ENDPOINT_WECHAT).client(client).addConverterFactory(JacksonConverterFactory.create(mapper)).addCallAdapterFactory(RxJava2CallAdapterFactory.create()).build();
 
         this.weChatOfficialAccountApi = retrofit.create(WeChatOfficialAccountApi.class);
 
@@ -75,7 +67,7 @@ public class WeChatDataCubeService {
      * @return
      * @throws WxErrorException
      */
-    public UserSummaryResponse getUserSummary(LocalDateTime beginDate, LocalDateTime endDate) throws WxErrorException {
+    public DataCubeUser getUserSummary(LocalDateTime beginDate, LocalDateTime endDate) throws WxErrorException {
         if (!(ObjectUtils.isNotEmpty(beginDate) && ObjectUtils.isNotEmpty(endDate) && endDate.isAfter(beginDate))) {
             log.warn("The begin date [{}] Or end date [{}] was null or ender date greater than begin date.", beginDate, endDate);
             throw new DataStructureException("Query data range error ");
@@ -98,7 +90,7 @@ public class WeChatDataCubeService {
         return null;
     }
 
-    public UserSummaryResponse getUserCumulate(LocalDateTime beginDate, LocalDateTime endDate) throws WxErrorException {
+    public DataCubeUser getUserCumulate(LocalDateTime beginDate, LocalDateTime endDate) throws WxErrorException {
         if (!(ObjectUtils.isNotEmpty(beginDate) && ObjectUtils.isNotEmpty(endDate) && endDate.isAfter(beginDate))) {
             log.warn("The begin date [{}] Or end date [{}] was null or ender date greater than begin date.", beginDate, endDate);
             throw new DataStructureException("Query data range error ");
@@ -118,6 +110,39 @@ public class WeChatDataCubeService {
 
         }
         return null;
+    }
+
+    /**
+     *
+     * @param beginDate
+     * @param endDate
+     * @return
+     * @throws WxErrorException
+     */
+    public DataCubeArticle getArticleSummary(LocalDateTime beginDate, LocalDateTime endDate) throws WxErrorException {
+        try {
+            return weChatOfficialAccountApi.getarticlesummary(getDataCubeRequest(beginDate, endDate)).blockingGet();
+        } catch (HttpException ex) {
+            log.warn("Call WeChat API with error: " + ex);
+            if (ex.code() == 400) {
+                throw new WxErrorException(ex);
+            }
+        }
+        return null;
+    }
+
+    private DataCubeRequest getDataCubeRequest(LocalDateTime beginDate, LocalDateTime endDate) throws DataStructureException {
+        if (!(ObjectUtils.isNotEmpty(beginDate) && ObjectUtils.isNotEmpty(endDate) && endDate.isAfter(beginDate))) {
+            log.warn("The begin date [{}] Or end date [{}] was null or ender date greater than begin date.", beginDate, endDate);
+            throw new DataStructureException("Query data range error ");
+        }
+
+        DataCubeRequest dataCubeRequest = new DataCubeRequest();
+        dataCubeRequest.setBeginDate(beginDate.format(DateTimeFormatter.ISO_LOCAL_DATE));
+        dataCubeRequest.setEndDate(endDate.format(DateTimeFormatter.ISO_LOCAL_DATE));
+
+        return dataCubeRequest;
+
     }
 
 

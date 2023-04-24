@@ -9,7 +9,7 @@ import java.util.List;
  *
  * @author YuCheng Hu
  */
-public class UserSummaryResponse {
+public class DataCubeUser {
     @JsonProperty("list")
     private List<UserData> userDataList;
 
