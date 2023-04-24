@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.ossez.wechat.common.constant.WeChatConstant;
+import com.ossez.wechat.common.exception.DataStructureException;
 import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.common.model.req.CustomMessage;
 import com.ossez.wechat.common.model.req.DataCubeRequest;
@@ -66,23 +67,55 @@ public class WeChatDataCubeService {
     }
 
 
+    /**
+     * Get user summary
+     *
+     * @param beginDate
+     * @param endDate
+     * @return
+     * @throws WxErrorException
+     */
     public UserSummaryResponse getUserSummary(LocalDateTime beginDate, LocalDateTime endDate) throws WxErrorException {
+        if (!(ObjectUtils.isNotEmpty(beginDate) && ObjectUtils.isNotEmpty(endDate) && endDate.isAfter(beginDate))) {
+            log.warn("The begin date [{}] Or end date [{}] was null or ender date greater than begin date.", beginDate, endDate);
+            throw new DataStructureException("Query data range error ");
+        }
+
         try {
-            if (ObjectUtils.isNotEmpty(beginDate) && ObjectUtils.isNotEmpty(endDate) && endDate.isAfter(beginDate)) {
 
-                DataCubeRequest dataCubeRequest = new DataCubeRequest();
-                dataCubeRequest.setBeginDate(beginDate.format(DateTimeFormatter.ISO_LOCAL_DATE));
-                dataCubeRequest.setEndDate(endDate.format(DateTimeFormatter.ISO_LOCAL_DATE));
+            DataCubeRequest dataCubeRequest = new DataCubeRequest();
+            dataCubeRequest.setBeginDate(beginDate.format(DateTimeFormatter.ISO_LOCAL_DATE));
+            dataCubeRequest.setEndDate(endDate.format(DateTimeFormatter.ISO_LOCAL_DATE));
 
-                return weChatOfficialAccountApi.getUserSummary(dataCubeRequest).blockingGet();
-            }
-
+            return weChatOfficialAccountApi.getUserSummary(dataCubeRequest).blockingGet();
         } catch (HttpException ex) {
-            log.warn("Access WeChat API return error.", ex);
+            log.warn("Call WeChat API with error: " + ex);
             if (ex.code() == 400) {
                 throw new WxErrorException(ex);
             }
-            System.out.println(">>>>>>>>>>>>>>>>>>>> " + ex.getMessage());
+
+        }
+        return null;
+    }
+
+    public UserSummaryResponse getUserCumulate(LocalDateTime beginDate, LocalDateTime endDate) throws WxErrorException {
+        if (!(ObjectUtils.isNotEmpty(beginDate) && ObjectUtils.isNotEmpty(endDate) && endDate.isAfter(beginDate))) {
+            log.warn("The begin date [{}] Or end date [{}] was null or ender date greater than begin date.", beginDate, endDate);
+            throw new DataStructureException("Query data range error ");
+        }
+
+        try {
+            DataCubeRequest dataCubeRequest = new DataCubeRequest();
+            dataCubeRequest.setBeginDate(beginDate.format(DateTimeFormatter.ISO_LOCAL_DATE));
+            dataCubeRequest.setEndDate(endDate.format(DateTimeFormatter.ISO_LOCAL_DATE));
+
+            return weChatOfficialAccountApi.getUserCumulate(dataCubeRequest).blockingGet();
+        } catch (HttpException ex) {
+            log.warn("Call WeChat API with error: " + ex);
+            if (ex.code() == 400) {
+                throw new WxErrorException(ex);
+            }
+
         }
         return null;
     }

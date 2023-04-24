@@ -1,36 +1,24 @@
 package com.ossez.wechat.oa.api.impl;
 
 import com.google.inject.Inject;
+import com.ossez.wechat.common.exception.DataStructureException;
 import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.common.model.res.UserSummaryResponse;
-import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.api.impl.okhttp.WeChatDataCubeService;
-import com.ossez.wechat.oa.api.impl.okhttp.WeChatMsgService;
-import com.ossez.wechat.oa.api.test.ApiTestModule;
 import com.ossez.wechat.oa.api.test.TestBase;
 import com.ossez.wechat.oa.api.test.TestConfigStorage;
-import com.ossez.wechat.oa.bean.datacube.*;
-import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.time.FastDateFormat;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testng.Assert;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Guice;
 
-import java.text.ParseException;
-import java.time.Instant;
 import java.time.LocalDateTime;
-import java.util.Date;
-import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * 测试统计分析相关的接口
- * Created by Binary Wang on 2016/8/23.
- *
- * @author binarywang (https://github.com/binarywang)
+ * Test for datacube API
+ * @author YuCheng
  */
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class DataCubeServiceTest extends TestBase {
@@ -42,56 +30,25 @@ public class DataCubeServiceTest extends TestBase {
     @Inject
     protected WeChatDataCubeService weChatDataCubeService;
 
-//  private FastDateFormat simpleDateFormat = FastDateFormat
-//    .getInstance("yyyy-MM-dd");
-//
-//  @DataProvider
-//  public Object[][] oneDay() throws ParseException {
-//    return new Object[][]{{this.simpleDateFormat.parse("2016-08-22")}};
-//  }
-//
-//  @DataProvider
-//  public Object[][] threeDays() throws ParseException {
-//    return new Object[][]{{this.simpleDateFormat.parse("2016-08-20"),
-//      this.simpleDateFormat.parse("2016-08-22")}};
-//  }
-//
-//  @DataProvider
-//  public Object[][] sevenDays() throws ParseException {
-//    return new Object[][]{{this.simpleDateFormat.parse("2016-08-16"),
-//      this.simpleDateFormat.parse("2016-08-22")}};
-//  }
-//
-//  @DataProvider
-//  public Object[][] fifteenDays() throws ParseException {
-//    return new Object[][]{{this.simpleDateFormat.parse("2016-08-14"),
-//      this.simpleDateFormat.parse("2016-08-27")}};
-//  }
-//
-//  @DataProvider
-//  public Object[][] thirtyDays() throws ParseException {
-//    return new Object[][]{{this.simpleDateFormat.parse("2016-07-30"),
-//      this.simpleDateFormat.parse("2016-08-27")}};
-//  }
-//
-//  @Test(dataProvider = "sevenDays")
-//  public void testGetUserSummary(Date beginDate, Date endDate)
-//    throws WxErrorException {
-//    List<WxDataCubeUserSummary> summaries = this.wxService.getDataCubeService()
-//      .getUserSummary(beginDate, endDate);
-//    Assert.assertNotNull(summaries);
-//    System.out.println(summaries);
-//  }
+    @Test
+    public void testGetUserSummarye() throws WxErrorException, DataStructureException {
+        UserSummaryResponse userSummaryResponse = weChatDataCubeService.getUserSummary(LocalDateTime.now().minusDays(4), LocalDateTime.now().minusDays(1));
 
+        assertThat(userSummaryResponse).isNotNull();
+        assertThat(userSummaryResponse.getUserDataList().size()).isEqualTo(4);
+        assertThat(userSummaryResponse.getUserDataList().get(0).getCancelUser()).isGreaterThanOrEqualTo(0);
 
-  @Test
-    public void testGetUserCumulate()
-            throws WxErrorException {
+    }
 
-        UserSummaryResponse userSummaryResponse = weChatDataCubeService.getUserSummary(LocalDateTime.now().minusDays(4), LocalDateTime.now().plusDays(1));
-//    Assert.assertNotNull(result);
-    System.out.println(userSummaryResponse.getUserDataList().get(0));
-  }
+    @Test
+    public void testGetUserCumulate() throws WxErrorException {
+        UserSummaryResponse userSummaryResponse = weChatDataCubeService.getUserCumulate(LocalDateTime.now().minusDays(4), LocalDateTime.now().minusDays(1));
+
+        assertThat(userSummaryResponse).isNotNull();
+        assertThat(userSummaryResponse.getUserDataList().size()).isEqualTo(4);
+        assertThat(userSummaryResponse.getUserDataList().get(0).getCumulateUser()).isGreaterThanOrEqualTo(0);
+
+    }
 //
 //  @Test(dataProvider = "oneDay")
 //  public void testGetArticleSummary(Date date) throws WxErrorException {
@@ -223,4 +180,4 @@ public class DataCubeServiceTest extends TestBase {
 //    Assert.assertNotNull(results);
 //    System.out.println(results);
 //  }
-    }
+}

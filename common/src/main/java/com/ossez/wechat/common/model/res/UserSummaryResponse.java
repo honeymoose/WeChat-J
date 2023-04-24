@@ -13,7 +13,7 @@ public class UserSummaryResponse {
     @JsonProperty("list")
     private List<UserData> userDataList;
 
-    private static class UserData {
+    public static class UserData {
         @JsonProperty("ref_date")
         private String refDate;
         @JsonProperty("user_source")
