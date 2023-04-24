@@ -28,6 +28,11 @@ public class TestBase {
     private static final Logger log = LoggerFactory.getLogger(TestBase.class);
     private static final String TEST_CONFIG_XML = "test-config.xml";
 
+    @BeforeAll
+    public void setup() {
+        injector.injectMembers(this);
+    }
+
     private static final Injector injector = Guice.createInjector(new AbstractModule() {
         @Override
         public void configure() {
@@ -68,8 +73,5 @@ public class TestBase {
     });
 
 
-    @BeforeAll
-    public void setup() {
-        injector.injectMembers(this);
-    }
+
 }
