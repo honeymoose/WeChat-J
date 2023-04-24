@@ -5,6 +5,7 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.ossez.wechat.common.exception.WxRuntimeException;
 import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
+import com.ossez.wechat.oa.api.impl.okhttp.WeChatDataCubeService;
 import com.ossez.wechat.oa.api.impl.okhttp.WeChatMsgService;
 import com.ossez.wechat.oa.api.impl.okhttp.WeChatOfficialAccountServiceOkHttp;
 import org.apache.commons.lang3.ObjectUtils;
@@ -59,10 +60,12 @@ public class TestBase {
 
                 // Init WeChatMsgService
                 WeChatMsgService weChatMsgService = new WeChatMsgService(weChatOfficialAccountService);
+                WeChatDataCubeService weChatDataCubeService = new WeChatDataCubeService(weChatOfficialAccountService);
 
                 bind(TestConfigStorage.class).toInstance(config);
                 bind(WeChatOfficialAccountService.class).toInstance(weChatOfficialAccountService);
                 bind(WeChatMsgService.class).toInstance(weChatMsgService);
+                bind(WeChatDataCubeService.class).toInstance(weChatDataCubeService);
             } catch (IOException e) {
                 log.error(e.getMessage(), e);
             } catch (DocumentException e) {

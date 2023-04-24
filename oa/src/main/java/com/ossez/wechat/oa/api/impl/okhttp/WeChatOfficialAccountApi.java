@@ -4,10 +4,12 @@ import com.ossez.wechat.common.model.WeChatAccessToken;
 import com.ossez.wechat.common.model.WeChatApiDomainIp;
 import com.ossez.wechat.common.model.WeChatStatus;
 import com.ossez.wechat.common.model.req.CustomMessage;
+import com.ossez.wechat.common.model.req.DataCubeRequest;
 import com.ossez.wechat.common.model.req.NetworkCheck;
 import com.ossez.wechat.common.model.req.QueryQuota;
 import com.ossez.wechat.common.model.res.NetworkCheckResponse;
 import com.ossez.wechat.common.model.res.QueryQuotaResponse;
+import com.ossez.wechat.common.model.res.UserSummaryResponse;
 import io.reactivex.Single;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -36,8 +38,8 @@ public interface WeChatOfficialAccountApi {
 
     // DATA ANALYST
     @POST("/datacube/getusersummary")
-    Single<WeChatStatus> getUserSummary(@Body CustomMessage customMessage);
+    Single<UserSummaryResponse> getUserSummary(@Body DataCubeRequest dataCubeRequest);
 
     @POST("/datacube/getusercumulate")
-    Single<WeChatStatus> getUserCumulate(@Body CustomMessage customMessage);
+    Single<UserSummaryResponse> getUserCumulate(@Body DataCubeRequest dataCubeRequest);
 }
