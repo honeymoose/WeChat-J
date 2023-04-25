@@ -53,7 +53,7 @@ public class DataCubeServiceTest extends TestBase {
 
     @Test
     public void testGetarticlesummary() throws WxErrorException {
-        DataCubeArticle dataCubeArticle = weChatDataCubeService.getArticleSummary(LocalDateTime.now().minusDays(1), LocalDateTime.now().minusDays(1));
+        DataCubeArticle dataCubeArticle = weChatDataCubeService.getArticleSummary(LocalDateTime.now().minusDays(12), LocalDateTime.now().minusDays(12));
 
         assertThat(dataCubeArticle).isNotNull();
 

@@ -3,10 +3,7 @@ package com.ossez.wechat.oa.api.impl.okhttp;
 import com.ossez.wechat.common.model.WeChatAccessToken;
 import com.ossez.wechat.common.model.WeChatApiDomainIp;
 import com.ossez.wechat.common.model.WeChatStatus;
-import com.ossez.wechat.common.model.req.CustomMessage;
-import com.ossez.wechat.common.model.req.DataCubeRequest;
-import com.ossez.wechat.common.model.req.NetworkCheck;
-import com.ossez.wechat.common.model.req.QueryQuota;
+import com.ossez.wechat.common.model.req.*;
 import com.ossez.wechat.common.model.res.DataCubeArticle;
 import com.ossez.wechat.common.model.res.NetworkCheckResponse;
 import com.ossez.wechat.common.model.res.QueryQuotaResponse;
@@ -36,6 +33,10 @@ public interface WeChatOfficialAccountApi {
 
     @POST("/cgi-bin/message/custom/send")
     Single<WeChatStatus> sendMessage(@Body CustomMessage customMessage);
+
+    // MENU
+    @POST("/cgi-bin/menu/create")
+    Single<WeChatStatus> createMenu(@Body MenuRequest menuRequest);
 
     // DATA ANALYST
     @POST("/datacube/getusersummary")
