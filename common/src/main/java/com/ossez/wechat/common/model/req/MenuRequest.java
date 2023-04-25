@@ -13,11 +13,18 @@ import java.util.List;
  */
 public class MenuRequest implements Serializable {
     private static final long serialVersionUID = -9196732086954365246L;
-
     @JsonProperty(value = "button", required = true)
     private List<Button> buttonList;
 
     public static class Button {
+        public Button(List<Button> subButtonList, String type, String name, String key, String url) {
+            this.subButtonList = subButtonList;
+            this.type = type;
+            this.name = name;
+            this.key = key;
+            this.url = url;
+        }
+
         @JsonProperty(value = "sub_button")
         private List<Button> subButtonList;
         @JsonProperty("type")
