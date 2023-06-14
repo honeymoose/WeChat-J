@@ -1,7 +1,7 @@
 <xml>
-  <appId>wx637b82a7f94123ef</appId>
-  <secret>343cecbc44d69e45367a65cc9b4d3925</secret>
-  <token>0b01a700891d4a2f93a4323771c32455</token>
+  <appId>***</appId>
+  <secret>***</secret>
+  <token>***</token>
   <aesKey>公众号EncodingAESKey</aesKey>
   <accessToken>可以不填写</accessToken>
   <expiresTime>可以不填写</expiresTime>
