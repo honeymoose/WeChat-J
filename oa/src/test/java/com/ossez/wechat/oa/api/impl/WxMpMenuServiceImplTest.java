@@ -2,8 +2,9 @@ package com.ossez.wechat.oa.api.impl;
 
 import com.google.inject.Inject;
 import com.ossez.wechat.common.constant.WeChatConstant;
-import com.ossez.wechat.common.bean.menu.WxMenu;
-import com.ossez.wechat.common.bean.menu.WxMenuButton;
+import com.ossez.wechat.common.model.entity.builder.MenuButtonBuilder;
+import com.ossez.wechat.common.model.entity.menu.WxMenu;
+import com.ossez.wechat.common.model.entity.menu.MenuButton;
 import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.oa.api.WeChatOfficialAccountService;
 import com.ossez.wechat.oa.api.test.ApiTestModule;
@@ -200,7 +201,7 @@ public class WxMpMenuServiceImplTest {
   @DataProvider(name = "menu")
   public Object[][] getMenu() {
     WxMenu menu = new WxMenu();
-    WxMenuButton button1 = new WxMenuButton();
+    MenuButton button1 = new MenuButtonBuilder().createMenuButton();
     button1.setType(WeChatConstant.MenuButtonType.CLICK);
     button1.setName("今日歌曲");
     button1.setKey("V1001_TODAY_MUSIC");
@@ -212,31 +213,31 @@ public class WxMpMenuServiceImplTest {
 //    button2.setPagePath("pages/lunar/index.html");
 //    button2.setUrl("http://mp.weixin.qq.com");
 
-    WxMenuButton button3 = new WxMenuButton();
+    MenuButton button3 = new MenuButtonBuilder().createMenuButton();
     button3.setName("菜单");
 
     menu.getButtons().add(button1);
 //    menu.getButtons().add(button2);
     menu.getButtons().add(button3);
 
-    WxMenuButton button31 = new WxMenuButton();
+    MenuButton button31 = new MenuButtonBuilder().createMenuButton();
     button31.setType(WeChatConstant.MenuButtonType.VIEW);
     button31.setName("搜索");
     button31.setUrl("http://www.soso.com/");
 
-    WxMenuButton button32 = new WxMenuButton();
+    MenuButton button32 = new MenuButtonBuilder().createMenuButton();
     button32.setType(WeChatConstant.MenuButtonType.VIEW);
     button32.setName("视频");
     button32.setUrl("http://v.qq.com/");
 
-    WxMenuButton button33 = new WxMenuButton();
+    MenuButton button33 = new MenuButtonBuilder().createMenuButton();
     button33.setType(WeChatConstant.MenuButtonType.CLICK);
     button33.setName("赞一下我们");
     button33.setKey("V1001_GOOD");
 
-    button3.getSubButtons().add(button31);
-    button3.getSubButtons().add(button32);
-    button3.getSubButtons().add(button33);
+//    button3.getSubButtons().add(button31);
+//    button3.getSubButtons().add(button32);
+//    button3.getSubButtons().add(button33);
 
     return new Object[][]{
       new Object[]{

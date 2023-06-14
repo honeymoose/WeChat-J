@@ -2,7 +2,7 @@ package com.ossez.wechat.wecom.util.json;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.ossez.wechat.common.bean.menu.WxMenu;
+import com.ossez.wechat.common.model.entity.menu.WxMenu;
 import com.ossez.wechat.common.exception.WxError;
 import com.ossez.wechat.common.util.json.WxErrorAdapter;
 import com.ossez.wechat.wecom.bean.WxCpChat;

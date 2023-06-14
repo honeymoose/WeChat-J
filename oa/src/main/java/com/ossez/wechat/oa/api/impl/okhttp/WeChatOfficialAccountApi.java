@@ -38,6 +38,9 @@ public interface WeChatOfficialAccountApi {
     @POST("/cgi-bin/menu/create")
     Single<WeChatStatus> createMenu(@Body MenuRequest menuRequest);
 
+    @GET("/cgi-bin/get_current_selfmenu_info")
+    Single<WeChatStatus> getMenu();
+
     // DATA ANALYST
     @POST("/datacube/getusersummary")
     Single<DataCubeUser> getUserSummary(@Body DataCubeRequest dataCubeRequest);

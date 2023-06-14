@@ -1,4 +1,4 @@
-package com.ossez.wechat.common.bean.menu;
+package com.ossez.wechat.common.model.entity.menu;
 
 import java.io.Serializable;
 

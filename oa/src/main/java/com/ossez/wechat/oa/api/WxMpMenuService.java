@@ -1,6 +1,6 @@
 package com.ossez.wechat.oa.api;
 
-import com.ossez.wechat.common.bean.menu.WxMenu;
+import com.ossez.wechat.common.model.entity.menu.WxMenu;
 import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.oa.bean.menu.WxMpGetSelfMenuInfoResult;
 import com.ossez.wechat.oa.bean.menu.WxMpMenu;

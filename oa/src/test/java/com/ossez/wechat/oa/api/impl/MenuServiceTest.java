@@ -3,9 +3,9 @@ package com.ossez.wechat.oa.api.impl;
 import com.google.inject.Inject;
 import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.common.model.WeChatStatus;
-import com.ossez.wechat.common.model.req.ButtonBuilder;
+import com.ossez.wechat.common.model.entity.builder.MenuButtonBuilder;
+import com.ossez.wechat.common.model.entity.menu.MenuButton;
 import com.ossez.wechat.common.model.req.MenuRequest;
-import com.ossez.wechat.common.model.req.MenuRequest.Button;
 import com.ossez.wechat.oa.api.impl.okhttp.WeChatMenuService;
 import com.ossez.wechat.oa.api.test.TestBase;
 import org.junit.jupiter.api.Test;
@@ -40,26 +40,26 @@ public class MenuServiceTest extends TestBase {
         log.debug("Create WeChat Offical Account Menun Test");
         MenuRequest menuRequest = new MenuRequest();
 
-        List<Button> buttonList = new ArrayList<>();
+        List<MenuButton> buttonList = new ArrayList<>();
 
-        List<Button> menuLinkButtonList = new ArrayList<>();
-        menuLinkButtonList.add(new ButtonBuilder()
+        List<MenuButton> menuLinkButtonList = new ArrayList<>();
+        menuLinkButtonList.add(new MenuButtonBuilder()
                 .setType("view")
                 .setName("地产经纪")
-                .setUrl("https://www.verani.com/").createButton());
+                .setUrl("https://www.verani.com/").createMenuButton());
 
 
-        menuLinkButtonList.add(new ButtonBuilder()
+        menuLinkButtonList.add(new MenuButtonBuilder()
                 .setType("view")
                 .setName("置业科普")
-                .setUrl("https://www.isharkfly.com/c/realestate/8").createButton());
+                .setUrl("https://www.isharkfly.com/c/realestate/8").createMenuButton());
 
-        menuLinkButtonList.add(new ButtonBuilder()
+        menuLinkButtonList.add(new MenuButtonBuilder()
                 .setType("view")
                 .setName("USVisaTrack")
-                .setUrl("https://www.usvisatrack.com/").createButton());
+                .setUrl("https://www.usvisatrack.com/").createMenuButton());
 
-        Button buttonTop = new ButtonBuilder().createButton();
+        MenuButton buttonTop = new MenuButtonBuilder().createMenuButton();
         buttonTop.setName("Shark 服务");
         buttonTop.setSubButtonList(menuLinkButtonList);
         buttonList.add(buttonTop);

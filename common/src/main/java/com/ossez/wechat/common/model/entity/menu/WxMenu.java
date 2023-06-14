@@ -1,4 +1,4 @@
-package com.ossez.wechat.common.bean.menu;
+package com.ossez.wechat.common.model.entity.menu;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -19,7 +19,7 @@ import lombok.Data;
 public class WxMenu implements Serializable {
   private static final long serialVersionUID = -7083914585539687746L;
 
-  private List<WxMenuButton> buttons = new ArrayList<>();
+  private List<MenuButton> buttons = new ArrayList<>();
 
   private WxMenuRule matchRule;
 

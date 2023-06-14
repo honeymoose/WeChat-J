@@ -5,8 +5,8 @@ import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;
-import com.ossez.wechat.common.bean.menu.WxMenuButton;
-import com.ossez.wechat.common.bean.menu.WxMenuRule;
+import com.ossez.wechat.common.model.entity.menu.MenuButton;
+import com.ossez.wechat.common.model.entity.menu.WxMenuRule;
 import com.ossez.wechat.common.util.json.WxGsonBuilder;
 import com.ossez.wechat.oa.util.json.WxMpGsonBuilder;
 
@@ -46,7 +46,7 @@ public class WxMpMenu implements Serializable {
     private static final long serialVersionUID = -2279946921755382289L;
 
     @SerializedName("button")
-    private List<WxMenuButton> buttons;
+    private List<MenuButton> buttons;
     @SerializedName("matchrule")
     private WxMenuRule rule;
     @SerializedName("menuid")

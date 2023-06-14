@@ -5,7 +5,7 @@ import com.google.gson.GsonBuilder;
 import com.ossez.wechat.common.exception.WxError;
 import com.ossez.wechat.common.model.WeChatAccessToken;
 import com.ossez.wechat.common.bean.WxNetCheckResult;
-import com.ossez.wechat.common.bean.menu.WxMenu;
+import com.ossez.wechat.common.model.entity.menu.WxMenu;
 import com.ossez.wechat.common.bean.result.WxMediaUploadResult;
 import java.util.Objects;
 

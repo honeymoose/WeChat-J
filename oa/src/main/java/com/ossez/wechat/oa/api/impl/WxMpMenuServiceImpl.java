@@ -5,7 +5,7 @@ import com.ossez.wechat.oa.bean.menu.WxMpGetSelfMenuInfoResult;
 import com.ossez.wechat.oa.bean.menu.WxMpMenu;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import com.ossez.wechat.common.bean.menu.WxMenu;
+import com.ossez.wechat.common.model.entity.menu.WxMenu;
 import com.ossez.wechat.common.exception.WxErrorException;
 import com.ossez.wechat.common.util.json.GsonParser;
 import com.ossez.wechat.oa.api.WxMpMenuService;

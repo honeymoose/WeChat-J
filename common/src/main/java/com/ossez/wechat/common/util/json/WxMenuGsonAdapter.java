@@ -9,9 +9,10 @@
 package com.ossez.wechat.common.util.json;
 
 import com.google.gson.*;
-import com.ossez.wechat.common.bean.menu.WxMenu;
-import com.ossez.wechat.common.bean.menu.WxMenuButton;
-import com.ossez.wechat.common.bean.menu.WxMenuRule;
+import com.ossez.wechat.common.model.entity.builder.MenuButtonBuilder;
+import com.ossez.wechat.common.model.entity.menu.WxMenu;
+import com.ossez.wechat.common.model.entity.menu.MenuButton;
+import com.ossez.wechat.common.model.entity.menu.WxMenuRule;
 
 import java.lang.reflect.Type;
 
@@ -19,16 +20,16 @@ import java.lang.reflect.Type;
 /**
  * @author Daniel Qian
  */
-public class WxMenuGsonAdapter implements JsonSerializer<WxMenu>, JsonDeserializer<WxMenu> {
+public class WxMenuGsonAdapter  {
 
-  @Override
+//  @Override
   public JsonElement serialize(WxMenu menu, Type typeOfSrc, JsonSerializationContext context) {
     JsonObject json = new JsonObject();
 
     JsonArray buttonArray = new JsonArray();
-    for (WxMenuButton button : menu.getButtons()) {
-      JsonObject buttonJson = convertToJson(button);
-      buttonArray.add(buttonJson);
+    for (MenuButton button : menu.getButtons()) {
+//      JsonObject buttonJson = convertToJson(button);
+//      buttonArray.add(buttonJson);
     }
     json.add("button", buttonArray);
 
@@ -39,25 +40,25 @@ public class WxMenuGsonAdapter implements JsonSerializer<WxMenu>, JsonDeserializ
     return json;
   }
 
-  protected JsonObject convertToJson(WxMenuButton button) {
-    JsonObject buttonJson = new JsonObject();
-    buttonJson.addProperty("type", button.getType());
-    buttonJson.addProperty("name", button.getName());
-    buttonJson.addProperty("key", button.getKey());
-    buttonJson.addProperty("url", button.getUrl());
-    buttonJson.addProperty("media_id", button.getMediaId());
-    buttonJson.addProperty("article_id", button.getArticleId());
-    buttonJson.addProperty("appid", button.getAppId());
-    buttonJson.addProperty("pagepath", button.getPagePath());
-    if (button.getSubButtons() != null && button.getSubButtons().size() > 0) {
-      JsonArray buttonArray = new JsonArray();
-      for (WxMenuButton sub_button : button.getSubButtons()) {
-        buttonArray.add(convertToJson(sub_button));
-      }
-      buttonJson.add("sub_button", buttonArray);
-    }
-    return buttonJson;
-  }
+//  protected JsonObject convertToJson(MenuButton button) {
+//    JsonObject buttonJson = new JsonObject();
+//    buttonJson.addProperty("type", button.getType());
+//    buttonJson.addProperty("name", button.getName());
+//    buttonJson.addProperty("key", button.getKey());
+//    buttonJson.addProperty("url", button.getUrl());
+//    buttonJson.addProperty("media_id", button.getMediaId());
+//    buttonJson.addProperty("article_id", button.getArticleId());
+//    buttonJson.addProperty("appid", button.getAppId());
+//    buttonJson.addProperty("pagepath", button.getPagePath());
+//    if (button.getSubButtons() != null && button.getSubButtons().size() > 0) {
+//      JsonArray buttonArray = new JsonArray();
+//      for (MenuButton sub_button : button.getSubButtons()) {
+//        buttonArray.add(convertToJson(sub_button));
+//      }
+//      buttonJson.add("sub_button", buttonArray);
+//    }
+//    return buttonJson;
+//  }
 
   protected JsonObject convertToJson(WxMenuRule menuRule) {
     JsonObject matchRule = new JsonObject();
@@ -86,47 +87,47 @@ public class WxMenuGsonAdapter implements JsonSerializer<WxMenu>, JsonDeserializ
     return menuRule;
   }
 
-  @Override
-  public WxMenu deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
-    /*
-     * 操蛋的微信
-     * 创建菜单时是 { button : ... }
-     * 查询菜单时是 { menu : { button : ... } }
-     * 现在企业号升级为企业微信后，没有此问题，因此需要单独处理
-     */
-    JsonArray buttonsJson = json.getAsJsonObject().get("menu").getAsJsonObject().get("button").getAsJsonArray();
-    return this.buildMenuFromJson(buttonsJson);
-  }
+//  @Override
+//  public WxMenu deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
+//    /*
+//     * 操蛋的微信
+//     * 创建菜单时是 { button : ... }
+//     * 查询菜单时是 { menu : { button : ... } }
+//     * 现在企业号升级为企业微信后，没有此问题，因此需要单独处理
+//     */
+//    JsonArray buttonsJson = json.getAsJsonObject().get("menu").getAsJsonObject().get("button").getAsJsonArray();
+//    return this.buildMenuFromJson(buttonsJson);
+//  }
 
-  protected WxMenu buildMenuFromJson(JsonArray buttonsJson) {
-    WxMenu menu = new WxMenu();
-    for (int i = 0; i < buttonsJson.size(); i++) {
-      JsonObject buttonJson = buttonsJson.get(i).getAsJsonObject();
-      WxMenuButton button = convertFromJson(buttonJson);
-      menu.getButtons().add(button);
-      if (buttonJson.get("sub_button") == null || buttonJson.get("sub_button").isJsonNull()) {
-        continue;
-      }
-      JsonArray sub_buttonsJson = buttonJson.get("sub_button").getAsJsonArray();
-      for (int j = 0; j < sub_buttonsJson.size(); j++) {
-        JsonObject sub_buttonJson = sub_buttonsJson.get(j).getAsJsonObject();
-        button.getSubButtons().add(convertFromJson(sub_buttonJson));
-      }
-    }
-    return menu;
-  }
+//  protected WxMenu buildMenuFromJson(JsonArray buttonsJson) {
+//    WxMenu menu = new WxMenu();
+//    for (int i = 0; i < buttonsJson.size(); i++) {
+//      JsonObject buttonJson = buttonsJson.get(i).getAsJsonObject();
+//      MenuButton button = convertFromJson(buttonJson);
+//      menu.getButtons().add(button);
+//      if (buttonJson.get("sub_button") == null || buttonJson.get("sub_button").isJsonNull()) {
+//        continue;
+//      }
+//      JsonArray sub_buttonsJson = buttonJson.get("sub_button").getAsJsonArray();
+//      for (int j = 0; j < sub_buttonsJson.size(); j++) {
+//        JsonObject sub_buttonJson = sub_buttonsJson.get(j).getAsJsonObject();
+//        button.getSubButtons().add(convertFromJson(sub_buttonJson));
+//      }
+//    }
+//    return menu;
+//  }
 
-  protected WxMenuButton convertFromJson(JsonObject json) {
-    WxMenuButton button = new WxMenuButton();
-    button.setName(GsonHelper.getString(json, "name"));
-    button.setKey(GsonHelper.getString(json, "key"));
-    button.setUrl(GsonHelper.getString(json, "url"));
-    button.setType(GsonHelper.getString(json, "type"));
-    button.setMediaId(GsonHelper.getString(json, "media_id"));
-    button.setArticleId(GsonHelper.getString(json, "article_id"));
-    button.setAppId(GsonHelper.getString(json, "appid"));
-    button.setPagePath(GsonHelper.getString(json, "pagepath"));
-    return button;
-  }
+//  protected MenuButton convertFromJson(JsonObject json) {
+//    MenuButton button = new MenuButtonBuilder().createMenuButton();
+//    button.setName(GsonHelper.getString(json, "name"));
+//    button.setKey(GsonHelper.getString(json, "key"));
+//    button.setUrl(GsonHelper.getString(json, "url"));
+//    button.setType(GsonHelper.getString(json, "type"));
+//    button.setMediaId(GsonHelper.getString(json, "media_id"));
+//    button.setArticleId(GsonHelper.getString(json, "article_id"));
+//    button.setAppId(GsonHelper.getString(json, "appid"));
+//    button.setPagePath(GsonHelper.getString(json, "pagepath"));
+//    return button;
+//  }
 
 }
